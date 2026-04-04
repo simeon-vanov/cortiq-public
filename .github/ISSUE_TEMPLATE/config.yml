@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Join Discussions
+    url: https://github.com/simeon-vanov/cortiq-public/discussions
+    about: Ask questions, share workflows, and discuss ideas with the community.
+  - name: Security issue
+    url: mailto:support@cortiq.trade?subject=Cortiq%20Security%20Report
+    about: Do not report security problems publicly.
