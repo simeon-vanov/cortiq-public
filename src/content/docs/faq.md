@@ -19,6 +19,10 @@ No. Virtual trading simulates trades without sending them to MT5, but it does so
 
 Yes. Sessions can be configured with different providers and different integration modes, so you can change your operating model over time.
 
+## Can I use Claude Desktop or another MCP agent with Cortiq?
+
+Yes, in advanced setups. Cortiq includes an MCP server model that allows an MCP-compatible client to control `External MCP` sessions through tool calls. That is a different operating mode from the normal autonomous session loop. See [MCP and Agent Integration](mcp-and-agent-integration/).
+
 ## Should I go live immediately after installation?
 
 No. The recommended path is to install Cortiq, confirm MT5 and AI connectivity, create a narrow playbook, and run virtual sessions first.

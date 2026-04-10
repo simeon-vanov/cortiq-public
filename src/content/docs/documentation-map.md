@@ -25,6 +25,7 @@ That is why the site is not organized like an internal engineering wiki. It is o
 | Installation & Activation | Windows onboarding | The purchase, download, install, and machine activation flow |
 | MetaTrader 5 Integration | Broker terminal connectivity | How Cortiq and MT5 work together and what must be configured correctly |
 | AI Providers | AI setup and routing | Which providers are supported, how browser and API modes differ, and how to choose between them |
+| MCP and Agent Integration | Advanced external control | How MCP-compatible agents can control Cortiq through external sessions and tool calls |
 | Playbooks & Data Packages | Strategy input design | How user-defined strategy rules and data scope shape AI decisions |
 | Sessions & AutoScan | Runtime operation | How autonomous trading sessions work and how symbol selection can be automated |
 | Risk Management | Control layer | The limits, pause behavior, and operating safeguards that sit above execution |

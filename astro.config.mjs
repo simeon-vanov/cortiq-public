@@ -35,6 +35,7 @@ export default defineConfig({
           items: [
             'mt5-integration',
             'ai-providers',
+            'mcp-and-agent-integration',
             'playbooks-and-data',
             'sessions-and-autoscan',
             'risk-management',

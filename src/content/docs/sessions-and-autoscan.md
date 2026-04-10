@@ -29,6 +29,8 @@ In practice, a session is the unit you start, stop, review, and improve.
 
 For most public users, Autonomous sessions are the main operating model.
 
+External MCP sessions are the advanced operating model. They do not run the internal autonomous workflow engine. The external agent is responsible for deciding when to gather data, when to evaluate trades, and when to execute or manage positions.
+
 ## Session Lifecycle
 
 Sessions move through distinct operating states such as idle, running, paused, risk-paused, time-paused, stopped, completed, or failed.
@@ -72,8 +74,21 @@ Sessions are one of the strongest product concepts in Cortiq because they make t
 
 Instead of reassembling the whole stack every day, the user creates a session template once and then runs, reviews, and iterates on it.
 
+## If You Want An External Agent To Control Cortiq
+
+Use an `External MCP` session when you want an MCP-compatible client to drive Cortiq through tool calls.
+
+That mode is best when you want:
+
+- A desktop AI client such as Claude Desktop to control the session directly
+- Manual control over when the agent gathers data and executes
+- A separation between Cortiq's execution and the external agent's reasoning loop
+
+Read [MCP and Agent Integration](mcp-and-agent-integration/) for the full setup and operating flow.
+
 ## Related Pages
 
 - [Playbooks & Data Packages](playbooks-and-data/)
+- [MCP and Agent Integration](mcp-and-agent-integration/)
 - [Risk Management](risk-management/)
 - [Execution Modes & Notifications](execution-modes-and-notifications/)
