@@ -5,6 +5,8 @@ description: A concise explanation of the main Cortiq product capabilities.
 
 This page explains the major product features at a glance. The goal is to make the full Cortiq feature set understandable before you go deeper into setup and configuration.
 
+If you want a more practical customer view of what each major function can do for you, read [Capability Reference](capability-reference/).
+
 ## Core Features
 
 | Feature | What It Does | Why It Matters |
@@ -34,6 +36,16 @@ To keep expectations realistic, Cortiq should not be described as the following:
 - A cloud-hosted trading service
 - A mobile trading app
 - A universal broker integration layer beyond MetaTrader 5
+
+## What You Can Actually Do With Cortiq
+
+In practical terms, Cortiq lets a user do five big jobs:
+
+1. Turn a trading idea into a structured operating framework using playbooks, data packages, and sessions.
+2. Give the AI better context using support layers such as preparation, instrument profiles, sentiment, and trade ideas.
+3. Execute or simulate that workflow through MT5 with clear operating controls.
+4. Protect the workflow with platform-level risk rules and pause behavior.
+5. Review, improve, and scale the workflow with journals, analytics, notifications, and copy-trading support.
 
 ## Best Way To Read The Rest Of The Docs
 

@@ -20,6 +20,15 @@ At a high level:
 - Live usage typically requires a valid license.
 - License questions should be handled through support rather than public issue threads if they involve personal or payment-sensitive details.
 
+## Who This Is For
+
+This page is for users who need to:
+
+- activate Cortiq on a machine
+- understand where to go for support
+- handle license-sensitive questions correctly
+- know which support routes are public and which are private
+
 ## Public Support Channels
 
 Use the Cortiq public repository for these support routes:
@@ -53,7 +62,16 @@ Security concerns should be reported privately, and license-sensitive cases shou
 
 If your license is time-based, expect expiration tracking and renewal handling to matter operationally. Do not wait until a live-trading day to confirm license status.
 
+## Best Use Cases
+
+Use this guidance when you need:
+
+- help with activation and license continuity
+- the right public route for bugs and feature requests
+- the right private route for sensitive account or payment issues
+
 ## Related Pages
 
 - [Installation & Activation](installation-and-activation/)
+- [First 30 Minutes in Cortiq](first-30-minutes/)
 - [FAQ](faq/)

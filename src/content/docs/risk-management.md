@@ -43,6 +43,15 @@ If global limits are breached, Cortiq can pause all relevant sessions and cancel
 
 If an account-specific limit is breached, Cortiq can isolate the pause to the affected account while other accounts continue under their own limits.
 
+## What This Can Do For You
+
+Risk controls help the user:
+
+- stop one bad period from turning into uncontrolled account damage
+- separate strategy freedom from platform safety limits
+- manage different account mandates without mixing them together
+- keep the AI inside a risk framework even when market conditions deteriorate
+
 ## Why This Matters In Practice
 
 The product value here is not just that limits exist. It is that they remain active before and during execution, which means the AI is not the only decision-maker in the system.
@@ -62,4 +71,5 @@ Risk management is a safeguard, not a guarantee. It can reduce the chance of unc
 
 - [Sessions & AutoScan](sessions-and-autoscan/)
 - [Execution Modes & Notifications](execution-modes-and-notifications/)
+- [Capability Reference](capability-reference/)
 - [Journal & Analytics](journal-and-analytics/)

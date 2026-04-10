@@ -9,6 +9,15 @@ Cortiq is built around MetaTrader 5. It runs as a local Windows desktop applicat
 
 This is not a generic broker connector. The supported execution path is MetaTrader 5.
 
+## Who This Is For
+
+This page is for users who want to:
+
+- trade live through Cortiq
+- understand how Cortiq reaches their broker environment
+- run one or more MT5 accounts from the same machine
+- confirm their execution setup before enabling real orders
+
 ## What The Integration Handles
 
 | Area | Cortiq Role |
@@ -55,8 +64,17 @@ Use this checklist before enabling live execution:
 - Do not run live trading without first confirming the account mapping and session target.
 - Do not treat multi-account setups as plug-and-play without checking port separation.
 
+## Best Use Cases
+
+Use the MT5 integration layer when you want:
+
+- a local desktop trading workflow instead of a cloud broker bridge
+- direct access to account state, pricing, and order management on the same machine
+- one execution path for both autonomous sessions and advanced external-agent workflows
+
 ## Related Pages
 
 - [Installation & Activation](installation-and-activation/)
+- [First 30 Minutes in Cortiq](first-30-minutes/)
 - [Sessions & AutoScan](sessions-and-autoscan/)
 - [Risk Management](risk-management/)

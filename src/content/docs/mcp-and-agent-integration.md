@@ -28,6 +28,15 @@ It is a good fit when you want:
 
 If you want the simpler product path, use normal autonomous sessions instead.
 
+## Best Use Cases
+
+This mode is best when you want:
+
+- an external AI client to drive the workflow directly
+- explicit control over when analysis happens and when trading is allowed
+- tool-based inspection of accounts, sessions, and risk before execution
+- a local agent workflow that treats Cortiq as the execution and data layer
+
 ## How It Fits Into Cortiq
 
 | Mode | Who Controls The Trading Loop | Best For |
@@ -225,6 +234,14 @@ Use the Cortiq MCP server to review my account risk settings, gather fresh EURUS
 Choose MCP and agent control when you want a specific external AI client to drive the workflow directly.
 
 Choose autonomous sessions when you want Cortiq itself to run the repeated analysis and execution loop internally.
+
+## What This Can Do For You
+
+Used correctly, MCP integration can help you:
+
+- keep your preferred external agent while still using Cortiq for execution and safety controls
+- separate orchestration logic from the Cortiq desktop application
+- create more deliberate, tool-driven workflows for advanced trading operations
 
 ## Related Pages
 

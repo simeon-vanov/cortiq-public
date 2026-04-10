@@ -21,8 +21,10 @@ That is why the site is not organized like an internal engineering wiki. It is o
 | Home | Product orientation | A fast understanding of Cortiq, the site scope, and the best reading order |
 | Documentation Map | Site overview | The logic behind the documentation structure and how to use it efficiently |
 | Feature Overview | Capability summary | A short explanation of every major feature in the product |
+| Capability Reference | Practical function guide | A customer-facing explanation of what each major function can do and when to use it |
 | Getting Started | Evaluation and readiness | Who Cortiq is for, prerequisites, and the recommended first-run path |
 | Installation & Activation | Windows onboarding | The purchase, download, install, and machine activation flow |
+| First 30 Minutes in Cortiq | Guided first run | A safe onboarding path from activation to a first virtual session |
 | MetaTrader 5 Integration | Broker terminal connectivity | How Cortiq and MT5 work together and what must be configured correctly |
 | AI Providers | AI setup and routing | Which providers are supported, how browser and API modes differ, and how to choose between them |
 | MCP and Agent Integration | Advanced external control | How MCP-compatible agents can control Cortiq through external sessions and tool calls |
@@ -31,6 +33,8 @@ That is why the site is not organized like an internal engineering wiki. It is o
 | Risk Management | Control layer | The limits, pause behavior, and operating safeguards that sit above execution |
 | Execution Modes & Notifications | Deployment options | The difference between live trading, virtual trading, copy trading, and notification flows |
 | Journal & Analytics | Review and learning | How Cortiq records performance, explains trades, and helps improve workflows |
+| Trading Cycle Overview | Architecture summary | How one session cycle is assembled from strategy, data, support context, and execution |
+| Trading Cycle Entities | Detailed reference | Separate customer-facing pages for sessions, playbooks, data packages, trade ideas, preparation packages, instrument profiles, sentiment reports, and session trade history |
 | Licensing & Support | Commercial and support flow | License behavior, renewal expectations, and where to get help publicly |
 | FAQ | Fast answers | Common evaluation, setup, and operational questions in one place |
 

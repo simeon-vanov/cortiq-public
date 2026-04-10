@@ -34,6 +34,8 @@ Before installing Cortiq, make sure you have the following:
 5. Start a virtual session before enabling live execution.
 6. Review the journal and analytics output before scaling the strategy.
 
+If you want this as a guided operator checklist instead of a summary, read [First 30 Minutes in Cortiq](first-30-minutes/).
+
 ## What To Configure Early
 
 The highest-leverage early decisions are usually these:
@@ -47,7 +49,9 @@ The highest-leverage early decisions are usually these:
 
 ## What To Read Next
 
+- Read [Capability Reference](capability-reference/) if you want a practical overview of what each major function is for before you start configuring.
 - Read [Installation & Activation](installation-and-activation/) when you are ready to install.
+- Read [First 30 Minutes in Cortiq](first-30-minutes/) if you want a step-by-step path to your first virtual session.
 - Read [MetaTrader 5 Integration](mt5-integration/) before attempting live execution.
 - Read [AI Providers](ai-providers/) before choosing your provider mode.
 - Read [Playbooks & Data Packages](playbooks-and-data/) before building your first serious session.

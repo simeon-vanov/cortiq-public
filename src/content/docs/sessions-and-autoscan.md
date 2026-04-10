@@ -48,6 +48,8 @@ At a high level, each session cycle follows this pattern:
 
 That is the core loop that keeps the strategy process consistent rather than improvisational.
 
+If you want the detailed breakdown of what the session contributes to that loop, read [Trading Cycle Overview](trading-cycle/overview/) and [Session Architecture](trading-cycle/session-architecture/).
+
 ## AutoScan
 
 AutoScan is the symbol selection mode where Cortiq lets the AI review multiple candidate instruments and pick the strongest current opportunity.
@@ -67,6 +69,18 @@ This is useful when:
 | Provider control | Provider choice, browser or API mode, fallback provider |
 | Strategy control | Playbook set, playbook priority, instructions |
 | Execution control | Live or virtual behavior, copy trading targets, parallel trade page limits |
+
+## What Sessions Can Do For You
+
+Sessions are useful because they let you turn a configuration into an operating system.
+
+With sessions, you can:
+
+- run one repeatable setup without rebuilding it every day
+- keep different strategies separated from each other
+- operate different symbols, accounts, and provider combinations cleanly
+- pause or resume a workflow without losing the whole structure
+- compare one session design against another over time
 
 ## Why Sessions Matter Commercially
 
@@ -89,6 +103,9 @@ Read [MCP and Agent Integration](mcp-and-agent-integration/) for the full setup 
 ## Related Pages
 
 - [Playbooks & Data Packages](playbooks-and-data/)
+- [Trading Cycle Overview](trading-cycle/overview/)
+- [Session Entity](trading-cycle/entities/sessions/)
+- [Capability Reference](capability-reference/)
 - [MCP and Agent Integration](mcp-and-agent-integration/)
 - [Risk Management](risk-management/)
 - [Execution Modes & Notifications](execution-modes-and-notifications/)

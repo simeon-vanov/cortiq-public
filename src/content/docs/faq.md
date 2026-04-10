@@ -3,6 +3,16 @@ title: FAQ
 description: Common questions about installation, operation, and support for Cortiq.
 ---
 
+## Who This Is For
+
+This page is for readers who want fast answers before diving into the deeper setup or operating guides.
+
+It is especially useful when you are:
+
+- evaluating whether Cortiq fits your workflow
+- checking one important product limitation quickly
+- confirming the recommended safe path before going live
+
 ## Is Cortiq a cloud trading platform?
 
 No. Cortiq is a Windows desktop product that runs locally and integrates with MetaTrader 5 on the same machine.
@@ -46,3 +56,7 @@ Use GitHub Issues when you can describe a reproducible product problem clearly.
 ## Where should I ask about license problems?
 
 Use direct support rather than public issues if the case involves license keys, payment data, or other sensitive details.
+
+## Best Use Cases
+
+Use the FAQ when you need a short answer first. Use the deeper docs pages when you are ready to configure, troubleshoot, or operate the platform in detail.

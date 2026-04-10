@@ -26,8 +26,10 @@ export default defineConfig({
             { label: 'Home', link: '/' },
             'documentation-map',
             'feature-overview',
+            'capability-reference',
             'getting-started',
             'installation-and-activation',
+            'first-30-minutes',
           ],
         },
         {
@@ -41,6 +43,22 @@ export default defineConfig({
             'risk-management',
             'execution-modes-and-notifications',
             'journal-and-analytics',
+          ],
+        },
+        {
+          label: 'Trading Cycle',
+          items: [
+            'trading-cycle/overview',
+            'trading-cycle/session-architecture',
+            'trading-cycle/supporting-context',
+            'trading-cycle/entities/sessions',
+            'trading-cycle/entities/data-packages',
+            'trading-cycle/entities/playbooks',
+            'trading-cycle/entities/trade-ideas',
+            'trading-cycle/entities/preparation-packages',
+            'trading-cycle/entities/instrument-profiles',
+            'trading-cycle/entities/sentiment-reports',
+            'trading-cycle/entities/session-trades-and-timeline',
           ],
         },
         {

@@ -59,6 +59,17 @@ Supported public-facing channels include:
 
 Typical event categories include trade opens, closes, pending-order events, partial closes, and stop-loss or take-profit modifications.
 
+## What These Functions Can Do For You
+
+This part of Cortiq helps the user move from experimentation to real operation.
+
+It can help you:
+
+- test a workflow in virtual mode before risking capital
+- move the same workflow into live execution when you are ready
+- replicate one decision engine across multiple accounts
+- keep track of what is happening without watching the desktop full time
+
 ## Why These Features Matter Together
 
 Execution modes and notifications are linked operationally:
@@ -72,4 +83,5 @@ Execution modes and notifications are linked operationally:
 
 - [MetaTrader 5 Integration](mt5-integration/)
 - [Risk Management](risk-management/)
+- [Capability Reference](capability-reference/)
 - [Journal & Analytics](journal-and-analytics/)

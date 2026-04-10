@@ -32,6 +32,16 @@ Cortiq computes operational metrics such as:
 
 These are the metrics that help users distinguish a repeatable process from a temporary streak.
 
+## What This Can Do For You
+
+Review features help the user:
+
+- understand whether a session is improving or drifting
+- separate lucky outcomes from disciplined execution
+- compare virtual results against live behavior
+- find out whether changes to playbooks or data packages actually helped
+- review the reason behind trades instead of only the result
+
 ## Commercial Value Of This Feature
 
 For a serious product, execution alone is not enough. Users need review loops.
@@ -56,4 +66,5 @@ After every meaningful strategy change:
 
 - [Playbooks & Data Packages](playbooks-and-data/)
 - [Sessions & AutoScan](sessions-and-autoscan/)
+- [Capability Reference](capability-reference/)
 - [Risk Management](risk-management/)

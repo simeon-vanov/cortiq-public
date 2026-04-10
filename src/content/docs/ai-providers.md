@@ -14,6 +14,15 @@ Cortiq supports these AI providers in the current product:
 | OpenAI ChatGPT | Yes | Yes |
 | Anthropic Claude | No | Yes |
 
+## Who This Is For
+
+This page is for users who want to:
+
+- choose the right provider for their workflow
+- understand the difference between browser mode and API mode
+- decide whether traceability, convenience, or fallback behavior matters most
+- avoid choosing a provider setup that does not match their operating style
+
 ## Two Integration Modes
 
 ### Browser Mode
@@ -69,8 +78,18 @@ Your provider choice affects more than response text. It also affects:
 - Failure handling options
 - Setup effort for first use
 
+## Best Use Cases
+
+Choose this part of the platform carefully when you want:
+
+- lower-friction experimentation with provider web apps
+- a cleaner API-driven operating model for serious runtime usage
+- different providers for different session types
+- resilience through fallback-provider design
+
 ## Related Pages
 
 - [Getting Started](getting-started/)
+- [First 30 Minutes in Cortiq](first-30-minutes/)
 - [Playbooks & Data Packages](playbooks-and-data/)
 - [Sessions & AutoScan](sessions-and-autoscan/)

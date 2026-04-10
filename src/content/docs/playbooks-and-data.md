@@ -43,11 +43,22 @@ This can include:
 
 This matters because the quality of AI decisions depends heavily on both signal quality and prompt discipline.
 
+If you want the deeper customer-facing reference pages, read [Data Packages](trading-cycle/entities/data-packages/), [Playbooks](trading-cycle/entities/playbooks/), and [Supporting Context](trading-cycle/supporting-context/).
+
 ## Indicators And Custom Inputs
 
 Cortiq can incorporate indicator data from MT5, including custom indicator workflows where the MT5 environment exposes them correctly.
 
 That allows advanced users to make the AI decision layer aware of the same signal stack they already use manually.
+
+## What These Functions Can Do For You
+
+Used well, this part of Cortiq helps you:
+
+- stop relying on vague prompts and loose AI instructions
+- keep the AI focused on the signals and structure that actually matter to your strategy
+- separate reusable strategy logic from one-off active trading ideas
+- improve consistency by deciding in advance what the AI can see and how it should reason
 
 ## Good Operating Practice
 
@@ -71,4 +82,6 @@ Cortiq uses playbooks and data packages to reduce both problems.
 
 - [Feature Overview](feature-overview/)
 - [Sessions & AutoScan](sessions-and-autoscan/)
+- [Trading Cycle Overview](trading-cycle/overview/)
+- [Capability Reference](capability-reference/)
 - [Journal & Analytics](journal-and-analytics/)

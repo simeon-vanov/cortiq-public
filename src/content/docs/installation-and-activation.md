@@ -12,6 +12,16 @@ The Cortiq onboarding path is intentionally simple:
 3. Install the desktop application on the target machine.
 4. Open Cortiq and activate the license.
 
+## Who This Is For
+
+This page is for new users who are ready to move from evaluation into actual installation on the machine that will run Cortiq.
+
+It is also the right page when you need to:
+
+- find the correct public download source
+- understand how machine-bound activation works
+- check what to do if activation fails
+
 ## Download Source
 
 Public builds are distributed through GitHub Releases in the Cortiq public repository.
@@ -53,6 +63,14 @@ Once the backend validates the key and the current machine identity, Cortiq stor
 - Keep the purchase email available during installation so the activation key is easy to copy.
 - If you move to a different machine later, treat that as a separate activation event unless support confirms otherwise.
 
+## Best Use Cases
+
+Use this page when you are:
+
+- installing Cortiq for the first time
+- preparing a new Windows machine for operation
+- verifying the correct path from installer download to license activation
+
 ## If Activation Fails
 
 Check these first:
@@ -63,3 +81,7 @@ Check these first:
 - The key has not expired or already been consumed under a different policy
 
 If those checks do not resolve the problem, continue to [Licensing & Support](licensing-and-support/).
+
+## Next Step
+
+After installation and activation, continue with [First 30 Minutes in Cortiq](first-30-minutes/) for a guided path to your first safe virtual session.
