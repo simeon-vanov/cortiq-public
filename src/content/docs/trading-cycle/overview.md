@@ -65,6 +65,18 @@ You can add:
 
 These layers help the AI work with more structure and less improvisation.
 
+## Where Customers Usually Need More Detail
+
+The two areas that most strongly affect documentation quality inside a real Cortiq setup are:
+
+- how the playbook sections are written
+- how the data package is scoped, especially when screenshots are involved
+
+Use these guides next:
+
+- [Playbook Design Guide](playbook-design/)
+- [Data Package Design Guide](data-package-design/)
+
 ## Why This Matters For Real Use
 
 Without a structured cycle, AI trading usually breaks in one of two ways:
@@ -78,4 +90,6 @@ Cortiq's trading-cycle model is designed to control both problems.
 
 1. [Session Architecture](../trading-cycle/session-architecture/)
 2. [Supporting Context](../trading-cycle/supporting-context/)
-3. The entity pages in this section, starting with [Sessions](../trading-cycle/entities/sessions/)
+3. [Playbook Design Guide](playbook-design/)
+4. [Data Package Design Guide](data-package-design/)
+5. The entity pages in this section, starting with [Sessions](../trading-cycle/entities/sessions/)

@@ -12,6 +12,14 @@ The Cortiq onboarding path is intentionally simple:
 3. Install the desktop application on the target machine.
 4. Open Cortiq and activate the license.
 
+## Where To Find This In The App
+
+After installation, the activation flow is inside:
+
+- `Settings` -> `License`
+
+That tab is where the app shows current license state, the activation form, and the buy-license call to action when no active license is present.
+
 ## Who This Is For
 
 This page is for new users who are ready to move from evaluation into actual installation on the machine that will run Cortiq.
@@ -47,7 +55,7 @@ Download the current MSIX build from the latest public release and install it on
 
 ### 2. Open the desktop application
 
-Start Cortiq after installation and navigate to the licensing or activation area.
+Start Cortiq after installation and open `Settings` -> `License`.
 
 ### 3. Paste the activation key
 
@@ -62,6 +70,12 @@ Once the backend validates the key and the current machine identity, Cortiq stor
 - Install Cortiq on the same machine where MetaTrader 5 will run if you intend to trade live.
 - Keep the purchase email available during installation so the activation key is easy to copy.
 - If you move to a different machine later, treat that as a separate activation event unless support confirms otherwise.
+
+After activation, most first-run configuration continues in these UI areas:
+
+- `Settings` -> `MT5 Accounts`
+- `Settings` -> `AI Providers`
+- `Library` -> `Sessions`
 
 ## Best Use Cases
 

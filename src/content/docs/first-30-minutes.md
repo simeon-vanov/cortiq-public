@@ -49,7 +49,7 @@ Read [MetaTrader 5 Integration](mt5-integration/) if you need more detail.
 ## Minute 10 To 15: Configure One AI Provider
 
 1. Choose one provider only for the first run.
-2. Decide whether browser mode or API mode is the simpler path for your setup.
+2. Decide whether the local-tool or CLI route or the direct API route is the simpler path for your setup.
 3. Verify that the provider can respond successfully before you continue.
 
 For a first run, simplicity beats flexibility. You can add more providers or fallback behavior later.

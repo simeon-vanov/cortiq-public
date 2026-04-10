@@ -9,6 +9,15 @@ Cortiq is not only about opening trades. It is also about understanding what hap
 
 That is where journals and analytics become part of the product value.
 
+## Where To Find This In The App
+
+This part of the platform spans multiple screens:
+
+- `Library` -> `Journal` for AI Journal and Trade Journal review
+- `Library` -> `Dashboard` for trading performance and risk monitoring
+- `Library` -> `Session Cohorts` for side-by-side comparison of sessions
+- `Library` -> `Conversations` for raw AI conversation review across sessions
+
 ## Journal Types
 
 | Journal Type | Scope | Typical Use |

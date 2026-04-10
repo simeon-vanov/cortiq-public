@@ -44,7 +44,7 @@ The highest-leverage early decisions are usually these:
 | --- | --- |
 | Live vs virtual first | Controls whether your first tests affect the market or only your internal review process |
 | Single symbol vs AutoScan | Determines whether the AI focuses on one instrument or selects among candidates |
-| Browser mode vs API mode | Affects cost structure, login flow, traceability, and provider reliability |
+| Local tool or CLI route vs API route | Affects setup effort, traceability, and how the provider is reached from the desktop app |
 | Conservative vs aggressive risk limits | Determines how much freedom the session has before it is paused or blocked |
 
 ## What To Read Next
@@ -55,3 +55,4 @@ The highest-leverage early decisions are usually these:
 - Read [MetaTrader 5 Integration](mt5-integration/) before attempting live execution.
 - Read [AI Providers](ai-providers/) before choosing your provider mode.
 - Read [Playbooks & Data Packages](playbooks-and-data/) before building your first serious session.
+- Read [Workspace and Monitoring](workspace-and-monitoring/) once the first session is running so the Home, Dashboard, Journal, and review screens make sense.

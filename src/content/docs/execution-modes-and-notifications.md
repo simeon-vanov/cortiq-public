@@ -7,6 +7,14 @@ description: Live trading, virtual trading, copy trading, and user notification 
 
 Cortiq supports more than one way to operate a session. That is important because not every user wants to go directly from installation to live execution.
 
+## Where To Find This In The App
+
+The related UI areas are:
+
+- `Library` -> `Sessions` for choosing how a session should operate
+- `Settings` -> `Notifications` for Telegram and other notification preferences
+- `Library` -> `Dashboard` and `Library` -> `Journal` for monitoring what those execution choices produced
+
 ## Live Trading
 
 Live trading sends real actions to MetaTrader 5 through the connected local account.
@@ -59,6 +67,24 @@ Supported public-facing channels include:
 
 Typical event categories include trade opens, closes, pending-order events, partial closes, and stop-loss or take-profit modifications.
 
+## Scheduled Performance Reports
+
+Beyond event notifications, Cortiq also includes scheduled performance reporting.
+
+In the app, this lives in:
+
+- `Settings` -> `Reports`
+
+That area lets the user:
+
+- enable daily, weekly, or monthly report schedules
+- choose the account scope or use all accounts
+- control which sections appear in the report, such as P/L summary, trade breakdown, symbol breakdown, streak analysis, and risk metrics
+- preview the report before sending it
+- deliver the report through Telegram using the configured notification channel
+
+This is useful when you want a compact operating summary without opening the desktop and manually checking every screen.
+
 ## What These Functions Can Do For You
 
 This part of Cortiq helps the user move from experimentation to real operation.
@@ -83,5 +109,6 @@ Execution modes and notifications are linked operationally:
 
 - [MetaTrader 5 Integration](mt5-integration/)
 - [Risk Management](risk-management/)
+- [Workspace and Monitoring](workspace-and-monitoring/)
 - [Capability Reference](capability-reference/)
 - [Journal & Analytics](journal-and-analytics/)

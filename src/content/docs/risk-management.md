@@ -9,6 +9,13 @@ Cortiq is not designed around the assumption that a good AI response is enough. 
 
 That control layer is built into the product.
 
+## Where To Find This In The App
+
+Risk is visible in two important places:
+
+- `Tools` -> `Risk Management` for configuring account-level and platform-level limits
+- `Library` -> `Dashboard` for monitoring the broader operating state, including global risk visibility across accounts
+
 ## Dual-Layer Risk Architecture
 
 Cortiq applies risk in two scopes:

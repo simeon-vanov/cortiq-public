@@ -18,6 +18,14 @@ This page is for users who want to:
 - run one or more MT5 accounts from the same machine
 - confirm their execution setup before enabling real orders
 
+## Where To Find This In The App
+
+The main MT5 connection screen is:
+
+- `Settings` -> `MT5 Accounts`
+
+That is the part of the app where you manage terminal connections before you build live sessions.
+
 ## What The Integration Handles
 
 | Area | Cortiq Role |
@@ -57,6 +65,12 @@ Use this checklist before enabling live execution:
 3. Confirm the target account is the intended one for the session.
 4. Confirm risk settings are configured before the first live trade.
 5. Start with a narrow session scope or virtual mode before scaling.
+
+In normal day-to-day use, the flow is usually:
+
+1. Configure the terminal in `Settings` -> `MT5 Accounts`.
+2. Create or edit the runtime workflow in `Library` -> `Sessions`.
+3. Review account-wide protection in `Tools` -> `Risk Management`.
 
 ## What To Avoid
 

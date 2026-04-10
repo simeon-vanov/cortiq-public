@@ -20,6 +20,15 @@ It combines:
 
 In practice, a session is the unit you start, stop, review, and improve.
 
+## Where To Find This In The App
+
+The runtime screens tied to this page are:
+
+- `Library` -> `Sessions` for creating, starting, pausing, and reviewing sessions
+- `Tools` -> `Symbol Scanner` for scan-first symbol discovery workflows
+
+If you are trying to launch an actual trading workflow, `Library` -> `Sessions` is the main screen to learn first.
+
 ## Session Types
 
 | Session Type | Purpose |

@@ -18,11 +18,20 @@ If you want a more practical customer view of what each major function can do fo
 | MCP Server and Agent Control | Exposes Cortiq tools to MCP-compatible AI clients for advanced external session control | Lets advanced users drive analysis and trading through agents such as Claude Desktop instead of only through the internal autonomous loop |
 | Risk Management | Applies global and per-account limits around drawdown, profit targets, trade counts, exposure, and loss streaks | Risk controls remain active even when the AI wants to trade more aggressively |
 | Data Packages | Controls what market data, indicator data, screenshots, account state, and supporting context the AI receives | Better scope control produces more consistent decisions and prevents noisy prompts |
+| Preparation Layers | Add reusable context through instrument profiles, preparation packages, and sentiment reports | Lets the AI operate with more structured market background instead of rediscovering everything every cycle |
 | Symbol Scanner and AutoScan | Lets the AI review candidate symbols and choose where the best setup is currently forming | Useful for users who do not want to hard-code a single symbol list per decision cycle |
+| Trade Ideas | Capture standalone theses outside the main playbook library | Useful for tracking one-off opportunities without polluting the reusable strategy framework |
+| Home Workspace | Shows active sessions, quick actions, and a first-run checklist | Gives users one place to orient themselves when opening Cortiq |
+| Dashboard | Shows cross-account performance, recent trades, and global risk visibility | Makes the broader operating environment easier to monitor than looking at sessions one by one |
+| Session Cohorts | Compare grouped sessions side by side | Helps users evaluate whether one configuration outperforms another over time |
+| Conversations | Shows AI conversations across selected sessions | Useful when you want to inspect raw model behavior and reasoning traces |
 | Trade Journal and Analytics | Generates trade and session journals plus performance metrics such as P/L, win rate, and best or worst days | Helps users evaluate whether a strategy is improving or drifting |
 | Virtual Trading | Simulates trades without sending orders to MT5 | Useful for evaluation, rehearsal, or challenge environments that restrict expert advisors |
 | Copy Trading | Replicates master account trades to selected follower accounts | Helps operators scale a single session across multiple accounts |
 | Notifications | Sends trade and management events through Windows notifications, X, or Telegram | Keeps the operator informed without staring at the desktop application all day |
+| Provider Health Monitoring | Tracks success rate, response times, retries, and recent AI-provider errors | Helps users decide whether provider reliability is hurting the workflow |
+| Feature-Level Provider Overrides | Lets specific product functions use a different provider than the session default | Useful when one provider is better for scanning, journaling, or a supporting workflow |
+| Automated Performance Reports | Schedules summary reports for delivery through Telegram | Makes it easier to review system behavior without manually opening the app every time |
 | Custom Indicators | Uses MT5 indicator data, including custom indicators, as part of the analysis pipeline | Lets advanced users feed more tailored market context into their sessions |
 | Session Timeline and Decision Rendering | Shows what happened in each trading cycle, including analysis, trade ideas, execution, and management actions | Makes the AI workflow more auditable and easier to review |
 | Conversation Chat in API Mode | Persists structured conversation history when the session is using direct API integrations | Useful when users need deeper traceability and cleaner AI context management |
@@ -52,5 +61,7 @@ In practical terms, Cortiq lets a user do five big jobs:
 If you already know you need the product summary, continue with [Getting Started](getting-started/).
 
 If you already know you need the operating details, jump to [Sessions & AutoScan](sessions-and-autoscan/), [Risk Management](risk-management/), and [Execution Modes & Notifications](execution-modes-and-notifications/).
+
+If you want to understand the actual screens you will operate each day, read [Workspace and Monitoring](workspace-and-monitoring/).
 
 If you want an external AI client to control Cortiq directly, read [MCP and Agent Integration](mcp-and-agent-integration/).

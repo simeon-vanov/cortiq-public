@@ -14,8 +14,10 @@ Use it as a product map, not as an engineering reference.
 | Function | What It Does | What It Can Do For You | Read More |
 | --- | --- | --- | --- |
 | Playbooks | Define setup, entry, invalidation, risk, and management logic | Turn a strategy into a repeatable rule system instead of a loose prompt | [Playbooks & Data Packages](playbooks-and-data/) |
+| Playbook sections | Split strategy logic into clean fields such as setup, entry, risk, management, and invalidation | Help you write playbooks the AI can follow and you can review later | [Playbook Design Guide](trading-cycle/playbook-design/) |
 | Playbook priority | Orders multiple playbooks inside one session | Lets you decide which setup logic should win when more than one idea is in play | [Playbook Entity](trading-cycle/entities/playbooks/) |
 | Data packages | Define what data the AI receives | Keep the AI focused on the exact information your strategy needs | [Data Package Entity](trading-cycle/entities/data-packages/) |
+| Screenshot-enabled timeframes | Add chart images to selected data-package timeframes | Give the AI visual confirmation where chart structure matters more than raw numbers alone | [Data Package Design Guide](trading-cycle/data-package-design/) |
 | Indicator inputs | Add MT5 indicator values to the decision payload | Bring your technical signal stack into the AI workflow | [Playbooks & Data Packages](playbooks-and-data/) |
 | Trade ideas | Track specific active theses | Let Cortiq monitor one-off opportunities without turning them into permanent playbooks | [Trade Idea Entity](trading-cycle/entities/trade-ideas/) |
 
@@ -69,6 +71,9 @@ Use it as a product map, not as an engineering reference.
 | Trade journal | Record trade-level context and outcomes | Help you review whether one trade was disciplined or improvised | [Journal and Analytics](journal-and-analytics/) |
 | Session journal | Record behavior over a broader run | Help you see whether the operating model is working as a whole | [Journal and Analytics](journal-and-analytics/) |
 | Analytics | Compute performance metrics such as P/L and win rate | Help you evaluate whether changes actually improved the workflow | [Journal and Analytics](journal-and-analytics/) |
+| Dashboard | Show cross-account performance, recent trades, and global operating state | Help you understand the whole environment without opening every session individually | [Workspace and Monitoring](workspace-and-monitoring/) |
+| Session cohorts | Compare grouped sessions side by side | Help you test which configuration or style is working better | [Workspace and Monitoring](workspace-and-monitoring/) |
+| Conversations view | Show raw AI conversations across sessions | Help you inspect the model's actual responses, not only the rendered summary | [Workspace and Monitoring](workspace-and-monitoring/) |
 | Session timeline | Show what happened in each trading cycle | Make the AI workflow easier to audit and explain | [Session Trades and Timeline](trading-cycle/entities/session-trades-and-timeline/) |
 | Decision rendering | Show analysis, trade ideas, and actions in a readable format | Help you understand what the AI concluded, not just what the market did afterward | [Trading Cycle Overview](trading-cycle/overview/) |
 
@@ -77,7 +82,11 @@ Use it as a product map, not as an engineering reference.
 | Function | What It Does | What It Can Do For You | Read More |
 | --- | --- | --- | --- |
 | Windows installation and activation | Installs and licenses the desktop app | Get a working Cortiq environment on the machine that will operate it | [Installation and Activation](installation-and-activation/) |
+| Home workspace | Show active sessions, quick actions, and first-run progress | Give you a practical starting point each time you open the app | [Workspace and Monitoring](workspace-and-monitoring/) |
 | MT5 integration | Connects Cortiq to the local terminal | Turns AI decisions into actual broker-side execution capability | [MetaTrader 5 Integration](mt5-integration/) |
+| Provider health | Track request count, success rate, response speed, retries, and recent provider errors | Help you diagnose whether provider instability is affecting results | [Workspace and Monitoring](workspace-and-monitoring/) |
+| Feature AI providers | Override which provider a specific Cortiq feature should use | Let you keep one session default while assigning a different provider to a special workflow | [AI Providers](ai-providers/) |
+| Automated performance reports | Schedule summary reports and deliver them through Telegram | Let you monitor performance without opening the desktop manually every time | [Execution Modes & Notifications](execution-modes-and-notifications/) |
 | Public releases | Distribute the current public installer | Give you one clear place to get updates | [Licensing and Support](licensing-and-support/) |
 | Public issues and discussions | Provide public support and feedback channels | Let you report bugs, ask usage questions, and request improvements | [Licensing and Support](licensing-and-support/) |
 
@@ -86,3 +95,5 @@ Use it as a product map, not as an engineering reference.
 If you are evaluating Cortiq, use this page to decide which parts of the product matter most to your workflow.
 
 If you are already using Cortiq, use it to identify the next capability you want to configure or improve.
+
+If your next step is professional configuration quality, start with [Playbook Design Guide](trading-cycle/playbook-design/) and [Data Package Design Guide](trading-cycle/data-package-design/).

@@ -14,6 +14,17 @@ At a high level:
 - Activation is verified against the Cortiq licensing service.
 - License validity and expiration are tracked by the platform.
 
+## Where To Find This In The App
+
+The app surfaces the relevant paths directly in the sidebar:
+
+- `Settings` -> `License` for activation, status checks, and license state
+- `Community` -> `Report a Bug`
+- `Community` -> `Feedback`
+- `Community` -> `Discussion`
+
+Those community links are useful when a user is already inside Cortiq and wants to move directly into the public support channels.
+
 ## What Users Should Expect
 
 - Activation is tied to the machine where Cortiq is installed.
