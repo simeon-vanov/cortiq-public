@@ -1,0 +1,23 @@
+{
+  "name": "cortiq-public-docs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "0.38.3",
+    "astro": "6.1.5"
+  },
+  "devDependencies": {
+    "typescript": "6.0.2"
+  }
+}
