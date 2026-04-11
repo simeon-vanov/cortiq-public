@@ -8,6 +8,7 @@ export default defineConfig({
     starlight({
       title: 'Cortiq Docs',
       description: 'Official product documentation for Cortiq.',
+      favicon: '/favicon.ico',
       lastUpdated: true,
       editLink: {
         baseUrl: 'https://github.com/simeon-vanov/cortiq-public/edit/main/',
