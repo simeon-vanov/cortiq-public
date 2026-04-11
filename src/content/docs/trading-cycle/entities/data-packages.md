@@ -1,9 +1,8 @@
----
-title: Data Package Entity
+title: Data Packages
 description: What a Cortiq data package contains and how it controls the live information the AI receives.
 ---
 
-The data package is the entity that controls what the AI can see during a trading cycle.
+The data package controls what the AI can see during a trading cycle.
 
 ## What A Data Package Contains
 

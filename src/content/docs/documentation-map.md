@@ -40,7 +40,7 @@ The desktop app itself is organized a little differently: it uses a left sidebar
 | Trading Cycle Overview | Architecture summary | How one session cycle is assembled from strategy, data, support context, and execution |
 | Playbook Design Guide | Professional playbook writing | How to use each playbook section correctly and keep strategy logic disciplined |
 | Data Package Design Guide | Professional payload design | How to choose timeframes, indicators, screenshots, and payload scope professionally |
-| Trading Cycle Entities | Detailed reference | Separate customer-facing pages for sessions, playbooks, data packages, trade ideas, preparation packages, instrument profiles, sentiment reports, and session trade history |
+| Trading Cycle Reference | Detailed reference | Separate customer-facing pages for sessions, playbooks, data packages, trade ideas, preparation packages, instrument profiles, sentiment reports, and session trade history |
 | Licensing & Support | Commercial and support flow | License behavior, renewal expectations, and where to get help publicly |
 | FAQ | Fast answers | Common evaluation, setup, and operational questions in one place |
 

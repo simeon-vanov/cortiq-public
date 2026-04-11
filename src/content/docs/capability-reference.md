@@ -15,20 +15,20 @@ Use it as a product map, not as an engineering reference.
 | --- | --- | --- | --- |
 | Playbooks | Define setup, entry, invalidation, risk, and management logic | Turn a strategy into a repeatable rule system instead of a loose prompt | [Playbooks & Data Packages](playbooks-and-data/) |
 | Playbook sections | Split strategy logic into clean fields such as setup, entry, risk, management, and invalidation | Help you write playbooks the AI can follow and you can review later | [Playbook Design Guide](trading-cycle/playbook-design/) |
-| Playbook priority | Orders multiple playbooks inside one session | Lets you decide which setup logic should win when more than one idea is in play | [Playbook Entity](trading-cycle/entities/playbooks/) |
-| Data packages | Define what data the AI receives | Keep the AI focused on the exact information your strategy needs | [Data Package Entity](trading-cycle/entities/data-packages/) |
+| Playbook priority | Orders multiple playbooks inside one session | Lets you decide which setup logic should win when more than one idea is in play | [Playbooks](trading-cycle/entities/playbooks/) |
+| Data packages | Define what data the AI receives | Keep the AI focused on the exact information your strategy needs | [Data Packages](trading-cycle/entities/data-packages/) |
 | Screenshot-enabled timeframes | Add chart images to selected data-package timeframes | Give the AI visual confirmation where chart structure matters more than raw numbers alone | [Data Package Design Guide](trading-cycle/data-package-design/) |
 | Indicator inputs | Add MT5 indicator values to the decision payload | Bring your technical signal stack into the AI workflow | [Playbooks & Data Packages](playbooks-and-data/) |
-| Trade ideas | Track specific active theses | Let Cortiq monitor one-off opportunities without turning them into permanent playbooks | [Trade Idea Entity](trading-cycle/entities/trade-ideas/) |
+| Trade ideas | Track specific active theses | Let Cortiq monitor one-off opportunities without turning them into permanent playbooks | [Trade Ideas](trading-cycle/entities/trade-ideas/) |
 
 ## Supporting Context Functions
 
 | Function | What It Does | What It Can Do For You | Read More |
 | --- | --- | --- | --- |
 | Session instructions | Add operator notes and constraints | Capture desk rules, cautions, and practical guidance that should travel with the session | [Supporting Context](trading-cycle/supporting-context/) |
-| Preparation packages | Generate reusable prepared analysis | Give the AI broader market structure without forcing it to rediscover that structure every cycle | [Preparation Package Entity](trading-cycle/entities/preparation-packages/) |
-| Instrument profiles | Store long-lived symbol behavior context | Help the AI understand what is typical or unusual for a market over time | [Instrument Profile Entity](trading-cycle/entities/instrument-profiles/) |
-| Sentiment reports | Add macro and news context | Let external market pressure support or challenge the technical setup | [Sentiment Report Entity](trading-cycle/entities/sentiment-reports/) |
+| Preparation packages | Generate reusable prepared analysis | Give the AI broader market structure without forcing it to rediscover that structure every cycle | [Preparation Packages](trading-cycle/entities/preparation-packages/) |
+| Instrument profiles | Store long-lived symbol behavior context | Help the AI understand what is typical or unusual for a market over time | [Instrument Profiles](trading-cycle/entities/instrument-profiles/) |
+| Sentiment reports | Add macro and news context | Let external market pressure support or challenge the technical setup | [Sentiment Reports](trading-cycle/entities/sentiment-reports/) |
 | Support-layer stacking | Combine preparation, profile, sentiment, and trade ideas with live data | Build a cleaner and more disciplined reasoning environment for the AI | [Trading Cycle Overview](trading-cycle/overview/) |
 
 ## Session Functions
@@ -36,7 +36,7 @@ Use it as a product map, not as an engineering reference.
 | Function | What It Does | What It Can Do For You | Read More |
 | --- | --- | --- | --- |
 | Sessions | Create the operating container for a strategy | Turn a configuration into something you can run, pause, review, and improve | [Sessions & AutoScan](sessions-and-autoscan/) |
-| Active days and time windows | Control when a session may trade | Keep a strategy inside the market hours and days that fit its design | [Session Entity](trading-cycle/entities/sessions/) |
+| Active days and time windows | Control when a session may trade | Keep a strategy inside the market hours and days that fit its design | [Sessions](trading-cycle/entities/sessions/) |
 | Fixed-symbol mode | Keep a session focused on one instrument | Useful when you want clean specialization around one market | [Sessions & AutoScan](sessions-and-autoscan/) |
 | AutoScan | Let the AI choose among candidate instruments | Useful when you want the system to look for the strongest current opportunity instead of waiting on one fixed symbol | [Sessions & AutoScan](sessions-and-autoscan/) |
 | Provider selection | Choose which AI provider runs the session | Match the workflow to your preferred cost, reliability, and operating style | [AI Providers](ai-providers/) |

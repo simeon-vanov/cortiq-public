@@ -5,9 +5,9 @@ description: How Cortiq records trade actions, decisions, and review history ins
 
 This part of the trading cycle is where execution becomes reviewable.
 
-## What This Entity Group Covers
+## What This Group Covers
 
-For customers, the most important output entities are:
+For customers, the most important outputs are:
 
 - session trades
 - session timeline entries

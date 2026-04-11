@@ -92,4 +92,4 @@ Cortiq's trading-cycle model is designed to control both problems.
 2. [Supporting Context](../trading-cycle/supporting-context/)
 3. [Playbook Design Guide](playbook-design/)
 4. [Data Package Design Guide](data-package-design/)
-5. The entity pages in this section, starting with [Sessions](../trading-cycle/entities/sessions/)
+5. The reference pages in this section, starting with [Sessions](../trading-cycle/entities/sessions/)

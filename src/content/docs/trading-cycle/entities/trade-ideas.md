@@ -1,9 +1,8 @@
----
-title: Trade Idea Entity
+title: Trade Ideas
 description: How trade ideas let Cortiq track specific active theses alongside reusable playbooks.
 ---
 
-Trade ideas are the entity for specific opportunities that are being watched right now.
+Trade ideas track specific opportunities that are being watched right now.
 
 ## What A Trade Idea Contains
 

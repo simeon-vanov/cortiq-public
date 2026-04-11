@@ -142,5 +142,5 @@ Well-designed data packages help the customer:
 ## Related Pages
 
 - [Playbooks and Data Packages](../playbooks-and-data/)
-- [Data Package Entity](entities/data-packages/)
+- [Data Packages](entities/data-packages/)
 - [Supporting Context](supporting-context/)

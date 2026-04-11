@@ -1,9 +1,8 @@
----
-title: Session Entity
-description: What a session is, what it contains, and why it is the root entity of the Cortiq trading cycle.
+title: Sessions
+description: What a session is, what it contains, and why it is the root of the Cortiq trading cycle.
 ---
 
-The session is the main entity in the Cortiq trading cycle.
+The session is the main operating unit in the Cortiq trading cycle.
 
 If you want to understand how a customer actually operates Cortiq, start here.
 
@@ -33,7 +32,7 @@ Without sessions, the user would have to reassemble the whole workflow manually 
 
 Sessions turn Cortiq into something operational and repeatable.
 
-## What Other Entities Connect To It
+## What Else Connects To It
 
 - [Data Packages](../entities/data-packages/)
 - [Playbooks](../entities/playbooks/)

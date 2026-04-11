@@ -162,5 +162,5 @@ Well-structured playbooks help the customer:
 ## Related Pages
 
 - [Playbooks and Data Packages](../playbooks-and-data/)
-- [Playbook Entity](entities/playbooks/)
+- [Playbooks](entities/playbooks/)
 - [Sessions and AutoScan](../sessions-and-autoscan/)

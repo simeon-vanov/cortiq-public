@@ -1,9 +1,8 @@
----
-title: Preparation Package Entity
+title: Preparation Packages
 description: How preparation packages store slower-moving pre-session analysis that supports the live cycle.
 ---
 
-Preparation packages are the entity for cached analysis that supports the live trading loop.
+Preparation packages store cached analysis that supports the live trading loop.
 
 ## What A Preparation Package Contains
 

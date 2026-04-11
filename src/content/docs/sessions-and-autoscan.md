@@ -113,7 +113,7 @@ Read [MCP and Agent Integration](mcp-and-agent-integration/) for the full setup 
 
 - [Playbooks & Data Packages](playbooks-and-data/)
 - [Trading Cycle Overview](trading-cycle/overview/)
-- [Session Entity](trading-cycle/entities/sessions/)
+- [Sessions](trading-cycle/entities/sessions/)
 - [Capability Reference](capability-reference/)
 - [MCP and Agent Integration](mcp-and-agent-integration/)
 - [Risk Management](risk-management/)

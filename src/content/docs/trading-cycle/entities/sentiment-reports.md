@@ -1,9 +1,8 @@
----
-title: Sentiment Report Entity
+title: Sentiment Reports
 description: How sentiment reports add macro, news, and external context to the trading cycle.
 ---
 
-Sentiment reports are the entity for short-lived external context.
+Sentiment reports provide short-lived external context.
 
 ## What A Sentiment Report Contains
 

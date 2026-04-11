@@ -1,9 +1,8 @@
----
-title: Instrument Profile Entity
+title: Instrument Profiles
 description: How instrument profiles give Cortiq long-lived knowledge about symbol behavior.
 ---
 
-Instrument profiles are the entity for persistent knowledge about how a market typically behaves.
+Instrument profiles store persistent knowledge about how a market typically behaves.
 
 ## What An Instrument Profile Contains
 

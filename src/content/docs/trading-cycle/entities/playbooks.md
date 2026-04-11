@@ -1,9 +1,8 @@
----
-title: Playbook Entity
+title: Playbooks
 description: What a playbook is and how it defines strategy logic inside the trading cycle.
 ---
 
-The playbook is the strategy entity in Cortiq.
+The playbook is the strategy layer in Cortiq.
 
 ## What A Playbook Contains
 
