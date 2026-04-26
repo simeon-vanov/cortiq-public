@@ -26,3 +26,4 @@ This file tracks every screenshot referenced by the docs. When the markdown plac
 | `workspace-and-monitoring__provider-health.png` | workspace-and-monitoring | Provider Health view with success rate, response times, recent errors per provider | 1600×900 | None |
 | `workspace-and-monitoring__journal.png` | workspace-and-monitoring | Journal page with a closed-trade entry and AI-generated journal text | 1600×900 | Mask account |
 | `workspace-and-monitoring__now-trading-bar.png` | workspace-and-monitoring | Bottom NowTradingBar with active session metrics during a live cycle | 1200×400 | Mask account, broker |
+| `app-navigation-guide__sidebar.png` | app-navigation-guide | Cortiq desktop app sidebar (full + mini state side-by-side if possible) showing all top-level pages | 1200×900 | None |
