@@ -1,3 +1,4 @@
+---
 title: Playbooks
 description: What a playbook is and how it defines strategy logic inside the trading cycle.
 ---

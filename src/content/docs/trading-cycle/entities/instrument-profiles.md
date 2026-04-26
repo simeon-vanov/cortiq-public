@@ -1,3 +1,4 @@
+---
 title: Instrument Profiles
 description: How instrument profiles give Cortiq long-lived knowledge about symbol behavior.
 ---

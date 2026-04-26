@@ -1,3 +1,4 @@
+---
 title: Data Packages
 description: What a Cortiq data package contains and how it controls the live information the AI receives.
 ---

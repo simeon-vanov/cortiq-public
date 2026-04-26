@@ -1,3 +1,4 @@
+---
 title: Sentiment Reports
 description: How sentiment reports add macro, news, and external context to the trading cycle.
 ---

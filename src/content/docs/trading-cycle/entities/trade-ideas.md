@@ -1,3 +1,4 @@
+---
 title: Trade Ideas
 description: How trade ideas let Cortiq track specific active theses alongside reusable playbooks.
 ---
