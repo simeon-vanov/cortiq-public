@@ -108,3 +108,7 @@ The HTML comment stays until the PNG is in place. `grep -rn "SCREENSHOT-NEEDED" 
 ## 7. Glossary
 
 Defined terms live in `src/content/docs/glossary.md`. Other pages link to glossary entries instead of redefining vocabulary.
+
+---
+
+*Last template review: 2026-04-26 — showcase set approved as-is.*
