@@ -1,88 +1,91 @@
 ---
-title: Licensing and Support
-description: How Cortiq licensing works and where users should go for help.
+title: Licensing & support
+description: How Cortiq licensing works, where to get help, and which support routes are public versus private — the practical guide to staying operational.
+sidebar:
+  order: 10
 ---
 
-## Licensing Model
+This page covers how the Cortiq license model works and where to go when you need help. By the end you'll know how to activate, where to file bugs, and which routes are public versus private.
 
-Cortiq uses a license activation flow designed for a Windows desktop product.
+## What this is
 
-At a high level:
+Cortiq's license is machine-bound and tied to your local Windows install. After purchase, you activate the key inside the app, and the platform verifies validity and expiration against the Cortiq licensing service.
 
-- A Cortiq key is issued after purchase or direct distribution.
-- The key is activated inside the desktop app.
-- Activation is verified against the Cortiq licensing service.
-- License validity and expiration are tracked by the platform.
+Public support runs through the Cortiq GitHub repository. Account-specific or license-sensitive issues go through direct email — do not post sensitive details in public issues.
 
-## Where To Find This In The App
+## How it fits into Cortiq
 
-The app surfaces the relevant paths directly in the sidebar:
+| Surface | Where | Use it for |
+| --- | --- | --- |
+| License activation | `Settings` → `License` (in the app) | Activate, check status, re-activate. |
+| Bug reports | GitHub Issues | Reproducible bugs and feature requests. |
+| Usage questions | GitHub Discussions | How-to and workflow questions. |
+| Installer | GitHub Releases | Current public Windows MSIX. |
+| Sensitive issues | `support@cortiq.trade` | Activation, account, payment, security. |
 
-- `Settings` -> `License` for activation, status checks, and license state
-- `Community` -> `Report a Bug`
-- `Community` -> `Feedback`
-- `Community` -> `Discussion`
+## How to use it
 
-Those community links are useful when a user is already inside Cortiq and wants to move directly into the public support channels.
+### Activate or re-activate
 
-## What Users Should Expect
+Open `Settings` → `License` in the desktop app. Paste your `CRTQ-XXXX-XXXX-XXXX-XXXX` key and confirm. The activation is bound to this machine; treat moves to a different machine as a separate activation event unless support confirms otherwise.
 
-- Activation is tied to the machine where Cortiq is installed.
-- Live usage typically requires a valid license.
-- License questions should be handled through support rather than public issue threads if they involve personal or payment-sensitive details.
+For first-install activation, see [Installation & activation](installation-and-activation/).
 
-## Who This Is For
+### Open a bug or feature request
 
-This page is for users who need to:
+Use [GitHub Issues](https://github.com/simeon-vanov/cortiq-public/issues/new/choose) for anything reproducible. A good bug report includes the Cortiq version, what you did, what you expected, and what actually happened. Include screenshots when the UI matters.
 
-- activate Cortiq on a machine
-- understand where to go for support
-- handle license-sensitive questions correctly
-- know which support routes are public and which are private
+Do not post license keys, account identifiers, or payment details in public issues.
 
-## Public Support Channels
+### Ask a usage question
 
-Use the Cortiq public repository for these support routes:
+Use [GitHub Discussions](https://github.com/simeon-vanov/cortiq-public/discussions) for how-to questions, workflow patterns, or open-ended product feedback. Discussions are also where the community shares playbook design and configuration tips.
 
-| Channel | Use It For |
-| --- | --- |
-| GitHub Issues | Reproducible bugs and feature requests |
-| GitHub Discussions | Questions, workflow ideas, and community conversation |
-| GitHub Releases | Current public installer and release notes |
-| Email support | Activation or account-specific help that should not be posted publicly |
+### Contact support privately
 
-## Support Links
+Email `support@cortiq.trade` for:
 
-- Issues: https://github.com/simeon-vanov/cortiq-public/issues/new/choose
-- Discussions: https://github.com/simeon-vanov/cortiq-public/discussions
-- Releases: https://github.com/simeon-vanov/cortiq-public/releases/latest
-- Support email: support@cortiq.trade
+- Activation issues that require account access.
+- License continuity, renewals, or transfers.
+- Security disclosures.
+- Anything that involves personal or payment-sensitive data.
 
-## When Not To Use Public Issues
+## Reference
 
-Do not post these in public issues:
+### Public support channels
 
-- License keys
-- Personal payment data
-- Security vulnerabilities
-- Sensitive account identifiers
+| Channel | URL | Use it for |
+| --- | --- | --- |
+| Issues | https://github.com/simeon-vanov/cortiq-public/issues/new/choose | Reproducible bugs and feature requests. |
+| Discussions | https://github.com/simeon-vanov/cortiq-public/discussions | Questions, workflow ideas, community conversation. |
+| Releases | https://github.com/simeon-vanov/cortiq-public/releases/latest | Current public installer and release notes. |
+| Email | support@cortiq.trade | Activation or account-specific help. |
 
-Security concerns should be reported privately, and license-sensitive cases should go to direct support.
+### What not to post in public issues
 
-## Renewal And Continuity
+- License keys.
+- Personal payment data.
+- Security vulnerabilities.
+- Sensitive account identifiers.
 
-If your license is time-based, expect expiration tracking and renewal handling to matter operationally. Do not wait until a live-trading day to confirm license status.
+## Common questions
 
-## Best Use Cases
+**My license is expiring — what do I need to do?**
+If your license is time-based, expect expiration tracking and renewal handling. Don't wait until a live-trading day to confirm license status — the time to renew is the day before, not the day of.
 
-Use this guidance when you need:
+**I want to move Cortiq to a new machine.**
+Email support before uninstalling. License transfers may or may not be self-service depending on your specific policy.
 
-- help with activation and license continuity
-- the right public route for bugs and feature requests
-- the right private route for sensitive account or payment issues
+**Where do I find release notes?**
+On the [Releases](https://github.com/simeon-vanov/cortiq-public/releases/latest) page. Each release has a notes section describing what changed.
 
-## Related Pages
+## What to read next
 
-- [Installation & Activation](installation-and-activation/)
-- [First 30 Minutes in Cortiq](first-30-minutes/)
-- [FAQ](faq/)
+1. [Installation & activation](installation-and-activation/) — first-install activation flow.
+2. [FAQ](faq/) — fast answers to common evaluation, setup, and operational questions.
+3. [First 30 minutes in Cortiq](first-30-minutes/) — what to do after activation.
+
+## Related
+
+- [Documentation map](documentation-map/)
+- [Glossary](glossary/)
