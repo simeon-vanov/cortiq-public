@@ -1,47 +1,60 @@
+---
 title: Sessions
-description: What a session is, what it contains, and why it is the root of the Cortiq trading cycle.
+description: The session entity — the operating container that bundles account, symbols, provider, playbooks, data package, support layers, and execution settings into one runnable unit.
+sidebar:
+  order: 10
 ---
 
-The session is the main operating unit in the Cortiq trading cycle.
+This is the entity reference for sessions. By the end you'll know what a session contains, what it references, and how to think about it as a reusable operating template.
 
-If you want to understand how a customer actually operates Cortiq, start here.
+## What this is
 
-## What A Session Contains
+The session is the main operating unit in the Cortiq trading cycle — the practical bridge between strategy design and live operation. Every other entity in the trading cycle is something a session points at.
 
-A session combines:
+A session bundles:
 
-- one MT5 account
-- one primary AI provider
-- one integration mode
-- one symbol or an AutoScan method
-- one data package
-- one or more playbooks
-- optional trade ideas
-- optional support layers such as preparation, instrument profile, and sentiment
-- a time window, active days, and execution settings
+- One MT5 account.
+- One primary AI provider and integration mode.
+- One symbol selection method (fixed or AutoScan).
+- One data package.
+- One or more playbooks (with priority).
+- Optional trade ideas.
+- Optional support layers — preparation package, instrument profile, sentiment report.
+- A time window, active days, and execution settings.
 
-## What A Session Is For
+## How it fits into Cortiq
 
-The session is the unit a customer can actually run and review.
+Without sessions, you'd reassemble the whole workflow manually each time. The session is what makes the trading cycle repeatable — start it, pause it, review it, improve it, duplicate it into a new template.
 
-It is the practical bridge between strategy design and live operation.
+For runtime behavior and the session lifecycle, see [Sessions & AutoScan](../../sessions-and-autoscan/). For the architectural role, see [Session architecture](../session-architecture/).
 
-## Why It Matters
+## How to use it
 
-Without sessions, the user would have to reassemble the whole workflow manually every time.
+Treat the session as a trading-desk template. Once it's stable, duplicate before changing — keep the original running as a control while you experiment on the duplicate. Cohort comparison turns the two runs into evidence.
 
-Sessions turn Cortiq into something operational and repeatable.
+## Reference
 
-## What Else Connects To It
+### Entities a session references
 
-- [Data Packages](../entities/data-packages/)
-- [Playbooks](../entities/playbooks/)
-- [Trade Ideas](../entities/trade-ideas/)
-- [Preparation Packages](../entities/preparation-packages/)
-- [Instrument Profiles](../entities/instrument-profiles/)
-- [Sentiment Reports](../entities/sentiment-reports/)
-- [Session Trades and Timeline](../entities/session-trades-and-timeline/)
+| Reference | Required? | Read more |
+| --- | --- | --- |
+| MT5 account | yes | [MetaTrader 5 integration](../../mt5-integration/) |
+| AI provider + mode | yes | [AI providers](../../ai-providers/) |
+| Data package | yes | [Data packages](../entities/data-packages/) |
+| Playbooks | yes (one or more) | [Playbooks](../entities/playbooks/) |
+| Trade ideas | optional | [Trade ideas](../entities/trade-ideas/) |
+| Preparation package | optional | [Preparation packages](../entities/preparation-packages/) |
+| Instrument profile | optional | [Instrument profiles](../entities/instrument-profiles/) |
+| Sentiment report | optional | [Sentiment reports](../entities/sentiment-reports/) |
 
-## Best Mental Model
+## What to read next
 
-Think of the session as a trading desk template that can be started, paused, improved, duplicated, and reviewed.
+1. [Session architecture](../session-architecture/) — the four scopes a session controls.
+2. [Sessions & AutoScan](../../sessions-and-autoscan/) — the runtime view, lifecycle, and AutoScan.
+3. [Trading cycle: overview](../overview/) — the cycle the session drives.
+
+## Related
+
+- [Session trades and timeline](session-trades-and-timeline/)
+- [Workspace & monitoring](../../workspace-and-monitoring/)
+- [Glossary](../../glossary/)

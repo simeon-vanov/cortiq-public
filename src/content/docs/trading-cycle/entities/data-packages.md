@@ -1,124 +1,68 @@
-title: Data Packages
-description: What a Cortiq data package contains and how it controls the live information the AI receives.
+---
+title: Data packages
+description: The data package entity — what it contains, how its parts relate, and what to keep in mind when designing payloads the AI can reason on cleanly.
+sidebar:
+  order: 20
 ---
 
-The data package controls what the AI can see during a trading cycle.
+This is the entity reference for data packages. By the end you'll know what each part of a package does and which decisions earn their place in the prompt.
 
-## What A Data Package Contains
+## What this is
 
-A data package can define:
+The data package controls what the AI can see during a trading cycle. It is the *information scope*, not the strategy:
 
-- one or more timeframes
-- candle depth per timeframe
-- indicator inputs
-- screenshot capture rules
-- economic-calendar context
-- account information
-- risk and performance context
-- trade history and supporting data
+- Playbooks tell the AI what to look for.
+- Data packages tell the AI what it's allowed to use while looking for it.
 
-## Data Package Parts Explained
+A package can include one or more timeframes (with candle depth), indicator inputs, screenshot capture rules, economic-calendar context, account information, risk and performance context, and recent trade history.
 
-### Timeframes
+## How it fits into Cortiq
 
-Timeframes decide which chart views the AI receives.
+A data package is referenced by sessions. The same package can be reused across sessions; one session points at exactly one package. For the design discipline, read [Data package design guide](../data-package-design/).
 
-Use them to give the AI the right balance of:
+## How to use it
 
-- execution detail
-- structural context
-- higher-timeframe direction
+### Timeframes and candle depth
 
-### Candle Depth
-
-Candle depth controls how much historical data is sent for a given timeframe.
-
-More bars can help with structure, but too many bars can also increase prompt weight and reduce clarity.
+Each timeframe gives the AI a specific market view; candle depth controls how much history per view. More history isn't always better — the right amount depends on whether the strategy needs broader structure or sharper recent action.
 
 ### Indicators
 
-Indicators add calculated market context on top of raw candles.
-
-Use them when the strategy truly depends on them. Avoid adding indicators only because they are familiar.
+Indicators add calculated context on top of raw candles. Use them when the strategy genuinely depends on them. Avoid adding popular indicators reflexively.
 
 ### Screenshots
 
-Screenshots attach chart images for selected timeframes.
+Screenshots are configured per timeframe. They're most useful when chart structure carries meaning the candle table doesn't — trend shape, support/resistance zones, pattern recognition. Enable them on the timeframes where the visual earns its place; disable them where the candles already say enough.
 
-They are most useful when visual structure matters, such as:
+### News, account, risk, and trade history toggles
 
-- trend shape
-- support and resistance zones
-- pattern recognition
-- context that is easier to see than describe numerically
+These widen the context beyond pure chart data. Useful when the AI should consider event risk, account state, platform risk, or recent trading behavior — but they all add weight, so toggle them on with intent.
 
-### News, Account, Risk, And Trade History
+## Reference
 
-These toggles widen the context beyond pure chart data.
+### Lean vs broad packages
 
-They help when the AI should consider:
+| Use a lean package for | Use a broader package for |
+| --- | --- |
+| Focused intraday setups | Multi-timeframe swing workflows |
+| Narrow strategy logic | Context-heavy strategies |
+| Faster review and less noise | Workflows where screenshots or broader context genuinely help |
 
-- event risk
-- current account state
-- platform risk state
-- recent trading behavior
+### Screenshot discipline
 
-## How Screenshot Capture Works
+- Enable screenshots only on the most meaningful timeframes.
+- Avoid visual duplication across multiple charts.
+- Pair screenshots with the indicators that matter on that timeframe.
 
-In practical terms, screenshots are configured per timeframe.
+## What to read next
 
-- A timeframe can have screenshots enabled or disabled.
-- Screenshot collection is most useful on the timeframes where chart structure matters.
-- If screenshots are enabled, Cortiq can include the relevant chart image alongside the rest of the market payload.
-- Screenshots work best when paired with the indicators that matter on that same timeframe.
+1. [Data package design guide](../data-package-design/) — the design discipline.
+2. [Playbooks](playbooks/) — the entity reference for the strategy layer.
+3. [Sessions](sessions/) — what binds package and playbook together.
 
-This means screenshots should be treated as selective visual context, not as something to enable everywhere by default.
+## Related
 
-## Why Screenshot Discipline Matters
-
-Screenshots can improve understanding, but they are not free.
-
-They can increase prompt weight and operational complexity, so the best professional setups usually:
-
-- enable screenshots only on the most meaningful timeframes
-- avoid visual duplication across too many charts
-- use screenshots when visual confirmation genuinely improves decision quality
-
-## Why It Matters
-
-The data package is not the strategy. It is the information scope.
-
-This distinction is important:
-
-- playbooks tell the AI what to look for
-- data packages tell the AI what it is allowed to use while looking for it
-
-## Good Public Use Cases
-
-Use lean data packages for:
-
-- focused intraday setups
-- narrow strategy logic
-- faster review and less noise
-
-Use broader packages for:
-
-- multi-timeframe swing workflows
-- more context-heavy strategies
-- workflows where screenshots and broader account context genuinely help
-
-## What It Uses
-
-Data packages usually work together with:
-
-- [Playbooks](../entities/playbooks/)
-- [Sessions](../entities/sessions/)
-- [Preparation Packages](../entities/preparation-packages/)
-
-## Best Practice
-
-Keep the package tight enough that every included input has a reason to be there.
-
-## Related Guide
-
-- [Data Package Design Guide](../data-package-design/)
+- [Playbooks & data packages](../../playbooks-and-data/)
+- [Preparation packages](preparation-packages/)
+- [Trading cycle: overview](../overview/)
+- [Glossary](../../glossary/)

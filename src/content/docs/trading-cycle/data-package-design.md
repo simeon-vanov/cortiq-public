@@ -1,128 +1,111 @@
 ---
-title: Data Package Design Guide
-description: How to design timeframes, indicators, screenshots, and payload scope for a professional Cortiq data package.
+title: Data package design guide
+description: How to choose timeframes, candle depth, indicators, and screenshots professionally — the design discipline that makes data packages produce clean AI decisions.
+sidebar:
+  order: 50
 ---
 
-This page explains how to design a data package professionally.
+This page is the practical guide to designing data packages. By the end you'll know which decisions matter most, which combinations produce noise, and how to keep the payload disciplined enough for the AI to reason cleanly.
+
+## What this is
 
 The goal of a good data package is not to include everything. The goal is to include the right information for the strategy.
 
-## Data Package Design Goals
+A data package is the assembly point for everything the AI sees in one cycle. It bundles live MT5 candles, indicator values, account state, and selected support layers into one structured prompt:
 
-A good data package should help the AI:
+```mermaid
+flowchart LR
+  M[(MT5 terminal)] --> Cd(Candles)
+  M --> Ind(Indicators)
+  M --> Acc(Account state)
+  Cd --> DP(Data Package<br/>assembly)
+  Ind --> DP
+  Acc --> DP
+  Pre(Preparation packages) --> DP
+  Sen(Sentiment reports) --> DP
+  IP(Instrument profiles) --> DP
+  DP --> Pr(Structured prompt)
+  Pr --> AI[AI provider]
+```
 
-- understand the market structure clearly
-- see the indicators the strategy truly depends on
-- avoid prompt overload
-- get visual context only where that visual context adds value
+*The Data Package is the assembly point for everything the AI sees in one cycle: live MT5 data plus reusable context layers, packaged into one structured prompt.*
 
-## The Main Design Parts
+## How it fits into Cortiq
 
-| Part | Main Job |
+A data package is referenced by sessions. The same package can be used by many sessions; one session uses exactly one package. Indicators are configured on the package and applied across the timeframes where they're enabled.
+
+For the conceptual overview, see [Playbooks & data packages](../playbooks-and-data/). This page focuses on designing them well.
+
+## How to use it
+
+### Pick timeframes with a job in mind
+
+Each timeframe should have a specific role. A common professional pattern:
+
+- One higher timeframe for structure.
+- One main timeframe for setup validation.
+- One tighter timeframe for entry confirmation.
+
+If you can't explain why a timeframe is in the package, it probably doesn't belong there. Three well-chosen timeframes beat six that compete with each other.
+
+### Pick candle depth deliberately
+
+More history is not always better. Use deeper history when the strategy needs broader structure (swing setups, regime classification). Use shallower history when the strategy needs speed and clarity (intraday breakouts).
+
+The question to ask: *how much history does the AI actually need to make this strategy work well?*
+
+### Pick indicators to support — not compete with — the playbook
+
+Indicators should support the playbook, not duplicate or contradict it. Use them when:
+
+- The strategy genuinely depends on them.
+- The AI benefits from the values consistently.
+- They reduce ambiguity rather than add noise.
+
+Don't add indicators because they're popular. Two indicators that disagree usually produce worse decisions than one indicator that's load-bearing.
+
+### Use screenshots where the image earns its place
+
+Screenshots are configured per timeframe. Choose which timeframes capture chart images, and the indicators on that timeframe become part of the visual context.
+
+Screenshots are most useful when:
+
+- The setup depends on visual pattern recognition.
+- Higher-timeframe chart structure matters strongly.
+- You want the AI to confirm what a human would normally inspect visually.
+
+Use them sparingly when:
+
+- The strategy is already clear from candles and indicators alone.
+- Multiple chart images would duplicate the same information.
+- Prompt size matters more than visual confirmation.
+
+Professional setups enable screenshots only on the timeframes where the image carries weight the candles don't.
+
+## Reference
+
+### Data package design parts
+
+| Part | Main job |
 | --- | --- |
-| Timeframes | Decide which market views the AI receives |
-| Candle depth | Decide how much history is sent per timeframe |
-| Indicators | Add technical context where it matters |
-| Screenshots | Add visual chart context where it helps |
-| News and account context | Add broader operating information |
-| Token budget | Keep the payload within a sensible size |
+| Timeframes | Decide which market views the AI receives. |
+| Candle depth | Decide how much history is sent per timeframe. |
+| Indicators | Add technical context where it matters. |
+| Screenshots | Add visual chart context where it helps. |
+| News and account context | Add broader operating information. |
+| Token budget | Keep the payload within a sensible size. |
 
-## How To Think About Timeframes
+### Tiers and per-timeframe scope
 
-Use each timeframe for a specific job.
+The data-package model supports different collection depth and screenshot scope for lighter and heavier passes. The practical takeaway:
 
-Examples:
+- Not every timeframe needs the same amount of history every time.
+- Not every timeframe needs screenshots every time.
+- The package can be designed so the most important visual context is attached where it matters most.
 
-- one higher timeframe for structure
-- one main timeframe for setup validation
-- one tighter timeframe for entry confirmation
+### Production-ready checklist
 
-If you cannot explain why a timeframe is included, it probably does not belong in the package.
-
-## How To Think About Candle Depth
-
-More history is not always better.
-
-Use deeper history when the strategy needs broader structure. Use shallower history when the strategy needs speed and clarity.
-
-The customer question should be:
-
-How much history does the AI actually need to make this strategy work well?
-
-## How To Think About Indicators
-
-Indicators should support the playbook, not compete with it.
-
-Use indicators when:
-
-- the strategy really depends on them
-- the AI benefits from those values consistently
-- they reduce ambiguity rather than add noise
-
-Do not add indicators only because they are popular.
-
-## How Screenshots Work
-
-Screenshots are configured per timeframe.
-
-In practice, this means:
-
-- you choose which timeframes should produce chart images
-- Cortiq captures those charts when screenshots are enabled for that timeframe
-- the AI can receive those images as part of the market context
-- indicators configured on the same timeframe can be part of that visual chart view
-
-Screenshots are best used when the strategy benefits from visual confirmation of:
-
-- price structure
-- trend shape
-- support and resistance zones
-- chart patterns
-- context that is awkward to express from candle values alone
-
-## When Screenshots Help Most
-
-Screenshots are especially useful when:
-
-- the setup depends on visual pattern recognition
-- the higher-timeframe chart structure matters strongly
-- the operator wants the AI to confirm what a human would normally inspect visually
-
-## When Screenshots Should Be Used Sparingly
-
-Screenshots should be used carefully when:
-
-- the strategy is already clear from candle and indicator data alone
-- too many visual charts would duplicate the same information
-- prompt size and processing weight matter more than visual confirmation
-
-Professional setups usually enable screenshots only on the timeframes where the image earns its place.
-
-## Timeframe Tiers And Screenshot Scope
-
-The data-package model supports different collection depth and screenshot scope for lighter and heavier passes.
-
-For customers, the practical takeaway is this:
-
-- not every timeframe needs the same amount of history every time
-- not every timeframe needs screenshots every time
-- the package can be designed so the most important visual context is attached where it matters most
-
-## Token Budget And Payload Discipline
-
-Data packages also need size discipline.
-
-More timeframes, more indicators, more screenshots, more news, and more account context all make the package heavier.
-
-That is why a professional package design focuses on:
-
-- signal quality over quantity
-- clarity over completeness
-- the smallest payload that still supports good decisions
-
-## Professional Design Checklist
-
-Before treating a data package as production-ready, ask:
+Before treating a data package as ready:
 
 1. Does each timeframe have a clear job?
 2. Does each indicator serve the strategy rather than decorate it?
@@ -130,17 +113,15 @@ Before treating a data package as production-ready, ask:
 4. Is the package still understandable when reviewed later in journals and session output?
 5. Could I remove anything without hurting the strategy?
 
-## What Good Data Package Documentation Does For The Customer
+## What to read next
 
-Well-designed data packages help the customer:
+1. [Playbook design guide](playbook-design/) — disciplined playbook authoring, the natural pair to a tight data package.
+2. [Data packages](entities/data-packages/) — the entity reference for the data package object.
+3. [Supporting context](supporting-context/) — preparation, instrument profiles, sentiment.
 
-- get cleaner AI decisions
-- reduce context noise
-- make session behavior easier to review
-- keep the strategy and the information scope aligned
+## Related
 
-## Related Pages
-
-- [Playbooks and Data Packages](../playbooks-and-data/)
-- [Data Packages](entities/data-packages/)
-- [Supporting Context](supporting-context/)
+- [Playbooks & data packages](../playbooks-and-data/)
+- [Trading cycle: overview](overview/)
+- [MetaTrader 5 integration](../mt5-integration/)
+- [Glossary](../glossary/)

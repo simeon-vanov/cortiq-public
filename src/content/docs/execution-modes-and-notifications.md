@@ -1,114 +1,108 @@
 ---
-title: Execution Modes and Notifications
-description: Live trading, virtual trading, copy trading, and user notification flows in Cortiq.
+title: Execution modes & notifications
+description: How Cortiq sessions actually trade — live, virtual, or copy — and how notification channels and scheduled reports keep you informed without watching the desktop.
+sidebar:
+  order: 60
 ---
 
-## Execution Modes
+This page covers the four execution modes a Cortiq session can use and the notification surface that surrounds them. By the end you'll know which mode fits which situation and how to receive trade events on the channels you already check.
 
-Cortiq supports more than one way to operate a session. That is important because not every user wants to go directly from installation to live execution.
+## What this is
 
-## Where To Find This In The App
+A session has to do something with the AI's decision. Cortiq supports four execution modes — three that send orders (live, copy) or simulate them (virtual), plus the notification layer that surfaces events from any of those modes through Windows toasts, X, and Telegram.
 
-The related UI areas are:
+The split exists because users move through phases: most start in virtual mode to rehearse the workflow, graduate to live on one account, then optionally use copy trading to scale a single decision engine across more accounts. Notifications run across all modes.
 
-- `Library` -> `Sessions` for choosing how a session should operate
-- `Settings` -> `Notifications` for Telegram and other notification preferences
-- `Library` -> `Dashboard` and `Library` -> `Journal` for monitoring what those execution choices produced
+## How it fits into Cortiq
 
-## Live Trading
+| Mode | What it does | When to use |
+| --- | --- | --- |
+| Virtual | Simulates the trade lifecycle without sending MT5 orders. | First runs, prop-firm challenges that restrict EAs, and any time you're testing a configuration. |
+| Live | Sends real orders to MT5 through the connected account. | Once virtual mode is producing readable journals and risk settings are configured. |
+| Copy trading | Replicates master-account activity to follower accounts. | When one decision engine should drive multiple accounts. |
 
-Live trading sends real actions to MetaTrader 5 through the connected local account.
+Notifications and scheduled reports run on top of every mode and are configured separately.
 
-Use this mode only after:
+## How to use it
 
-- MT5 connectivity is verified
-- The AI provider is configured correctly
-- The playbook and data package are stable
-- Risk settings are active
+### Pick the right execution mode
 
-## Virtual Trading
+Every session has a mode set at creation time. You can switch a stopped session to a different mode by editing it; you cannot change the mode of a running session.
 
-Virtual trading simulates the full trade lifecycle without placing real MT5 orders.
+**Virtual mode** simulates the full trade lifecycle on current market conditions. Cortiq still goes through every step — data gathering, AI decision, risk validation, journal entry — but skips sending the order to MT5. Critically, virtual mode is **not historical backtesting**; it runs on live data, just without execution.
 
-This mode is useful for:
+**Live mode** sends real actions to MT5 through the connected local account. Don't go live until MT5 connectivity is verified, the playbook is stable, the data package is focused, and risk settings are active.
 
-- Evaluating a new strategy
-- Testing workflow discipline
-- Prop firm environments that restrict expert advisor behavior
-- Building trust in the operating flow before deploying capital
+**Copy trading** designates a master session whose trade actions are replicated to follower accounts. Modifications and closes on the master propagate to copies. Use this when you want centralized trade management across an account group.
 
-Important limitation:
+### Configure notifications
 
-- Virtual trading is not historical backtesting. It simulates trades on current market conditions.
+Open `Settings` → `Notifications` and enable the channels you want.
 
-## Copy Trading
+![Notifications settings with Windows Toast, X, and Telegram channels configured](/images/screenshots/execution-modes-and-notifications__settings.png)
+<!-- SCREENSHOT-NEEDED: execution-modes-and-notifications__settings.png – Notifications settings with Windows Toast, X, and Telegram channels configured. Mask any tokens — use placeholder values -->
 
-Copy trading allows a session to replicate master account activity to one or more additional MT5 accounts.
+The three supported channels:
 
-This is useful when you want:
+- **Windows notifications** — immediate desktop awareness while you're at the machine.
+- **X** — public or semi-public posting workflows.
+- **Telegram** — team or private channel monitoring; also used for scheduled reports.
 
-- One decision engine controlling multiple accounts
-- A master-follower operational model
-- Centralized trade management across account groups
+For Telegram, paste a bot token and chat ID. For X, follow the OAuth flow to authorize an account.
 
-When the master trade is modified or closed, the copied trades can be kept in sync.
+### Schedule performance reports
 
-## Notifications
+Open `Settings` → `Reports` to schedule daily, weekly, or monthly summaries delivered through Telegram. You can choose the account scope (one account or all) and which sections appear: P/L summary, trade breakdown, symbol breakdown, streak analysis, and risk metrics. Preview the report once before scheduling so the format is what you expected.
 
-Cortiq can notify users when important trade events happen.
+## Reference
 
-Supported public-facing channels include:
+### Notification event categories
 
-| Channel | Typical Use |
+| Category | Examples |
 | --- | --- |
-| Windows notifications | Immediate desktop awareness |
-| X | Public or semi-public social posting workflows |
-| Telegram | Team or private channel monitoring |
+| Trade open | Market or pending order placed. |
+| Trade close | SL hit, TP hit, manual close, AI-driven close. |
+| Pending order events | Order activated, modified, expired, cancelled. |
+| Partial closes | Volume reduced on an open position. |
+| SL/TP modifications | Stop or target adjusted by the AI. |
 
-Typical event categories include trade opens, closes, pending-order events, partial closes, and stop-loss or take-profit modifications.
+### Notification channels
 
-## Scheduled Performance Reports
+| Channel | Configured in | Typical use |
+| --- | --- | --- |
+| Windows notifications | `Settings` → `Notifications` → Windows Toast | Real-time alerts while at the desk. |
+| X | `Settings` → `Notifications` → X | Public posting; useful for transparency journaling. |
+| Telegram | `Settings` → `Notifications` → Telegram | Private channel; also handles scheduled reports. |
 
-Beyond event notifications, Cortiq also includes scheduled performance reporting.
+### Mode comparison
 
-In the app, this lives in:
+| Property | Virtual | Live | Copy |
+| --- | --- | --- | --- |
+| Sends orders to MT5 | No | Yes (master account) | Yes (follower accounts only) |
+| Risk validators run | Yes | Yes | Yes (per follower) |
+| Journal output | Yes | Yes | Yes |
+| Suitable for first runs | Yes | No | No |
 
-- `Settings` -> `Reports`
+## Common questions
 
-That area lets the user:
+**Is virtual mode the same as backtesting?**
+No. Backtesting replays historical bars; virtual mode runs forward on the current market. Use virtual mode to rehearse the operating loop, not to validate a strategy against years of data — Cortiq doesn't include a backtester.
 
-- enable daily, weekly, or monthly report schedules
-- choose the account scope or use all accounts
-- control which sections appear in the report, such as P/L summary, trade breakdown, symbol breakdown, streak analysis, and risk metrics
-- preview the report before sending it
-- deliver the report through Telegram using the configured notification channel
+**Can I run a virtual session and a live session at the same time?**
+Yes, on different accounts or even the same account. They produce separate journal entries; only the live session affects the MT5 balance.
 
-This is useful when you want a compact operating summary without opening the desktop and manually checking every screen.
+**My copy trades aren't replicating — what should I check?**
+Confirm the follower accounts are configured in `Settings` → `MT5 Accounts`, that the master session is the one designated as master, and that the follower account has a healthy MT5 bridge. Risk validators on the follower account can also block copies — check `RiskPaused` state.
 
-## What These Functions Can Do For You
+## What to read next
 
-This part of Cortiq helps the user move from experimentation to real operation.
+1. [Sessions & AutoScan](sessions-and-autoscan/) — where the mode is set per session.
+2. [Risk management](risk-management/) — risk validators run for every mode.
+3. [Workspace & monitoring](workspace-and-monitoring/) — where mode-specific outputs land in the workspace.
 
-It can help you:
+## Related
 
-- test a workflow in virtual mode before risking capital
-- move the same workflow into live execution when you are ready
-- replicate one decision engine across multiple accounts
-- keep track of what is happening without watching the desktop full time
-
-## Why These Features Matter Together
-
-Execution modes and notifications are linked operationally:
-
-- Virtual mode lets you validate the decision flow.
-- Live mode turns the same workflow into real execution.
-- Copy trading expands the reach of that workflow.
-- Notifications make the workflow observable without constant manual monitoring.
-
-## Related Pages
-
-- [MetaTrader 5 Integration](mt5-integration/)
-- [Risk Management](risk-management/)
-- [Workspace and Monitoring](workspace-and-monitoring/)
-- [Capability Reference](capability-reference/)
-- [Journal & Analytics](journal-and-analytics/)
+- [MetaTrader 5 integration](mt5-integration/)
+- [Journal & analytics](journal-and-analytics/)
+- [Capability reference](capability-reference/)
+- [Glossary](glossary/)

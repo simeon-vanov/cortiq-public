@@ -1,79 +1,95 @@
 ---
-title: Documentation Map
-description: Why the Cortiq docs site is organized the way it is and what each page is for.
+title: Documentation map
+description: How the Cortiq docs are organized, what each page is for, and where to start based on what you're trying to accomplish.
+sidebar:
+  order: 10
 ---
 
-## The Idea Behind This Documentation
+This page is the index for the rest of the site. It explains the logic behind the structure, summarizes what every page contains, and points you to the right starting page for the question you're holding.
 
-The Cortiq documentation is structured around the decisions a real buyer or operator needs to make:
+## What this is
 
-1. What is the product and who is it for?
-2. How do I install it, activate it, and connect it correctly?
-3. How do the important features fit together in daily use?
-4. Where do I go for support, feedback, and updates?
+The Cortiq docs are organized around the decisions a real operator makes in order: *what is this and is it for me?*, *how do I install it?*, *how do the major features fit together?*, *where do I go for help?*. The site is shaped like an operating manual, not an engineering wiki.
 
-That is why the site is not organized like an internal engineering wiki. It is organized like an operating manual for a commercial trading product.
+The desktop app itself is organized differently. It uses sidebar groups like `Library`, `Playbooks`, `Preparation`, `Tools`, `Settings`, and `Community`. The docs therefore do two jobs at once: explain the product concept-first, and translate each concept back to the screen where you'll find it. The [App navigation guide](app-navigation-guide/) handles the second job in detail.
 
-The desktop app itself is organized a little differently: it uses a left sidebar with sections such as `Library`, `Playbooks`, `Preparation`, `Tools`, `Settings`, and `Community`. The docs therefore need to do two jobs at once: explain the product by concept and help the user find the same feature inside the UI.
+## How it fits into Cortiq
 
-## What Each Page Is For
+Reading order from a cold start:
 
-| Page | Purpose | What The Reader Gets |
+1. Home and this page — orient.
+2. [Getting started](getting-started/) — decide if Cortiq fits.
+3. [Installation & activation](installation-and-activation/), then [First 30 minutes](first-30-minutes/) — get a virtual session running.
+4. [MetaTrader 5 integration](mt5-integration/) and [AI providers](ai-providers/) — wire in the two external systems.
+5. [Playbooks & data packages](playbooks-and-data/), [Sessions & AutoScan](sessions-and-autoscan/), [Risk management](risk-management/) — build your operating model.
+6. [Workspace & monitoring](workspace-and-monitoring/) and [Journal & analytics](journal-and-analytics/) — daily operation and review.
+
+After the linear path, every page is independently readable.
+
+## Reference
+
+### What each page is for
+
+| Page | Purpose | What you get |
 | --- | --- | --- |
-| Home | Product orientation | A fast understanding of Cortiq, the site scope, and the best reading order |
-| Documentation Map | Site overview | The logic behind the documentation structure and how to use it efficiently |
-| App Navigation Guide | UI discovery map | A direct translation from the docs into the sidebar and screens users click inside the app |
-| Feature Overview | Capability summary | A short explanation of every major feature in the product |
-| Capability Reference | Practical function guide | A customer-facing explanation of what each major function can do and when to use it |
-| Getting Started | Evaluation and readiness | Who Cortiq is for, prerequisites, and the recommended first-run path |
-| Installation & Activation | Windows onboarding | The purchase, download, install, and machine activation flow |
-| First 30 Minutes in Cortiq | Guided first run | A safe onboarding path from activation to a first virtual session |
-| MetaTrader 5 Integration | Broker terminal connectivity | How Cortiq and MT5 work together and what must be configured correctly |
-| AI Providers | AI setup and routing | Which providers are supported, how browser and API modes differ, and how to choose between them |
-| MCP and Agent Integration | Advanced external control | How MCP-compatible agents can control Cortiq through external sessions and tool calls |
-| Playbooks & Data Packages | Strategy input design | How user-defined strategy rules and data scope shape AI decisions |
-| Sessions & AutoScan | Runtime operation | How autonomous trading sessions work and how symbol selection can be automated |
-| Risk Management | Control layer | The limits, pause behavior, and operating safeguards that sit above execution |
-| Execution Modes & Notifications | Deployment options | The difference between live trading, virtual trading, copy trading, and notification flows |
-| Workspace & Monitoring | Daily operating screens | What the Home, Dashboard, Trade Ideas, Journal, Cohorts, Conversations, and Provider Health screens are for |
-| Journal & Analytics | Review and learning | How Cortiq records performance, explains trades, and helps improve workflows |
-| Trading Cycle Overview | Architecture summary | How one session cycle is assembled from strategy, data, support context, and execution |
-| Playbook Design Guide | Professional playbook writing | How to use each playbook section correctly and keep strategy logic disciplined |
-| Data Package Design Guide | Professional payload design | How to choose timeframes, indicators, screenshots, and payload scope professionally |
-| Trading Cycle Reference | Detailed reference | Separate customer-facing pages for sessions, playbooks, data packages, trade ideas, preparation packages, instrument profiles, sentiment reports, and session trade history |
-| Licensing & Support | Commercial and support flow | License behavior, renewal expectations, and where to get help publicly |
-| FAQ | Fast answers | Common evaluation, setup, and operational questions in one place |
+| Home | Product orientation | A fast understanding of Cortiq and the recommended reading order. |
+| Documentation map *(this page)* | Site overview | The logic behind the structure and where to start based on intent. |
+| [App navigation guide](app-navigation-guide/) | UI discovery | Direct translation from docs to sidebar entries inside the app. |
+| [Feature overview](feature-overview/) | Capability summary | A short explanation of every major feature in the product. |
+| [Capability reference](capability-reference/) | Practical function guide | What each major function does and when to use it. |
+| [Getting started](getting-started/) | Evaluation and readiness | Who Cortiq is for, prerequisites, recommended first-run path. |
+| [Installation & activation](installation-and-activation/) | Windows onboarding | Purchase, download, install, and license activation flow. |
+| [First 30 minutes in Cortiq](first-30-minutes/) | Guided first run | A safe path from activation to a first virtual session. |
+| [Glossary](glossary/) | Vocabulary | One-link-deep definitions of platform terms used elsewhere. |
+| [MetaTrader 5 integration](mt5-integration/) | Broker terminal connectivity | How Cortiq and MT5 connect, plus the multi-account setup. |
+| [AI providers](ai-providers/) | AI setup and routing | Supported providers, browser vs API mode, how to pick. |
+| [MCP and agent integration](mcp-and-agent-integration/) | Advanced external control | How MCP-compatible agents control Cortiq via tool calls. |
+| [Playbooks & data packages](playbooks-and-data/) | Strategy input design | How rules and data scope shape AI decisions. |
+| [Sessions & AutoScan](sessions-and-autoscan/) | Runtime operation | How autonomous sessions work and how symbol selection automates. |
+| [Risk management](risk-management/) | Control layer | The limits and pause behavior that sit above execution. |
+| [Execution modes & notifications](execution-modes-and-notifications/) | Deployment options | Live, virtual, copy trading, and notification flows. |
+| [Workspace & monitoring](workspace-and-monitoring/) | Daily operating screens | The Home, Dashboard, Trade Ideas, Journal, Cohorts, Conversations, and Provider Health screens. |
+| [Journal & analytics](journal-and-analytics/) | Review and learning | How Cortiq records performance and explains trades. |
+| [Trading cycle: overview](trading-cycle/overview/) | Architecture summary | How one session cycle is assembled from strategy, data, context, and execution. |
+| [Trading cycle: playbook design](trading-cycle/playbook-design/) | Professional playbook writing | Disciplined use of each playbook section. |
+| [Trading cycle: data package design](trading-cycle/data-package-design/) | Professional payload design | Picking timeframes, indicators, screenshots, and scope. |
+| Trading cycle entity pages | Detailed reference | Per-entity pages for sessions, data packages, playbooks, trade ideas, preparation packages, instrument profiles, sentiment reports, and session trade history. |
+| [Licensing & support](licensing-and-support/) | Commercial and support flow | License behavior, renewals, and public support channels. |
+| [FAQ](faq/) | Fast answers | Common evaluation, setup, and operational questions. |
 
-## Best Starting Point By Situation
+### Best starting page by intent
 
-| If You Are Trying To... | Start Here |
+| If you're trying to… | Start with |
 | --- | --- |
-| Understand where things live in the desktop UI | [App Navigation Guide](app-navigation-guide/) |
-| Understand the platform before installing | [Getting Started](getting-started/) |
-| Install and activate the product | [Installation & Activation](installation-and-activation/) |
-| Configure strategy inputs | [Playbooks & Data Packages](playbooks-and-data/) |
+| Understand where things live in the desktop UI | [App navigation guide](app-navigation-guide/) |
+| Decide whether Cortiq fits before installing | [Getting started](getting-started/) |
+| Install and activate the product | [Installation & activation](installation-and-activation/) |
+| Configure strategy inputs | [Playbooks & data packages](playbooks-and-data/) |
 | Operate day-to-day sessions | [Sessions & AutoScan](sessions-and-autoscan/) |
-| Understand the desktop workspace after setup | [Workspace & Monitoring](workspace-and-monitoring/) |
-| Review performance and decisions | [Journal & Analytics](journal-and-analytics/) |
-| Handle support or license issues | [Licensing & Support](licensing-and-support/) |
+| Understand the desktop workspace after setup | [Workspace & monitoring](workspace-and-monitoring/) |
+| Review performance and decisions | [Journal & analytics](journal-and-analytics/) |
+| Handle support or license issues | [Licensing & support](licensing-and-support/) |
 
-## Why This Works For GitHub Pages
+## How to use it
 
-GitHub Pages is a strong fit for Cortiq public documentation because it keeps the public product layer simple:
+The public Cortiq repository serves four roles in one place:
 
-- Markdown files are easy to maintain and review.
-- The site can be published automatically on every documentation update.
-- The docs live next to releases, issues, and discussions in the same repository.
-- Product explanations can be versioned and improved without touching the private application repository.
+- Read the official product documentation (this site).
+- Download the current public Windows installer from GitHub Releases.
+- Report reproducible bugs through GitHub Issues.
+- Ask usage questions and share workflows through GitHub Discussions.
 
-## Public Repository Roles
+Don't use the public repository for security disclosures or license-sensitive personal data. Those go through direct support contact, not a public issue.
 
-Use the public Cortiq repository for the following jobs:
+## What to read next
 
-- Read the official product documentation.
-- Download the current public installer from Releases.
-- Report bugs through GitHub Issues.
-- Request features through GitHub Issues.
-- Ask questions and share workflows through GitHub Discussions.
+1. [Getting started](getting-started/) — the natural next stop if you're evaluating Cortiq.
+2. [App navigation guide](app-navigation-guide/) — if you want each doc page mapped to the screen it describes.
+3. [Glossary](glossary/) — if a vocabulary term sent you here.
 
-Do not use the public repository for private security disclosures or license-sensitive personal data. Those belong in direct support contact instead.
+## Related
+
+- [Feature overview](feature-overview/)
+- [Capability reference](capability-reference/)
+- [FAQ](faq/)
+- [Licensing & support](licensing-and-support/)

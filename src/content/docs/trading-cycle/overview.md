@@ -1,95 +1,92 @@
 ---
-title: Trading Cycle Overview
-description: How a Cortiq trading cycle is assembled around the session and why the support layers matter.
+title: Trading cycle overview
+description: How a Cortiq trading cycle is assembled around the session — the six phases from preparation to review and the support layers that shape each one.
+sidebar:
+  order: 10
 ---
 
-The easiest way to understand Cortiq is to think in terms of one session running one repeatable trading cycle.
+This page explains the architecture of one Cortiq cycle. By the end you'll know which pieces feed each phase and why the session — not the AI — is the right object to think outward from.
 
-That cycle is not just an AI prompt. It is a controlled operating loop built from:
+## What this is
 
-- a session
-- one or more playbooks
-- one data package
-- optional support layers such as preparation, instrument profile, and sentiment
-- the live MT5 account state
-- the current open trades and trade history
+The easiest way to understand Cortiq is to think in terms of one session running one repeatable trading cycle. That cycle is not just an AI prompt — it's a controlled operating loop assembled from a session, one or more playbooks, one data package, optional support layers, the live MT5 state, and the trade history.
 
-## The Core Loop
+Each cycle moves through six phases. Understanding the phases makes it obvious which Cortiq object you should change to influence which behavior: a problem in the entry quality is rarely a "the AI is bad" problem; it's almost always an issue in the data package or playbook *feeding* that AI.
 
-At a customer level, the cycle works like this:
+## How it fits into Cortiq
 
-`Session Context -> Market Data Gather -> Prompt Build -> AI Decision -> Trade Execution or Management -> Logging and Review`
+```mermaid
+flowchart LR
+  Pre(Preparation) --> Gather(Data gathering)
+  Gather --> Decide(AI decision)
+  Decide --> Risk{Risk check}
+  Risk -->|approved| Exec(Execution)
+  Risk -->|rejected| Skip(Skip + log)
+  Exec --> Manage(Trade management)
+  Manage --> Review(Review + journal)
+  Skip --> Review
+```
 
-Each pass through that loop is one trading cycle.
+*The trading cycle has six phases. Preparation and review bookend the cycle; the AI decision is one phase among many, not the whole loop.*
 
-## Why The Session Sits In The Middle
+The session sits in the middle of every phase: it decides which account, symbol, provider, playbook, and data package are active, and when the session is allowed to run.
 
-The session is the operating container for the cycle.
+## How to use it
 
-It decides:
+### Read the cycle from the session outward
 
-- which MT5 account is used
-- which symbol or symbol-selection method is active
-- which AI provider and integration mode are used
-- which playbooks must be evaluated
-- which data package defines the market payload
-- which support layers should be attached
-- when the session is allowed to run
+Start by understanding what the session controls, then drill into each phase as needed.
 
-That is why the trading cycle is best explained from the session outward rather than from the AI inward.
+| Phase | Driven by | Read more |
+| --- | --- | --- |
+| Preparation | Preparation packages, instrument profiles, sentiment reports | [Supporting context](supporting-context/) |
+| Data gathering | Data package, MT5 bridge | [Data package design](data-package-design/) |
+| AI decision | Playbook, AI provider | [Playbook design](playbook-design/) |
+| Risk check | Risk validators (global + per-account) | [Risk management](../risk-management/) |
+| Execution | MT5 integration | [MetaTrader 5 integration](../mt5-integration/) |
+| Trade management | Playbook management rules | [Session trades and timeline](entities/session-trades-and-timeline/) |
+| Review | Journal, analytics, conversations | [Journal & analytics](../journal-and-analytics/) |
 
-## How The Pieces Fit Together
+### Add support layers when they earn their place
 
-| Layer | Role In The Cycle | Typical Question It Answers |
+Playbooks and data packages cover the core. Support layers — session instructions, preparation packages, instrument profiles, sentiment reports — let you add structure the AI shouldn't have to rediscover every cycle.
+
+Add a layer when its absence would noticeably hurt cycle quality. Don't add layers reflexively; a noisy preparation package is just as bad as a noisy data package.
+
+## Reference
+
+### How the pieces fit together
+
+| Layer | Role | Typical question it answers |
 | --- | --- | --- |
 | Session | Operating container | What is this workflow allowed to do? |
 | Playbooks | Strategy rules | What setups are valid? |
-| Data package | Live market payload | What information does the AI see every cycle? |
-| Trade ideas | Specific theses | What special opportunities are being tracked right now? |
+| Data package | Live market payload | What does the AI see every cycle? |
+| Trade ideas | Specific theses | What discretionary opportunities are tracked right now? |
 | Preparation package | Cached analysis | What slower-moving structure should already be known? |
-| Instrument profile | Long-lived market behavior | How does this instrument typically behave? |
-| Sentiment report | News and macro context | What external pressure or event risk matters right now? |
-| Session trades and timeline | Execution record | What happened, and why? |
+| Instrument profile | Long-lived behavior | How does this instrument typically behave? |
+| Sentiment report | News and macro | What external pressure matters right now? |
+| Session trades and timeline | Execution record | What happened and why? |
 
-## What Supporting Information Can Be Added
+### Where most quality problems come from
 
-Many users understand playbooks and data packages quickly, but the support layers are where Cortiq becomes more disciplined.
+| Symptom | Most likely cause |
+| --- | --- |
+| AI improvises too much | Playbook is too vague. |
+| AI is paralyzed by noise | Data package has too many timeframes or indicators. |
+| Decisions feel disconnected from market context | Missing support layer (preparation, instrument profile, sentiment). |
+| Same trade keeps recurring incorrectly | Invalidation logic in the playbook is missing or weak. |
 
-You can add:
+## What to read next
 
-- session instructions for desk-specific rules or cautions
-- preparation outputs for higher-timeframe or pre-session analysis
-- an instrument profile for persistent symbol behavior
-- a sentiment report for macro and news context
-- trade ideas for specific discretionary theses that should be watched separately from general playbooks
+1. [Session architecture](session-architecture/) — what the session itself controls and configures.
+2. [Supporting context](supporting-context/) — preparation, instrument profile, sentiment.
+3. [Playbook design guide](playbook-design/) — disciplined section-by-section playbook authoring.
+4. [Data package design guide](data-package-design/) — payload tiers, timeframes, screenshots.
 
-These layers help the AI work with more structure and less improvisation.
+## Related
 
-## Where Customers Usually Need More Detail
-
-The two areas that most strongly affect documentation quality inside a real Cortiq setup are:
-
-- how the playbook sections are written
-- how the data package is scoped, especially when screenshots are involved
-
-Use these guides next:
-
-- [Playbook Design Guide](playbook-design/)
-- [Data Package Design Guide](data-package-design/)
-
-## Why This Matters For Real Use
-
-Without a structured cycle, AI trading usually breaks in one of two ways:
-
-- the AI has too little structure and improvises too much
-- the AI sees too much noise and loses decision quality
-
-Cortiq's trading-cycle model is designed to control both problems.
-
-## Best Reading Order
-
-1. [Session Architecture](../trading-cycle/session-architecture/)
-2. [Supporting Context](../trading-cycle/supporting-context/)
-3. [Playbook Design Guide](playbook-design/)
-4. [Data Package Design Guide](data-package-design/)
-5. The reference pages in this section, starting with [Sessions](../trading-cycle/entities/sessions/)
+- [Sessions](entities/sessions/)
+- [Sessions & AutoScan](../sessions-and-autoscan/)
+- [Risk management](../risk-management/)
+- [Glossary](../glossary/)
