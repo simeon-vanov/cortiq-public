@@ -35,3 +35,4 @@ This file tracks every screenshot referenced by the docs. When the markdown plac
 | `sessions-and-autoscan__create-form.png` | sessions-and-autoscan | Cortiq's session create dialog with Account, Symbol, Provider, Time Range, Risk fields visible | 1600×900 | Mask account number |
 | `risk-management__global-panel.png` | risk-management | Risk Management page with the Global tab selected, all six limits visible | 1600×900 | None |
 | `risk-management__account-panel.png` | risk-management | Risk Management page with the Per-Account tab selected, one account's limits visible | 1600×900 | Mask account number |
+| `execution-modes-and-notifications__settings.png` | execution-modes-and-notifications | Notifications settings with Windows Toast, X, and Telegram channels configured | 1600×900 | Mask any tokens — use placeholder values |
