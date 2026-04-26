@@ -32,3 +32,4 @@ This file tracks every screenshot referenced by the docs. When the markdown plac
 | `ai-providers__api-keys.png` | ai-providers | Cortiq Settings → AI Providers panel with API key fields filled (placeholders) for OpenAI, xAI, Anthropic, Google | 1600×900 | Use placeholder keys (sk-...REDACTED) only |
 | `ai-providers__browser-mode.png` | ai-providers | Browser-mode flow: a Playwright-controlled provider window showing logged-in state | 1200×600 | Mask any real account email |
 | `playbooks-and-data__playbook-editor.png` | playbooks-and-data | Cortiq Playbooks page with one playbook open in the editor, all step types visible | 1600×900 | None |
+| `sessions-and-autoscan__create-form.png` | sessions-and-autoscan | Cortiq's session create dialog with Account, Symbol, Provider, Time Range, Risk fields visible | 1600×900 | Mask account number |
