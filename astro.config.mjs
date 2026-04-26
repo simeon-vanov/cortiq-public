@@ -34,6 +34,7 @@ export default defineConfig({
             'getting-started',
             'installation-and-activation',
             'first-30-minutes',
+            'glossary',
           ],
         },
         {
@@ -41,13 +42,18 @@ export default defineConfig({
           items: [
             'mt5-integration',
             'ai-providers',
-            'mcp-and-agent-integration',
             'playbooks-and-data',
             'sessions-and-autoscan',
             'risk-management',
             'execution-modes-and-notifications',
             'workspace-and-monitoring',
             'journal-and-analytics',
+          ],
+        },
+        {
+          label: 'MCP & Agent',
+          items: [
+            'mcp-and-agent-integration',
           ],
         },
         {
