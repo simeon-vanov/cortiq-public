@@ -1,39 +1,54 @@
 ---
-title: Trade Ideas
-description: How trade ideas let Cortiq track specific active theses alongside reusable playbooks.
+title: Trade ideas
+description: The trade idea entity — single-purpose theses Cortiq can monitor alongside reusable playbooks, with optional expiry and per-idea status tracking.
+sidebar:
+  order: 40
 ---
 
-Trade ideas track specific opportunities that are being watched right now.
+This is the entity reference for trade ideas. By the end you'll know when to capture a trade idea instead of a playbook and what each field on the idea is for.
 
-## What A Trade Idea Contains
+## What this is
 
-A trade idea usually includes:
+Trade ideas track specific opportunities being watched right now. They're inherently single-use: a breakout level you're waiting on, a pullback setup tied to current structure, a discretionary thesis that should expire if it doesn't develop in time.
 
-- a short name
-- an optional symbol target
-- the thesis description
-- execution or invalidation conditions
-- enable or disable state
-- optional expiry timing
+Not every opportunity should become a reusable playbook. Some setups are specific to a short window or current structure — that's the role of trade ideas.
 
-## Why It Matters
+A trade idea typically includes a name, an optional symbol target, the thesis description, execution or invalidation conditions, an enabled/disabled state, and optional expiry timing.
 
-Not every trading opportunity should become a reusable playbook.
+## How it fits into Cortiq
 
-Some setups are specific to a short window, a current structure, or a discretionary idea the operator wants Cortiq to monitor.
+Trade ideas are configured in the workspace and can be attached to sessions. They surface on `Library` → `Trade Ideas`, with statuses like *active*, *executed*, *closed*, *invalidated*, *expired*, *unassigned*. Active ideas can spawn a session directly.
 
-That is the role of trade ideas.
+## How to use it
 
-## Best Use Cases
+Capture trade ideas when:
 
-Trade ideas are a good fit for:
+- You spot one breakout level you want monitored.
+- You're waiting on a retracement setup tied to current structure.
+- A thesis should expire if conditions don't develop in time.
 
-- one live breakout thesis
-- one retracement setup you want watched for a limited time
-- a current idea that should expire if not triggered soon
+Don't use trade ideas as a replacement for your core playbook library. If the logic is reusable and central to your workflow, it belongs in a playbook.
 
-## What Not To Do
+## Reference
 
-Do not use trade ideas as a replacement for your core playbook library.
+### When to use what
 
-If the logic is reusable and central to your workflow, it should usually live in a playbook instead.
+| Need | Use |
+| --- | --- |
+| Reusable rule-based setup | Playbook |
+| Single live thesis with an expiry | Trade idea |
+| Macro/headline context | Sentiment report |
+| Pre-session prepared analysis | Preparation package |
+
+## What to read next
+
+1. [Workspace & monitoring](../../workspace-and-monitoring/) — the Trade Ideas screen.
+2. [Playbooks](playbooks/) — for opportunities that should become permanent rules.
+3. [Sentiment reports](sentiment-reports/) — for macro context layered into a session.
+
+## Related
+
+- [Sessions](sessions/)
+- [Trading cycle: overview](../overview/)
+- [Supporting context](../supporting-context/)
+- [Glossary](../../glossary/)
