@@ -1,141 +1,126 @@
 ---
-title: Playbooks and Data Packages
-description: How Cortiq uses playbooks and data packages to control strategy and AI context.
+title: Playbooks & data packages
+description: How Cortiq uses playbooks (the strategy rules) and data packages (the AI's allowed context) to control trading decisions, plus the design principles that produce strong configurations.
+sidebar:
+  order: 30
 ---
 
-## Why These Two Concepts Matter
+This page explains the two most important Cortiq concepts after Sessions: **playbooks** define what the AI is supposed to look for, and **data packages** define what the AI is allowed to see while doing so. Together they turn Cortiq into a controlled operating environment instead of an open-ended prompt playground.
 
-Playbooks and data packages are two of the most important Cortiq concepts.
+## What this is
 
-- Playbooks define what the AI is supposed to look for and how it should reason about the setup.
-- Data packages define what information the AI is allowed to see while making that decision.
+Cortiq separates *strategy* from *context* deliberately.
 
-Together they turn Cortiq into a controlled operating environment instead of an open-ended prompt playground.
+A **playbook** is the strategy layer. It defines the setup, entry, invalidation, risk, and management logic the AI must follow on every cycle. The same playbook can drive different sessions on different symbols and accounts.
 
-## Where To Find This In The App
+A **data package** is the context layer. It defines the candles, indicator values, screenshots, account state, calendar entries, and supporting documents that the AI sees when applying the playbook. Two sessions running the same playbook with different data packages will reason differently because they see different inputs.
 
-The related UI areas are split across the sidebar:
+The deliberate split is what makes Cortiq's outputs comparable. When a session underperforms, you can change the playbook (the rules) without changing the data package (the inputs), or vice versa, and see which lever moved the result.
 
-- `Playbooks` -> `My Playbooks` for strategy design
-- `Tools` -> `Data Packages` for AI payload design
-- `Tools` -> `Indicators` for indicator definitions and supporting signal inputs
-- `Preparation` -> `Instrument Profiles`, `Prep Packages`, and `Sentiment` for reusable supporting context
+## How it fits into Cortiq
 
-## Playbooks
+| Concept | Lives under | Read more |
+| --- | --- | --- |
+| Playbook | `Playbooks` → `My Playbooks` | [Playbook design guide](trading-cycle/playbook-design/) |
+| Data package | `Tools` → `Data Packages` | [Data package design guide](trading-cycle/data-package-design/) |
+| Indicators | `Tools` → `Indicators` | This page |
+| Reusable supporting context | `Preparation` → `Instrument Profiles`, `Prep Packages`, `Sentiment` | [Supporting context](trading-cycle/supporting-context/) |
 
-A playbook is the strategy layer.
+Both objects are referenced by sessions; one playbook can be used by many sessions, and one data package can be used by many sessions.
 
-Typical playbook content includes:
+![Cortiq Playbooks page with one playbook open in the editor](/images/screenshots/playbooks-and-data__playbook-editor.png)
+<!-- SCREENSHOT-NEEDED: playbooks-and-data__playbook-editor.png – Cortiq Playbooks page with one playbook open in the editor, all step types visible -->
 
-- Market conditions the setup requires
-- Entry logic and filters
-- Invalidations and no-trade conditions
-- Exit or management expectations
-- Priority relative to other linked playbooks
+## How to use it
 
-The important public takeaway is simple: Cortiq executes inside the framework you define. It does not replace the need for a trading plan.
+### Build a playbook section by section
 
-### What Each Playbook Section Is For
+A playbook is a structured document, not a paragraph. Treat each section as having one job.
 
-Customers usually get better results when they think of a playbook as a structured document rather than one big paragraph.
-
-| Section | What It Is Used For |
+| Section | What it controls |
 | --- | --- |
-| Market bias | Gives the AI the broad strategy type or directional context, such as trend following or mean reversion |
-| Primary timeframe | Tells the AI where the main structural reading should happen |
-| Entry timeframe | Tells the AI where the actual trigger should be confirmed |
-| Setup conditions | Defines what the market must look like before the setup is considered valid |
-| Entry conditions | Defines what must happen before the trade is allowed to trigger |
-| Risk rules | Defines stop placement, target logic, risk boundaries, or minimum reward-to-risk requirements |
-| Trade-management rules | Defines what the AI should do after entry, such as trailing, scaling out, or moving to break-even |
-| Invalidation conditions | Defines when the idea is no longer valid and should be ignored |
-| Preferred symbols and sessions | Helps the user keep a playbook aligned with the markets and trading windows where it makes the most sense |
+| Market bias | Broad strategy type and directional context (trend following, mean reversion, etc.). |
+| Primary timeframe | Where the main structural reading happens. |
+| Entry timeframe | Where the actual trigger is confirmed. |
+| Setup conditions | What the market must look like before the setup is valid. |
+| Entry conditions | What must happen before the trade is allowed to trigger. |
+| Risk rules | Stop placement, target logic, minimum reward-to-risk. |
+| Trade-management rules | Trailing, scaling out, moving to break-even. |
+| Invalidation conditions | When the idea is no longer valid and should be ignored. |
+| Preferred symbols and sessions | Which markets and time windows the playbook fits. |
 
-Read [Playbook Design Guide](trading-cycle/playbook-design/) for a professional breakdown of each section.
+For deeper section-by-section guidance, read [Playbook design guide](trading-cycle/playbook-design/).
 
-## Data Packages
+### Build a data package with intent
 
-A data package controls what the session gathers and sends to the AI.
+Data packages can include:
 
-This can include:
+- Historical candles across one or more timeframes.
+- Technical indicators (built-in and custom MT5 indicators).
+- Chart screenshots for selected timeframes.
+- Economic calendar context.
+- Account state and risk settings.
+- Recent trade history.
+- Cross-reference symbols.
 
-- Historical candles across one or more timeframes
-- Technical indicators
-- Chart screenshots
-- Economic calendar context
-- Account information
-- Risk settings and performance context
-- Trade history
-- Cross-reference symbols
+The temptation is to include everything. Resist it. A noisy data package produces noisier reasoning. Add a timeframe, indicator, or screenshot only when its absence would change the decision.
 
-This matters because the quality of AI decisions depends heavily on both signal quality and prompt discipline.
+For full detail on payload weight and tier design, read [Data package design guide](trading-cycle/data-package-design/).
 
-### How Screenshots Work In Data Packages
+### Use screenshots selectively
 
-Screenshots are optional chart images captured for selected timeframes in the data package.
+Screenshots are optional chart images captured for selected timeframes. They're worth including when:
 
-They are useful when:
+- Chart structure matters more than raw numbers alone.
+- You want the AI to visually confirm levels, patterns, or trend shape.
+- The setup depends on something that's easier to read visually than in a candle table.
 
-- chart structure matters more than raw numbers alone
-- the user wants the AI to visually confirm levels, patterns, or trend shape
-- a setup depends on something that is easier to interpret visually than in a table of candles
+Screenshots add payload weight, so use them where visual context genuinely improves the decision — not as a default.
 
-They should be used selectively because they add payload weight and are most valuable when visual context truly improves the decision.
+### Use indicators and custom inputs deliberately
 
-Read [Data Package Design Guide](trading-cycle/data-package-design/) for a detailed explanation of timeframes, screenshots, tiers, and payload discipline.
+Cortiq can incorporate any MT5 indicator your terminal exposes, including custom indicators. That lets the AI decision layer see the same signal stack you already use manually. Add indicators one at a time and verify the journal still reads cleanly — three carefully chosen inputs beat ten that crowd each other out.
 
-If you want the deeper customer-facing reference pages, read [Data Packages](trading-cycle/entities/data-packages/), [Playbooks](trading-cycle/entities/playbooks/), and [Supporting Context](trading-cycle/supporting-context/).
+## Reference
 
-## Indicators And Custom Inputs
+### What well-designed playbooks share
 
-Cortiq can incorporate indicator data from MT5, including custom indicator workflows where the MT5 environment exposes them correctly.
+| Quality | Why it matters |
+| --- | --- |
+| Each section has one clear job | The AI knows where to look and what to enforce. |
+| Setup, entry, and invalidation are concrete | Borderline cases get decided the same way every time. |
+| Management rules are explicit | The AI doesn't improvise after entry. |
+| Symbol and session preference are stated | The same playbook isn't accidentally reused on a market it doesn't fit. |
 
-That allows advanced users to make the AI decision layer aware of the same signal stack they already use manually.
+### What well-designed data packages share
 
-## What These Functions Can Do For You
+| Quality | Why it matters |
+| --- | --- |
+| Each timeframe earns its place | Reduces noise without losing structure. |
+| Indicators have a stated job | Avoids overlapping or contradicting signals. |
+| Screenshots only where visual matters | Keeps the payload light enough to reason on. |
+| Supporting context is layered, not pasted | Keeps the prompt readable and the AI focused. |
 
-Used well, this part of Cortiq helps you:
+### Common failure modes
 
-- stop relying on vague prompts and loose AI instructions
-- keep the AI focused on the signals and structure that actually matter to your strategy
-- separate reusable strategy logic from one-off active trading ideas
-- improve consistency by deciding in advance what the AI can see and how it should reason
+Without disciplined playbooks and data packages, AI trading workflows fail in two predictable ways:
 
-## Good Operating Practice
+- **Too little structure** — the AI has wide latitude and improvises too much.
+- **Too much context** — the AI has so much input that signal quality drops.
 
-Use these principles when building your first serious playbook set:
+Both problems are configuration-side, not provider-side. Better playbooks and tighter data packages fix more cycles than swapping providers does.
 
-1. Start with narrow playbooks rather than vague multi-market logic.
-2. Keep the data package focused on what the strategy truly needs.
-3. Add symbols, indicators, and screenshots only when they improve decisions.
-4. Review journals and session output before widening the scope.
+## What to read next
 
-## Professional Design Advice
+1. [Playbook design guide](trading-cycle/playbook-design/) — disciplined section-by-section playbook authoring.
+2. [Data package design guide](trading-cycle/data-package-design/) — payload tiers, timeframe choice, and screenshot discipline.
+3. [Sessions & AutoScan](sessions-and-autoscan/) — where playbooks and data packages get bound together at runtime.
+4. [Supporting context](trading-cycle/supporting-context/) — preparation packages, instrument profiles, sentiment reports.
 
-The most common quality difference between weak and strong Cortiq setups is not the AI provider. It is documentation quality inside the configuration.
+## Related
 
-Professional setups usually have:
-
-- playbooks where each section has one clear job
-- data packages where each timeframe and indicator has a reason to exist
-- screenshots only where visual confirmation adds real value
-- enough structure that the AI can stay disciplined without becoming overloaded
-
-## What This Feature Solves
-
-Without playbooks and data packages, AI trading workflows often fail for one of two reasons:
-
-- The AI has too little structure and improvises too much.
-- The AI has too much noisy context and loses signal quality.
-
-Cortiq uses playbooks and data packages to reduce both problems.
-
-## Related Pages
-
-- [Feature Overview](feature-overview/)
-- [Sessions & AutoScan](sessions-and-autoscan/)
-- [Trading Cycle Overview](trading-cycle/overview/)
-- [Playbook Design Guide](trading-cycle/playbook-design/)
-- [Data Package Design Guide](trading-cycle/data-package-design/)
-- [Capability Reference](capability-reference/)
-- [Journal & Analytics](journal-and-analytics/)
+- [Feature overview](feature-overview/)
+- [Capability reference](capability-reference/)
+- [Trading cycle: overview](trading-cycle/overview/)
+- [Journal & analytics](journal-and-analytics/)
+- [Glossary](glossary/)

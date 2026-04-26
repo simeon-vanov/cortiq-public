@@ -31,3 +31,4 @@ This file tracks every screenshot referenced by the docs. When the markdown plac
 | `installation-and-activation__msix-installer.png` | installation-and-activation | Windows MSIX installer mid-install showing Cortiq.msix | 1200×600 | None |
 | `ai-providers__api-keys.png` | ai-providers | Cortiq Settings → AI Providers panel with API key fields filled (placeholders) for OpenAI, xAI, Anthropic, Google | 1600×900 | Use placeholder keys (sk-...REDACTED) only |
 | `ai-providers__browser-mode.png` | ai-providers | Browser-mode flow: a Playwright-controlled provider window showing logged-in state | 1200×600 | Mask any real account email |
+| `playbooks-and-data__playbook-editor.png` | playbooks-and-data | Cortiq Playbooks page with one playbook open in the editor, all step types visible | 1600×900 | None |
