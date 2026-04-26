@@ -1,36 +1,54 @@
 ---
-title: Instrument Profiles
-description: How instrument profiles give Cortiq long-lived knowledge about symbol behavior.
+title: Instrument profiles
+description: The instrument profile entity — long-lived persistent knowledge about how a symbol behaves, used as a behavior reference layer in the trading cycle.
+sidebar:
+  order: 60
 ---
 
-Instrument profiles store persistent knowledge about how a market typically behaves.
+This is the entity reference for instrument profiles. By the end you'll know what belongs in a profile, what doesn't, and how it differs from sentiment reports and preparation packages.
 
-## What An Instrument Profile Contains
+## What this is
 
-An instrument profile can include:
+Instrument profiles store persistent knowledge about how a market typically behaves. Charts show what's happening *now*; instrument profiles explain what's *normal or unusual* for that symbol over time.
 
-- volatility character
-- range behavior
-- session tendencies
-- recurring structural behavior
-- longer-lived notes that help interpret the instrument correctly
+A profile can include volatility character, range behavior, session tendencies, recurring structural habits, and longer-lived notes that help interpret the instrument correctly.
 
-## Why It Matters
+## How it fits into Cortiq
 
-Charts show what is happening now.
+Instrument profiles are reusable support layers attached to sessions. They age slowly — update them every few weeks at most. They're not for short-term directional calls; that's the role of sentiment reports.
 
-Instrument profiles help explain what is normal or unusual for that instrument over time.
+For the broader support-layer model, see [Supporting context](../supporting-context/).
 
-This can improve judgment around:
+## How to use it
 
-- whether price behavior is stretched or typical
-- whether a move is unusually aggressive
-- how much session behavior matters for that symbol
+Use an instrument profile for symbols where behavior patterns matter and a longer-lived context layer improves decisions. The profile helps the AI judge:
 
-## Best Use Cases
+- Whether price behavior is stretched or typical.
+- Whether a move is unusually aggressive for this market.
+- How much session behavior matters for this symbol.
 
-Use instrument profiles for symbols where behavior patterns matter and where a longer-lived context layer improves decision quality.
+## Reference
 
-## Important Distinction
+### Important distinction
 
-An instrument profile is not a short-term bullish or bearish call. It is a behavior reference layer.
+An instrument profile is a *behavior reference layer*, not a short-term bullish or bearish call. If the content goes stale within a week, it doesn't belong in the profile — write a sentiment report instead.
+
+### Compare to other support layers
+
+| Layer | Half-life | Best for |
+| --- | --- | --- |
+| Instrument profile | Weeks to months | Persistent symbol behavior. |
+| Preparation package | Hours to days | Slower-moving prepared analysis. |
+| Sentiment report | Hours to a few days | News, macro, positioning. |
+
+## What to read next
+
+1. [Supporting context](../supporting-context/) — how the support layers fit together.
+2. [Sentiment reports](sentiment-reports/) — for shorter-lived external context.
+3. [Preparation packages](preparation-packages/) — for cached analysis.
+
+## Related
+
+- [Sessions](sessions/)
+- [Trading cycle: overview](../overview/)
+- [Glossary](../../glossary/)
