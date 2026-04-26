@@ -27,3 +27,5 @@ This file tracks every screenshot referenced by the docs. When the markdown plac
 | `workspace-and-monitoring__journal.png` | workspace-and-monitoring | Journal page with a closed-trade entry and AI-generated journal text | 1600×900 | Mask account |
 | `workspace-and-monitoring__now-trading-bar.png` | workspace-and-monitoring | Bottom NowTradingBar with active session metrics during a live cycle | 1200×400 | Mask account, broker |
 | `app-navigation-guide__sidebar.png` | app-navigation-guide | Cortiq desktop app sidebar (full + mini state side-by-side if possible) showing all top-level pages | 1200×900 | None |
+| `installation-and-activation__activation-dialog.png` | installation-and-activation | Cortiq's license-activation dialog with a placeholder key visible (CRTQ-XXXX-XXXX-XXXX-XXXX) | 1200×600 | Use a fake key only |
+| `installation-and-activation__msix-installer.png` | installation-and-activation | Windows MSIX installer mid-install showing Cortiq.msix | 1200×600 | None |
