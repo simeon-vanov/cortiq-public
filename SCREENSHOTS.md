@@ -33,3 +33,5 @@ This file tracks every screenshot referenced by the docs. When the markdown plac
 | `ai-providers__browser-mode.png` | ai-providers | Browser-mode flow: a Playwright-controlled provider window showing logged-in state | 1200×600 | Mask any real account email |
 | `playbooks-and-data__playbook-editor.png` | playbooks-and-data | Cortiq Playbooks page with one playbook open in the editor, all step types visible | 1600×900 | None |
 | `sessions-and-autoscan__create-form.png` | sessions-and-autoscan | Cortiq's session create dialog with Account, Symbol, Provider, Time Range, Risk fields visible | 1600×900 | Mask account number |
+| `risk-management__global-panel.png` | risk-management | Risk Management page with the Global tab selected, all six limits visible | 1600×900 | None |
+| `risk-management__account-panel.png` | risk-management | Risk Management page with the Per-Account tab selected, one account's limits visible | 1600×900 | Mask account number |
