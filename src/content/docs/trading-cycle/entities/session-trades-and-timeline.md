@@ -1,58 +1,71 @@
 ---
-title: Session Trades and Timeline
-description: How Cortiq records trade actions, decisions, and review history inside the trading cycle.
+title: Session trades & timeline
+description: The session trades and timeline entities — Cortiq's per-cycle execution record that turns AI decisions into reviewable, auditable history.
+sidebar:
+  order: 80
 ---
 
-This part of the trading cycle is where execution becomes reviewable.
+This is the entity reference for session trades and the session timeline. By the end you'll know what each output captures and how to use them in a review loop.
 
-## What This Group Covers
+## What this is
 
-For customers, the most important outputs are:
+This part of the trading cycle is where execution becomes reviewable. The most important outputs:
 
-- session trades
-- session timeline entries
-- cycle decisions and action history
-- run and review history
+- **Session trades** — every executed trade, live or virtual, with the context that led to it.
+- **Session timeline** — the readable history of what happened in each cycle.
+- **Cycle decisions and action history** — the AI's reasoning trail and the actions taken.
+- **Run and review history** — start-to-stop runs, useful for comparing executions.
 
-## What Session Trades Represent
+This is one of Cortiq's strongest features because it makes the AI workflow auditable. You don't only see the trade result — you see the path that led to it.
 
-Session trades record:
+## How it fits into Cortiq
 
-- the instrument and action taken
-- entry, stop, and target details
-- whether the trade was live or virtual
-- trade-management changes over time
-- the strategy or idea that led to the trade
-- screenshots, notes, and journal context when available
+The trades and timeline land in the local SQLite database and surface across the workspace:
 
-## What The Timeline Represents
+- `Library` → `Journal` shows the trade journal and session journal.
+- `Library` → `Conversations` shows the raw AI dialogue.
+- `Library` → `Dashboard` aggregates across sessions.
+- `Library` → `Session Cohorts` compares sessions side-by-side.
 
-The session timeline is the readable history of what happened in each cycle.
+For analysis and review, see [Journal & analytics](../../journal-and-analytics/).
 
-That can include:
+## How to use it
 
-- what the AI saw
-- what it concluded
-- whether it traded, held, or managed a position
-- what happened after the decision
+### What session trades record
 
-## Why It Matters
+- The instrument and action taken.
+- Entry, stop, and target details.
+- Whether the trade was live or virtual.
+- Trade-management changes over time.
+- The strategy or idea that led to the trade.
+- Screenshots, notes, and journal context where available.
 
-This is one of Cortiq's strongest product features because it makes the AI workflow more auditable.
+### What the timeline records
 
-Instead of only seeing a final trade result, the operator can review the path that led to it.
+- What the AI saw.
+- What it concluded.
+- Whether it traded, held, or managed a position.
+- What happened after the decision.
 
-## Best Use Cases
+## Reference
 
-Use the trade and timeline history to:
+### How to use the trade and timeline history
 
-- review whether playbooks are too loose or too strict
-- compare live and virtual behavior
-- identify drift in the AI decision process
-- improve future sessions based on actual evidence rather than memory
+| Use case | What to look for |
+| --- | --- |
+| Review whether playbooks are too loose or too strict | Patterns of low-conviction entries or repeatedly-passed setups. |
+| Compare live and virtual behavior | Differences in trade frequency, sizing, or post-entry management. |
+| Identify drift in the AI decision process | Reasoning that's noticeably different than past cycles for the same setup. |
+| Improve future sessions based on evidence | Specific cycles where the AI's reasoning was strongest or weakest. |
 
-## Related Pages
+## What to read next
 
-- [Journal and Analytics](../../journal-and-analytics/)
-- [Sessions](../entities/sessions/)
-- [Playbooks](../entities/playbooks/)
+1. [Journal & analytics](../../journal-and-analytics/) — the review surface that surfaces this data.
+2. [Workspace & monitoring](../../workspace-and-monitoring/) — the screens that render it.
+3. [Sessions](sessions/) — what generates the timeline.
+
+## Related
+
+- [Playbooks](playbooks/)
+- [Trading cycle: overview](../overview/)
+- [Glossary](../../glossary/)
