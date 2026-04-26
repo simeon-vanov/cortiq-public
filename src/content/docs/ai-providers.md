@@ -1,127 +1,113 @@
 ---
-title: AI Providers
-description: Supported AI providers, integration modes, and how provider choice affects operation.
+title: AI providers
+description: Cortiq's supported AI providers, the difference between browser and API integration modes, and how to pick the right one for your workflow.
+sidebar:
+  order: 20
 ---
 
-## Supported Providers
+This page explains which AI providers Cortiq supports, the two integration modes you can use to reach them, and how that choice affects daily operation. By the end you'll know which provider and mode to configure for your first session.
 
-Cortiq is designed to work with the main provider families used across the product, including OpenAI ChatGPT, Google Gemini, Anthropic Claude, and xAI Grok.
+## What this is
 
-The exact integration route exposed to the user depends on the provider and the current application surface. In the current desktop settings screen, the main distinction presented to the user is:
+Cortiq talks to four provider families: **ChatGPT** (OpenAI), **Grok** (xAI), **Gemini** (Google), and **Claude** (Anthropic). Each session stores a provider and an integration mode, and Cortiq routes the request through the matching pipeline.
 
-- direct API integration
-- local tool or CLI integration where supported
+Two integration modes exist:
 
-## Who This Is For
+- **Browser mode** — Cortiq automates a logged-in provider web window using Playwright. The session reuses the subscription you already pay for.
+- **API mode** — Cortiq talks to the provider's REST API through a structured adapter using your API key.
 
-This page is for users who want to:
+Browser mode trades cleaner billing (no per-token cost on top of your subscription) for tighter coupling to the provider's web UI. API mode gives you persisted conversations, fallback providers, and token tracking, but adds a per-call cost.
 
-- choose the right provider for their workflow
-- understand the difference between local-tool and API-based operation
-- decide whether traceability, convenience, or fallback behavior matters most
-- avoid choosing a provider setup that does not match their operating style
+## How it fits into Cortiq
 
-## Where To Find This In The App
+```mermaid
+flowchart LR
+  S[Session<br/>integration mode] --> R{router}
+  R -->|browser| BR[Playwright<br/>provider window]
+  R -->|API| AP[REST API<br/>adapter]
+  BR --> P[Provider:<br/>ChatGPT / Grok / Gemini]
+  AP --> P2[Provider:<br/>OpenAI / xAI /<br/>Anthropic / Google]
+```
 
-Provider setup lives mainly in:
+*Each session picks one of two integration modes per provider. Browser mode automates a logged-in window; API mode hits the provider's REST API directly.*
 
-- `Settings` -> `AI Providers`
+Provider setup lives in `Settings` → `AI Providers`. Per-session provider choice happens in the session create dialog under `Library` → `Sessions`.
 
-That screen is where you configure provider credentials, choose API or CLI/browser-style integration where supported, and set feature-level provider overrides.
+## How to use it
 
-Per-session provider choice then happens when you build or edit a session in:
+### Configure API keys
 
-- `Library` -> `Sessions`
+Open `Settings` → `AI Providers` and paste an API key for each provider you intend to use in API mode. Keys are stored in encrypted local storage on Windows; they never leave the machine.
 
-## How The Settings Screen Labels This
+![Cortiq Settings → AI Providers panel with API key fields filled](/images/screenshots/ai-providers__api-keys.png)
+<!-- SCREENSHOT-NEEDED: ai-providers__api-keys.png – Cortiq Settings → AI Providers panel with API key fields filled (placeholders) for OpenAI, xAI, Anthropic, Google. Use placeholder keys (sk-...REDACTED) only -->
 
-In the current customer UI, provider integration choices are surfaced as `API` and `CLI` where a provider supports both.
+You can configure both modes for the same provider — the choice is made per session, not globally.
 
-For customers, the important practical distinction is simple:
+### Sign in for browser mode
 
-- `API` means Cortiq is calling the provider directly through an API key and structured adapter.
-- `CLI` means Cortiq is using a local-tool route on the same machine instead of a direct API call.
+For each provider you want to use in browser mode, open the provider's window from `Settings` → `AI Providers` and complete a normal web login. Cortiq remembers the session, and Playwright reuses the logged-in window when sessions run.
 
-## Two Integration Modes
+![Browser-mode flow: Playwright-controlled provider window showing logged-in state](/images/screenshots/ai-providers__browser-mode.png)
+<!-- SCREENSHOT-NEEDED: ai-providers__browser-mode.png – Browser-mode flow: a Playwright-controlled provider window showing logged-in state. Mask any real account email -->
 
-### Local Tool Or CLI Route
+### Pick the mode per session
 
-The local-tool route uses a provider-compatible tool path on the same machine instead of direct API billing.
+When you create or edit a session, you choose the provider and the mode together. Cortiq routes the session to the matching pipeline — one session can use Claude in API mode while another uses ChatGPT in browser mode.
 
-This mode is useful when you want:
+### Set feature-level overrides (optional)
 
-- a provider workflow that does not depend on the same direct API setup as the API route
-- a local-machine integration path where the provider tool handles the interaction
-- flexibility when your preferred provider workflow is better suited to a local tool than to a straight API call
+The `Settings` → `AI Providers` screen has a `Feature AI Providers` section. Use it to assign a different provider and mode to a specific Cortiq feature — for example, journaling — without changing the session default. That's useful when one provider is better for your trading loop but another is better for a supporting workflow.
 
-### API Mode
+## Reference
 
-API mode uses direct provider APIs through Cortiq adapters.
+### Provider × mode matrix
 
-This mode is useful when you want:
+| Provider | Browser mode | API mode | Notes |
+| --- | --- | --- | --- |
+| ChatGPT (OpenAI) | yes | yes (API uses OpenAI key) | Both modes well-supported. |
+| Grok (xAI) | yes | yes (API uses xAI key) | Both modes well-supported. |
+| Gemini (Google) | yes | yes (API uses Google key) | Both modes well-supported. |
+| Claude (Anthropic) | check current build | yes (API uses Anthropic key) | API mode is the primary integration. |
 
-- Structured request and response handling
-- Persisted conversation history
-- Token usage tracking
-- Fallback provider behavior if the primary provider fails
-- Cleaner automation for serious operational usage
+### Picking a mode
 
-## How Cortiq Chooses The Route
-
-Each session stores both an AI provider and an integration type. Cortiq then routes the session to the matching local-tool or API pipeline automatically.
-
-That means one session can run with one provider and mode, while another session uses a different provider and mode entirely.
-
-## Feature-Level Provider Overrides
-
-The `Settings` -> `AI Providers` screen also includes `Feature AI Providers`.
-
-That area lets you assign a specific provider and integration type to a particular Cortiq feature instead of inheriting the session default.
-
-This is useful when:
-
-- one provider is better for your main trading loop but another is better for a supporting workflow
-- you want to keep the session default simple but tune one advanced feature separately
-- you need to isolate a weaker provider from the rest of the product surface
-
-## Security And Credentials
-
-Cortiq stores supported provider API keys in encrypted local storage on Windows.
-
-For local-tool routes, the main setup requirement is the local executable path and related configuration rather than an API key alone.
-
-## Practical Selection Guide
-
-| If You Need | Prefer |
+| If you need | Prefer |
 | --- | --- |
-| A local-machine route where direct API setup is not your first choice | Local tool or CLI route |
-| Better traceability and cleaner operational control | API mode |
-| Provider fallback during runtime | API mode |
-| Feature-level provider overrides | `Settings` -> `AI Providers` |
+| Reuse an existing provider subscription instead of paying per token | Browser mode |
+| Persisted, structured conversation history | API mode |
+| Fallback provider when the primary fails mid-session | API mode |
+| Token usage tracking | API mode |
+| Lowest setup friction (no API key needed) | Browser mode |
+| A different provider per Cortiq feature | `Settings` → `AI Providers` → `Feature AI Providers` |
 
-## Feature Implications
+### What provider choice affects beyond response text
 
-Your provider choice affects more than response text. It also affects:
+- Session traceability (API mode persists structured turns; browser mode is web-window scoped).
+- Operational cost structure (subscription vs per-call billing).
+- Failure handling (only API mode has automatic fallback).
+- Setup effort (browser mode needs a web login; API mode needs a key).
 
-- Session traceability
-- Conversation persistence
-- Operational cost structure
-- Failure handling options
-- Setup effort for first use
+## Common questions
 
-## Best Use Cases
+**Can I switch a session from browser to API mode after it's running?**
+No. The mode is part of the session config. Stop the session, change the mode in the session edit dialog, and start a new run.
 
-Choose this part of the platform carefully when you want:
+**What happens if my browser mode window logs out?**
+The session pauses on the next cycle and surfaces the auth failure in the session detail. Re-login from `Settings` → `AI Providers` and resume.
 
-- lower-friction experimentation with provider web apps
-- a cleaner API-driven operating model for serious runtime usage
-- different providers for different session types
-- resilience through fallback-provider design
+**Why doesn't Cortiq just pick the cheapest mode?**
+Because price isn't the only criterion. API mode adds traceability and fallback that some operators want at any cost; browser mode reuses an existing subscription that some operators already prefer. Cortiq presents both and lets you pick.
 
-## Related Pages
+## What to read next
 
-- [Getting Started](getting-started/)
-- [First 30 Minutes in Cortiq](first-30-minutes/)
-- [Playbooks & Data Packages](playbooks-and-data/)
-- [Sessions & AutoScan](sessions-and-autoscan/)
-- [Workspace and Monitoring](workspace-and-monitoring/)
+1. [Sessions & AutoScan](sessions-and-autoscan/) — where the provider choice is made per session.
+2. [Workspace & monitoring](workspace-and-monitoring/) — `Provider Health` is where you watch reliability over time.
+3. [MCP and agent integration](mcp-and-agent-integration/) — when an external agent drives the workflow instead of the internal loop.
+
+## Related
+
+- [Getting started](getting-started/)
+- [First 30 minutes in Cortiq](first-30-minutes/)
+- [Playbooks & data packages](playbooks-and-data/)
+- [Glossary](glossary/)

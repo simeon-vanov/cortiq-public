@@ -29,3 +29,5 @@ This file tracks every screenshot referenced by the docs. When the markdown plac
 | `app-navigation-guide__sidebar.png` | app-navigation-guide | Cortiq desktop app sidebar (full + mini state side-by-side if possible) showing all top-level pages | 1200×900 | None |
 | `installation-and-activation__activation-dialog.png` | installation-and-activation | Cortiq's license-activation dialog with a placeholder key visible (CRTQ-XXXX-XXXX-XXXX-XXXX) | 1200×600 | Use a fake key only |
 | `installation-and-activation__msix-installer.png` | installation-and-activation | Windows MSIX installer mid-install showing Cortiq.msix | 1200×600 | None |
+| `ai-providers__api-keys.png` | ai-providers | Cortiq Settings → AI Providers panel with API key fields filled (placeholders) for OpenAI, xAI, Anthropic, Google | 1600×900 | Use placeholder keys (sk-...REDACTED) only |
+| `ai-providers__browser-mode.png` | ai-providers | Browser-mode flow: a Playwright-controlled provider window showing logged-in state | 1200×600 | Mask any real account email |
