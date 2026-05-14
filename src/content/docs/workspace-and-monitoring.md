@@ -1,141 +1,153 @@
 ---
-title: Workspace and Monitoring
-description: What the main day-to-day Cortiq screens are for after setup is complete.
+title: Workspace & monitoring
+description: A tour of the day-to-day Cortiq screens — Home, Dashboard, Sessions, Trade Ideas, Journal, Conversations, and Provider Health — and the rhythm to use them in.
+sidebar:
+  order: 70
 ---
 
-## Why This Page Matters
+This page is a tour of the screens you'll spend most of your time in once Cortiq is set up. By the end you'll know which screen answers which question and the daily rhythm that ties them together.
 
-Once Cortiq is installed and configured, most users stop thinking in terms of entities and start thinking in terms of screens.
+## What this is
 
-This page explains the parts of the desktop workspace that help you operate, monitor, compare, and review what the platform is doing.
+After installation and the first session, you stop thinking in terms of *features* and start thinking in terms of *screens*. The workspace is the daily operating surface: where you start sessions, watch them run, review what happened, and decide what to change next.
 
-## Where To Find These Screens In The App
+Cortiq groups these screens under `Library` in the sidebar, with one diagnostic screen under `Tools`. Each one answers a specific operational question — *what's running right now?*, *did today go well?*, *why did the AI take that trade?*, *is the provider healthy?* — and the answer lives on exactly one screen.
 
-Most of this page maps to the `Library` section of the sidebar, plus one diagnostic screen in `Tools`:
+This page introduces each screen and recommends a daily rhythm. The deeper "why" of each entity (sessions, journals, trade ideas) lives on its own dedicated page.
 
-- `Library` -> `Home`
-- `Library` -> `Dashboard`
-- `Library` -> `Trade Ideas`
-- `Library` -> `Journal`
-- `Library` -> `Session Cohorts`
-- `Library` -> `Conversations`
-- `Tools` -> `Provider Health`
+## How it fits into Cortiq
 
-## Home
+| Screen | Question it answers | Lifecycle phase |
+| --- | --- | --- |
+| `Home` | What's running right now, and what should I do next? | Orientation |
+| `Dashboard` | Is the platform healthy across all my accounts? | Monitoring |
+| `Sessions` | What is each running session doing right now? | Active operation |
+| `Trade Ideas` | Which standalone theses are open and what's their status? | Active operation |
+| `Journal` | Why did this trade or session behave that way? | Review |
+| `Session Cohorts` | Which configuration is outperforming the others? | Review |
+| `Conversations` | What is the AI actually saying across sessions? | Review / debug |
+| `Provider Health` | Is the AI provider reliable today? | Diagnostics |
 
-`Home` is the daily landing screen.
+## How to use it
 
-It is useful for:
+### Home
 
-- seeing how many sessions are currently running
-- checking today’s P/L at a glance
-- jumping into quick actions such as creating a session or opening risk management
-- following a simple getting-started checklist when the app is still new to you
+`Home` is the daily landing screen. It shows the count of running sessions, today's P/L at a glance, quick actions to create a session or open risk management, and a getting-started checklist while the app is still new.
 
-This screen helps the user orient quickly before deciding which detailed page to open next.
+Use Home to orient before opening any detail screen.
 
-## Dashboard
+![Home screen with at least one running session and the first-run checklist still visible](/images/screenshots/workspace-and-monitoring__home.png)
+<!-- SCREENSHOT-NEEDED: workspace-and-monitoring__home.png – Home screen with at least one running session and the first-run checklist still visible. Mask balances -->
 
-`Dashboard` is the broader operating view.
+### Dashboard
 
-It is useful for:
+`Dashboard` is the broader operating view across every account Cortiq is connected to. It shows cross-account P/L, recent trades, and global risk status.
 
-- monitoring trading performance across the environment
-- seeing global risk information across all connected accounts
-- checking recent trades without opening each session separately
-- understanding whether the platform is behaving well at the account level, not just at the individual-session level
+Open Dashboard when you want the business-level view of the platform — not "what is this session doing", but "is the whole environment behaving".
 
-Use this when you need the business view of the system rather than the single-session view.
+![Dashboard with cross-account P/L chart, recent trades, and risk widgets](/images/screenshots/workspace-and-monitoring__dashboard.png)
+<!-- SCREENSHOT-NEEDED: workspace-and-monitoring__dashboard.png – Dashboard with cross-account P/L chart, recent trades list, and risk widgets visible. Mask balances and account numbers -->
 
-## Trade Ideas
+### Sessions
 
-`Trade Ideas` is where you capture standalone research and active theses that should be tracked outside the reusable playbook library.
+`Sessions` is where you control runtime state. The list view shows every session with its current state (`Running`, `Paused`, `RiskPaused`, `Stopped`, `Completed`); the detail view drills into one session's live execution feed and AI conversation.
 
-It is useful for:
+You start, pause, resume, and stop sessions from here. You also use this screen to follow a single session through its cycle when something looks off.
 
-- recording one-off opportunities you do not want to turn into permanent strategy logic
-- filtering ideas by status such as active, executed, closed, invalidated, expired, or unassigned
-- reviewing the thesis, metadata, status message, and eventual outcome of an idea
-- selecting active ideas and creating a session from them
+![Sessions list page with a mix of Running, Paused, and Stopped sessions](/images/screenshots/workspace-and-monitoring__sessions-list.png)
+<!-- SCREENSHOT-NEEDED: workspace-and-monitoring__sessions-list.png – Sessions page with a mix of Running, Paused, and Stopped sessions -->
 
-This is the right screen when you want Cortiq to follow a specific idea without pretending it is part of your core strategy framework.
+![Session detail page with live execution view and AI conversation panel open](/images/screenshots/workspace-and-monitoring__session-detail.png)
+<!-- SCREENSHOT-NEEDED: workspace-and-monitoring__session-detail.png – Session detail page with live execution view and AI conversation panel open. Mask account, broker name -->
 
-## Journal
+### Trade Ideas
 
-`Journal` is the main review surface.
+`Trade Ideas` is for standalone theses that don't belong in the reusable playbook library. Use it when you want Cortiq to follow a specific opportunity without pretending it's part of your core strategy framework.
 
-It covers both:
+You can filter ideas by status (active, executed, closed, invalidated, expired, unassigned) and create a session directly from an active idea.
 
-- `AI Journal` for session-level review
-- `Trade Journal` for trade-specific deep dives
+![Trade Ideas page with several ideas at different statuses](/images/screenshots/workspace-and-monitoring__trade-ideas.png)
+<!-- SCREENSHOT-NEEDED: workspace-and-monitoring__trade-ideas.png – Trade Ideas page with 3+ ideas at different statuses -->
 
-Use it when you want to understand why a session or trade behaved the way it did, not just whether it won or lost.
+### Journal
 
-## Session Cohorts
+`Journal` is the main review surface. It splits into two views:
 
-`Session Cohorts` lets you compare sessions side by side.
+- `AI Journal` — session-level review, including the AI-generated narrative for each cycle.
+- `Trade Journal` — per-trade deep dive, with the conversation that produced the entry attached.
 
-It is useful for:
+Use Journal when you need to understand *why* a session or trade behaved the way it did, not just whether it won or lost.
 
-- grouping sessions into a meaningful comparison set
-- comparing metrics across multiple related sessions in one view
-- spotting whether one configuration, market, or workflow style is outperforming another
-- making review decisions based on relative performance instead of isolated anecdotes
+![Journal page with a closed-trade entry and AI-generated journal text](/images/screenshots/workspace-and-monitoring__journal.png)
+<!-- SCREENSHOT-NEEDED: workspace-and-monitoring__journal.png – Journal page with a closed-trade entry and AI-generated journal text. Mask account -->
 
-This becomes especially valuable when you have more than one serious session running and need to decide what deserves more capital or more refinement.
+### Session Cohorts
 
-## Conversations
+`Session Cohorts` groups sessions into a comparison set. It's the right screen when more than one serious session is running and you need to decide what deserves more capital or more refinement — relative performance, not isolated anecdotes.
 
-`Conversations` is the raw cross-session conversation view.
+There's no dedicated screenshot for this page in the current pass; the comparison view evolves quickly and is documented under [Journal & analytics](journal-and-analytics/).
 
-It is useful for:
+### Conversations
 
-- following AI conversations across multiple sessions in parallel
-- comparing how different sessions are reasoning at the same time
-- showing or hiding system messages when deeper debugging is needed
-- reviewing conversation states, message counts, and provider behavior in a more direct form than the rendered journal summary
+`Conversations` is the raw cross-session AI dialogue view. Use it to follow what the model is saying across multiple sessions in parallel, compare reasoning between sessions, and inspect the prompt and response directly instead of the summarized journal text.
 
-Use this when you want to inspect the model’s actual dialogue and prompts rather than only the summarized output.
+System messages can be hidden or shown — keep them hidden for daily review, show them when something looks wrong.
 
-## Provider Health
+![Conversations panel showing one full prompt+response cycle](/images/screenshots/workspace-and-monitoring__conversations.png)
+<!-- SCREENSHOT-NEEDED: workspace-and-monitoring__conversations.png – Conversations panel showing one full prompt+response cycle -->
 
-`Provider Health` is the AI-provider diagnostics screen.
+### Provider Health
 
-It is useful for:
+`Provider Health` is the AI-provider diagnostics screen under `Tools`. It shows request volume, success rate, average and p95 response time, retry counts, and recent errors per provider.
 
-- checking request volume in a chosen time period
-- monitoring success rate, average response time, p95 response time, and retries
-- comparing reliability and speed across providers
-- reviewing recent provider errors when the workflow feels unstable or delayed
+Open this screen to answer one specific question: *is the strategy underperforming, or is the provider route unhealthy?*
 
-This screen helps answer an important operational question: is the strategy underperforming, or is the provider route unhealthy?
+![Provider Health view with success rate, response times, recent errors per provider](/images/screenshots/workspace-and-monitoring__provider-health.png)
+<!-- SCREENSHOT-NEEDED: workspace-and-monitoring__provider-health.png – Provider Health view with success rate, response times, recent errors per provider -->
 
-## Related Settings Features
+### NowTradingBar
 
-Some operational features live in `Settings` rather than `Library`, but they still matter for the daily workspace:
+The NowTradingBar runs along the bottom of the app whenever a session is active. It shows the live cycle's session name, symbol, current phase, and most recent decision — without leaving whatever screen you're on.
 
-- `Settings` -> `AI Providers` includes feature-level provider overrides
-- `Settings` -> `Notifications` controls delivery channels such as Telegram and X
-- `Settings` -> `Reports` schedules automated performance reports
+![NowTradingBar with active session metrics during a live cycle](/images/screenshots/workspace-and-monitoring__now-trading-bar.png)
+<!-- SCREENSHOT-NEEDED: workspace-and-monitoring__now-trading-bar.png – Bottom NowTradingBar with active session metrics during a live cycle. Mask account, broker -->
 
-Those settings influence what you later see and review inside the main workspace screens.
+## Reference
 
-## A Good Daily Flow
+Operational features that live in `Settings` but shape what you see in the workspace:
 
-Many users operate Cortiq in a rhythm like this:
+| Path | What it controls |
+| --- | --- |
+| `Settings` → `AI Providers` | Per-feature provider overrides used during sessions. |
+| `Settings` → `Notifications` | Delivery channels: Windows Toast, X, Telegram. |
+| `Settings` → `Reports` | Scheduled performance reports sent to your channels. |
 
-1. Open `Home` to orient quickly.
-2. Use `Dashboard` to inspect the broader environment.
-3. Open `Sessions` for active runtime control.
-4. Use `Journal`, `Session Cohorts`, and `Conversations` to review what happened.
-5. Check `Provider Health` when AI responsiveness or reliability looks suspicious.
+## Common questions
 
-That is the difference between having features and having an operable platform.
+**A daily flow that works:**
 
-## Related Pages
+1. Open `Home` to orient.
+2. Open `Dashboard` to inspect the broader environment.
+3. Open `Sessions` to control active runs.
+4. Use `Journal`, `Session Cohorts`, and `Conversations` to review.
+5. Check `Provider Health` when AI responsiveness or reliability looks off.
 
-- [App Navigation Guide](app-navigation-guide/)
-- [Sessions & AutoScan](sessions-and-autoscan/)
-- [Execution Modes & Notifications](execution-modes-and-notifications/)
-- [Journal & Analytics](journal-and-analytics/)
-- [AI Providers](ai-providers/)
+**Where do I start a session?**
+From `Sessions` (the list view) or from an active idea on `Trade Ideas`. Both routes open the same session-create dialog.
+
+**Why is one session showing `RiskPaused`?**
+A risk validator triggered. Open the session detail and check the risk panel — it shows the breach condition. The session resumes automatically when the breach clears.
+
+## What to read next
+
+1. [App navigation guide](app-navigation-guide/) — maps these screens to the actual sidebar entries in the desktop app.
+2. [Sessions & AutoScan](sessions-and-autoscan/) — what's behind the Sessions screen.
+3. [Journal & analytics](journal-and-analytics/) — what's behind the Journal and Cohorts screens.
+4. [AI providers](ai-providers/) — what's behind Provider Health.
+
+## Related
+
+- [Execution modes & notifications](execution-modes-and-notifications/)
+- [Risk management](risk-management/)
+- [Trading cycle: overview](trading-cycle/overview/)
+- [Glossary](glossary/)

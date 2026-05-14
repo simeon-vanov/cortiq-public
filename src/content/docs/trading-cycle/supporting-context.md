@@ -1,100 +1,116 @@
 ---
-title: Supporting Context
-description: What additional information can be attached to a session to support better AI decisions.
+title: Supporting context
+description: The four reusable context layers Cortiq can attach to a session — preparation packages, instrument profiles, sentiment reports, and session instructions — and where each one belongs.
+sidebar:
+  order: 30
 ---
 
-Supporting context is the extra information Cortiq can give the AI on top of the current market payload.
+This page explains the support layers Cortiq can attach to a session beyond the raw market payload. By the end you'll know which type of information belongs in which layer and how to avoid the most common over-stuffing mistakes.
 
-This is where many users can improve decision quality without simply adding more candles or more indicators.
+## What this is
 
-## The Main Idea
-
-Not all useful trading information changes at the same speed.
+Supporting context is the extra information Cortiq gives the AI on top of the current market payload. It exists because not all useful trading information changes at the same speed:
 
 - Raw candles and prices change every cycle.
 - Strategy rules change only when you edit them.
-- Instrument behavior may change slowly over weeks.
-- News and macro sentiment may matter for a few hours or days.
-- Pre-session analysis may stay useful until a major move or refresh trigger happens.
+- Instrument behavior may shift slowly over weeks.
+- News and macro sentiment matter for a few hours or days.
+- Pre-session analysis stays useful until a major move resets it.
 
-Cortiq separates those layers so you can decide what should be fresh, what should be stable, and what should only be attached when it truly helps.
+Cortiq separates those layers so you can decide what should be fresh, what should be stable, and what should only be attached when it genuinely helps.
 
-## Types Of Supporting Information
+## How it fits into Cortiq
 
-### Session Instructions
+| Information type | Best home | Reusable across sessions? |
+| --- | --- | --- |
+| Live factual market payload | Data package | No — generated fresh per cycle. |
+| Reusable setup logic | Playbook | Yes. |
+| One active thesis | Trade idea | No — single-purpose. |
+| Slower-moving prepared analysis | Preparation package | Yes. |
+| Long-lived instrument behavior | Instrument profile | Yes. |
+| Macro and headline context | Sentiment report | Yes, until stale. |
+| Operator notes or exceptions | Session instructions | Yes. |
 
-Use session instructions for operator guidance such as:
+## How to use it
 
-- symbols to avoid around certain events
-- special broker behavior to keep in mind
-- desk-specific execution cautions
-- strategy scope reminders that do not belong inside a playbook
+### Session instructions
 
-### Preparation Packages
+Use session instructions for operator guidance the AI should respect during this run:
 
-Use a preparation package when you want the AI to begin the cycle with already prepared analysis rather than rediscovering it each time.
+- Symbols to avoid around specific events.
+- Special broker behavior to keep in mind.
+- Desk-specific execution cautions.
+- Scope reminders that don't belong inside a playbook.
 
-Good examples:
+### Preparation packages
 
-- higher-timeframe structure
-- regime classification
-- directional skew from slower charts
-- key levels prepared before active execution starts
+Use a preparation package when you want the AI to start the cycle with already-prepared analysis rather than rediscovering it. Common content:
 
-### Instrument Profiles
+- Higher-timeframe structure.
+- Regime classification.
+- Directional skew from slower charts.
+- Key levels prepared before the session opens.
 
-Use an instrument profile for long-lived context about how an instrument tends to behave.
+A daily preparation package refreshed before market open is a high-leverage layer for swing-style sessions.
 
-Good examples:
+### Instrument profiles
 
-- range character and volatility behavior
-- session tendencies such as London or New York behavior
-- recurring structural habits of the instrument
-- notes that help interpret today's chart in light of longer-term behavior
+Use an instrument profile for long-lived context about how an instrument behaves:
 
-### Sentiment Reports
+- Range character and volatility behavior.
+- Session tendencies (London open, NY overlap, etc.).
+- Recurring structural habits of the instrument.
+- Notes that help interpret today's chart against the symbol's longer-term character.
 
-Use a sentiment report for external context that is not visible in the chart alone.
+Instrument profiles age slowly. Update them every few weeks at most.
 
-Good examples:
+### Sentiment reports
 
-- recent headlines
-- institutional bias and forecast direction
-- known event risk ahead
-- positioning or macro pressure
+Use a sentiment report for context that isn't visible in the chart alone:
 
-### Trade Ideas
+- Recent headlines that matter for this market.
+- Institutional bias and forecast direction.
+- Known event risk ahead.
+- Positioning or macro pressure.
 
-Use trade ideas when you want Cortiq to track a specific thesis separately from the reusable playbooks.
+Sentiment reports age fast. Detach or replace them when the underlying narrative changes.
 
-Good examples:
+### Trade ideas
 
-- a specific breakout level you are waiting on
-- a pullback setup tied to a current structure
-- an idea that should expire if conditions do not develop in time
+Use a trade idea for a specific thesis you want Cortiq to track separately from the reusable playbooks:
 
-## What Belongs Where
+- A specific breakout level you're waiting on.
+- A pullback setup tied to current structure.
+- An idea that should expire if conditions don't develop in time.
 
-| Information Type | Best Home |
+Trade ideas are inherently single-use. Don't promote them into the playbook library.
+
+## Reference
+
+### Common mistakes to avoid
+
+| Mistake | Why it hurts |
 | --- | --- |
-| Live factual market payload | Data package |
-| Reusable setup logic | Playbook |
-| One active thesis | Trade idea |
-| Slower-moving prepared analysis | Preparation package |
-| Long-lived instrument behavior | Instrument profile |
-| Macro and headline context | Sentiment report |
-| Operator notes or exceptions | Session instructions |
+| One-off trade ideas in a reusable playbook | Pollutes the playbook with logic that won't apply tomorrow. |
+| Short-term directional calls in the instrument profile | Profile is meant for long-lived behavior; calls go stale. |
+| Old sentiment report still attached | The AI reasons against an outdated narrative. |
+| Multiple support layers added without clear roles | Noise grows; signal doesn't. |
+| Treating "more information" as "better information" | Bigger prompts ≠ better decisions. |
 
-## Common Mistakes To Avoid
+### Best practice
 
-- putting one-off trade ideas into a reusable playbook
-- storing short-term directional calls inside the instrument profile
-- leaving an old sentiment report attached after its relevance is gone
-- adding too many support layers without a clear role for each one
-- confusing more information with better information
+The best support stack is usually the cleanest one, not the biggest. Add a layer only when it improves judgment in a way the data package and playbooks don't already cover.
 
-## Best Practice
+## What to read next
 
-The best support stack is usually not the biggest one. It is the cleanest one.
+1. [Preparation packages](entities/preparation-packages/) — the entity reference for prep packages.
+2. [Instrument profiles](entities/instrument-profiles/) — the entity reference for profiles.
+3. [Sentiment reports](entities/sentiment-reports/) — the entity reference for sentiment.
+4. [Trade ideas](entities/trade-ideas/) — the entity reference for ideas.
 
-Add a support layer only when it improves judgment in a way the existing data package and playbooks do not already cover.
+## Related
+
+- [Trading cycle: overview](overview/)
+- [Session architecture](session-architecture/)
+- [Playbooks & data packages](../playbooks-and-data/)
+- [Glossary](../glossary/)

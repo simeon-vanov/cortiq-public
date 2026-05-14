@@ -1,10 +1,12 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import mermaid from 'astro-mermaid';
 
 export default defineConfig({
   site: 'https://simeon-vanov.github.io',
   base: '/cortiq-public',
   integrations: [
+    mermaid({ theme: 'dark' }),
     starlight({
       title: 'Cortiq Docs',
       description: 'Official product documentation for Cortiq.',
@@ -32,6 +34,7 @@ export default defineConfig({
             'getting-started',
             'installation-and-activation',
             'first-30-minutes',
+            'glossary',
           ],
         },
         {
@@ -39,13 +42,18 @@ export default defineConfig({
           items: [
             'mt5-integration',
             'ai-providers',
-            'mcp-and-agent-integration',
             'playbooks-and-data',
             'sessions-and-autoscan',
             'risk-management',
             'execution-modes-and-notifications',
             'workspace-and-monitoring',
             'journal-and-analytics',
+          ],
+        },
+        {
+          label: 'MCP & Agent',
+          items: [
+            'mcp-and-agent-integration',
           ],
         },
         {

@@ -1,120 +1,127 @@
 ---
-title: Sessions and AutoScan
-description: How Cortiq sessions work and how symbol selection can be automated.
+title: Sessions & AutoScan
+description: Sessions are Cortiq's operating container — what they configure, the states they move through, and when to use AutoScan instead of a fixed symbol.
+sidebar:
+  order: 40
 ---
 
-## What A Session Is
+This page explains the Cortiq session — the operating container that turns a configuration into something you can run, pause, review, and improve. By the end you'll know which states a session moves through, when to use AutoScan, and which session type fits your workflow.
 
-A session is the operational container that tells Cortiq how to trade.
+## What this is
 
-It combines:
+A session bundles everything Cortiq needs to trade: an MT5 account, an AI provider and integration mode, one or more playbooks, a data package, a symbol selection method, a time window, and the risk and execution settings.
 
-- An MT5 account
-- An AI provider
-- An integration mode
-- One or more playbooks
-- A data package
-- A symbol selection method
-- A time window and active days
-- Risk and execution settings
+In practical terms, the session is the unit you operate. You start it, watch it cycle, pause or stop it, review the journal, and decide what to change. The same operating loop runs whether you're trading one symbol or twenty.
 
-In practice, a session is the unit you start, stop, review, and improve.
+Cortiq supports two session types — autonomous (the default) and external MCP (advanced). Most users only need autonomous.
 
-## Where To Find This In The App
+## How it fits into Cortiq
 
-The runtime screens tied to this page are:
+| Session type | Who controls the trading loop | When to use |
+| --- | --- | --- |
+| Autonomous | Cortiq's internal workflow engine | Default for most users; built-in automated operating loop. |
+| External MCP | An external MCP-compatible AI client | Advanced; the agent drives data gathering, decisions, and execution. |
 
-- `Library` -> `Sessions` for creating, starting, pausing, and reviewing sessions
-- `Tools` -> `Symbol Scanner` for scan-first symbol discovery workflows
+External MCP sessions skip the internal workflow engine — see [MCP and agent integration](mcp-and-agent-integration/).
 
-If you are trying to launch an actual trading workflow, `Library` -> `Sessions` is the main screen to learn first.
+```mermaid
+stateDiagram-v2
+  [*] --> Created
+  Created --> Running: Start
+  Running --> Paused: Manual pause
+  Running --> RiskPaused: Risk breach
+  Running --> Stopped: Manual stop
+  Running --> Completed: End of window
+  Paused --> Running: Manual resume
+  RiskPaused --> Running: Auto-resume<br/>(conditions clear)
+  RiskPaused --> Stopped: Manual stop
+  Stopped --> [*]
+  Completed --> [*]
+```
 
-## Session Types
+*A session moves between five states. Only `RiskPaused` resumes automatically when the breach condition clears; manual `Paused` requires user action.*
 
-| Session Type | Purpose |
+## How to use it
+
+### Create a session
+
+Open `Library` → `Sessions` and create a new session. The dialog asks for an account, symbols, provider, time range, and risk settings.
+
+![Cortiq's session create dialog with Account, Symbol, Provider, Time Range, Risk fields visible](/images/screenshots/sessions-and-autoscan__create-form.png)
+<!-- SCREENSHOT-NEEDED: sessions-and-autoscan__create-form.png – Cortiq's session create dialog with Account, Symbol, Provider, Time Range, Risk fields visible. Mask account number -->
+
+Defaults that work well for a first run: fixed symbol, virtual mode, conservative risk limits. You can change any of them after the first cycle has run.
+
+### Choose between fixed-symbol mode and AutoScan
+
+Two symbol-selection modes:
+
+- **Fixed-symbol** — the session always trades the same instrument. Use this when you want clean specialization around one market.
+- **AutoScan** — the AI reviews a candidate list each cycle and picks the strongest current opportunity. Use this when you trade a watchlist and want the system to choose where conditions are best.
+
+AutoScan re-evaluates between cycles or after a trade closes, so a single session can drift through several symbols across a day. Fixed-symbol mode is the right starting point; switch to AutoScan when the playbook is stable enough to apply across instruments.
+
+### Run, pause, and review
+
+From the Sessions list you can start, pause, resume, and stop sessions. The session detail page shows the current cycle's progress, the AI conversation, and the decision history.
+
+When a risk validator triggers a breach, the session transitions to `RiskPaused`. It auto-resumes once the breach condition clears (for example, the next day starts and the daily P/L counter resets).
+
+When you reach the end of a configured time window, the session transitions to `Completed`.
+
+## Reference
+
+### What a session configures
+
+| Area | Examples |
 | --- | --- |
-| Autonomous | Cortiq runs the internal AI trading loop directly |
-| External MCP | An external AI agent controls the session through the MCP layer |
+| Market scope | Fixed symbol, wildcard list, or AutoScan candidate set. |
+| Time control | Trading hours, active weekdays, close-before-end rules. |
+| Provider control | Provider choice, browser or API mode, fallback provider. |
+| Strategy control | Playbook set, playbook priority, session instructions. |
+| Execution control | Live or virtual mode, copy-trading targets, parallel-trade limits. |
 
-For most public users, Autonomous sessions are the main operating model.
+### Per-cycle loop
 
-External MCP sessions are the advanced operating model. They do not run the internal autonomous workflow engine. The external agent is responsible for deciding when to gather data, when to evaluate trades, and when to execute or manage positions.
+Each cycle follows the same pattern:
 
-## Session Lifecycle
+`Data gather → Prompt build → AI call → Response parse → Decision → Risk validate → Execute → Log`
 
-Sessions move through distinct operating states such as idle, running, paused, risk-paused, time-paused, stopped, completed, or failed.
+The same shape runs in every state except `Paused`, `RiskPaused`, `Stopped`, and `Completed`. For the full architectural breakdown, read [Trading cycle: overview](trading-cycle/overview/).
 
-The important operator distinction is this:
+### State distinctions worth memorizing
 
-- A manually paused session stays paused until you resume it.
-- A risk-paused or time-paused session can resume automatically when conditions allow.
+| State | Resumes automatically? | Notes |
+| --- | --- | --- |
+| `Created` | n/a — start manually | Initial state after creation. |
+| `Running` | n/a | Normal operating state. |
+| `Paused` | No — manual resume | Operator-initiated pause. |
+| `RiskPaused` | Yes — when breach clears | Triggered by a risk validator. |
+| `Stopped` | No | Terminal for the run. |
+| `Completed` | No | Terminal at end of time window. |
 
-## The Trading Cycle
+## Common questions
 
-At a high level, each session cycle follows this pattern:
+**My session is `RiskPaused` — how do I unpause it?**
+Don't, usually. RiskPaused exists so the platform protects the workflow when a risk limit is hit. The session resumes automatically when the breach condition clears. If you want to override that, stop the session manually instead.
 
-`Data Gather -> Prompt Build -> AI Call -> Response Parse -> Decision Execute -> Log`
+**Can I run two autonomous sessions on the same MT5 account?**
+Yes, but coordinate symbols and risk so they don't compete. Risk validators apply per account regardless of how many sessions are open.
 
-That is the core loop that keeps the strategy process consistent rather than improvisational.
+**How is AutoScan different from creating multiple fixed-symbol sessions?**
+AutoScan picks one symbol per cycle dynamically. Multiple fixed-symbol sessions trade in parallel. AutoScan reduces over-trading; parallel sessions cover more markets simultaneously.
 
-If you want the detailed breakdown of what the session contributes to that loop, read [Trading Cycle Overview](trading-cycle/overview/) and [Session Architecture](trading-cycle/session-architecture/).
+## What to read next
 
-## AutoScan
+1. [Playbooks & data packages](playbooks-and-data/) — what the session executes.
+2. [Risk management](risk-management/) — what triggers `RiskPaused` and how to configure it.
+3. [Execution modes & notifications](execution-modes-and-notifications/) — virtual vs live, copy-trading, alerts.
+4. [Trading cycle: session architecture](trading-cycle/session-architecture/) — the architecture behind the session loop.
 
-AutoScan is the symbol selection mode where Cortiq lets the AI review multiple candidate instruments and pick the strongest current opportunity.
+## Related
 
-This is useful when:
-
-- You trade a watchlist rather than one fixed instrument
-- You want the AI to decide where conditions are strongest
-- You want rescan behavior after time passes or after a trade closes
-
-## What Users Can Configure Per Session
-
-| Setting Area | Examples |
-| --- | --- |
-| Market scope | Fixed symbols, wildcard behavior, or AutoScan candidate lists |
-| Time control | Trading hours, active weekdays, close-before-end rules |
-| Provider control | Provider choice, browser or API mode, fallback provider |
-| Strategy control | Playbook set, playbook priority, instructions |
-| Execution control | Live or virtual behavior, copy trading targets, parallel trade page limits |
-
-## What Sessions Can Do For You
-
-Sessions are useful because they let you turn a configuration into an operating system.
-
-With sessions, you can:
-
-- run one repeatable setup without rebuilding it every day
-- keep different strategies separated from each other
-- operate different symbols, accounts, and provider combinations cleanly
-- pause or resume a workflow without losing the whole structure
-- compare one session design against another over time
-
-## Why Sessions Matter Commercially
-
-Sessions are one of the strongest product concepts in Cortiq because they make the product operable.
-
-Instead of reassembling the whole stack every day, the user creates a session template once and then runs, reviews, and iterates on it.
-
-## If You Want An External Agent To Control Cortiq
-
-Use an `External MCP` session when you want an MCP-compatible client to drive Cortiq through tool calls.
-
-That mode is best when you want:
-
-- A desktop AI client such as Claude Desktop to control the session directly
-- Manual control over when the agent gathers data and executes
-- A separation between Cortiq's execution and the external agent's reasoning loop
-
-Read [MCP and Agent Integration](mcp-and-agent-integration/) for the full setup and operating flow.
-
-## Related Pages
-
-- [Playbooks & Data Packages](playbooks-and-data/)
-- [Trading Cycle Overview](trading-cycle/overview/)
 - [Sessions](trading-cycle/entities/sessions/)
-- [Capability Reference](capability-reference/)
-- [MCP and Agent Integration](mcp-and-agent-integration/)
-- [Risk Management](risk-management/)
-- [Execution Modes & Notifications](execution-modes-and-notifications/)
+- [MCP and agent integration](mcp-and-agent-integration/)
+- [Workspace & monitoring](workspace-and-monitoring/)
+- [Capability reference](capability-reference/)
+- [Glossary](glossary/)

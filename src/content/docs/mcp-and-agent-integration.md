@@ -1,72 +1,73 @@
 ---
-title: MCP and Agent Integration
-description: How to connect an MCP-compatible AI client to Cortiq and operate External MCP sessions.
+title: MCP and agent integration
+description: How to connect an MCP-compatible AI client to Cortiq, configure External MCP sessions, and drive the trading loop from an external agent.
+sidebar:
+  order: 20
+  badge: Advanced
 ---
 
-## What This Feature Is
+This page covers Cortiq's MCP server — the integration layer that lets an external AI client (like Claude Desktop) drive Cortiq's session, market-data, and execution tools directly. By the end you'll know when to use it, how to wire it up, and what tools are available.
 
-The Cortiq MCP server is the advanced integration layer that exposes Cortiq tools to an MCP-compatible AI client.
+:::caution
+External MCP sessions skip Cortiq's internal autonomous workflow engine. The external agent is the only thing driving analysis, decisions, and trades. Risk validators still run, but the entire orchestration responsibility lives in the agent's prompt — not in a Cortiq playbook loop.
+:::
 
-In practical terms, it lets an external agent use Cortiq as an execution and market-data system instead of relying only on Cortiq's internal autonomous trading loop.
+:::note
+A deeper version of this page is coming in the next docs release with full tool reference, recipe gallery, and troubleshooting. The content below is the current operational guide; expand it once Spec 2 lands.
+:::
 
-This is the mode to use when you want an agent such as Claude Desktop to:
+## What this is
 
-- Inspect sessions, accounts, trades, and risk settings
-- Gather fresh market data on demand
-- Create and control `External MCP` sessions
-- Execute and manage trades through Cortiq's MT5 integration
+The Cortiq MCP server exposes Cortiq's tools to an MCP-compatible AI client. In practical terms, it lets an external agent use Cortiq as an execution and market-data system instead of relying only on Cortiq's internal autonomous trading loop.
 
-## Who This Is For
+Use this mode when you want an agent such as Claude Desktop to:
 
-This is an advanced-user workflow.
+- Inspect sessions, accounts, trades, and risk settings.
+- Gather fresh market data on demand.
+- Create and control `External MCP` sessions.
+- Execute and manage trades through Cortiq's MT5 integration.
 
-It is a good fit when you want:
+This is an advanced workflow. If you want the simpler product path, use [autonomous sessions](sessions-and-autoscan/) instead.
 
-- An MCP-compatible desktop AI client to drive the trading workflow
-- Fine-grained control over when analysis happens and when trading happens
-- A local tool layer that gives the agent structured access to Cortiq data and execution
+## How it fits into Cortiq
 
-If you want the simpler product path, use normal autonomous sessions instead.
-
-## Best Use Cases
-
-This mode is best when you want:
-
-- an external AI client to drive the workflow directly
-- explicit control over when analysis happens and when trading is allowed
-- tool-based inspection of accounts, sessions, and risk before execution
-- a local agent workflow that treats Cortiq as the execution and data layer
-
-## How It Fits Into Cortiq
-
-| Mode | Who Controls The Trading Loop | Best For |
+| Mode | Who controls the trading loop | Best for |
 | --- | --- | --- |
-| Autonomous session | Cortiq's internal workflow engine | Most users who want a built-in automated operating loop |
-| External MCP session | An external MCP-compatible AI client | Advanced users who want agent-driven control through tool calls |
+| Autonomous session | Cortiq's internal workflow engine | Most users who want a built-in automated operating loop. |
+| External MCP session | An external MCP-compatible AI client | Advanced users who want agent-driven control through tool calls. |
 
 The critical difference is that `External MCP` sessions do not run the internal autonomous workflow engine. The external agent must decide what to do next and call the appropriate tools.
 
-## Important Requirements
+## Who this is for
 
-Before using an agent with the Cortiq MCP server, make sure the following are true:
+Use MCP integration when you want:
 
-- Cortiq is installed on the local machine
-- The Cortiq desktop app has created or can access its local database
-- MetaTrader 5 is installed and configured if you intend to trade live
-- At least one MT5 account is configured in Cortiq
-- A data package exists for any session that needs market data gathering
-- Risk settings are configured in Cortiq before live execution
-- The MAUI desktop app is running when you expect live trading actions to execute through the normal application environment
+- An MCP-compatible desktop AI client to drive the trading workflow.
+- Fine-grained control over when analysis happens and when trading happens.
+- A local tool layer that gives the agent structured access to Cortiq data and execution.
+- Tool-based inspection of accounts, sessions, and risk before execution.
 
-## How The MCP Server Connects
+## How to use it
 
-The MCP server uses `stdio` transport. Your AI client starts the server as a local process and then calls tools over that connection.
+### Prerequisites
 
-The server shares the same SQLite database as the Cortiq desktop application, so this is a local-machine integration model rather than a cloud API model.
+Before connecting an agent to the Cortiq MCP server, confirm:
 
-## Example Client Setup
+- Cortiq is installed on the local machine.
+- The Cortiq desktop app has created or can access its local database.
+- MetaTrader 5 is installed and configured if you intend to trade live.
+- At least one MT5 account is configured in Cortiq.
+- A data package exists for any session that needs market-data gathering.
+- Risk settings are configured in Cortiq before live execution.
+- The MAUI desktop app is running when you expect live trading actions to execute through the normal application environment.
 
-One common example is Claude Desktop.
+### How the MCP server connects
+
+The MCP server uses `stdio` transport. Your AI client starts the server as a local process and calls tools over that connection.
+
+The server shares the same SQLite database as the Cortiq desktop application — this is a local-machine integration model, not a cloud API.
+
+### Example client setup — Claude Desktop
 
 On Windows, the Claude Desktop config file is usually:
 
@@ -118,9 +119,7 @@ If automatic database discovery fails, set `CORTIQ_DB_PATH` explicitly:
 }
 ```
 
-## The Core Agent Workflow
-
-The most useful mental model is this:
+### Core agent workflow
 
 1. The external agent connects to the Cortiq MCP server.
 2. The agent discovers available accounts, sessions, and data packages.
@@ -130,89 +129,79 @@ The most useful mental model is this:
 6. The agent decides whether to trade.
 7. The agent executes or manages trades through Cortiq tools.
 
-## Key Tools In The External Workflow
+### Minimal external session flow
 
-| Tool | What It Is Used For |
-| --- | --- |
-| `list_sessions` | Inspect existing sessions and their states |
-| `get_session` | Inspect one session in detail |
-| `create_external_session` | Create an `External MCP` session for agent-driven control |
-| `update_session` | Assign or change configuration such as data package, symbols, and account |
-| `start_session` | Move the session to `Running` so trade execution tools can be used |
-| `execute_data_package` | Collect candles, indicators, and related market context for a symbol |
-| `execute_trade` | Open a trade using Cortiq's execution and risk validation path |
-| `execute_trade_action` | Close, partially close, modify SL or TP, or cancel orders |
-| `get_risk_settings` | Inspect global risk rules before trading |
-| `get_account_risk_settings` | Inspect per-account risk rules before trading |
-| `list_mt5_accounts` | Discover configured accounts |
-| `list_data_packages` | Discover data packages available for session use |
-| `get_cortiq_documentation` | Pull built-in documentation topics directly through MCP |
+#### 1. Discover prerequisites
 
-## Minimal External Session Flow
+Typical first asks:
 
-### 1. Discover the prerequisites
+- List MT5 accounts.
+- List data packages.
+- Show current risk settings.
+- List existing sessions.
 
-Typical first asks to the agent are:
+#### 2. Create the external session
 
-- List MT5 accounts
-- List data packages
-- Show current risk settings
-- List existing sessions
+`create_external_session` is the important entry point. It produces an `External MCP` session, which means:
 
-### 2. Create the external session
+- No internal workflow engine starts for analysis or trading.
+- No autonomous playbook loop runs on your behalf.
+- The external agent owns orchestration.
 
-The important entry point is `create_external_session`.
+#### 3. Start the session
 
-That creates an `External MCP` session, which means:
+Use `start_session` before expecting trade-execution tools to work. Starting the session enables the trading state — it does not turn on a hidden autonomous loop.
 
-- No internal workflow engine is started for analysis or trading
-- No autonomous playbook loop is running on your behalf
-- The external agent remains responsible for orchestration
+#### 4. Gather market data
 
-### 3. Start the session
+Use `execute_data_package` to collect the session's configured payload for a specific symbol. This is the point where the external agent reads candles, indicators, and other context, then makes a decision.
 
-Use `start_session` before expecting trade execution tools to work.
+#### 5. Execute or manage the trade
 
-For external sessions, starting the session enables the trading state. It does not turn on a hidden autonomous loop.
+- Use `execute_trade` to open a position.
+- Use `execute_trade_action` later for `CLOSE`, `PARTIAL_CLOSE`, `MODIFY_SL`, `MODIFY_TP`, or `CANCEL`.
 
-### 4. Gather market data
+### Example prompts
 
-Use `execute_data_package` to collect the session's configured data payload for a specific symbol.
-
-This is the usual point where the external agent reads candles, indicators, and other context and then makes a trading decision.
-
-### 5. Execute or manage the trade
-
-If the agent decides to trade:
-
-- Use `execute_trade` to open the position
-- Use `execute_trade_action` later for `CLOSE`, `PARTIAL_CLOSE`, `MODIFY_SL`, `MODIFY_TP`, or `CANCEL`
-
-## Example Read-Only Prompt
-
-This is the safest first test:
+**Read-only — safe first test:**
 
 ```text
 Use the Cortiq MCP server to list my MT5 accounts, list my data packages, and inspect my sessions. Then gather fresh EURUSD data for the correct session and summarize the market context only. Do not place any trades.
 ```
 
-## Example Virtual Session Prompt
-
-Use virtual mode before attempting live trading:
+**Virtual session — before any live attempt:**
 
 ```text
 Create an External MCP session named 'EURUSD Virtual Agent', use my default MT5 account, assign the correct data package, enable virtual mode, start the session, gather fresh EURUSD data, and give me a trade plan with entry, stop loss, take profit, and reasoning. Do not place a live trade.
 ```
 
-## Example Controlled Live Prompt
-
-Only use this after you have already verified MT5 connectivity, risk settings, and virtual-mode behavior:
+**Controlled live — only after the virtual flow is proven:**
 
 ```text
 Use the Cortiq MCP server to review my account risk settings, gather fresh EURUSD data for the running external session, and only if the setup is valid under existing risk limits, execute one trade with a clear stop loss, take profit, and reasoning. Then report back exactly what was executed.
 ```
 
-## Best Practices
+## Reference
+
+### Key tools in the external workflow
+
+| Tool | What it does |
+| --- | --- |
+| `list_sessions` | Inspect existing sessions and their states. |
+| `get_session` | Inspect one session in detail. |
+| `create_external_session` | Create an `External MCP` session for agent-driven control. |
+| `update_session` | Assign or change configuration such as data package, symbols, and account. |
+| `start_session` | Move the session to `Running` so trade-execution tools can be used. |
+| `execute_data_package` | Collect candles, indicators, and related market context for a symbol. |
+| `execute_trade` | Open a trade using Cortiq's execution and risk-validation path. |
+| `execute_trade_action` | Close, partially close, modify SL/TP, or cancel orders. |
+| `get_risk_settings` | Inspect global risk rules before trading. |
+| `get_account_risk_settings` | Inspect per-account risk rules before trading. |
+| `list_mt5_accounts` | Discover configured accounts. |
+| `list_data_packages` | Discover data packages available for session use. |
+| `get_cortiq_documentation` | Pull built-in documentation topics through MCP. |
+
+### Best practices
 
 1. Start with read-only tool usage first.
 2. Use virtual mode before live mode.
@@ -221,31 +210,23 @@ Use the Cortiq MCP server to review my account risk settings, gather fresh EURUS
 5. Confirm the session is `Running` before using execution tools.
 6. Use clear prompts that explicitly say whether trading is allowed or not.
 
-## Limitations And Boundaries
+### Limitations and boundaries
 
 - The MCP server is a local integration layer, not a public cloud API.
-- `External MCP` sessions skip Cortiq's internal autonomous workflow engine.
-- The external agent must manage its own analysis cadence and decision logic.
+- External MCP sessions skip Cortiq's internal autonomous workflow engine.
+- The external agent owns its own analysis cadence and decision logic.
 - Live trading still depends on the Cortiq application environment and MT5 connectivity being healthy.
 - A session without a valid data package cannot gather market data until one is assigned.
 
-## When To Use This Instead Of Autonomous Sessions
+## What to read next
 
-Choose MCP and agent control when you want a specific external AI client to drive the workflow directly.
+1. [Sessions & AutoScan](sessions-and-autoscan/) — for the autonomous-session alternative if MCP is more than you need.
+2. [Risk management](risk-management/) — risk validators run for both autonomous and external sessions.
+3. [MetaTrader 5 integration](mt5-integration/) — the bridge that every execute tool ultimately uses.
 
-Choose autonomous sessions when you want Cortiq itself to run the repeated analysis and execution loop internally.
+## Related
 
-## What This Can Do For You
-
-Used correctly, MCP integration can help you:
-
-- keep your preferred external agent while still using Cortiq for execution and safety controls
-- separate orchestration logic from the Cortiq desktop application
-- create more deliberate, tool-driven workflows for advanced trading operations
-
-## Related Pages
-
-- [AI Providers](ai-providers/)
-- [Sessions & AutoScan](sessions-and-autoscan/)
-- [Risk Management](risk-management/)
-- [MetaTrader 5 Integration](mt5-integration/)
+- [AI providers](ai-providers/)
+- [Workspace & monitoring](workspace-and-monitoring/)
+- [Trading cycle: overview](trading-cycle/overview/)
+- [Glossary](glossary/)

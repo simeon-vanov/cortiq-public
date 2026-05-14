@@ -1,54 +1,71 @@
 ---
 title: Cortiq Documentation
-description: Official product documentation for the Cortiq platform.
+description: Official documentation for Cortiq — the Windows desktop platform pairing MetaTrader 5 execution with AI-driven trading decisions and risk control.
 ---
 
-Cortiq is a Windows desktop trading platform that combines MetaTrader 5 execution, configurable AI decision-making, and platform-level risk controls in a single operating workflow.
+Cortiq is a Windows desktop trading platform that pairs MetaTrader 5 execution with AI decision-making and platform-level risk controls. These docs take you from evaluation through installation to daily operation.
 
-This documentation site is designed for the public Cortiq audience: prospective customers, active users, and community members who need a clear path from evaluation to installation to daily usage.
+:::danger
+Trading risk exists in all markets. Cortiq is a trading tool, not a profit guarantee. Use conservative risk limits, test in virtual mode first, and review your own regulatory obligations before deploying live capital.
+:::
 
-> Trading risk exists in all markets. Cortiq is a trading tool, not a profit guarantee. Use conservative risk limits, test in virtual mode first, and review your own regulatory obligations before deploying live capital.
+## What this is
 
-## What This Site Covers
+Cortiq runs one repeatable operating loop on your Windows machine. It gathers market context from MetaTrader 5, asks an AI provider for a decision under a structured playbook, validates that decision against your risk limits, executes on MT5, and journals every cycle for later review.
 
-- [Documentation Map](documentation-map/) explains the idea behind the site and how each page is meant to be used.
-- [App Navigation Guide](app-navigation-guide/) maps the documentation to the actual sidebar and screens in the desktop app.
-- [Feature Overview](feature-overview/) summarizes the major platform capabilities and why each one matters.
-- [Capability Reference](capability-reference/) explains what each major Cortiq function can do for the user in practical terms.
-- [Getting Started](getting-started/) outlines who Cortiq is for and the recommended first-run path.
-- [Installation & Activation](installation-and-activation/) covers the practical Windows setup flow.
-- [First 30 Minutes in Cortiq](first-30-minutes/) walks a new user from install to a safe first virtual session.
-- [Workspace and Monitoring](workspace-and-monitoring/) explains the day-to-day screens users see after setup, including Dashboard, Trade Ideas, Conversations, and Provider Health.
+You stay in control of the strategy. Playbooks define the rules the AI must follow. Data packages define the context it sees. Risk limits define what trades it can take. Cortiq orchestrates the loop and keeps the boundaries you set hard.
 
-## Cortiq In One View
+These docs cover the full surface: what Cortiq is, how to install it, the screens you work in day-to-day, and how to design playbooks, run sessions, and audit results.
 
-| Area | What Cortiq Does |
+## How it fits into Cortiq
+
+Every Cortiq feature is a component of one operating loop. The same loop runs whether you trade one symbol or twenty, on one account or several, against any of the supported AI providers.
+
+```mermaid
+flowchart LR
+  A[Session config<br/>+ playbook] --> B(Gather market data<br/>via MT5)
+  B --> C(Build prompt<br/>with data package)
+  C --> D[AI provider]
+  D --> E(Parse decision)
+  E --> F{Risk approved?}
+  F -->|yes| G(Execute on MT5)
+  F -->|no| H[Reject + log]
+  G --> I(Journal + analytics)
+  H --> I
+  I -.next cycle.-> B
+```
+
+*Cortiq's per-cycle loop: configured input becomes a structured prompt, the AI returns a decision, risk filters approve or reject, and journals capture every cycle.*
+
+## Reference
+
+| Area | What Cortiq does |
 | --- | --- |
-| Decision support | Sends structured market context to AI providers and receives trading decisions back in a controlled format |
-| Trade execution | Connects to MetaTrader 5 on the same machine to place, modify, and close trades |
-| Strategy control | Uses playbooks and data packages so the user defines the logic and the AI executes inside that framework |
-| Risk control | Applies both global and per-account risk limits before and during execution |
-| Operations | Tracks sessions, journals, notifications, and account activity in one desktop workspace |
+| Decision support | Sends structured market context to AI providers and receives trading decisions back in a controlled format. |
+| Trade execution | Connects to a local MetaTrader 5 terminal to place, modify, and close trades. |
+| Strategy control | Encodes your logic in playbooks and data packages so the AI executes inside the framework you define. |
+| Risk control | Applies global and per-account risk limits before and during every trade. |
+| Operations | Tracks sessions, journals, notifications, and account activity in one desktop workspace. |
 
-## Recommended Reading Path
+:::note
+This site shares its repository with Cortiq's GitHub Releases, Issues, and Discussions — keeping docs, the Windows installer, bug reports, and usage questions in one public place.
+:::
 
-1. Start with [Getting Started](getting-started/) if you are evaluating Cortiq.
-2. Read [App Navigation Guide](app-navigation-guide/) if you want the docs to match the exact sidebar labels you will see in the app.
-3. Use [Capability Reference](capability-reference/) if you want a plain-English guide to what each major function can do for you.
-4. Continue to [Installation & Activation](installation-and-activation/) when you are ready to install.
-5. Use [First 30 Minutes in Cortiq](first-30-minutes/) to get from installation to a safe first virtual run.
-6. Read [MetaTrader 5 Integration](mt5-integration/) and [AI Providers](ai-providers/) before your first live setup.
-7. Use [Playbooks & Data Packages](playbooks-and-data/), [Sessions & AutoScan](sessions-and-autoscan/), and [Risk Management](risk-management/) to build your operating model.
-8. Read [Workspace and Monitoring](workspace-and-monitoring/) when you want the operational screens and review tools to make sense inside the actual desktop app.
-9. Keep [Licensing & Support](licensing-and-support/) and [FAQ](faq/) nearby for troubleshooting and public support channels.
+## What to read next
 
-## Why The Public Repository Matters
+1. [Getting started](getting-started/) — orientation if you're evaluating Cortiq, including who it's for and what the first day looks like.
+2. [App navigation guide](app-navigation-guide/) — maps every doc to the matching sidebar entry and screen in the desktop app.
+3. [Capability reference](capability-reference/) — plain-English summary of what each major function does for you.
+4. [Installation & activation](installation-and-activation/) — the Windows install and license activation flow.
+5. [First 30 minutes in Cortiq](first-30-minutes/) — guided walkthrough from install to your first safe virtual session.
+6. [MetaTrader 5 integration](mt5-integration/) and [AI providers](ai-providers/) — read these before your first live setup.
+7. [Playbooks & data packages](playbooks-and-data/), [Sessions & AutoScan](sessions-and-autoscan/), and [Risk management](risk-management/) — the building blocks of your operating model.
+8. [Workspace & monitoring](workspace-and-monitoring/) — the day-to-day screens, dashboards, and review tools.
 
-The Cortiq public repository is intentionally doing four jobs in one place:
+## Related
 
-- Documentation lives here so product guidance can evolve alongside releases.
-- GitHub Releases host the current public Windows installer.
-- GitHub Issues are the public intake for reproducible product bugs and feature requests.
-- GitHub Discussions are the public space for usage questions, workflow sharing, and product feedback.
-
-That keeps the customer-facing surface of Cortiq in one public location instead of splitting documentation, downloads, and support across unrelated systems.
+- [Documentation map](documentation-map/)
+- [Feature overview](feature-overview/)
+- [Glossary](glossary/)
+- [Licensing & support](licensing-and-support/)
+- [FAQ](faq/)

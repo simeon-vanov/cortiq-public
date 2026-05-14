@@ -1,143 +1,127 @@
 ---
-title: First 30 Minutes in Cortiq
-description: A guided path from installation to your first safe virtual session.
+title: First 30 minutes in Cortiq
+description: A guided 30-minute path from a fresh activation to a clean first virtual session, with checkpoints for MT5, providers, playbook, and risk settings.
+sidebar:
+  order: 70
 ---
 
-This page is for new customers who want a practical, low-risk first run.
+This page takes you from a freshly activated Cortiq install to a running virtual session in roughly thirty minutes. By the end you'll have a session that's actually trading on a chart — without sending real orders.
 
-The goal is not to optimize everything in 30 minutes. The goal is to reach a clean first virtual session with the major pieces working correctly.
+:::caution
+Stay in virtual mode for this entire walkthrough. The goal is to verify that the workflow behaves correctly end-to-end, not to make money on the first day. Live execution comes after several green virtual sessions.
+:::
 
-## What You Will Accomplish
+## What this is
 
-By the end of this walkthrough, you should have:
+The first thirty minutes are an integration test of your setup, not a strategy test. The walkthrough hits each external dependency once — MT5 bridge, AI provider, playbook, data package, session, journal — so any broken link surfaces fast and in isolation.
 
-- Cortiq installed and activated
-- MetaTrader 5 connected on the same machine
-- one AI provider configured
-- one simple playbook created
-- one focused data package selected
-- one virtual session ready to run
+The strategy you build here is intentionally narrow: one symbol, one or two timeframes, one clear setup and invalidation rule. A simple playbook produces a readable journal, which is the only thing you actually need on day one.
 
-## Before You Start
+## How it fits into Cortiq
 
-Have these ready:
+| You are here | Comes before | Comes after |
+| --- | --- | --- |
+| First 30 minutes *(this page)* | [Installation & activation](installation-and-activation/) | Iteration in [Sessions & AutoScan](sessions-and-autoscan/) and [Playbooks & data packages](playbooks-and-data/) |
 
-- a Windows machine with Cortiq installed
-- a valid activation key
-- MetaTrader 5 installed on the same machine
-- access to at least one supported AI provider
-- a plan to stay in virtual mode for this first run
+By the end of this walkthrough you'll have:
 
-## Minute 0 To 5: Install And Activate
+- Cortiq installed and activated.
+- MetaTrader 5 connected on the same machine.
+- One AI provider configured and responding.
+- One simple playbook and a focused data package.
+- One virtual session running and producing journal output.
 
-1. Download the current Cortiq release from the public releases page.
+## How to use it
+
+### Minute 0–5 — Install and activate
+
+1. Download the current Cortiq release from [GitHub Releases](https://github.com/simeon-vanov/cortiq-public/releases/latest).
 2. Install the MSIX package on the machine that will run Cortiq.
-3. Open the app and complete license activation.
+3. Open the app and complete license activation in `Settings` → `License`.
 
-If anything fails at this step, stop and check [Installation & Activation](installation-and-activation/) before moving on.
+If activation fails, stop and resolve it before moving on — see [Installation & activation](installation-and-activation/).
 
-## Minute 5 To 10: Confirm MetaTrader 5 Access
+### Minute 5–10 — Confirm MetaTrader 5 access
 
-1. Open MetaTrader 5 and make sure the correct terminal and account are running.
-2. In Cortiq, confirm the MT5 account you want to use is configured correctly.
-3. If you have multiple accounts, double-check that you are looking at the intended one.
+1. Open MetaTrader 5 and confirm the correct terminal and account are running.
+2. Attach the `ZmqFacade` Expert Advisor to a chart with algorithmic trading allowed.
+3. In Cortiq, open `Settings` → `MT5 Accounts` and confirm the right account is configured.
+4. Watch the topbar MT5 health indicator turn green.
 
-Your goal here is simple: do not start building a session until you are sure Cortiq is pointing at the correct MT5 environment.
+If the indicator stays red, see [MetaTrader 5 integration](mt5-integration/) before continuing.
 
-Read [MetaTrader 5 Integration](mt5-integration/) if you need more detail.
+### Minute 10–15 — Configure one AI provider
 
-## Minute 10 To 15: Configure One AI Provider
+1. Pick one provider for the first run — ChatGPT, Grok, Gemini, or Claude.
+2. Choose browser mode if you already pay for the provider's web product; choose API mode if you want minimum setup friction with an API key.
+3. Verify the provider responds successfully through `Settings` → `AI Providers`.
 
-1. Choose one provider only for the first run.
-2. Decide whether the local-tool or CLI route or the direct API route is the simpler path for your setup.
-3. Verify that the provider can respond successfully before you continue.
+Simplicity beats flexibility on day one. You can add a fallback provider later. See [AI providers](ai-providers/) if the choice isn't obvious.
 
-For a first run, simplicity beats flexibility. You can add more providers or fallback behavior later.
+### Minute 15–20 — Create a narrow strategy setup
 
-Read [AI Providers](ai-providers/) if you are unsure which mode to choose.
+Build the smallest playbook and data package that still expresses your idea:
 
-## Minute 15 To 20: Create A Narrow Strategy Setup
+- One symbol (no AutoScan).
+- One or two important timeframes (not a stack of six).
+- One setup rule, one invalidation rule.
 
-For your first session, keep the design narrow.
+A narrow scope produces journals you can actually read. See [Playbooks & data packages](playbooks-and-data/) for a refresher.
 
-Create:
+### Minute 20–25 — Create the first session
 
-- one simple playbook
-- one focused data package
-- one fixed symbol
+Create one session with these defaults:
 
-Good first-run characteristics:
+- Fixed symbol mode.
+- One MT5 account.
+- The provider you configured above.
+- Your simple playbook.
+- Your focused data package.
+- Virtual mode enabled.
+- Conservative risk settings — yes, even though the session is virtual.
 
-- one symbol rather than AutoScan
-- one or two important timeframes rather than a broad stack
-- a clear setup and invalidation rule rather than a complex multi-setup system
+Conservative risk settings on a virtual session matter because you're rehearsing the live operating model. The first time you flip to live, the risk pause behavior must already feel familiar.
 
-Read [Playbooks & Data Packages](playbooks-and-data/) if you need a refresher.
+### Minute 25–30 — Run and review
 
-## Minute 20 To 25: Create The First Session
-
-Create one session with these defaults in mind:
-
-- fixed symbol
-- one MT5 account
-- one AI provider
-- your simple playbook
-- your focused data package
-- virtual mode enabled
-- conservative risk settings still configured even though the session is virtual
-
-Why virtual mode first:
-
-- you validate workflow before capital is involved
-- you learn the session and journal behavior faster
-- you reduce setup stress while still seeing the system operate
-
-Read [Sessions & AutoScan](sessions-and-autoscan/) and [Risk Management](risk-management/) if needed.
-
-## Minute 25 To 30: Run And Review
-
-1. Start the session in virtual mode.
+1. Start the session.
 2. Let it complete one or more cycles.
-3. Review the session output, decision rendering, and journal data.
+3. Open the journal and read the AI's reasoning, the decision, and the simulated outcome.
 4. Look for clarity, not perfection.
 
-The first question is not "Did it make money immediately?"
+The first question is *did this workflow behave in a way I can understand and trust enough to improve?* — not *did it make money?*
 
-The first question is "Did the workflow behave in a way I can understand and trust enough to improve?"
+## Reference
 
-## What Good First-Run Success Looks Like
+### What good first-run success looks like
 
-Your first successful run should give you confidence in these basics:
+| Signal | What it tells you |
+| --- | --- |
+| Topbar MT5 indicator stays green | Bridge is healthy. |
+| `Provider Health` shows successful responses | AI provider is configured correctly. |
+| Journal entries are readable | Playbook and data package are sensible. |
+| Risk panel shows the configured limits | Risk validators are wired up. |
+| Session moves through `Running` cleanly | Operating loop is intact. |
 
-- Cortiq can reach MT5 correctly
-- Cortiq can reach the chosen AI provider correctly
-- your playbook is understandable enough for the AI to use
-- your data package is focused enough to produce readable output
-- your session can run, log, and be reviewed without confusion
+### What to avoid in the first 30 minutes
 
-## What Not To Do In The First 30 Minutes
+- Going live immediately.
+- Using multiple providers when one suffices.
+- Starting with a broad multi-symbol AutoScan setup.
+- Skipping risk settings because the first run is virtual.
+- Judging the platform from one isolated trade result.
 
-- do not go live immediately
-- do not use multiple providers at once unless you truly need to
-- do not start with a broad multi-symbol system
-- do not skip risk settings just because the first run is virtual
-- do not judge the whole platform from one isolated trade result
+## What to read next
 
-## What To Do Next
+1. [Sessions & AutoScan](sessions-and-autoscan/) — the next layer of session configuration once the basic loop is green.
+2. [Playbook design guide](trading-cycle/playbook-design/) — raises the quality of your second playbook.
+3. [Journal & analytics](journal-and-analytics/) — what to look for once you have several sessions to compare.
+4. [Risk management](risk-management/) — before any live execution.
 
-After the first virtual session works, the usual next step is:
+## Related
 
-1. improve the playbook and data package based on the journal
-2. run more virtual sessions
-3. add support layers only when they clearly improve the workflow
-4. move to live execution only after the operating model is stable
-
-## Related Pages
-
-- [Installation & Activation](installation-and-activation/)
-- [MetaTrader 5 Integration](mt5-integration/)
-- [AI Providers](ai-providers/)
-- [Playbooks & Data Packages](playbooks-and-data/)
-- [Sessions & AutoScan](sessions-and-autoscan/)
-- [Risk Management](risk-management/)
-- [Journal & Analytics](journal-and-analytics/)
+- [Installation & activation](installation-and-activation/)
+- [MetaTrader 5 integration](mt5-integration/)
+- [AI providers](ai-providers/)
+- [Playbooks & data packages](playbooks-and-data/)
+- [Glossary](glossary/)
