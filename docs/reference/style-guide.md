@@ -1,6 +1,15 @@
-# Cortiq Public Docs — Style Guide
+---
+area: style-guide
+last_updated: 2026-05-17
+---
 
-This file is the single source of truth for how pages in `cortiq-public/` are written and structured. All contributors and automated agents must read this before editing or adding pages.
+# Style guide
+
+This file is the single source of truth for how pages in `cortiq-public/src/content/docs/` are written and structured. All contributors and automated agents must read this before editing or adding pages.
+
+## What it does
+
+Sets the writing contract for every published reader page: page skeleton, voice, callouts, mermaid usage, screenshot conventions, frontmatter rules, and glossary discipline. The voice target is "Anthropic API docs flavor" — concept-first, active, sparse, no hedging.
 
 ## 1. Page template
 
@@ -15,15 +24,15 @@ sidebar:
   badge: <Advanced | New | omit>
 ---
 
-<Lede: 1–2 sentence opener stating what this page is for and what
-the reader will know after reading it. No preamble. No "Welcome to…">
+<Lede: 1-2 sentence opener stating what this page is for and what
+the reader will know after reading it. No preamble. No "Welcome to...">
 
 <:::tip or :::caution if there's something the reader must know up front>
 
 ## What this is
-<2–3 short paragraphs of concept-first prose. The "why" before the "how".>
+<2-3 short paragraphs of concept-first prose. The "why" before the "how".>
 
-## Who this is for *(optional — used on conceptual / decision pages)*
+## Who this is for *(optional - used on conceptual / decision pages)*
 <Short bulleted list of fit / not-fit indicators.>
 
 ## How it fits into Cortiq
@@ -34,20 +43,20 @@ or 3 sentences.>
 <The actionable body. Numbered steps. Code blocks. Screenshots.
 This is the largest section on most pages.>
 
-## Reference *(optional — for pages with options/parameters/states)*
+## Reference *(optional - for pages with options/parameters/states)*
 <Tables. Strict, not narrative.>
 
 ## Common questions / Troubleshooting *(optional)*
-<Q&A or symptom→cause→fix triplets.>
+<Q&A or symptom->cause->fix triplets.>
 
 ## What to read next
-<2–4 ranked links with one-sentence framing each.>
+<2-4 ranked links with one-sentence framing each.>
 
 ## Related
-<Plain bulleted list of 3–6 links.>
+<Plain bulleted list of 3-6 links.>
 ```
 
-Minimum a page must have: lede → What this is → How it fits → actionable body → Related.
+Minimum a page must have: lede -> What this is -> How it fits -> actionable body -> Related.
 
 ## 2. Voice rules (Anthropic API docs flavor)
 
@@ -55,9 +64,9 @@ Minimum a page must have: lede → What this is → How it fits → actionable b
 - **Active voice, present tense.** *Cortiq sends the prompt to the provider* — not *the prompt is sent by Cortiq*.
 - **Concept-first.** Each section opens with the idea, then shows the mechanism. The reader understands *why* before *how*.
 - **One idea per paragraph.** When a paragraph has two ideas, split it.
-- **Sentence rhythm.** Average 15–25 words. Mix shorter sentences in. Periods carry weight.
+- **Sentence rhythm.** Average 15-25 words. Mix shorter sentences in. Periods carry weight.
 - **Banned words** (rewrite when found): *powerful, seamless, robust, leverage, best-in-class, simply, just, easy, intuitive, blazing-fast, unleash, supercharge*.
-- **No hedging.** Replace *might / may / could potentially* with the precise condition. *"Might fail"* → *"fails when X"*.
+- **No hedging.** Replace *might / may / could potentially* with the precise condition. *"Might fail"* -> *"fails when X"*.
 - **Inline code** for tool names, settings labels, file paths, status values: `External MCP`, `cortiq.db`, `Risk Management`, `Running`.
 - **Tables are reference, not narrative.** If two sentences would carry the meaning better, use sentences.
 - **Tradeoff framing.** When two paths exist, present both with the criterion that picks one — don't recommend without saying why.
@@ -95,19 +104,24 @@ Use only when prose+table can't carry the meaning.
 
 The HTML comment stays until the PNG is in place. `grep -rn "SCREENSHOT-NEEDED" src/content/docs/` lists all outstanding.
 
-`SCREENSHOTS.md` at the repo root is the manifest.
+The full manifest lives at [`screenshots.md`](screenshots.md).
 
 ## 6. Frontmatter rules
 
 - `title`: sentence case, matches sidebar label exactly.
 - `description`: one factual sentence under 160 chars.
-- `sidebar.order`: integer in multiples of 10 (10, 20, 30…) for easy insertion.
+- `sidebar.order`: integer in multiples of 10 (10, 20, 30...) for easy insertion.
 - `sidebar.badge`: `New` for pages added in past 30 days; `Advanced` for MCP/agent and developer-leaning pages; omit by default.
 - `lastUpdated`: leave to Starlight; never set manually.
 
 ## 7. Glossary
 
 Defined terms live in `src/content/docs/glossary.md`. Other pages link to glossary entries instead of redefining vocabulary.
+
+## Known gaps / accepted debt
+
+- The banned-words list is enforced by humans only; no `astro check` plugin scans for them.
+- Sidebar order in `astro.config.mjs` and `sidebar.order` in per-page frontmatter can drift apart — treat `astro.config.mjs` as source of truth.
 
 ---
 
