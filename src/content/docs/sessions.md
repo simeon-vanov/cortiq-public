@@ -1,17 +1,17 @@
 ---
-title: Sessions & AutoScan
-description: Sessions are Cortiq's operating container — what they configure, the states they move through, and when to use AutoScan instead of a fixed symbol.
+title: Sessions
+description: Sessions are Cortiq's operating container — what they configure, the states they move through, and how each one is locked to a single instrument.
 sidebar:
   order: 40
 ---
 
-This page explains the Cortiq session — the operating container that turns a configuration into something you can run, pause, review, and improve. By the end you'll know which states a session moves through, when to use AutoScan, and which session type fits your workflow.
+This page explains the Cortiq session — the operating container that turns a configuration into something you can run, pause, review, and improve. By the end you'll know which states a session moves through and how a session is scoped to a single instrument.
 
 ## What this is
 
-A session bundles everything Cortiq needs to trade: an MT5 account, an AI provider and integration mode, one or more playbooks, a data package, a symbol selection method, a time window, and the risk and execution settings.
+A session bundles everything Cortiq needs to trade: an MT5 account, an AI provider and integration mode, one or more playbooks, a data package, a symbol, a time window, and the risk and execution settings.
 
-In practical terms, the session is the unit you operate. You start it, watch it cycle, pause or stop it, review the journal, and decide what to change. The same operating loop runs whether you're trading one symbol or twenty.
+In practical terms, the session is the unit you operate. You start it, watch it cycle, pause or stop it, review the journal, and decide what to change. Every session is locked to exactly one instrument, so the AI builds deep, measurable expertise on that market rather than spreading attention across many.
 
 Cortiq supports two session types — autonomous (the default) and external MCP (advanced). Most users only need autonomous.
 
@@ -45,21 +45,18 @@ stateDiagram-v2
 
 ### Create a session
 
-Open `Library` → `Sessions` and create a new session. The dialog asks for an account, symbols, provider, time range, and risk settings.
+Open `Library` → `Sessions` and create a new session. The dialog asks for an account, a symbol, a provider, a time range, and risk settings.
 
 ![Cortiq's session create dialog with Account, Symbol, Provider, Time Range, Risk fields visible](/images/screenshots/sessions-and-autoscan__create-form.png)
 <!-- SCREENSHOT-NEEDED: sessions-and-autoscan__create-form.png – Cortiq's session create dialog with Account, Symbol, Provider, Time Range, Risk fields visible. Mask account number -->
 
-Defaults that work well for a first run: fixed symbol, virtual mode, conservative risk limits. You can change any of them after the first cycle has run.
+Defaults that work well for a first run: virtual mode and conservative risk limits. You can change any of them after the first cycle has run.
 
-### Choose between fixed-symbol mode and AutoScan
+### Pick the instrument
 
-Two symbol-selection modes:
+Each session is locked to one symbol. Choose the instrument the session will specialize in, and pair it with a playbook and data package built for that market. Keeping the session on a single symbol is what lets the AI accumulate readable, comparable results — the journal tells you whether the strategy is improving on that exact market.
 
-- **Fixed-symbol** — the session always trades the same instrument. Use this when you want clean specialization around one market.
-- **AutoScan** — the AI reviews a candidate list each cycle and picks the strongest current opportunity. Use this when you trade a watchlist and want the system to choose where conditions are best.
-
-AutoScan re-evaluates between cycles or after a trade closes, so a single session can drift through several symbols across a day. Fixed-symbol mode is the right starting point; switch to AutoScan when the playbook is stable enough to apply across instruments.
+If you want to trade a different instrument, create a separate session for it. Two sessions on two symbols run independently, each with its own playbook, data package, and risk picture.
 
 ### Run, pause, and review
 
@@ -75,7 +72,7 @@ When you reach the end of a configured time window, the session transitions to `
 
 | Area | Examples |
 | --- | --- |
-| Market scope | Fixed symbol, wildcard list, or AutoScan candidate set. |
+| Market scope | One fixed symbol for the life of the session. |
 | Time control | Trading hours, active weekdays, close-before-end rules. |
 | Provider control | Provider choice, browser or API mode, fallback provider. |
 | Strategy control | Playbook set, playbook priority, session instructions. |
@@ -108,8 +105,8 @@ Don't, usually. RiskPaused exists so the platform protects the workflow when a r
 **Can I run two autonomous sessions on the same MT5 account?**
 Yes, but coordinate symbols and risk so they don't compete. Risk validators apply per account regardless of how many sessions are open.
 
-**How is AutoScan different from creating multiple fixed-symbol sessions?**
-AutoScan picks one symbol per cycle dynamically. Multiple fixed-symbol sessions trade in parallel. AutoScan reduces over-trading; parallel sessions cover more markets simultaneously.
+**How do I trade more than one instrument?**
+Create one session per instrument. A session is locked to a single symbol by design, so you specialize each session on its own market and run them side by side.
 
 ## What to read next
 

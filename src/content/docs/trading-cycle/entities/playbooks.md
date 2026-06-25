@@ -60,5 +60,5 @@ A playbook is not a catch-all idea list, a macro-news summary, or a one-off acti
 
 - [Playbooks & data packages](../../playbooks-and-data/)
 - [Sessions](sessions/)
-- [Sessions & AutoScan](../../sessions-and-autoscan/)
+- [Sessions](../../sessions/)
 - [Glossary](../../glossary/)

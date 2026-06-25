@@ -10,7 +10,7 @@ last_updated: 2026-05-17
 `cortiq-public` is the **Cortiq public hub** — a single GitHub repository that serves three purposes at once:
 
 1. **Documentation site.** An Astro + Starlight static site published at `https://simeon-vanov.github.io/cortiq-public/` (GitHub Pages). All reader content lives in the `docs` content collection at `src/content/docs/`.
-2. **Release host.** Public Cortiq installers (`Cortiq.msix`) ship as GitHub Releases on this repo; the landing page in the `cortiq-landing` sibling repo links directly to `releases/latest/download/Cortiq.msix`.
+2. **Release host.** Public Cortiq installers (`Cortiq-win-Setup.exe`, an unsigned Velopack installer) ship as GitHub Releases on this repo; the landing page in the `cortiq-landing` sibling repo links directly to `releases/latest/download/Cortiq-win-Setup.exe`.
 3. **Community surface.** Public bug reports (GitHub Issues with templates in `.github/ISSUE_TEMPLATE/`), feature requests, and Discussions for end users.
 
 The repo intentionally does **not** contain the desktop app source, license backend, or any private/engineering material — those live in the sibling repos `cortiq-app`, `cortiq-backend`, `cortiq-landing`, and `cortiq-publish`. The cluster-level umbrella is `C:\Projects\Cortiq\CLAUDE.md`.
@@ -28,7 +28,7 @@ The repo intentionally does **not** contain the desktop app source, license back
 ## Entry points / interfaces
 
 - **Read the docs:** <https://simeon-vanov.github.io/cortiq-public/>
-- **Download an installer:** <https://github.com/simeon-vanov/cortiq-public/releases/latest/download/Cortiq.msix>
+- **Download an installer:** <https://github.com/simeon-vanov/cortiq-public/releases/latest/download/Cortiq-win-Setup.exe>
 - **File a bug:** <https://github.com/simeon-vanov/cortiq-public/issues/new/choose>
 - **Discussions:** <https://github.com/simeon-vanov/cortiq-public/discussions>
 - **Local preview:** `npm run dev` (serves at `http://localhost:4321/cortiq-public/` because of `base`).
@@ -38,7 +38,7 @@ The repo intentionally does **not** contain the desktop app source, license back
 - **Astro 6 + Starlight 0.38** for the docs site framework.
 - **astro-mermaid** + **mermaid 11** for inline diagrams (configured `theme: 'dark'`).
 - **GitHub Pages** as the host (no Cloudflare / Vercel / Docker — pure Pages).
-- **GitHub Releases** as the binary CDN for `Cortiq.msix`.
+- **GitHub Releases** as the binary CDN for `Cortiq-win-Setup.exe`.
 
 ## Known gaps / accepted debt
 

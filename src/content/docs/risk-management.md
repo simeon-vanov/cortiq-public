@@ -106,7 +106,7 @@ Yes. Both autonomous and external sessions go through the same validator pipelin
 
 ## What to read next
 
-1. [Sessions & AutoScan](sessions-and-autoscan/) — `RiskPaused` and the rest of the session lifecycle.
+1. [Sessions](sessions/) — `RiskPaused` and the rest of the session lifecycle.
 2. [Execution modes & notifications](execution-modes-and-notifications/) — virtual mode rehearses risk behavior without using capital.
 3. [Journal & analytics](journal-and-analytics/) — review breaches before adjusting limits.
 

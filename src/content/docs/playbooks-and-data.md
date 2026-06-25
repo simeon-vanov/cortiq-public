@@ -114,7 +114,7 @@ Both problems are configuration-side, not provider-side. Better playbooks and ti
 
 1. [Playbook design guide](trading-cycle/playbook-design/) — disciplined section-by-section playbook authoring.
 2. [Data package design guide](trading-cycle/data-package-design/) — payload tiers, timeframe choice, and screenshot discipline.
-3. [Sessions & AutoScan](sessions-and-autoscan/) — where playbooks and data packages get bound together at runtime.
+3. [Sessions](sessions/) — where playbooks and data packages get bound together at runtime.
 4. [Supporting context](trading-cycle/supporting-context/) — preparation packages, instrument profiles, sentiment reports.
 
 ## Related

@@ -96,7 +96,7 @@ Confirm the follower accounts are configured in `Settings` → `MT5 Accounts`, t
 
 ## What to read next
 
-1. [Sessions & AutoScan](sessions-and-autoscan/) — where the mode is set per session.
+1. [Sessions](sessions/) — where the mode is set per session.
 2. [Risk management](risk-management/) — risk validators run for every mode.
 3. [Workspace & monitoring](workspace-and-monitoring/) — where mode-specific outputs land in the workspace.
 

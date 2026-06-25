@@ -116,7 +116,7 @@ For the lifetime of the local Cortiq install. Journals live in the local SQLite 
 
 ## Related
 
-- [Sessions & AutoScan](sessions-and-autoscan/)
+- [Sessions](sessions/)
 - [Risk management](risk-management/)
 - [Capability reference](capability-reference/)
 - [Glossary](glossary/)

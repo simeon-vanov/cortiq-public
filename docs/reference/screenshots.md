@@ -37,7 +37,7 @@ Acts as the single manifest of every `/images/screenshots/*.png` referenced from
 | `workspace-and-monitoring__now-trading-bar.png` | workspace-and-monitoring | Bottom NowTradingBar with active session metrics during a live cycle | 1200x400 | Mask account, broker |
 | `app-navigation-guide__sidebar.png` | app-navigation-guide | Cortiq desktop app sidebar (full + mini state side-by-side if possible) showing all top-level pages | 1200x900 | None |
 | `installation-and-activation__activation-dialog.png` | installation-and-activation | Cortiq's license-activation dialog with a placeholder key visible (CRTQ-XXXX-XXXX-XXXX-XXXX) | 1200x600 | Use a fake key only |
-| `installation-and-activation__msix-installer.png` | installation-and-activation | Windows MSIX installer mid-install showing Cortiq.msix | 1200x600 | None |
+| `installation-and-activation__smartscreen.png` | installation-and-activation | Windows SmartScreen "unknown publisher" notice for Cortiq-win-Setup.exe with the More info link expanded and Run anyway visible | 1200x600 | None |
 | `ai-providers__api-keys.png` | ai-providers | Cortiq Settings -> AI Providers panel with API key fields filled (placeholders) for OpenAI, xAI, Anthropic, Google | 1600x900 | Use placeholder keys (sk-...REDACTED) only |
 | `ai-providers__browser-mode.png` | ai-providers | Browser-mode flow: a Playwright-controlled provider window showing logged-in state | 1200x600 | Mask any real account email |
 | `playbooks-and-data__playbook-editor.png` | playbooks-and-data | Cortiq Playbooks page with one playbook open in the editor, all step types visible | 1600x900 | None |

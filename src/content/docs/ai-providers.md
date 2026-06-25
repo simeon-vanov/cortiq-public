@@ -101,7 +101,7 @@ Because price isn't the only criterion. API mode adds traceability and fallback 
 
 ## What to read next
 
-1. [Sessions & AutoScan](sessions-and-autoscan/) — where the provider choice is made per session.
+1. [Sessions](sessions/) — where the provider choice is made per session.
 2. [Workspace & monitoring](workspace-and-monitoring/) — `Provider Health` is where you watch reliability over time.
 3. [MCP and agent integration](mcp-and-agent-integration/) — when an external agent drives the workflow instead of the internal loop.
 

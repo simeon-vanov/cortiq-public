@@ -43,7 +43,7 @@ export default defineConfig({
             'mt5-integration',
             'ai-providers',
             'playbooks-and-data',
-            'sessions-and-autoscan',
+            'sessions',
             'risk-management',
             'execution-modes-and-notifications',
             'workspace-and-monitoring',

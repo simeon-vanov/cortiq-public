@@ -64,12 +64,11 @@ If you want this as a guided checklist with screenshots, read [First 30 minutes 
 
 ## Reference
 
-The four highest-leverage early decisions, and the criterion that picks each one:
+The highest-leverage early decisions, and the criterion that picks each one:
 
 | Decision | Why it matters | Default |
 | --- | --- | --- |
 | Live vs virtual first | Determines whether your first cycles affect the market or only your internal review. | Virtual until the playbook produces consistent journals over a few sessions. |
-| Single symbol vs AutoScan | Single keeps the AI focused; AutoScan lets it choose among candidates per cycle. | Single, until the playbook is stable. |
 | Browser mode vs API mode | Browser mode automates a logged-in provider window; API mode uses REST and an API key. | Browser if you already pay for the provider's web product; API if you want minimum setup friction. |
 | Conservative vs aggressive risk limits | Sets how much freedom the session has before risk pauses or stops it. | Conservative — you can always relax limits after a green journal. |
 

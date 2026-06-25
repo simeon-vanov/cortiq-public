@@ -21,7 +21,7 @@ Reading order from a cold start:
 2. [Getting started](getting-started/) — decide if Cortiq fits.
 3. [Installation & activation](installation-and-activation/), then [First 30 minutes](first-30-minutes/) — get a virtual session running.
 4. [MetaTrader 5 integration](mt5-integration/) and [AI providers](ai-providers/) — wire in the two external systems.
-5. [Playbooks & data packages](playbooks-and-data/), [Sessions & AutoScan](sessions-and-autoscan/), [Risk management](risk-management/) — build your operating model.
+5. [Playbooks & data packages](playbooks-and-data/), [Sessions](sessions/), [Risk management](risk-management/) — build your operating model.
 6. [Workspace & monitoring](workspace-and-monitoring/) and [Journal & analytics](journal-and-analytics/) — daily operation and review.
 
 After the linear path, every page is independently readable.
@@ -45,7 +45,7 @@ After the linear path, every page is independently readable.
 | [AI providers](ai-providers/) | AI setup and routing | Supported providers, browser vs API mode, how to pick. |
 | [MCP and agent integration](mcp-and-agent-integration/) | Advanced external control | How MCP-compatible agents control Cortiq via tool calls. |
 | [Playbooks & data packages](playbooks-and-data/) | Strategy input design | How rules and data scope shape AI decisions. |
-| [Sessions & AutoScan](sessions-and-autoscan/) | Runtime operation | How autonomous sessions work and how symbol selection automates. |
+| [Sessions](sessions/) | Runtime operation | How autonomous sessions work and how each session is locked to one instrument. |
 | [Risk management](risk-management/) | Control layer | The limits and pause behavior that sit above execution. |
 | [Execution modes & notifications](execution-modes-and-notifications/) | Deployment options | Live, virtual, copy trading, and notification flows. |
 | [Workspace & monitoring](workspace-and-monitoring/) | Daily operating screens | The Home, Dashboard, Trade Ideas, Journal, Cohorts, Conversations, and Provider Health screens. |
@@ -65,7 +65,7 @@ After the linear path, every page is independently readable.
 | Decide whether Cortiq fits before installing | [Getting started](getting-started/) |
 | Install and activate the product | [Installation & activation](installation-and-activation/) |
 | Configure strategy inputs | [Playbooks & data packages](playbooks-and-data/) |
-| Operate day-to-day sessions | [Sessions & AutoScan](sessions-and-autoscan/) |
+| Operate day-to-day sessions | [Sessions](sessions/) |
 | Understand the desktop workspace after setup | [Workspace & monitoring](workspace-and-monitoring/) |
 | Review performance and decisions | [Journal & analytics](journal-and-analytics/) |
 | Handle support or license issues | [Licensing & support](licensing-and-support/) |

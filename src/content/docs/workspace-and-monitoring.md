@@ -141,7 +141,7 @@ A risk validator triggered. Open the session detail and check the risk panel —
 ## What to read next
 
 1. [App navigation guide](app-navigation-guide/) — maps these screens to the actual sidebar entries in the desktop app.
-2. [Sessions & AutoScan](sessions-and-autoscan/) — what's behind the Sessions screen.
+2. [Sessions](sessions/) — what's behind the Sessions screen.
 3. [Journal & analytics](journal-and-analytics/) — what's behind the Journal and Cohorts screens.
 4. [AI providers](ai-providers/) — what's behind Provider Health.
 

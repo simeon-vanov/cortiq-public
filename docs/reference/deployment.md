@@ -24,7 +24,7 @@ The docs site builds and ships to **GitHub Pages** from this repository. There i
 - **Live site:** <https://simeon-vanov.github.io/cortiq-public/>
 - **Edit-this-page:** every Starlight page renders an "Edit this page" link to `https://github.com/simeon-vanov/cortiq-public/edit/main/src/content/docs/<slug>.md` (configured in `astro.config.mjs`).
 - **Manual redeploy:** GitHub UI → Actions → "Deploy Public Docs" → Run workflow.
-- **Release downloads:** `https://github.com/simeon-vanov/cortiq-public/releases/latest/download/Cortiq.msix` (managed by hand via GitHub Releases UI, not this workflow).
+- **Release downloads:** `https://github.com/simeon-vanov/cortiq-public/releases/latest/download/Cortiq-win-Setup.exe` (the unsigned Velopack installer; published by the `cortiq-app` release CI, not this docs workflow).
 
 ## Dependencies
 

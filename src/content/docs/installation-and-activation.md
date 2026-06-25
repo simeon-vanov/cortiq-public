@@ -1,6 +1,6 @@
 ---
 title: Installation & activation
-description: Where to download Cortiq, how to install the MSIX package, and how to activate your license key on the machine that will run it.
+description: Where to download Cortiq, how to run the Windows installer past the SmartScreen notice, and how to activate your license key on the machine that will run it.
 sidebar:
   order: 60
 ---
@@ -9,7 +9,7 @@ This page walks you through the four steps from buying a license to a running, a
 
 ## What this is
 
-Cortiq is distributed as a signed Windows MSIX package through GitHub Releases. Activation happens inside the app: you install once, paste your key once, and Cortiq binds the license to the machine.
+Cortiq is distributed as a Windows installer — `Cortiq-win-Setup.exe` — through GitHub Releases. The installer is not yet code-signed, so Windows SmartScreen shows an "unknown publisher" notice the first time you run it; you click through it once. Activation happens inside the app: you install once, paste your key once, and Cortiq binds the license to the machine.
 
 The model is intentional. Cortiq is a local desktop product that talks to a local MT5 terminal, so the license is machine-bound rather than account-bound. If you move to a different machine, treat it as a separate activation.
 
@@ -18,29 +18,31 @@ The model is intentional. Cortiq is a local desktop product that talks to a loca
 | Step | Where | Outcome |
 | --- | --- | --- |
 | 1. Buy or receive a key | Checkout email or Cortiq team | You hold a `CRTQ-XXXX-XXXX-XXXX-XXXX` key. |
-| 2. Download the MSIX | [GitHub Releases](https://github.com/simeon-vanov/cortiq-public/releases/latest) | `Cortiq.msix` on disk. |
-| 3. Install the package | Windows MSIX installer | Cortiq appears in the Start menu. |
+| 2. Download the installer | [GitHub Releases](https://github.com/simeon-vanov/cortiq-public/releases/latest) | `Cortiq-win-Setup.exe` on disk. |
+| 3. Run the installer | `Cortiq-win-Setup.exe` (click past SmartScreen) | Cortiq appears in the Start menu. |
 | 4. Activate | `Settings` → `License` inside the app | License state is `Active`. |
 
 After activation, the rest of first-day setup happens in `Settings` → `MT5 Accounts`, `Settings` → `AI Providers`, and `Library` → `Sessions`.
 
 ## How to use it
 
-### 1. Download the MSIX
+### 1. Download the installer
 
 The current public build lives in GitHub Releases:
 
 - Latest release page: https://github.com/simeon-vanov/cortiq-public/releases/latest
-- Direct MSIX link: https://github.com/simeon-vanov/cortiq-public/releases/latest/download/Cortiq.msix
+- Direct download: https://github.com/simeon-vanov/cortiq-public/releases/latest/download/Cortiq-win-Setup.exe
 
-Download the `.msix` file to the Windows machine that will run Cortiq. Install it on the same machine as your MetaTrader 5 terminal if you intend to trade live.
+Download `Cortiq-win-Setup.exe` to the Windows machine that will run Cortiq. Install it on the same machine as your MetaTrader 5 terminal if you intend to trade live.
 
-### 2. Install the package
+### 2. Run the installer
 
-Double-click the MSIX. Windows shows the standard signed-package install dialog. Confirm and let the install complete.
+Double-click `Cortiq-win-Setup.exe`. The installer is not yet code-signed, so Windows SmartScreen may show an "unknown publisher" notice the first time. Choose **More info → Run anyway** to continue. The installer is per-user and needs no admin rights; it installs in a couple of clicks and adds a Start-menu shortcut.
 
-![Windows MSIX installer mid-install showing Cortiq.msix](/images/screenshots/installation-and-activation__msix-installer.png)
-<!-- SCREENSHOT-NEEDED: installation-and-activation__msix-installer.png – Windows MSIX installer mid-install showing Cortiq.msix -->
+If you'd rather verify the download first, the [releases page](https://github.com/simeon-vanov/cortiq-public/releases/latest) lists every release with its checksums.
+
+![Windows SmartScreen notice for Cortiq-win-Setup.exe with the More info link expanded](/images/screenshots/installation-and-activation__smartscreen.png)
+<!-- SCREENSHOT-NEEDED: installation-and-activation__smartscreen.png – Windows SmartScreen "unknown publisher" notice for Cortiq-win-Setup.exe with the More info link expanded and the Run anyway button visible -->
 
 Cortiq now appears in the Start menu.
 
@@ -67,7 +69,7 @@ The next pages to read:
 | --- | --- | --- |
 | Key format | `CRTQ-XXXX-XXXX-XXXX-XXXX` | 16 hex chars in four groups; case-insensitive. |
 | License page | `Settings` → `License` | Shows current state, expiration, and re-activation form. |
-| MSIX URL | `releases/latest/download/Cortiq.msix` | Always points at the current public build. |
+| Installer URL | `releases/latest/download/Cortiq-win-Setup.exe` | Always points at the current public build. |
 
 ## Common questions
 

@@ -17,7 +17,7 @@ The Reference section is the page. Each row is one function, what it does, what 
 
 Two reading modes work well:
 
-- *Evaluating* — read every section, then start with [Getting started](getting-started/) and [Sessions & AutoScan](sessions-and-autoscan/).
+- *Evaluating* — read every section, then start with [Getting started](getting-started/) and [Sessions](sessions/).
 - *Already running Cortiq* — search this page for the function you're configuring, then jump straight to the linked page.
 
 If you want a higher-altitude view first, [Feature overview](feature-overview/) is shorter and grouped differently.
@@ -50,10 +50,9 @@ If you want a higher-altitude view first, [Feature overview](feature-overview/) 
 
 | Function | What it does | What it does for you | Read more |
 | --- | --- | --- | --- |
-| Sessions | Creates the operating container for a strategy. | Turns a configuration into something you can run, pause, review, and improve. | [Sessions & AutoScan](sessions-and-autoscan/) |
+| Sessions | Creates the operating container for a strategy. | Turns a configuration into something you can run, pause, review, and improve. | [Sessions](sessions/) |
 | Active days and time windows | Controls when a session may trade. | Keeps a strategy inside the hours and days that fit its design. | [Sessions](trading-cycle/entities/sessions/) |
-| Fixed-symbol mode | Locks the session to one instrument. | Clean specialization around one market. | [Sessions & AutoScan](sessions-and-autoscan/) |
-| AutoScan | The AI chooses among candidate symbols. | Lets the system find the strongest current opportunity instead of waiting on one fixed symbol. | [Sessions & AutoScan](sessions-and-autoscan/) |
+| Single-instrument sessions | Locks each session to one instrument. | Clean specialization around one market, so results stay comparable over time. | [Sessions](sessions/) |
 | Provider selection | Picks which AI provider runs the session. | Match cost, reliability, and operating style to your workflow. | [AI providers](ai-providers/) |
 | Fallback provider | Configures a secondary AI provider. | Keeps the session resilient when the primary is unavailable. | [AI providers](ai-providers/) |
 | Browser vs API mode | Picks how the AI provider is integrated. | Balances convenience, traceability, and account requirements. | [AI providers](ai-providers/) |
@@ -109,7 +108,7 @@ If you want a higher-altitude view first, [Feature overview](feature-overview/) 
 
 1. [Playbook design guide](trading-cycle/playbook-design/) — once you know what to configure, this raises the quality of your playbook writing.
 2. [Data package design guide](trading-cycle/data-package-design/) — same for data packages.
-3. [Sessions & AutoScan](sessions-and-autoscan/) — where most of the table above comes together at runtime.
+3. [Sessions](sessions/) — where most of the table above comes together at runtime.
 
 ## Related
 

@@ -28,14 +28,13 @@ Different readers come to this page with different needs:
 | Feature | What it does | Why it matters |
 | --- | --- | --- |
 | Playbook management | Defines the rules, filters, and operating logic the AI must follow. | You keep control of the trading framework instead of delegating it to a black box. |
-| Trading sessions | Runs a repeatable workflow on an MT5 account with selected symbols, provider, time window, and risk settings. | Sessions turn a strategy into an executable operating unit. |
+| Trading sessions | Runs a repeatable workflow on an MT5 account for a single symbol, with a chosen provider, time window, and risk settings. | Sessions turn a strategy into an executable operating unit. |
 | MetaTrader 5 integration | Connects Cortiq to MT5 on the same machine for prices, account state, orders, and position management. | The execution bridge between AI decisions and actual trades. |
 | Multi-AI provider support | Supports ChatGPT, Grok, Gemini, and Claude in browser and API modes where available. | You pick the provider and mode that fits your workflow, cost model, and reliability needs. |
 | MCP server and agent control | Exposes Cortiq tools to MCP-compatible AI clients for external session control. | Advanced users drive analysis and trading through agents like Claude Desktop, not just the internal loop. |
 | Risk management | Applies global and per-account limits on drawdown, profit, trade counts, exposure, and loss streaks. | Risk rules stay active even when the AI wants to trade more aggressively. |
 | Data packages | Controls what market data, indicators, screenshots, account state, and context the AI receives. | Tighter scope produces more consistent decisions and prevents noisy prompts. |
 | Preparation layers | Reusable context through instrument profiles, preparation packages, and sentiment reports. | The AI operates with structured background instead of rediscovering it every cycle. |
-| Symbol Scanner and AutoScan | The AI reviews candidate symbols and picks where the best setup is currently forming. | Useful when you don't want to hard-code one symbol per decision cycle. |
 | Trade ideas | Captures standalone theses outside the reusable playbook library. | Track one-off opportunities without polluting your strategy framework. |
 | Home workspace | Active sessions, quick actions, and a first-run checklist. | One screen to orient yourself when opening Cortiq. |
 | Dashboard | Cross-account performance, recent trades, and global risk visibility. | Easier to monitor the environment than checking sessions one-by-one. |
@@ -46,7 +45,7 @@ Different readers come to this page with different needs:
 | Copy trading | Replicates master-account trades to follower accounts. | Scale one session across multiple accounts. |
 | Notifications | Trade and management events delivered through Windows toasts, X, or Telegram. | Stay informed without watching the desktop app all day. |
 | Provider health monitoring | Tracks success rate, response time, retries, and provider errors. | Decide whether provider reliability is hurting the workflow. |
-| Feature-level provider overrides | Specific product functions can use a different provider than the session default. | One provider may be better for scanning, journaling, or a supporting workflow. |
+| Feature-level provider overrides | Specific product functions can use a different provider than the session default. | One provider may be better for journaling or a supporting workflow than for live decisions. |
 | Automated performance reports | Scheduled summary reports delivered through Telegram. | Review system behavior without opening the app every time. |
 | Custom indicators | Uses MT5 indicator data, including custom indicators, in the analysis pipeline. | Feed tailored market context into your sessions. |
 | Session timeline | Renders what happened in each cycle: analysis, trade ideas, execution, management actions. | Makes the AI workflow auditable. |
@@ -76,7 +75,7 @@ In practical terms, the platform supports five jobs:
 
 1. [Capability reference](capability-reference/) — the practical, function-by-function view of what each major feature does for you.
 2. [Getting started](getting-started/) — orientation for evaluators.
-3. [Sessions & AutoScan](sessions-and-autoscan/) — the runtime that ties most of the table above together.
+3. [Sessions](sessions/) — the runtime that ties most of the table above together.
 4. [MCP and agent integration](mcp-and-agent-integration/) — for external-agent control.
 
 ## Related

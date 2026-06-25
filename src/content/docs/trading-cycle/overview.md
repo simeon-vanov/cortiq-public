@@ -87,6 +87,6 @@ Add a layer when its absence would noticeably hurt cycle quality. Don't add laye
 ## Related
 
 - [Sessions](entities/sessions/)
-- [Sessions & AutoScan](../sessions-and-autoscan/)
+- [Sessions](../sessions/)
 - [Risk management](../risk-management/)
 - [Glossary](../glossary/)

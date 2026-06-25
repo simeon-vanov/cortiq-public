@@ -36,7 +36,7 @@ Configuration on the left, runtime in the middle, review and support on the righ
 | `Library` | Home, Dashboard, Sessions, Trade Ideas, Journal, Session Cohorts, Conversations | Day-to-day operation, monitoring, review. |
 | `Playbooks` | My Playbooks plus quick links to saved playbooks | Strategy design and maintenance. |
 | `Preparation` | Instrument Profiles, Prep Packages, Sentiment | Reusable supporting context for sessions. |
-| `Tools` | Symbol Scanner, Data Packages, Indicators, Risk Management, Provider Health | Payload design, scanning, control layers. |
+| `Tools` | Data Packages, Indicators, Risk Management, Provider Health | Payload design and control layers. |
 | `Settings` | MT5 Accounts, AI Providers, Notifications, License | Machine setup and platform configuration. |
 | `Community` | Report a Bug, Feedback, Discussion | Public support and product communication. |
 
@@ -52,7 +52,6 @@ Configuration on the left, runtime in the middle, review and support on the righ
 | Manage supporting indicators | `Tools` → `Indicators` |
 | Add reusable market context | `Preparation` → `Instrument Profiles`, `Prep Packages`, or `Sentiment` |
 | Create or run a trading workflow | `Library` → `Sessions` |
-| Let Cortiq scan symbols first | `Tools` → `Symbol Scanner` |
 | Adjust risk limits | `Tools` → `Risk Management` |
 | Watch performance across the environment | `Library` → `Dashboard` |
 | Review AI reasoning and trade history | `Library` → `Journal` |
@@ -68,7 +67,7 @@ Configuration on the left, runtime in the middle, review and support on the righ
 | [MetaTrader 5 integration](mt5-integration/) | `Settings` → `MT5 Accounts` |
 | [AI providers](ai-providers/) | `Settings` → `AI Providers`, `Library` → `Sessions` |
 | [Playbooks & data packages](playbooks-and-data/) | `Playbooks` → `My Playbooks`, `Tools` → `Data Packages`, `Tools` → `Indicators` |
-| [Sessions & AutoScan](sessions-and-autoscan/) | `Library` → `Sessions`, `Tools` → `Symbol Scanner` |
+| [Sessions](sessions/) | `Library` → `Sessions` |
 | [Risk management](risk-management/) | `Tools` → `Risk Management`, `Library` → `Dashboard` |
 | [Execution modes & notifications](execution-modes-and-notifications/) | `Library` → `Sessions`, `Settings` → `Notifications` |
 | [Workspace & monitoring](workspace-and-monitoring/) | `Library` (most screens), `Tools` → `Provider Health` |

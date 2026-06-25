@@ -9,9 +9,9 @@ This page defines the terms you'll see across the rest of the documentation. Eac
 
 ## Core concepts
 
-**Session** — A trading session. The smallest unit of repeatable Cortiq operation: an MT5 account, a symbol set, a provider, a time window, and risk settings, executed against a playbook. See [Sessions & AutoScan](sessions-and-autoscan/).
+**Session** — A trading session. The smallest unit of repeatable Cortiq operation: an MT5 account, one symbol, a provider, a time window, and risk settings, executed against a playbook. Each session is locked to a single instrument. See [Sessions](sessions/).
 
-**Autonomous session** — A session whose trading loop is driven by Cortiq's internal workflow engine. The default mode for most users. See [Sessions & AutoScan](sessions-and-autoscan/).
+**Autonomous session** — A session whose trading loop is driven by Cortiq's internal workflow engine. The default mode for most users. See [Sessions](sessions/).
 
 **External MCP session** — A session whose trading loop is driven by an external MCP-compatible AI client (for example, Claude Desktop) via tool calls into the Cortiq MCP server. The internal workflow engine is not running. See [MCP and Agent Integration](mcp-and-agent-integration/).
 
@@ -26,8 +26,6 @@ This page defines the terms you'll see across the rest of the documentation. Eac
 **Sentiment report** — A reusable context document summarizing market positioning or news sentiment, attached to a session for richer AI context. See [Trading Cycle: Sentiment Reports](trading-cycle/entities/sentiment-reports/).
 
 **Instrument profile** — A reusable per-symbol context document (typical session, common ranges, behavioral notes). See [Trading Cycle: Instrument Profiles](trading-cycle/entities/instrument-profiles/).
-
-**AutoScan** — The Cortiq feature that lets the AI choose among candidate symbols rather than committing to a hard-coded symbol per cycle. See [Sessions & AutoScan](sessions-and-autoscan/).
 
 **Virtual mode** — A session mode that simulates orders without sending them to MT5. Useful for evaluation, rehearsal, and challenge environments. See [Execution Modes & Notifications](execution-modes-and-notifications/).
 

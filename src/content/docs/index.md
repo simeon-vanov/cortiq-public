@@ -59,7 +59,7 @@ This site shares its repository with Cortiq's GitHub Releases, Issues, and Discu
 4. [Installation & activation](installation-and-activation/) — the Windows install and license activation flow.
 5. [First 30 minutes in Cortiq](first-30-minutes/) — guided walkthrough from install to your first safe virtual session.
 6. [MetaTrader 5 integration](mt5-integration/) and [AI providers](ai-providers/) — read these before your first live setup.
-7. [Playbooks & data packages](playbooks-and-data/), [Sessions & AutoScan](sessions-and-autoscan/), and [Risk management](risk-management/) — the building blocks of your operating model.
+7. [Playbooks & data packages](playbooks-and-data/), [Sessions](sessions/), and [Risk management](risk-management/) — the building blocks of your operating model.
 8. [Workspace & monitoring](workspace-and-monitoring/) — the day-to-day screens, dashboards, and review tools.
 
 ## Related

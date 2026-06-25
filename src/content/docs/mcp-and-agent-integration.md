@@ -27,7 +27,7 @@ Use this mode when you want an agent such as Claude Desktop to:
 - Create and control `External MCP` sessions.
 - Execute and manage trades through Cortiq's MT5 integration.
 
-This is an advanced workflow. If you want the simpler product path, use [autonomous sessions](sessions-and-autoscan/) instead.
+This is an advanced workflow. If you want the simpler product path, use [autonomous sessions](sessions/) instead.
 
 ## How it fits into Cortiq
 
@@ -220,7 +220,7 @@ Use the Cortiq MCP server to review my account risk settings, gather fresh EURUS
 
 ## What to read next
 
-1. [Sessions & AutoScan](sessions-and-autoscan/) — for the autonomous-session alternative if MCP is more than you need.
+1. [Sessions](sessions/) — for the autonomous-session alternative if MCP is more than you need.
 2. [Risk management](risk-management/) — risk validators run for both autonomous and external sessions.
 3. [MetaTrader 5 integration](mt5-integration/) — the bridge that every execute tool ultimately uses.
 

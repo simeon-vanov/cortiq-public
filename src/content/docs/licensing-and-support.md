@@ -20,7 +20,7 @@ Public support runs through the Cortiq GitHub repository. Account-specific or li
 | License activation | `Settings` → `License` (in the app) | Activate, check status, re-activate. |
 | Bug reports | GitHub Issues | Reproducible bugs and feature requests. |
 | Usage questions | GitHub Discussions | How-to and workflow questions. |
-| Installer | GitHub Releases | Current public Windows MSIX. |
+| Installer | GitHub Releases | Current public Windows installer (`Cortiq-win-Setup.exe`). |
 | Sensitive issues | `support@cortiq.trade` | Activation, account, payment, security. |
 
 ## How to use it

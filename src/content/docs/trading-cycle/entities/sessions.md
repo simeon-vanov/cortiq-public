@@ -15,7 +15,7 @@ A session bundles:
 
 - One MT5 account.
 - One primary AI provider and integration mode.
-- One symbol selection method (fixed or AutoScan).
+- One symbol — the single instrument the session trades.
 - One data package.
 - One or more playbooks (with priority).
 - Optional trade ideas.
@@ -26,7 +26,7 @@ A session bundles:
 
 Without sessions, you'd reassemble the whole workflow manually each time. The session is what makes the trading cycle repeatable — start it, pause it, review it, improve it, duplicate it into a new template.
 
-For runtime behavior and the session lifecycle, see [Sessions & AutoScan](../../sessions-and-autoscan/). For the architectural role, see [Session architecture](../session-architecture/).
+For runtime behavior and the session lifecycle, see [Sessions](../../sessions/). For the architectural role, see [Session architecture](../session-architecture/).
 
 ## How to use it
 
@@ -50,7 +50,7 @@ Treat the session as a trading-desk template. Once it's stable, duplicate before
 ## What to read next
 
 1. [Session architecture](../session-architecture/) — the four scopes a session controls.
-2. [Sessions & AutoScan](../../sessions-and-autoscan/) — the runtime view, lifecycle, and AutoScan.
+2. [Sessions](../../sessions/) — the runtime view and session lifecycle.
 3. [Trading cycle: overview](../overview/) — the cycle the session drives.
 
 ## Related

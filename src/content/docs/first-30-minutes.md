@@ -21,7 +21,7 @@ The strategy you build here is intentionally narrow: one symbol, one or two time
 
 | You are here | Comes before | Comes after |
 | --- | --- | --- |
-| First 30 minutes *(this page)* | [Installation & activation](installation-and-activation/) | Iteration in [Sessions & AutoScan](sessions-and-autoscan/) and [Playbooks & data packages](playbooks-and-data/) |
+| First 30 minutes *(this page)* | [Installation & activation](installation-and-activation/) | Iteration in [Sessions](sessions/) and [Playbooks & data packages](playbooks-and-data/) |
 
 By the end of this walkthrough you'll have:
 
@@ -36,7 +36,7 @@ By the end of this walkthrough you'll have:
 ### Minute 0–5 — Install and activate
 
 1. Download the current Cortiq release from [GitHub Releases](https://github.com/simeon-vanov/cortiq-public/releases/latest).
-2. Install the MSIX package on the machine that will run Cortiq.
+2. Run `Cortiq-win-Setup.exe` on the machine that will run Cortiq. If Windows SmartScreen shows an "unknown publisher" notice, choose **More info → Run anyway**.
 3. Open the app and complete license activation in `Settings` → `License`.
 
 If activation fails, stop and resolve it before moving on — see [Installation & activation](installation-and-activation/).
@@ -62,7 +62,7 @@ Simplicity beats flexibility on day one. You can add a fallback provider later. 
 
 Build the smallest playbook and data package that still expresses your idea:
 
-- One symbol (no AutoScan).
+- One symbol — the single instrument this session will trade.
 - One or two important timeframes (not a stack of six).
 - One setup rule, one invalidation rule.
 
@@ -72,7 +72,7 @@ A narrow scope produces journals you can actually read. See [Playbooks & data pa
 
 Create one session with these defaults:
 
-- Fixed symbol mode.
+- One symbol.
 - One MT5 account.
 - The provider you configured above.
 - Your simple playbook.
@@ -107,13 +107,12 @@ The first question is *did this workflow behave in a way I can understand and tr
 
 - Going live immediately.
 - Using multiple providers when one suffices.
-- Starting with a broad multi-symbol AutoScan setup.
 - Skipping risk settings because the first run is virtual.
 - Judging the platform from one isolated trade result.
 
 ## What to read next
 
-1. [Sessions & AutoScan](sessions-and-autoscan/) — the next layer of session configuration once the basic loop is green.
+1. [Sessions](sessions/) — the next layer of session configuration once the basic loop is green.
 2. [Playbook design guide](trading-cycle/playbook-design/) — raises the quality of your second playbook.
 3. [Journal & analytics](journal-and-analytics/) — what to look for once you have several sessions to compare.
 4. [Risk management](risk-management/) — before any live execution.

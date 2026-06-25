@@ -34,7 +34,7 @@ The sidebar in `astro.config.mjs` is the source of truth for what's published. P
 | `mt5-integration` | MetaTrader 5 setup, ZmqFacade EA, per-account multi-MT5 configuration, health indicator. |
 | `ai-providers` | API-key / browser-mode / external-MCP transports for OpenAI, xAI, Anthropic, Google. |
 | `playbooks-and-data` | Playbooks (strategy rules) + data packages (what context the AI sees). |
-| `sessions-and-autoscan` | Session create form, run/pause/stop lifecycle. |
+| `sessions` | Session create form, single-instrument scope, run/pause/stop lifecycle. |
 | `risk-management` | Global + per-account risk limits, emergency-stop circuit breaker. |
 | `execution-modes-and-notifications` | Live / virtual / external-MCP modes; Toast / X / Telegram channels. |
 | `workspace-and-monitoring` | Day-to-day screens: Home, Dashboard, Sessions, Trade Ideas, Conversations, Provider Health, Journal, NowTradingBar. |

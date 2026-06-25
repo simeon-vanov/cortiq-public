@@ -13,7 +13,7 @@ In Cortiq, the session is the root of the trading architecture. If you understan
 
 A session controls four scopes at once:
 
-1. **Trading scope** — which MT5 account, which symbols, when trading is allowed.
+1. **Trading scope** — which MT5 account, which symbol, when trading is allowed.
 2. **Strategy scope** — which playbooks, in what priority.
 3. **Execution scope** — which provider and mode, live or virtual or copy.
 4. **Support context** — which preparation packages, instrument profiles, sentiment reports, and instructions.
@@ -53,7 +53,7 @@ Both are valid. Both produce different results. Neither is wrong. Pick the suppo
 
 | Area | What you choose |
 | --- | --- |
-| Broker and market scope | MT5 account, fixed symbol or AutoScan behavior. |
+| Broker and market scope | MT5 account and the one symbol the session trades. |
 | AI routing | Provider, integration mode, fallback behavior. |
 | Strategy | Playbooks and their priority. |
 | Data | Data package and indicator scope. |
@@ -80,7 +80,7 @@ Both are valid. Both produce different results. Neither is wrong. Pick the suppo
 
 ## Related
 
-- [Sessions & AutoScan](../sessions-and-autoscan/)
+- [Sessions](../sessions/)
 - [Sessions](entities/sessions/)
 - [Trading cycle: overview](overview/)
 - [Glossary](../glossary/)

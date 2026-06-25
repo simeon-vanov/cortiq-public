@@ -117,6 +117,6 @@ Express fit. These support the main logic; they don't replace it.
 ## Related
 
 - [Playbooks & data packages](../playbooks-and-data/)
-- [Sessions & AutoScan](../sessions-and-autoscan/)
+- [Sessions](../sessions/)
 - [Capability reference](../capability-reference/)
 - [Glossary](../glossary/)
