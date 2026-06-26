@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import starlightImageZoom from 'starlight-image-zoom';
 import mermaid from 'astro-mermaid';
 
 export default defineConfig({
@@ -12,6 +13,7 @@ export default defineConfig({
       description: 'Official product documentation for Cortiq.',
       favicon: '/favicon.ico',
       lastUpdated: true,
+      plugins: [starlightImageZoom()],
       editLink: {
         baseUrl: 'https://github.com/simeon-vanov/cortiq-public/edit/main/',
       },

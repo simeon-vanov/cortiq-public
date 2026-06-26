@@ -17,7 +17,8 @@
     "@astrojs/starlight": "0.38.3",
     "astro": "6.1.5",
     "astro-mermaid": "2.0.1",
-    "mermaid": "11.4.1"
+    "mermaid": "11.4.1",
+    "starlight-image-zoom": "0.14.0"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.8",
