@@ -51,7 +51,7 @@ Use a preparation package when you want the AI to start the cycle with already-p
 - Directional skew from slower charts.
 - Key levels prepared before the session opens.
 
-A daily preparation package refreshed before market open is a high-leverage layer for swing-style sessions.
+A daily preparation package refreshed before market open is a high-impact layer for swing-style sessions.
 
 ### Instrument profiles
 

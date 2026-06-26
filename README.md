@@ -30,7 +30,7 @@ Do not open public issues for security problems. Report them privately to suppor
 Public installers are published to GitHub Releases in this repository.
 
 - Latest releases page: https://github.com/simeon-vanov/cortiq-public/releases/latest
-- Direct Windows download: https://github.com/simeon-vanov/cortiq-public/releases/latest/download/Cortiq.msix
+- Direct Windows download: https://github.com/simeon-vanov/cortiq-public/releases/latest/download/Cortiq-win-Setup.exe
 
 ## Documentation
 

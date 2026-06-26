@@ -48,7 +48,7 @@ Confirm these before installing:
 - Windows 10 or Windows 11.
 - MetaTrader 5 installed on the same machine, for live trading.
 - A Cortiq activation key.
-- Access to at least one supported AI provider — either an API key or a logged-in browser account.
+- A way to reach at least one supported AI provider — an API key, a local model endpoint, or a local agent (ACP or CLI) you can authenticate.
 - A clear answer to whether your first run is virtual or live (the section below explains why this matters).
 
 ## Recommended first-day path
@@ -64,12 +64,12 @@ If you want this as a guided checklist with screenshots, read [First 30 minutes 
 
 ## Reference
 
-The highest-leverage early decisions, and the criterion that picks each one:
+The highest-impact early decisions, and the criterion that picks each one:
 
 | Decision | Why it matters | Default |
 | --- | --- | --- |
 | Live vs virtual first | Determines whether your first cycles affect the market or only your internal review. | Virtual until the playbook produces consistent journals over a few sessions. |
-| Browser mode vs API mode | Browser mode automates a logged-in provider window; API mode uses REST and an API key. | Browser if you already pay for the provider's web product; API if you want minimum setup friction. |
+| Which AI transport | API uses a metered key; ACP or CLI reuse a subscription you already pay for; a local model runs on your own hardware. | API for minimum setup friction; ACP/CLI if you already pay for a provider's plan. |
 | Conservative vs aggressive risk limits | Sets how much freedom the session has before risk pauses or stops it. | Conservative — you can always relax limits after a green journal. |
 
 ## What to read next

@@ -3,7 +3,7 @@
 `cortiq-public` is the **Cortiq public hub** repo. A single GitHub repository serves three purposes:
 
 - **Documentation site.** An Astro 6 + Starlight 0.38 static site published to GitHub Pages at <https://simeon-vanov.github.io/cortiq-public/>. All reader content lives at `src/content/docs/`.
-- **Release host.** Public Cortiq installers (`Cortiq.msix`) are uploaded as GitHub Releases on this repo; the marketing site in the sibling `cortiq-landing` repo links to `releases/latest/download/Cortiq.msix`.
+- **Release host.** Public Cortiq installers (Velopack `Cortiq-win-Setup.exe`) are published as GitHub Releases on this repo by the `cortiq-app` CI (`publish-public-release.yml`); the marketing site in the sibling `cortiq-landing` repo links to `releases/latest/download/Cortiq-win-Setup.exe`.
 - **Community surface.** GitHub Issues (templates in `.github/ISSUE_TEMPLATE/`) and Discussions for end users.
 
 This repo intentionally contains **no application source code, no license backend, no private engineering material**. Those live in the sibling repos `cortiq-app`, `cortiq-backend`, `cortiq-landing`, `cortiq-publish`. Cluster-level overview is at `C:\Projects\Cortiq\CLAUDE.md`.
@@ -46,7 +46,7 @@ Node `>=22` is required (pinned in `package.json` engines + the GitHub Actions w
 
 - **Base path `/cortiq-public`.** `astro.config.mjs` sets `site: 'https://simeon-vanov.github.io'` and `base: '/cortiq-public'`. All internal links must use Starlight relative slugs (e.g. `getting-started/`), never absolute paths. Renaming the repo or moving to a custom domain (e.g. `docs.cortiq.trade`) requires updating both values plus GitHub Pages config.
 - **CI only deploys from `main`.** `.github/workflows/docs.yml` triggers only on push to `main`. Long-lived branches like `docs/foundations-and-polish` do not auto-publish — preview locally with `npm run dev`, then merge to `main`.
-- **`Cortiq.msix` upload is manual.** The MSIX release asset is uploaded by hand through the GitHub Releases UI; it is not part of the docs workflow. Reader pages that link to `releases/latest/download/Cortiq.msix` rely on the filename never changing.
+- **Releases are published by CI, not by hand.** The Velopack installer (`Cortiq-win-Setup.exe`) plus update metadata (`RELEASES`, `releases.win.json`, `Cortiq-<version>-full.nupkg`) are built and uploaded by the `cortiq-app` repo's `publish-public-release.yml` workflow (kicked off via its manual `create-release.yml`). Reader pages and the landing site link to `releases/latest/download/Cortiq-win-Setup.exe` — keep that asset name stable (it is fixed by Velopack `packId=Cortiq`, channel `win`).
 - **Reader content has its own style contract.** Every page under `src/content/docs/` must match `docs/reference/style-guide.md` (page skeleton, voice, banned words, callouts, frontmatter). The `astro check` step in `npm run build` validates frontmatter shape but does not enforce voice / banned words.
 - **Screenshots manifest.** Every PNG referenced from a reader page must have a row in `docs/reference/screenshots.md` and a redacted file at `public/images/screenshots/<page-slug>__<descriptor>.png`. Outstanding placeholders: `grep -rn "SCREENSHOT-NEEDED" src/content/docs/`.
 

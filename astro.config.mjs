@@ -45,15 +45,27 @@ export default defineConfig({
             'playbooks-and-data',
             'sessions',
             'risk-management',
+            'backtesting',
             'execution-modes-and-notifications',
             'workspace-and-monitoring',
             'journal-and-analytics',
+            'session-review',
+            'system-messages',
+          ],
+        },
+        {
+          label: 'Research & Skills',
+          items: [
+            'research',
+            'skills',
           ],
         },
         {
           label: 'MCP & Agent',
           items: [
             'mcp-and-agent-integration',
+            'cortiq-copilot',
+            'agent-permissions',
           ],
         },
         {

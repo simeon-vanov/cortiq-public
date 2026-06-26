@@ -9,7 +9,7 @@ This page explains the architecture of one Cortiq cycle. By the end you'll know 
 
 ## What this is
 
-The easiest way to understand Cortiq is to think in terms of one session running one repeatable trading cycle. That cycle is not just an AI prompt — it's a controlled operating loop assembled from a session, one or more playbooks, one data package, optional support layers, the live MT5 state, and the trade history.
+The clearest way to understand Cortiq is to think in terms of one session running one repeatable trading cycle. That cycle is more than an AI prompt — it's a controlled operating loop assembled from a session, one or more playbooks, one data package, optional support layers, the live MT5 state, and the trade history.
 
 Each cycle moves through six phases. Understanding the phases makes it obvious which Cortiq object you should change to influence which behavior: a problem in the entry quality is rarely a "the AI is bad" problem; it's almost always an issue in the data package or playbook *feeding* that AI.
 
@@ -51,7 +51,7 @@ Start by understanding what the session controls, then drill into each phase as 
 
 Playbooks and data packages cover the core. Support layers — session instructions, preparation packages, instrument profiles, sentiment reports — let you add structure the AI shouldn't have to rediscover every cycle.
 
-Add a layer when its absence would noticeably hurt cycle quality. Don't add layers reflexively; a noisy preparation package is just as bad as a noisy data package.
+Add a layer when its absence would noticeably hurt cycle quality. Don't add layers reflexively; a noisy preparation package is as bad as a noisy data package.
 
 ## Reference
 

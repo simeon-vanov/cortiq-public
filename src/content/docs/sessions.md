@@ -9,7 +9,7 @@ This page explains the Cortiq session — the operating container that turns a c
 
 ## What this is
 
-A session bundles everything Cortiq needs to trade: an MT5 account, an AI provider and integration mode, one or more playbooks, a data package, a symbol, a time window, and the risk and execution settings.
+A session bundles everything Cortiq needs to trade: an MT5 account, an AI provider and transport, one or more playbooks, a data package, a symbol, a time window, and the risk and execution settings.
 
 In practical terms, the session is the unit you operate. You start it, watch it cycle, pause or stop it, review the journal, and decide what to change. Every session is locked to exactly one instrument, so the AI builds deep, measurable expertise on that market rather than spreading attention across many.
 
@@ -19,38 +19,40 @@ Cortiq supports two session types — autonomous (the default) and external MCP 
 
 | Session type | Who controls the trading loop | When to use |
 | --- | --- | --- |
-| Autonomous | Cortiq's internal workflow engine | Default for most users; built-in automated operating loop. |
+| Autonomous | Cortiq's internal cycle engine | Default for most users; built-in automated operating loop. |
 | External MCP | An external MCP-compatible AI client | Advanced; the agent drives data gathering, decisions, and execution. |
 
-External MCP sessions skip the internal workflow engine — see [MCP and agent integration](mcp-and-agent-integration/).
+External MCP sessions skip the internal cycle engine — see [MCP and agent integration](mcp-and-agent-integration/).
 
 ```mermaid
 stateDiagram-v2
   [*] --> Created
   Created --> Running: Start
-  Running --> Paused: Manual pause
   Running --> RiskPaused: Risk breach
+  Running --> TimePaused: Outside time window
   Running --> Stopped: Manual stop
   Running --> Completed: End of window
-  Paused --> Running: Manual resume
-  RiskPaused --> Running: Auto-resume<br/>(conditions clear)
-  RiskPaused --> Stopped: Manual stop
+  Running --> Failed: Fatal error
+  RiskPaused --> Running: Auto-resume
+  TimePaused --> Running: Auto-resume
+  Failed --> Running: Auto-restart<br/>(if enabled)
   Stopped --> [*]
   Completed --> [*]
 ```
 
-*A session moves between five states. Only `RiskPaused` resumes automatically when the breach condition clears; manual `Paused` requires user action.*
+*A session moves through `Created`, `Running`, two auto-resuming pause states (`RiskPaused`, `TimePaused`), and the terminal states `Stopped`, `Completed`, and `Failed`. A manual-only `Paused` state also exists but no automatic process writes it.*
 
 ## How to use it
 
 ### Create a session
 
-Open `Library` → `Sessions` and create a new session. The dialog asks for an account, a symbol, a provider, a time range, and risk settings.
+Open `Library` → `Sessions` and create a new session. The form asks for an account, a symbol, a provider, a time range, and risk settings.
 
-![Cortiq's session create dialog with Account, Symbol, Provider, Time Range, Risk fields visible](/images/screenshots/sessions-and-autoscan__create-form.png)
-<!-- SCREENSHOT-NEEDED: sessions-and-autoscan__create-form.png – Cortiq's session create dialog with Account, Symbol, Provider, Time Range, Risk fields visible. Mask account number -->
+![Cortiq's new-session form with Account, Symbol, Provider, Time Range, and Risk fields visible](/images/screenshots/sessions__create-form.png)
 
 Defaults that work well for a first run: virtual mode and conservative risk limits. You can change any of them after the first cycle has run.
+
+A session won't start on a provider that isn't authenticated. Cortiq runs an auth preflight check before the first cycle and blocks the start if the configured provider has no valid credentials.
 
 ### Pick the instrument
 
@@ -60,11 +62,19 @@ If you want to trade a different instrument, create a separate session for it. T
 
 ### Run, pause, and review
 
-From the Sessions list you can start, pause, resume, and stop sessions. The session detail page shows the current cycle's progress, the AI conversation, and the decision history.
+From the Sessions list you can start, stop, and resume sessions. The list shows every session with its current state, so you can see at a glance which sessions are running, paused, or finished.
 
-When a risk validator triggers a breach, the session transitions to `RiskPaused`. It auto-resumes once the breach condition clears (for example, the next day starts and the daily P/L counter resets).
+![Sessions list with sessions at mixed statuses — Running, RiskPaused, Stopped, Completed](/images/screenshots/sessions__list.png)
 
-When you reach the end of a configured time window, the session transitions to `Completed`.
+The session detail page shows the current cycle's progress, the live AI conversation, and the decision history.
+
+![Session detail page with the live execution view and the AI conversation panel](/images/screenshots/sessions__detail.png)
+
+When a risk validator triggers a breach, the session transitions to `RiskPaused`. It auto-resumes once the breach condition clears — for example, the next trading day starts and the daily P/L counter resets.
+
+When the clock moves outside the session's configured time window, the session transitions to `TimePaused`. It auto-resumes when the schedule re-opens.
+
+When you reach the end of a configured time window, the session transitions to `Completed`. A fatal error during a cycle moves the session to `Failed`; if you enabled auto-restart, Cortiq schedules a restart with exponential backoff and shows the remaining time on the detail page.
 
 ## Reference
 
@@ -74,9 +84,9 @@ When you reach the end of a configured time window, the session transitions to `
 | --- | --- |
 | Market scope | One fixed symbol for the life of the session. |
 | Time control | Trading hours, active weekdays, close-before-end rules. |
-| Provider control | Provider choice, browser or API mode, fallback provider. |
+| Provider control | Provider choice, transport (API / ACP / CLI / External MCP), fallback provider. |
 | Strategy control | Playbook set, playbook priority, session instructions. |
-| Execution control | Live or virtual mode, copy-trading targets, parallel-trade limits. |
+| Execution control | Live or virtual mode, trade-approval policy, parallel-trade limits. |
 
 ### Per-cycle loop
 
@@ -84,7 +94,7 @@ Each cycle follows the same pattern:
 
 `Data gather → Prompt build → AI call → Response parse → Decision → Risk validate → Execute → Log`
 
-The same shape runs in every state except `Paused`, `RiskPaused`, `Stopped`, and `Completed`. For the full architectural breakdown, read [Trading cycle: overview](trading-cycle/overview/).
+The loop runs only while the session is `Running`. It is suspended in every pause or terminal state. For the full architectural breakdown, read [Trading cycle: overview](trading-cycle/overview/).
 
 ### State distinctions worth memorizing
 
@@ -92,10 +102,12 @@ The same shape runs in every state except `Paused`, `RiskPaused`, `Stopped`, and
 | --- | --- | --- |
 | `Created` | n/a — start manually | Initial state after creation. |
 | `Running` | n/a | Normal operating state. |
-| `Paused` | No — manual resume | Operator-initiated pause. |
 | `RiskPaused` | Yes — when breach clears | Triggered by a risk validator. |
-| `Stopped` | No | Terminal for the run. |
+| `TimePaused` | Yes — when the window re-opens | Set when the clock leaves the configured time range. |
+| `Paused` | No — manual resume | Manual-only. No automatic process writes this state. |
+| `Stopped` | No | Terminal for the run. Manual stop or app shutdown. |
 | `Completed` | No | Terminal at end of time window. |
+| `Failed` | Only if auto-restart is enabled | Terminal error. Restarts on a backoff schedule when you enabled auto-restart. |
 
 ## Common questions
 
@@ -112,8 +124,9 @@ Create one session per instrument. A session is locked to a single symbol by des
 
 1. [Playbooks & data packages](playbooks-and-data/) — what the session executes.
 2. [Risk management](risk-management/) — what triggers `RiskPaused` and how to configure it.
-3. [Execution modes & notifications](execution-modes-and-notifications/) — virtual vs live, copy-trading, alerts.
-4. [Trading cycle: session architecture](trading-cycle/session-architecture/) — the architecture behind the session loop.
+3. [Execution modes & notifications](execution-modes-and-notifications/) — virtual vs live execution and alert channels.
+4. [Backtesting](backtesting/) — replay a playbook over historical bars before running it live.
+5. [Trading cycle: session architecture](trading-cycle/session-architecture/) — the architecture behind the session loop.
 
 ## Related
 

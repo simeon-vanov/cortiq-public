@@ -19,7 +19,7 @@ These docs cover the full surface: what Cortiq is, how to install it, the screen
 
 ## How it fits into Cortiq
 
-Every Cortiq feature is a component of one operating loop. The same loop runs whether you trade one symbol or twenty, on one account or several, against any of the supported AI providers.
+Every Cortiq feature is a component of one operating loop. Each session is locked to a single instrument so the AI builds deep, measurable expertise on that one market. The same loop runs against any of the supported AI providers, and across one MT5 account or several.
 
 ```mermaid
 flowchart LR
@@ -45,7 +45,9 @@ flowchart LR
 | Trade execution | Connects to a local MetaTrader 5 terminal to place, modify, and close trades. |
 | Strategy control | Encodes your logic in playbooks and data packages so the AI executes inside the framework you define. |
 | Risk control | Applies global and per-account risk limits before and during every trade. |
-| Operations | Tracks sessions, journals, notifications, and account activity in one desktop workspace. |
+| Validation | Replays a session or playbook against historical M1 data so you can test before risking capital — no license required. |
+| Operations | Tracks sessions, journals, notifications, system messages, and account activity in one desktop workspace. |
+| Learning | Runs one-click AI session reviews that score the run and store durable per-instrument lessons. |
 
 :::note
 This site shares its repository with Cortiq's GitHub Releases, Issues, and Discussions — keeping docs, the Windows installer, bug reports, and usage questions in one public place.
@@ -55,12 +57,13 @@ This site shares its repository with Cortiq's GitHub Releases, Issues, and Discu
 
 1. [Getting started](getting-started/) — orientation if you're evaluating Cortiq, including who it's for and what the first day looks like.
 2. [App navigation guide](app-navigation-guide/) — maps every doc to the matching sidebar entry and screen in the desktop app.
-3. [Capability reference](capability-reference/) — plain-English summary of what each major function does for you.
+3. [Feature overview](feature-overview/) and [Capability reference](capability-reference/) — the at-a-glance and function-by-function maps of everything Cortiq does.
 4. [Installation & activation](installation-and-activation/) — the Windows install and license activation flow.
 5. [First 30 minutes in Cortiq](first-30-minutes/) — guided walkthrough from install to your first safe virtual session.
 6. [MetaTrader 5 integration](mt5-integration/) and [AI providers](ai-providers/) — read these before your first live setup.
 7. [Playbooks & data packages](playbooks-and-data/), [Sessions](sessions/), and [Risk management](risk-management/) — the building blocks of your operating model.
-8. [Workspace & monitoring](workspace-and-monitoring/) — the day-to-day screens, dashboards, and review tools.
+8. [Backtesting](backtesting/) — replay a session against history first; it's the only path that runs without a license.
+9. [Workspace & monitoring](workspace-and-monitoring/) and [Session reviews](session-review/) — the day-to-day screens, plus the AI review loop that turns runs into durable lessons.
 
 ## Related
 

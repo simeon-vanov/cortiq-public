@@ -19,7 +19,7 @@ Preparation packages are referenced by sessions as a support layer. The same pac
 
 ## How to use it
 
-Use a preparation package when you want the AI to begin each cycle with already-prepared context rather than rediscovering the same structure repeatedly. A daily preparation package refreshed before market open is a high-leverage layer for swing-style sessions.
+Use a preparation package when you want the AI to begin each cycle with already-prepared context rather than rediscovering the same structure repeatedly. A daily preparation package refreshed before market open is a high-impact layer for swing-style sessions.
 
 Update or refresh the package when the underlying structure changes — most prep packages refresh on a candle-count trigger (every N higher-timeframe candles) or a price-movement trigger (when price moves outside the prepared range).
 

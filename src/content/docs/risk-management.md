@@ -47,16 +47,14 @@ Risk is visible in two screens:
 Open `Tools` → `Risk Management` and select the `Global` tab. Set conservative defaults before any live execution.
 
 ![Risk Management page with the Global tab selected, all six limits visible](/images/screenshots/risk-management__global-panel.png)
-<!-- SCREENSHOT-NEEDED: risk-management__global-panel.png – Risk Management page with the Global tab selected, all six limits visible -->
 
 Conservative is not optional. Tighten until you'd be comfortable with the worst-case loss the rule allows; you can always loosen later, but you can't undo a breach that exceeded a too-wide limit.
 
 ### Configure per-account limits
 
-Switch to the `Per-Account` tab and configure rules for each MT5 account independently. Use this to encode account-specific mandates: prop-firm challenge limits, a personal account's daily drawdown, a copy-trading follower's max exposure.
+Switch to the `Per-Account` tab and configure rules for each MT5 account independently. Use this to encode account-specific mandates: prop-firm challenge limits, a personal account's daily drawdown, a secondary account's max exposure.
 
 ![Risk Management page with the Per-Account tab selected, one account's limits visible](/images/screenshots/risk-management__account-panel.png)
-<!-- SCREENSHOT-NEEDED: risk-management__account-panel.png – Risk Management page with the Per-Account tab selected, one account's limits visible. Mask account number -->
 
 ### Configure your day-start time
 
@@ -88,14 +86,23 @@ When a validator triggers, the affected sessions transition to `RiskPaused`. Don
 
 | Layer | Effect |
 | --- | --- |
-| Global | Stops every session, cancels all pending orders. |
-| Per-account | Stops sessions on the affected account, cancels that account's pending orders. Other accounts continue. |
+| Global | Cancels all pending orders, risk-pauses every running session. |
+| Per-account | Cancels the affected account's pending orders, risk-pauses that account's running sessions. Other accounts continue. |
 
 In both cases the affected sessions move to `RiskPaused` and the breach is logged with the trigger condition.
 
+### The emergency-stop circuit breaker
+
+When a hard limit breaches, an emergency-stop service fires before the next trade can compound the loss. It is the circuit breaker that sits between a breach and your account:
+
+1. It cancels pending orders — every account on a global breach, only the affected account on a per-account breach. When `Include manual trades` is off, only orders linked to Cortiq sessions are cancelled.
+2. It risk-pauses every session currently `Running` in the breached scope.
+
+A separate unrealized-P/L monitor complements this by polling open positions on a short interval and force-closing them when the *realized plus unrealized* total breaches a daily drawdown or profit target — so a single open position can't drift far past the limit between closed trades. Soft limits (trade count, loss streak, max open trades, symbol exposure) reject the next order but do not trip the circuit breaker.
+
 ## Common questions
 
-**My session is `RiskPaused` — should I just resume it?**
+**My session is `RiskPaused` — should I resume it?**
 No. The pause exists because a limit was hit. Either let the validator auto-resume (when the daily counter resets, for example), or stop the session and review the journal before changing the limit.
 
 **Risk limits applied but I see a loss bigger than the daily drawdown — why?**

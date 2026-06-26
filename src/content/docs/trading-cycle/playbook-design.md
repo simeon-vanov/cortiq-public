@@ -15,7 +15,7 @@ The same playbook structure also represents a four-step execution pipeline at ru
 
 ```mermaid
 flowchart LR
-  S1(Symbol filtering) --> S2(Setup condition)
+  S1(Instrument-fit check) --> S2(Setup condition)
   S2 -->|met| S3(Trade entry)
   S2 -->|not met| End([Cycle ends])
   S3 --> S4(Trade management)

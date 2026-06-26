@@ -1,6 +1,6 @@
 ---
 title: Workspace & monitoring
-description: A tour of the day-to-day Cortiq screens — Home, Dashboard, Sessions, Trade Ideas, Journal, Conversations, and Provider Health — and the rhythm to use them in.
+description: A tour of the day-to-day Cortiq screens — Home, Dashboard, Sessions, Trade Ideas, Journal, Session Reviews, System Messages, Conversations, and Provider Health — and the rhythm to use them in.
 sidebar:
   order: 70
 ---
@@ -24,9 +24,11 @@ This page introduces each screen and recommends a daily rhythm. The deeper "why"
 | `Sessions` | What is each running session doing right now? | Active operation |
 | `Trade Ideas` | Which standalone theses are open and what's their status? | Active operation |
 | `Journal` | Why did this trade or session behave that way? | Review |
-| `Session Cohorts` | Which configuration is outperforming the others? | Review |
+| `Session Reviews` | What did the AI learn from completed sessions on this instrument? | Review |
+| `Cohorts` | Which configuration is outperforming the others? | Review |
 | `Conversations` | What is the AI actually saying across sessions? | Review / debug |
-| `Provider Health` | Is the AI provider reliable today? | Diagnostics |
+| `System Messages` | What background events and trade operations have fired? | Monitoring |
+| `Provider Health` | Is the AI provider reliable and authenticated today? | Diagnostics |
 
 ## How to use it
 
@@ -37,7 +39,6 @@ This page introduces each screen and recommends a daily rhythm. The deeper "why"
 Use Home to orient before opening any detail screen.
 
 ![Home screen with at least one running session and the first-run checklist still visible](/images/screenshots/workspace-and-monitoring__home.png)
-<!-- SCREENSHOT-NEEDED: workspace-and-monitoring__home.png – Home screen with at least one running session and the first-run checklist still visible. Mask balances -->
 
 ### Dashboard
 
@@ -46,19 +47,12 @@ Use Home to orient before opening any detail screen.
 Open Dashboard when you want the business-level view of the platform — not "what is this session doing", but "is the whole environment behaving".
 
 ![Dashboard with cross-account P/L chart, recent trades, and risk widgets](/images/screenshots/workspace-and-monitoring__dashboard.png)
-<!-- SCREENSHOT-NEEDED: workspace-and-monitoring__dashboard.png – Dashboard with cross-account P/L chart, recent trades list, and risk widgets visible. Mask balances and account numbers -->
 
 ### Sessions
 
-`Sessions` is where you control runtime state. The list view shows every session with its current state (`Running`, `Paused`, `RiskPaused`, `Stopped`, `Completed`); the detail view drills into one session's live execution feed and AI conversation.
+`Sessions` is where you control runtime state. The list view shows every session with its current state (`Running`, `RiskPaused`, `TimePaused`, `Stopped`, `Completed`, `Failed`); the detail view drills into one session's live execution feed and AI conversation.
 
-You start, pause, resume, and stop sessions from here. You also use this screen to follow a single session through its cycle when something looks off.
-
-![Sessions list page with a mix of Running, Paused, and Stopped sessions](/images/screenshots/workspace-and-monitoring__sessions-list.png)
-<!-- SCREENSHOT-NEEDED: workspace-and-monitoring__sessions-list.png – Sessions page with a mix of Running, Paused, and Stopped sessions -->
-
-![Session detail page with live execution view and AI conversation panel open](/images/screenshots/workspace-and-monitoring__session-detail.png)
-<!-- SCREENSHOT-NEEDED: workspace-and-monitoring__session-detail.png – Session detail page with live execution view and AI conversation panel open. Mask account, broker name -->
+You start, stop, and resume sessions from here. You also use this screen to follow a single session through its cycle when something looks off. The list and detail screens are covered in depth on the [Sessions](sessions/) page.
 
 ### Trade Ideas
 
@@ -67,7 +61,6 @@ You start, pause, resume, and stop sessions from here. You also use this screen 
 You can filter ideas by status (active, executed, closed, invalidated, expired, unassigned) and create a session directly from an active idea.
 
 ![Trade Ideas page with several ideas at different statuses](/images/screenshots/workspace-and-monitoring__trade-ideas.png)
-<!-- SCREENSHOT-NEEDED: workspace-and-monitoring__trade-ideas.png – Trade Ideas page with 3+ ideas at different statuses -->
 
 ### Journal
 
@@ -76,16 +69,27 @@ You can filter ideas by status (active, executed, closed, invalidated, expired, 
 - `AI Journal` — session-level review, including the AI-generated narrative for each cycle.
 - `Trade Journal` — per-trade deep dive, with the conversation that produced the entry attached.
 
-Use Journal when you need to understand *why* a session or trade behaved the way it did, not just whether it won or lost.
+Use Journal when you need to understand *why* a session or trade behaved the way it did, not only whether it won or lost.
 
 ![Journal page with a closed-trade entry and AI-generated journal text](/images/screenshots/workspace-and-monitoring__journal.png)
-<!-- SCREENSHOT-NEEDED: workspace-and-monitoring__journal.png – Journal page with a closed-trade entry and AI-generated journal text. Mask account -->
 
-### Session Cohorts
+### Session Reviews
 
-`Session Cohorts` groups sessions into a comparison set. It's the right screen when more than one serious session is running and you need to decide what deserves more capital or more refinement — relative performance, not isolated anecdotes.
+`Session Reviews` (`/reviews`) lists the AI-driven reviews produced after sessions end. Each review yields scored, apply-able suggestions and durable instrument-scoped lessons that feed back into the next session on the same symbol. Filter by instrument to see the active lessons the AI loop currently knows for that market.
+
+Open this screen to close the learning loop — to see what a completed session taught and to apply or dismiss the proposed changes. The full mechanism is on the [Session review](session-review/) page.
+
+### Cohorts
+
+`Cohorts` groups sessions into a comparison set. It's the right screen when more than one serious session is running and you need to decide what deserves more capital or more refinement — relative performance, not isolated anecdotes.
 
 There's no dedicated screenshot for this page in the current pass; the comparison view evolves quickly and is documented under [Journal & analytics](journal-and-analytics/).
+
+### System Messages
+
+`System Messages` (`/system-messages`) is the in-app notification center. It is a persisted, filterable list of background-process events and trade operations — preparation auto-refreshes, risk pauses, MT5 feed health, trade opens/closes/failures, and agent permission requests. An unread badge sits next to the entry in the sidebar, and higher-severity events also raise a toast.
+
+Open this screen to find out what happened while you weren't watching. Permission requests here are actionable — you can Allow or Deny an agent capability directly from the row. See [System messages](system-messages/) for the event list.
 
 ### Conversations
 
@@ -94,16 +98,14 @@ There's no dedicated screenshot for this page in the current pass; the compariso
 System messages can be hidden or shown — keep them hidden for daily review, show them when something looks wrong.
 
 ![Conversations panel showing one full prompt+response cycle](/images/screenshots/workspace-and-monitoring__conversations.png)
-<!-- SCREENSHOT-NEEDED: workspace-and-monitoring__conversations.png – Conversations panel showing one full prompt+response cycle -->
 
 ### Provider Health
 
-`Provider Health` is the AI-provider diagnostics screen under `Tools`. It shows request volume, success rate, average and p95 response time, retry counts, and recent errors per provider.
+`Provider Health` is the AI-provider diagnostics screen under `Tools`. It shows request volume, success rate, average and p95 response time, retry counts, and recent errors per provider. Each provider also carries an auth/verdict badge that reports whether its credentials currently authenticate — the same preflight check that blocks a session from starting on an unauthenticated provider.
 
-Open this screen to answer one specific question: *is the strategy underperforming, or is the provider route unhealthy?*
+Open this screen to answer two questions: *is the strategy underperforming, or is the provider route unhealthy?* and *is this provider actually authenticated right now?*
 
 ![Provider Health view with success rate, response times, recent errors per provider](/images/screenshots/workspace-and-monitoring__provider-health.png)
-<!-- SCREENSHOT-NEEDED: workspace-and-monitoring__provider-health.png – Provider Health view with success rate, response times, recent errors per provider -->
 
 ### NowTradingBar
 
@@ -129,8 +131,9 @@ Operational features that live in `Settings` but shape what you see in the works
 1. Open `Home` to orient.
 2. Open `Dashboard` to inspect the broader environment.
 3. Open `Sessions` to control active runs.
-4. Use `Journal`, `Session Cohorts`, and `Conversations` to review.
-5. Check `Provider Health` when AI responsiveness or reliability looks off.
+4. Skim `System Messages` for anything that fired overnight.
+5. Use `Journal`, `Session Reviews`, `Cohorts`, and `Conversations` to review.
+6. Check `Provider Health` when AI responsiveness, reliability, or authentication looks off.
 
 **Where do I start a session?**
 From `Sessions` (the list view) or from an active idea on `Trade Ideas`. Both routes open the same session-create dialog.
@@ -142,12 +145,14 @@ A risk validator triggered. Open the session detail and check the risk panel —
 
 1. [App navigation guide](app-navigation-guide/) — maps these screens to the actual sidebar entries in the desktop app.
 2. [Sessions](sessions/) — what's behind the Sessions screen.
-3. [Journal & analytics](journal-and-analytics/) — what's behind the Journal and Cohorts screens.
-4. [AI providers](ai-providers/) — what's behind Provider Health.
+3. [Session review](session-review/) — the learning loop behind the Session Reviews screen.
+4. [System messages](system-messages/) — the event list behind the System Messages inbox.
+5. [Journal & analytics](journal-and-analytics/) — what's behind the Journal and Cohorts screens.
 
 ## Related
 
 - [Execution modes & notifications](execution-modes-and-notifications/)
 - [Risk management](risk-management/)
+- [AI providers](ai-providers/)
 - [Trading cycle: overview](trading-cycle/overview/)
 - [Glossary](glossary/)

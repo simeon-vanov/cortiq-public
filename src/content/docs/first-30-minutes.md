@@ -52,9 +52,9 @@ If the indicator stays red, see [MetaTrader 5 integration](mt5-integration/) bef
 
 ### Minute 10–15 — Configure one AI provider
 
-1. Pick one provider for the first run — ChatGPT, Grok, Gemini, or Claude.
-2. Choose browser mode if you already pay for the provider's web product; choose API mode if you want minimum setup friction with an API key.
-3. Verify the provider responds successfully through `Settings` → `AI Providers`.
+1. Pick one provider for the first run — ChatGPT, Gemini, Claude, an OpenAI-compatible endpoint, or a local model.
+2. Choose a transport: the API (a metered key, least setup), ACP or CLI (reuse a Claude or ChatGPT subscription you already pay for), or a local model on your own hardware.
+3. Confirm the provider's auth badge is green in `Settings` → `AI Providers` — a session won't start an unauthenticated provider.
 
 Simplicity beats flexibility on day one. You can add a fallback provider later. See [AI providers](ai-providers/) if the choice isn't obvious.
 

@@ -36,15 +36,27 @@ The sidebar in `astro.config.mjs` is the source of truth for what's published. P
 | `playbooks-and-data` | Playbooks (strategy rules) + data packages (what context the AI sees). |
 | `sessions` | Session create form, single-instrument scope, run/pause/stop lifecycle. |
 | `risk-management` | Global + per-account risk limits, emergency-stop circuit breaker. |
-| `execution-modes-and-notifications` | Live / virtual / external-MCP modes; Toast / X / Telegram channels. |
-| `workspace-and-monitoring` | Day-to-day screens: Home, Dashboard, Sessions, Trade Ideas, Conversations, Provider Health, Journal, NowTradingBar. |
-| `journal-and-analytics` | Closed-trade journal + analytics page (P/L, win rate, best/worst day). |
+| `backtesting` | Historical M1 replay of a session/playbook; coverage grid; the only license-free path. |
+| `execution-modes-and-notifications` | Live / virtual / external-MCP modes; Toast / X / Telegram channels; System Messages. |
+| `workspace-and-monitoring` | Day-to-day screens: Home, Dashboard, Sessions, Trade Ideas, Conversations, Provider Health, Journal, Reviews, System Messages, NowTradingBar. |
+| `journal-and-analytics` | Closed-trade journal + analytics page (P/L, win rate, best/worst day) + the review/lessons loop. |
+| `session-review` | One-click AI session review → scored suggestions + durable instrument-scoped lessons. |
+| `system-messages` | In-app notification inbox + actionable permission cards. |
+
+### Research & Skills
+
+| Slug | Purpose |
+|---|---|
+| `research` | Single-instrument idea lab: workspaces, runs, artifacts, opt-in edge-discovery guardrails. |
+| `skills` | Reusable Markdown instruction templates injected into the creation flows. |
 
 ### MCP & Agent
 
 | Slug | Purpose |
 |---|---|
-| `mcp-and-agent-integration` | Running Cortiq as an MCP server for Claude Desktop / Code; external-MCP session mode. |
+| `mcp-and-agent-integration` | Running Cortiq as an MCP server for Claude Desktop / Code; external-MCP session mode; tool families; approval gate. |
+| `cortiq-copilot` | In-app Copilot dock (Ctrl+K) that authors entities behind the approval gate. |
+| `agent-permissions` | Approval/permission model — always-on trade gate + capability grants. |
 
 ### Trading Cycle
 

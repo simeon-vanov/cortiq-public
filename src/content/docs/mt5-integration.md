@@ -23,8 +23,8 @@ The integration handles every market interaction the platform needs: live pricin
 
 ```mermaid
 flowchart LR
-  C[Cortiq desktop app<br/>C#] -- ZeroMQ REQ/REP<br/>port 5555 --> Z(ZmqFacade EA<br/>MQL5)
-  C -- ZeroMQ SUB<br/>port 5556 --> Z
+  C[Cortiq desktop app<br/>C#] -- ZeroMQ REQ/REP<br/>command port --> Z(ZmqFacade EA<br/>MQL5)
+  C -- ZeroMQ SUB<br/>data port --> Z
   Z --> M[(MetaTrader 5<br/>terminal)]
 ```
 
@@ -47,11 +47,10 @@ The setup has three parts: install the EA in your terminal, configure the accoun
 Open `Settings` → `MT5 Accounts` and add an entry. You'll need the terminal's executable path, the data folder, and a unique pair of ZeroMQ ports.
 
 ![Cortiq Settings → MT5 Accounts panel](/images/screenshots/mt5-integration__settings-page.png)
-<!-- SCREENSHOT-NEEDED: mt5-integration__settings-page.png – Cortiq Settings → MT5 Accounts panel with one configured account, default badge visible. Mask account number (first 3 + last 2 ok), use a demo broker name -->
 
 ### 2. Attach `ZmqFacade` to a chart in MT5
 
-Open MetaTrader 5 and drop `ZmqFacade.ex5` onto any chart. Allow algorithmic trading and DLL imports when prompted. The EA's smiley face icon appears in the top-right of the chart when it's running.
+Open MetaTrader 5 and drop `ZmqFacade.ex5` onto any chart with automated trading enabled. The EA also needs the MQL5 ZeroMQ library installed under MT5's `Include/Zmq/` folder. The EA's smiley face icon appears in the top-right of the chart when it's running.
 
 ![ZmqFacade EA attached to a blank EURUSD chart](/images/screenshots/mt5-integration__zmqfacade-attached.png)
 <!-- SCREENSHOT-NEEDED: mt5-integration__zmqfacade-attached.png – A blank EURUSD chart in MT5 with ZmqFacade EA attached and the smiley face icon visible (top-right of chart). Mask broker name and balance -->
@@ -67,11 +66,11 @@ Cortiq's topbar shows an MT5 health indicator. Green means the bridge is connect
 
 Cortiq supports multiple MT5 accounts on the same machine, but each terminal must run on a non-overlapping pair of ZeroMQ ports.
 
-Example pattern:
+Example pattern (the EA defaults are command port `6200`, data port `6201`):
 
-- Account 1 — command port `5555`, data port `5556`.
-- Account 2 — command port `5557`, data port `5558`.
-- Account 3 — command port `5559`, data port `5560`.
+- Account 1 — command port `6200`, data port `6201`.
+- Account 2 — command port `6202`, data port `6203`.
+- Account 3 — command port `6204`, data port `6205`.
 
 The exact numbers don't matter — non-overlap does. Two terminals on the same port will collide silently and one of them will appear to "work intermittently".
 
@@ -81,8 +80,8 @@ The exact numbers don't matter — non-overlap does. Two terminals on the same p
 | --- | --- | --- |
 | Terminal path | `Settings` → `MT5 Accounts` → *Terminal executable* | Full path to `terminal64.exe`. |
 | Data folder | `Settings` → `MT5 Accounts` → *Data folder* | Where Cortiq writes the EA companion files. |
-| Command port | `Settings` → `MT5 Accounts` → *ZMQ command port* | REQ/REP. Default `5555`. Must be unique across accounts. |
-| Data port | `Settings` → `MT5 Accounts` → *ZMQ data port* | PUB/SUB. Default `5556`. Must be unique across accounts. |
+| Command port | `Settings` → `MT5 Accounts` → *ZMQ command port* | REQ/REP. Default `6200`. Must be unique across accounts. |
+| Data port | `Settings` → `MT5 Accounts` → *ZMQ data port* | PUB/SUB. Default `6201`. Must be unique across accounts. |
 | Default account | `Settings` → `MT5 Accounts` → *Default* | The account that new sessions and trade ideas pre-select. |
 
 ## Common questions

@@ -9,7 +9,7 @@ This page answers one question in plain English: *what can each major Cortiq fun
 
 ## What this is
 
-Cortiq has roughly fifty named capabilities split across strategy, supporting context, sessions, execution, risk, review, and platform. Reading every detail page in advance is the wrong move. Instead, scan this page, find the rows that map to what you're trying to do, and follow the links from there.
+Cortiq has dozens of named capabilities split across strategy, supporting context, sessions, execution, validation, risk, review, the agent surface, and platform. Reading every detail page in advance is the wrong move. Instead, scan this page, find the rows that map to what you're trying to do, and follow the links from there.
 
 The Reference section is the page. Each row is one function, what it does, what it does *for you*, and where to read more.
 
@@ -35,6 +35,7 @@ If you want a higher-altitude view first, [Feature overview](feature-overview/) 
 | Screenshot-enabled timeframes | Adds chart images to selected timeframes. | Gives the AI visual confirmation when chart structure matters. | [Data package design guide](trading-cycle/data-package-design/) |
 | Indicator inputs | Adds MT5 indicator values to the decision payload. | Brings your technical signal stack into the AI workflow. | [Playbooks & data packages](playbooks-and-data/) |
 | Trade ideas | Tracks specific active theses. | Monitor one-off opportunities without making them permanent playbooks. | [Trade ideas](trading-cycle/entities/trade-ideas/) |
+| Skills | Reusable Markdown instruction templates injected into generation flows. | Encode a house style or checklist once and reuse it across preparation, research, and reviews. | [Skills](skills/) |
 
 ### Supporting context functions
 
@@ -55,7 +56,7 @@ If you want a higher-altitude view first, [Feature overview](feature-overview/) 
 | Single-instrument sessions | Locks each session to one instrument. | Clean specialization around one market, so results stay comparable over time. | [Sessions](sessions/) |
 | Provider selection | Picks which AI provider runs the session. | Match cost, reliability, and operating style to your workflow. | [AI providers](ai-providers/) |
 | Fallback provider | Configures a secondary AI provider. | Keeps the session resilient when the primary is unavailable. | [AI providers](ai-providers/) |
-| Browser vs API mode | Picks how the AI provider is integrated. | Balances convenience, traceability, and account requirements. | [AI providers](ai-providers/) |
+| Provider transport | Picks how the provider is reached: API, ACP, CLI, or External MCP. | Match traceability, cost, and local-vs-hosted needs to your workflow. | [AI providers](ai-providers/) |
 | External MCP sessions | Lets an external agent control Cortiq. | Drive the workflow from a separate AI client like Claude Desktop. | [MCP and agent integration](mcp-and-agent-integration/) |
 
 ### Execution functions
@@ -65,8 +66,15 @@ If you want a higher-altitude view first, [Feature overview](feature-overview/) 
 | Live trading | Sends real orders through MT5. | Move from simulation to real execution inside the same operating model. | [Execution modes & notifications](execution-modes-and-notifications/) |
 | Virtual trading | Simulates the trade lifecycle without sending real orders. | Test and build trust before using live capital. | [Execution modes & notifications](execution-modes-and-notifications/) |
 | Copy trading | Replicates a master workflow to follower accounts. | Scale one decision engine across multiple accounts. | [Execution modes & notifications](execution-modes-and-notifications/) |
-| Trade management | Modifies, partially closes, or closes positions. | The AI is responsible for handling — not just entering — trades. | [Session trades and timeline](trading-cycle/entities/session-trades-and-timeline/) |
+| Trade management | Modifies, partially closes, or closes positions. | The AI is responsible for handling — not only entering — trades. | [Session trades and timeline](trading-cycle/entities/session-trades-and-timeline/) |
 | Notifications | Pushes trade events to selected channels. | Stay informed without watching the desktop continuously. | [Execution modes & notifications](execution-modes-and-notifications/) |
+
+### Validation functions
+
+| Function | What it does | What it does for you | Read more |
+| --- | --- | --- | --- |
+| Backtesting | Replays a session or playbook over historical M1 data, cycle by cycle. | Test a configuration against the past before committing capital. | [Backtesting](backtesting/) |
+| License-free backtests | Runs backtests without an active license. | Evaluate Cortiq's loop on history before you buy. | [Backtesting](backtesting/) |
 
 ### Risk and protection functions
 
@@ -77,6 +85,7 @@ If you want a higher-altitude view first, [Feature overview](feature-overview/) 
 | Drawdown and profit targets | Pause behavior based on account performance. | Hard boundaries on how much damage or overtrading the workflow can do. | [Risk management](risk-management/) |
 | Trade-count and exposure limits | Restricts how much the system can open. | Prevents runaway activity and concentration in one symbol or account. | [Risk management](risk-management/) |
 | Automatic risk pause | Pauses sessions when a breach occurs. | An independent safety layer above the AI decision itself. | [Risk management](risk-management/) |
+| Emergency-stop breaker | Halts all trading activity immediately on demand or on a hard breach. | A single switch to stop the whole environment when something looks wrong. | [Risk management](risk-management/) |
 
 ### Review and improvement functions
 
@@ -89,7 +98,19 @@ If you want a higher-altitude view first, [Feature overview](feature-overview/) 
 | Session cohorts | Compare grouped sessions side-by-side. | Test which configuration or style is working better. | [Workspace & monitoring](workspace-and-monitoring/) |
 | Conversations view | Raw AI conversations across sessions. | Inspect the model's actual responses, not only the summary. | [Workspace & monitoring](workspace-and-monitoring/) |
 | Session timeline | What happened in each trading cycle. | Audit and explain the AI workflow. | [Session trades and timeline](trading-cycle/entities/session-trades-and-timeline/) |
-| Decision rendering | Analysis, trade ideas, and actions in a readable format. | Understand what the AI concluded, not just what the market did afterward. | [Trading cycle: overview](trading-cycle/overview/) |
+| Decision rendering | Analysis, trade ideas, and actions in a readable format. | Understand what the AI concluded, not only what the market did afterward. | [Trading cycle: overview](trading-cycle/overview/) |
+| Session reviews | One-click AI review of a finished run. | Get scored suggestions and durable per-instrument lessons instead of a bare result. | [Session reviews](session-review/) |
+| System messages | In-app notification inbox with actionable cards. | Read platform alerts and approve agent actions in one place. | [System messages](system-messages/) |
+
+### Agent and research functions
+
+| Function | What it does | What it does for you | Read more |
+| --- | --- | --- | --- |
+| Research | A single-instrument idea lab with workspaces, runs, and artifacts. | Explore and stress-test ideas on one market before they become playbooks. | [Research](research/) |
+| Edge-discovery guardrails | Opt-in phased out-of-sample validation for research runs. | Stronger evidence that an edge is real, when you choose to enforce it. | [Research](research/) |
+| MCP server | Exposes Cortiq tools to MCP-compatible clients. | Drive analysis and trading from an external agent. | [MCP and agent integration](mcp-and-agent-integration/) |
+| Cortiq Copilot | An in-app Copilot dock (`Ctrl+K`) that authors entities. | Build playbooks, packages, and sessions by asking, behind the approval gate. | [Cortiq Copilot](cortiq-copilot/) |
+| Agent permissions | Approval model with an always-on trade gate plus capability grants. | The AI can act while you stay the final authority on trades. | [Agent permissions](agent-permissions/) |
 
 ### Platform and support functions
 
@@ -108,11 +129,14 @@ If you want a higher-altitude view first, [Feature overview](feature-overview/) 
 
 1. [Playbook design guide](trading-cycle/playbook-design/) — once you know what to configure, this raises the quality of your playbook writing.
 2. [Data package design guide](trading-cycle/data-package-design/) — same for data packages.
-3. [Sessions](sessions/) — where most of the table above comes together at runtime.
+3. [Sessions](sessions/) — where most of the tables above come together at runtime.
+4. [Backtesting](backtesting/) — validate a configuration against history before going live.
 
 ## Related
 
 - [Feature overview](feature-overview/)
 - [Documentation map](documentation-map/)
 - [App navigation guide](app-navigation-guide/)
+- [Research](research/)
+- [Cortiq Copilot](cortiq-copilot/)
 - [Glossary](glossary/)

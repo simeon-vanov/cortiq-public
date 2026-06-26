@@ -17,7 +17,7 @@ Three journal types capture different scopes:
 - **Session journal** — one session over a broader window, with cycle-by-cycle behavior.
 - **Run journal** — one start-to-stop run, useful for comparing executions of the same configuration.
 
-Analytics computes the metrics on top of those journals; cohorts let you compare sessions side-by-side; conversations gives you the raw AI dialogue when the rendered journal isn't enough.
+Analytics computes the metrics on top of those journals; cohorts let you compare sessions side-by-side; conversations gives you the raw AI dialogue when the rendered journal isn't enough. Session reviews close the loop by turning a finished session's journal into durable, instrument-scoped lessons that the next session reads automatically.
 
 ## How it fits into Cortiq
 
@@ -32,11 +32,12 @@ flowchart LR
 
 *Every closed trade and every AI cycle lands in one store. The Journal, Analytics, and scheduled-report views are different lenses on the same data.*
 
-The review surface lives across four screens:
+The review surface lives across five screens:
 
 - `Library` → `Journal` — trade journal and session journal.
 - `Library` → `Dashboard` — performance and risk overview.
-- `Library` → `Session Cohorts` — side-by-side session comparison.
+- `Library` → `Session Reviews` — AI reviews and the instrument-scoped lessons they produce.
+- `Library` → `Cohorts` — side-by-side session comparison.
 - `Library` → `Conversations` — raw AI conversations across sessions.
 
 ## How to use it
@@ -61,14 +62,25 @@ Changing two things at once turns the review into guesswork.
 | Did this session stay disciplined over the day? | Session journal. |
 | Did the AI's reasoning change after I edited the playbook? | Conversations view + session journal. |
 | How does this run compare to last week's? | Run journal + analytics. |
-| Which configuration is winning across multiple sessions? | Session cohorts. |
+| Which configuration is winning across multiple sessions? | Cohorts. |
+| What should I change for the next run on this symbol? | Session review. |
 
 ### Compare configurations with cohorts
 
-Open `Library` → `Session Cohorts` and group sessions you want to compare. Cohorts work best when the sessions actually match on most variables — same symbol, same provider, same risk profile — and differ only on the lever you're testing. Comparing two sessions that differ on five variables tells you nothing.
+Open `Library` → `Cohorts` and group sessions you want to compare. Cohorts work best when the sessions actually match on most variables — same symbol, same provider, same risk profile — and differ only on the lever you're testing. Comparing two sessions that differ on five variables tells you nothing.
 
 ![Analytics page with P/L chart, win rate, best/worst day stats visible](/images/screenshots/journal-and-analytics__analytics.png)
-<!-- SCREENSHOT-NEEDED: journal-and-analytics__analytics.png – Analytics page with P/L chart, win rate, best/worst day stats visible. Mask account -->
+
+### Close the learning loop with session reviews
+
+Reading the journal tells you what happened. A session review turns that reading into something the next session acts on, so improvement compounds instead of living only in your head.
+
+After a session ends, run a one-click AI review. It reads the session's trade statistics, the AI's per-trade reasoning, a price-path digest of what the market actually printed, and the cycles where the AI chose to do nothing. It produces two channels:
+
+- **Suggestions** — scored, evidence-backed proposed changes to a playbook, data package, skill, instrument profile, or preparation. Each card has Apply, Discuss, or Dismiss. Nothing changes until you approve it.
+- **Lessons** — durable, instrument-scoped observations. Cortiq injects active lessons for that symbol into the *next* session on the same instrument as a reference block. They tilt the AI's conviction and flag known pitfalls; they never add rules the playbook does not authorize.
+
+This is the loop: journal → review → lesson → next session reads the lesson automatically. The `Session Reviews` screen (`/reviews`) lists every review and shows the active lessons per instrument. The full mechanism, including the command/reference authority split, is on the [Session review](session-review/) page.
 
 ### Schedule a recurring summary
 
@@ -110,9 +122,10 @@ For the lifetime of the local Cortiq install. Journals live in the local SQLite 
 
 ## What to read next
 
-1. [Workspace & monitoring](workspace-and-monitoring/) — the screens that surface the journal data.
-2. [Execution modes & notifications](execution-modes-and-notifications/) — scheduled reports configuration.
-3. [Playbook design guide](trading-cycle/playbook-design/) — the iteration that the journal-driven loop should produce.
+1. [Session review](session-review/) — the learning loop that turns journals into durable lessons.
+2. [Workspace & monitoring](workspace-and-monitoring/) — the screens that surface the journal data.
+3. [Execution modes & notifications](execution-modes-and-notifications/) — scheduled reports configuration.
+4. [Playbook design guide](trading-cycle/playbook-design/) — the iteration that the journal-driven loop should produce.
 
 ## Related
 
