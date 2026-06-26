@@ -131,13 +131,13 @@ Backdated artifacts cannot be stamped with a future effective date. A day later 
 
 ## What to read next
 
-1. [Sessions](sessions/) — the session a backtest replays, and its lifecycle states.
-2. [Playbooks & data](playbooks-and-data/) — the playbooks and data package that drive every cycle.
-3. [Journal & analytics](journal-and-analytics/) — how live runs are recorded once you go past simulation.
+1. [Sessions](/cortiq-public/sessions/) — the session a backtest replays, and its lifecycle states.
+2. [Playbooks & data](/cortiq-public/playbooks-and-data/) — the playbooks and data package that drive every cycle.
+3. [Journal & analytics](/cortiq-public/journal-and-analytics/) — how live runs are recorded once you go past simulation.
 
 ## Related
 
-- [Risk management](risk-management/)
-- [AI providers](ai-providers/)
-- [Research](research/)
-- [Glossary](glossary/)
+- [Risk management](/cortiq-public/risk-management/)
+- [AI providers](/cortiq-public/ai-providers/)
+- [Research](/cortiq-public/research/)
+- [Glossary](/cortiq-public/glossary/)

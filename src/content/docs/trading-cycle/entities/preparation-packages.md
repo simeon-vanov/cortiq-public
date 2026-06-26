@@ -15,7 +15,7 @@ A preparation package can define what type of analysis to generate, the symbol i
 
 ## How it fits into Cortiq
 
-Preparation packages are referenced by sessions as a support layer. The same package can be reused across sessions; one session typically references one prep package per topic. For the role within the cycle, see [Supporting context](../supporting-context/).
+Preparation packages are referenced by sessions as a support layer. The same package can be reused across sessions; one session typically references one prep package per topic. For the role within the cycle, see [Supporting context](/cortiq-public/trading-cycle/supporting-context/).
 
 ## How to use it
 
@@ -40,13 +40,13 @@ Update or refresh the package when the underlying structure changes — most pre
 
 ## What to read next
 
-1. [Supporting context](../supporting-context/) — how prep packages relate to other support layers.
-2. [Instrument profiles](instrument-profiles/) — for context that ages slower than prep packages.
-3. [Sessions](sessions/) — how the package is attached.
+1. [Supporting context](/cortiq-public/trading-cycle/supporting-context/) — how prep packages relate to other support layers.
+2. [Instrument profiles](/cortiq-public/trading-cycle/entities/instrument-profiles/) — for context that ages slower than prep packages.
+3. [Sessions](/cortiq-public/trading-cycle/entities/sessions/) — how the package is attached.
 
 ## Related
 
-- [Data packages](data-packages/)
-- [Sentiment reports](sentiment-reports/)
-- [Trading cycle: overview](../overview/)
-- [Glossary](../../glossary/)
+- [Data packages](/cortiq-public/trading-cycle/entities/data-packages/)
+- [Sentiment reports](/cortiq-public/trading-cycle/entities/sentiment-reports/)
+- [Trading cycle: overview](/cortiq-public/trading-cycle/overview/)
+- [Glossary](/cortiq-public/glossary/)

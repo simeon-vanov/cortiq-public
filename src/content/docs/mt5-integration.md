@@ -97,13 +97,13 @@ The session pauses on the next health-check failure. No new orders are placed; o
 
 ## What to read next
 
-1. [First 30 minutes in Cortiq](first-30-minutes/) — installs the EA and runs a virtual session end-to-end.
-2. [Sessions](sessions/) — once the bridge is green, this is where you build the session that uses it.
-3. [Risk management](risk-management/) — configure global and per-account limits before any live execution.
+1. [First 30 minutes in Cortiq](/cortiq-public/first-30-minutes/) — installs the EA and runs a virtual session end-to-end.
+2. [Sessions](/cortiq-public/sessions/) — once the bridge is green, this is where you build the session that uses it.
+3. [Risk management](/cortiq-public/risk-management/) — configure global and per-account limits before any live execution.
 
 ## Related
 
-- [Installation & activation](installation-and-activation/)
-- [AI providers](ai-providers/)
-- [Workspace & monitoring](workspace-and-monitoring/)
-- [Glossary](glossary/)
+- [Installation & activation](/cortiq-public/installation-and-activation/)
+- [AI providers](/cortiq-public/ai-providers/)
+- [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/)
+- [Glossary](/cortiq-public/glossary/)

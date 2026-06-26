@@ -23,7 +23,7 @@ Copy trading is a data field on the session, not a configurable mode. There is n
 | --- | --- | --- |
 | Virtual | Simulates the full trade lifecycle on the live feed without sending MT5 orders. | First runs, prop-firm challenges that restrict EAs, and any time you're testing a configuration forward. |
 | Live | Sends real orders to MT5 through the connected account. | Once virtual mode is producing readable journals and risk settings are configured. |
-| External MCP | Hands the trading loop to an outside MCP agent instead of the built-in cycle engine. | Advanced; you want Claude Desktop, Codex, or another MCP client to drive the session. See [MCP and agent integration](mcp-and-agent-integration/). |
+| External MCP | Hands the trading loop to an outside MCP agent instead of the built-in cycle engine. | Advanced; you want Claude Desktop, Codex, or another MCP client to drive the session. See [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/). |
 
 Notifications and scheduled reports run on top of every mode and are configured separately.
 
@@ -35,7 +35,7 @@ Three things get confused often. They run on different data and answer different
 
 - **Virtual** runs *forward* on the current market. Cortiq goes through every step — data gathering, AI decision, risk validation, journal entry — but skips sending the order to MT5. Use it to rehearse the operating loop and shadow a strategy on today's feed without risking capital.
 - **Live** runs forward on the current market and sends real orders. Don't go live until MT5 connectivity is verified, the playbook is stable, the data package is focused, and risk settings are active.
-- **Backtest** replays *historical* bars through the same decision pipeline so you can measure a playbook against the past. It is a separate run type, not a session execution mode, and it is the only run type that needs no license. See [Backtesting](backtesting/).
+- **Backtest** replays *historical* bars through the same decision pipeline so you can measure a playbook against the past. It is a separate run type, not a session execution mode, and it is the only run type that needs no license. See [Backtesting](/cortiq-public/backtesting/).
 
 So virtual is not backtesting: virtual is live-forward with no order, backtest is historical replay. Reach for virtual to validate the workflow on live conditions, and for backtesting to validate the edge against history.
 
@@ -59,7 +59,7 @@ For Telegram, paste a bot token and chat ID. For X, supply the four OAuth 1.0a c
 
 The three channels above push events *out* of Cortiq. Inside the app, the **System Messages** inbox is the notification center. It is a persisted list of background-process events and trade operations — preparation auto-refreshes, risk pauses, MT5 feed health, trade opens and closes, and agent permission requests — each linking to the related artifact. Higher-severity events also raise an in-app toast and add to an unread badge in the sidebar.
 
-System Messages are in-app only; they do not post to X or Telegram. See [System messages](system-messages/) for the full event list and filters.
+System Messages are in-app only; they do not post to X or Telegram. See [System messages](/cortiq-public/system-messages/) for the full event list and filters.
 
 ### Schedule performance reports
 
@@ -99,7 +99,7 @@ Open `Settings` → `Reports` to schedule daily, weekly, or monthly summaries de
 ## Common questions
 
 **Is virtual mode the same as backtesting?**
-No. Virtual mode runs *forward* on the current market without sending an order; backtesting replays *historical* bars through the same decision pipeline. Use virtual mode to rehearse the operating loop on live conditions, and [backtesting](backtesting/) to validate a strategy against the past.
+No. Virtual mode runs *forward* on the current market without sending an order; backtesting replays *historical* bars through the same decision pipeline. Use virtual mode to rehearse the operating loop on live conditions, and [backtesting](/cortiq-public/backtesting/) to validate a strategy against the past.
 
 **Can I run a virtual session and a live session at the same time?**
 Yes, on different accounts or even the same account. They produce separate journal entries; only the live session affects the MT5 balance.
@@ -109,15 +109,15 @@ On a real trade, you get a notification when a pending order fills and when a po
 
 ## What to read next
 
-1. [Sessions](sessions/) — where the mode is set per session.
-2. [Backtesting](backtesting/) — historical replay, the run type virtual mode is not.
-3. [Risk management](risk-management/) — risk validators run for every mode.
-4. [System messages](system-messages/) — the in-app notification center.
+1. [Sessions](/cortiq-public/sessions/) — where the mode is set per session.
+2. [Backtesting](/cortiq-public/backtesting/) — historical replay, the run type virtual mode is not.
+3. [Risk management](/cortiq-public/risk-management/) — risk validators run for every mode.
+4. [System messages](/cortiq-public/system-messages/) — the in-app notification center.
 
 ## Related
 
-- [MetaTrader 5 integration](mt5-integration/)
-- [Journal & analytics](journal-and-analytics/)
-- [Workspace & monitoring](workspace-and-monitoring/)
-- [Capability reference](capability-reference/)
-- [Glossary](glossary/)
+- [MetaTrader 5 integration](/cortiq-public/mt5-integration/)
+- [Journal & analytics](/cortiq-public/journal-and-analytics/)
+- [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/)
+- [Capability reference](/cortiq-public/capability-reference/)
+- [Glossary](/cortiq-public/glossary/)

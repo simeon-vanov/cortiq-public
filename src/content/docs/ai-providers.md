@@ -184,13 +184,13 @@ ACP runs on a Claude subscription you already pay for, with no per-token charge.
 
 ## What to read next
 
-1. [Sessions](sessions/) — where the provider and transport are chosen per session.
-2. [Workspace & monitoring](workspace-and-monitoring/) — `Provider Health` is where you watch auth and reliability over time.
-3. [MCP and agent integration](mcp-and-agent-integration/) — when an external agent drives the workflow instead of the internal loop.
+1. [Sessions](/cortiq-public/sessions/) — where the provider and transport are chosen per session.
+2. [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/) — `Provider Health` is where you watch auth and reliability over time.
+3. [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/) — when an external agent drives the workflow instead of the internal loop.
 
 ## Related
 
-- [Getting started](getting-started/)
-- [First 30 minutes in Cortiq](first-30-minutes/)
-- [Playbooks & data packages](playbooks-and-data/)
-- [Glossary](glossary/)
+- [Getting started](/cortiq-public/getting-started/)
+- [First 30 minutes in Cortiq](/cortiq-public/first-30-minutes/)
+- [Playbooks & data packages](/cortiq-public/playbooks-and-data/)
+- [Glossary](/cortiq-public/glossary/)

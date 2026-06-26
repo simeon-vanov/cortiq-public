@@ -17,7 +17,7 @@ Use this page as a fast index into the rest of the site. The Reference table bel
 
 Different readers come to this page with different needs:
 
-- *Evaluating Cortiq* — read this top-to-bottom, then [Getting started](getting-started/).
+- *Evaluating Cortiq* — read this top-to-bottom, then [Getting started](/cortiq-public/getting-started/).
 - *Already installed* — skim the table, then jump to the page for the feature you're configuring.
 - *Comparing scope* — use the "What Cortiq is and isn't" section below to set realistic expectations.
 
@@ -109,17 +109,17 @@ In practical terms, the platform supports six jobs:
 
 ## What to read next
 
-1. [Capability reference](capability-reference/) — the practical, function-by-function view of what each major feature does for you.
-2. [Getting started](getting-started/) — orientation for evaluators.
-3. [Sessions](sessions/) — the runtime that ties most of the tables above together.
-4. [Backtesting](backtesting/) — the license-free way to validate a session before going live.
-5. [MCP and agent integration](mcp-and-agent-integration/) — for external-agent control.
+1. [Capability reference](/cortiq-public/capability-reference/) — the practical, function-by-function view of what each major feature does for you.
+2. [Getting started](/cortiq-public/getting-started/) — orientation for evaluators.
+3. [Sessions](/cortiq-public/sessions/) — the runtime that ties most of the tables above together.
+4. [Backtesting](/cortiq-public/backtesting/) — the license-free way to validate a session before going live.
+5. [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/) — for external-agent control.
 
 ## Related
 
-- [Documentation map](documentation-map/)
-- [App navigation guide](app-navigation-guide/)
-- [Workspace & monitoring](workspace-and-monitoring/)
-- [Research](research/)
-- [Session reviews](session-review/)
-- [Glossary](glossary/)
+- [Documentation map](/cortiq-public/documentation-map/)
+- [App navigation guide](/cortiq-public/app-navigation-guide/)
+- [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/)
+- [Research](/cortiq-public/research/)
+- [Session reviews](/cortiq-public/session-review/)
+- [Glossary](/cortiq-public/glossary/)

@@ -18,7 +18,7 @@ A package can include one or more timeframes (with candle depth), indicator inpu
 
 ## How it fits into Cortiq
 
-A data package is referenced by sessions. The same package can be reused across sessions; one session points at exactly one package. For the design discipline, read [Data package design guide](../data-package-design/).
+A data package is referenced by sessions. The same package can be reused across sessions; one session points at exactly one package. For the design discipline, read [Data package design guide](/cortiq-public/trading-cycle/data-package-design/).
 
 ## How to use it
 
@@ -56,13 +56,13 @@ These widen the context beyond pure chart data. Useful when the AI should consid
 
 ## What to read next
 
-1. [Data package design guide](../data-package-design/) — the design discipline.
-2. [Playbooks](playbooks/) — the entity reference for the strategy layer.
-3. [Sessions](sessions/) — what binds package and playbook together.
+1. [Data package design guide](/cortiq-public/trading-cycle/data-package-design/) — the design discipline.
+2. [Playbooks](/cortiq-public/trading-cycle/entities/playbooks/) — the entity reference for the strategy layer.
+3. [Sessions](/cortiq-public/trading-cycle/entities/sessions/) — what binds package and playbook together.
 
 ## Related
 
-- [Playbooks & data packages](../../playbooks-and-data/)
-- [Preparation packages](preparation-packages/)
-- [Trading cycle: overview](../overview/)
-- [Glossary](../../glossary/)
+- [Playbooks & data packages](/cortiq-public/playbooks-and-data/)
+- [Preparation packages](/cortiq-public/trading-cycle/entities/preparation-packages/)
+- [Trading cycle: overview](/cortiq-public/trading-cycle/overview/)
+- [Glossary](/cortiq-public/glossary/)

@@ -29,7 +29,7 @@ Use MCP integration when you want:
 - Tool-based inspection of accounts, sessions, risk, and statistics before any execution.
 - An agent that authors Cortiq entities (playbooks, data packages, preparation, research) for you.
 
-If you want the simpler product path, use [autonomous sessions](sessions/) instead — Cortiq's own engine runs the loop and you don't connect an external client.
+If you want the simpler product path, use [autonomous sessions](/cortiq-public/sessions/) instead — Cortiq's own engine runs the loop and you don't connect an external client.
 
 ## How it fits into Cortiq
 
@@ -147,7 +147,7 @@ Use the Cortiq MCP server to review my account risk settings, gather fresh EURUS
 
 Cortiq runs the MCP server in a **trusted-Cortiq** posture: a tool runs with no approval prompt unless it explicitly opts in. In the gated configuration used for in-app agent sessions, **only `execute_trade` and `execute_trade_action` require explicit approval** — opening, modifying, partially closing, or closing a real position. Every other tool, including the create / update / delete tools that author entities, runs without a card.
 
-When a gated trade tool is called, Cortiq surfaces an approval — in the [Copilot](cortiq-copilot/) dock, as a Windows toast, and as an actionable row in the [System Messages](system-messages/) inbox. The trade body runs only on an explicit approve; reject, expiry, or error denies the call. Trade execution sits on its own gate and is never widened by any other permission grant.
+When a gated trade tool is called, Cortiq surfaces an approval — in the [Copilot](/cortiq-public/cortiq-copilot/) dock, as a Windows toast, and as an actionable row in the [System Messages](/cortiq-public/system-messages/) inbox. The trade body runs only on an explicit approve; reject, expiry, or error denies the call. Trade execution sits on its own gate and is never widened by any other permission grant.
 
 :::danger
 Live trading sends real orders to MT5. An agent can request a trade, but you approve every real order. Verify your risk settings before starting a non-virtual session.
@@ -200,14 +200,14 @@ Backdating note: preparation, sentiment, and profile generation accept an `as-of
 
 ## What to read next
 
-1. [Cortiq Copilot](cortiq-copilot/) — the in-app assistant that uses the same tools and the same approval gate, without an external client.
-2. [Agent permissions](agent-permissions/) — the full permission model: the trade gate, the filesystem sandbox, and capability grants.
-3. [Sessions](sessions/) — the autonomous-session alternative if MCP is more than you need.
+1. [Cortiq Copilot](/cortiq-public/cortiq-copilot/) — the in-app assistant that uses the same tools and the same approval gate, without an external client.
+2. [Agent permissions](/cortiq-public/agent-permissions/) — the full permission model: the trade gate, the filesystem sandbox, and capability grants.
+3. [Sessions](/cortiq-public/sessions/) — the autonomous-session alternative if MCP is more than you need.
 
 ## Related
 
-- [AI providers](ai-providers/)
-- [System messages](system-messages/)
-- [Risk management](risk-management/)
-- [Trading cycle: overview](trading-cycle/overview/)
-- [Glossary](glossary/)
+- [AI providers](/cortiq-public/ai-providers/)
+- [System messages](/cortiq-public/system-messages/)
+- [Risk management](/cortiq-public/risk-management/)
+- [Trading cycle: overview](/cortiq-public/trading-cycle/overview/)
+- [Glossary](/cortiq-public/glossary/)

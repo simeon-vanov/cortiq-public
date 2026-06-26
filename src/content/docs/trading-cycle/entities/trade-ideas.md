@@ -42,13 +42,13 @@ Don't use trade ideas as a replacement for your core playbook library. If the lo
 
 ## What to read next
 
-1. [Workspace & monitoring](../../workspace-and-monitoring/) — the Trade Ideas screen.
-2. [Playbooks](playbooks/) — for opportunities that should become permanent rules.
-3. [Sentiment reports](sentiment-reports/) — for macro context layered into a session.
+1. [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/) — the Trade Ideas screen.
+2. [Playbooks](/cortiq-public/trading-cycle/entities/playbooks/) — for opportunities that should become permanent rules.
+3. [Sentiment reports](/cortiq-public/trading-cycle/entities/sentiment-reports/) — for macro context layered into a session.
 
 ## Related
 
-- [Sessions](sessions/)
-- [Trading cycle: overview](../overview/)
-- [Supporting context](../supporting-context/)
-- [Glossary](../../glossary/)
+- [Sessions](/cortiq-public/trading-cycle/entities/sessions/)
+- [Trading cycle: overview](/cortiq-public/trading-cycle/overview/)
+- [Supporting context](/cortiq-public/trading-cycle/supporting-context/)
+- [Glossary](/cortiq-public/glossary/)

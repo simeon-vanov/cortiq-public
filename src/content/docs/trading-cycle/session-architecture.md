@@ -74,13 +74,13 @@ Both are valid. Both produce different results. Neither is wrong. Pick the suppo
 
 ## What to read next
 
-1. [Supporting context](supporting-context/) — what each support layer offers, in detail.
-2. [Playbook design guide](playbook-design/) — disciplined playbook authoring.
-3. [Data package design guide](data-package-design/) — payload discipline.
+1. [Supporting context](/cortiq-public/trading-cycle/supporting-context/) — what each support layer offers, in detail.
+2. [Playbook design guide](/cortiq-public/trading-cycle/playbook-design/) — disciplined playbook authoring.
+3. [Data package design guide](/cortiq-public/trading-cycle/data-package-design/) — payload discipline.
 
 ## Related
 
-- [Sessions](../sessions/)
-- [Sessions](entities/sessions/)
-- [Trading cycle: overview](overview/)
-- [Glossary](../glossary/)
+- [Sessions](/cortiq-public/sessions/)
+- [Sessions](/cortiq-public/trading-cycle/entities/sessions/)
+- [Trading cycle: overview](/cortiq-public/trading-cycle/overview/)
+- [Glossary](/cortiq-public/glossary/)

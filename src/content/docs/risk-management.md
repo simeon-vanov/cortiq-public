@@ -113,13 +113,13 @@ Yes. Both autonomous and external sessions go through the same validator pipelin
 
 ## What to read next
 
-1. [Sessions](sessions/) — `RiskPaused` and the rest of the session lifecycle.
-2. [Execution modes & notifications](execution-modes-and-notifications/) — virtual mode rehearses risk behavior without using capital.
-3. [Journal & analytics](journal-and-analytics/) — review breaches before adjusting limits.
+1. [Sessions](/cortiq-public/sessions/) — `RiskPaused` and the rest of the session lifecycle.
+2. [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) — virtual mode rehearses risk behavior without using capital.
+3. [Journal & analytics](/cortiq-public/journal-and-analytics/) — review breaches before adjusting limits.
 
 ## Related
 
-- [MetaTrader 5 integration](mt5-integration/)
-- [Workspace & monitoring](workspace-and-monitoring/)
-- [Capability reference](capability-reference/)
-- [Glossary](glossary/)
+- [MetaTrader 5 integration](/cortiq-public/mt5-integration/)
+- [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/)
+- [Capability reference](/cortiq-public/capability-reference/)
+- [Glossary](/cortiq-public/glossary/)

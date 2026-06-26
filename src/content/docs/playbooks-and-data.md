@@ -21,10 +21,10 @@ The deliberate split is what makes Cortiq's outputs comparable. When a session u
 
 | Concept | Lives under | Read more |
 | --- | --- | --- |
-| Playbook | `Playbooks` → `My Playbooks` | [Playbook design guide](trading-cycle/playbook-design/) |
-| Data package | `Tools` → `Data Packages` | [Data package design guide](trading-cycle/data-package-design/) |
+| Playbook | `Playbooks` → `My Playbooks` | [Playbook design guide](/cortiq-public/trading-cycle/playbook-design/) |
+| Data package | `Tools` → `Data Packages` | [Data package design guide](/cortiq-public/trading-cycle/data-package-design/) |
 | Indicators | `Tools` → `Indicators` | This page |
-| Reusable supporting context | `Preparation` → `Instrument Profiles`, `Prep Packages`, `Sentiment` | [Supporting context](trading-cycle/supporting-context/) |
+| Reusable supporting context | `Preparation` → `Instrument Profiles`, `Prep Packages`, `Sentiment` | [Supporting context](/cortiq-public/trading-cycle/supporting-context/) |
 
 Both objects are referenced by sessions; one playbook can be used by many sessions, and one data package can be used by many sessions.
 
@@ -48,7 +48,7 @@ A playbook is a structured document, not a paragraph. Treat each section as havi
 | Invalidation conditions | When the idea is no longer valid and should be ignored. |
 | Preferred symbols and sessions | Which markets and time windows the playbook fits. |
 
-For deeper section-by-section guidance, read [Playbook design guide](trading-cycle/playbook-design/).
+For deeper section-by-section guidance, read [Playbook design guide](/cortiq-public/trading-cycle/playbook-design/).
 
 ### Build a data package with intent
 
@@ -64,7 +64,7 @@ Data packages can include:
 
 The temptation is to include everything. Resist it. A noisy data package produces noisier reasoning. Add a timeframe, indicator, or screenshot only when its absence would change the decision.
 
-For full detail on payload weight and tier design, read [Data package design guide](trading-cycle/data-package-design/).
+For full detail on payload weight and tier design, read [Data package design guide](/cortiq-public/trading-cycle/data-package-design/).
 
 ### Use screenshots selectively
 
@@ -111,15 +111,15 @@ Both problems are configuration-side, not provider-side. Better playbooks and ti
 
 ## What to read next
 
-1. [Playbook design guide](trading-cycle/playbook-design/) — disciplined section-by-section playbook authoring.
-2. [Data package design guide](trading-cycle/data-package-design/) — payload tiers, timeframe choice, and screenshot discipline.
-3. [Sessions](sessions/) — where playbooks and data packages get bound together at runtime.
-4. [Supporting context](trading-cycle/supporting-context/) — preparation packages, instrument profiles, sentiment reports.
+1. [Playbook design guide](/cortiq-public/trading-cycle/playbook-design/) — disciplined section-by-section playbook authoring.
+2. [Data package design guide](/cortiq-public/trading-cycle/data-package-design/) — payload tiers, timeframe choice, and screenshot discipline.
+3. [Sessions](/cortiq-public/sessions/) — where playbooks and data packages get bound together at runtime.
+4. [Supporting context](/cortiq-public/trading-cycle/supporting-context/) — preparation packages, instrument profiles, sentiment reports.
 
 ## Related
 
-- [Feature overview](feature-overview/)
-- [Capability reference](capability-reference/)
-- [Trading cycle: overview](trading-cycle/overview/)
-- [Journal & analytics](journal-and-analytics/)
-- [Glossary](glossary/)
+- [Feature overview](/cortiq-public/feature-overview/)
+- [Capability reference](/cortiq-public/capability-reference/)
+- [Trading cycle: overview](/cortiq-public/trading-cycle/overview/)
+- [Journal & analytics](/cortiq-public/journal-and-analytics/)
+- [Glossary](/cortiq-public/glossary/)

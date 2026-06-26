@@ -80,11 +80,11 @@ After a session ends, run a one-click AI review. It reads the session's trade st
 - **Suggestions** — scored, evidence-backed proposed changes to a playbook, data package, skill, instrument profile, or preparation. Each card has Apply, Discuss, or Dismiss. Nothing changes until you approve it.
 - **Lessons** — durable, instrument-scoped observations. Cortiq injects active lessons for that symbol into the *next* session on the same instrument as a reference block. They tilt the AI's conviction and flag known pitfalls; they never add rules the playbook does not authorize.
 
-This is the loop: journal → review → lesson → next session reads the lesson automatically. The `Session Reviews` screen (`/reviews`) lists every review and shows the active lessons per instrument. The full mechanism, including the command/reference authority split, is on the [Session review](session-review/) page.
+This is the loop: journal → review → lesson → next session reads the lesson automatically. The `Session Reviews` screen (`/reviews`) lists every review and shows the active lessons per instrument. The full mechanism, including the command/reference authority split, is on the [Session review](/cortiq-public/session-review/) page.
 
 ### Schedule a recurring summary
 
-Set up a daily or weekly Telegram report under `Settings` → `Reports`. The summary is the same data the workspace shows, but lands in your phone without you opening the desktop. See [Execution modes & notifications](execution-modes-and-notifications/) for the configuration steps.
+Set up a daily or weekly Telegram report under `Settings` → `Reports`. The summary is the same data the workspace shows, but lands in your phone without you opening the desktop. See [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) for the configuration steps.
 
 ## Reference
 
@@ -122,14 +122,14 @@ For the lifetime of the local Cortiq install. Journals live in the local SQLite 
 
 ## What to read next
 
-1. [Session review](session-review/) — the learning loop that turns journals into durable lessons.
-2. [Workspace & monitoring](workspace-and-monitoring/) — the screens that surface the journal data.
-3. [Execution modes & notifications](execution-modes-and-notifications/) — scheduled reports configuration.
-4. [Playbook design guide](trading-cycle/playbook-design/) — the iteration that the journal-driven loop should produce.
+1. [Session review](/cortiq-public/session-review/) — the learning loop that turns journals into durable lessons.
+2. [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/) — the screens that surface the journal data.
+3. [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) — scheduled reports configuration.
+4. [Playbook design guide](/cortiq-public/trading-cycle/playbook-design/) — the iteration that the journal-driven loop should produce.
 
 ## Related
 
-- [Sessions](sessions/)
-- [Risk management](risk-management/)
-- [Capability reference](capability-reference/)
-- [Glossary](glossary/)
+- [Sessions](/cortiq-public/sessions/)
+- [Risk management](/cortiq-public/risk-management/)
+- [Capability reference](/cortiq-public/capability-reference/)
+- [Glossary](/cortiq-public/glossary/)

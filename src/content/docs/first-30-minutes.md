@@ -21,7 +21,7 @@ The strategy you build here is intentionally narrow: one symbol, one or two time
 
 | You are here | Comes before | Comes after |
 | --- | --- | --- |
-| First 30 minutes *(this page)* | [Installation & activation](installation-and-activation/) | Iteration in [Sessions](sessions/) and [Playbooks & data packages](playbooks-and-data/) |
+| First 30 minutes *(this page)* | [Installation & activation](/cortiq-public/installation-and-activation/) | Iteration in [Sessions](/cortiq-public/sessions/) and [Playbooks & data packages](/cortiq-public/playbooks-and-data/) |
 
 By the end of this walkthrough you'll have:
 
@@ -39,7 +39,7 @@ By the end of this walkthrough you'll have:
 2. Run `Cortiq-win-Setup.exe` on the machine that will run Cortiq. If Windows SmartScreen shows an "unknown publisher" notice, choose **More info → Run anyway**.
 3. Open the app and complete license activation in `Settings` → `License`.
 
-If activation fails, stop and resolve it before moving on — see [Installation & activation](installation-and-activation/).
+If activation fails, stop and resolve it before moving on — see [Installation & activation](/cortiq-public/installation-and-activation/).
 
 ### Minute 5–10 — Confirm MetaTrader 5 access
 
@@ -48,7 +48,7 @@ If activation fails, stop and resolve it before moving on — see [Installation 
 3. In Cortiq, open `Settings` → `MT5 Accounts` and confirm the right account is configured.
 4. Watch the topbar MT5 health indicator turn green.
 
-If the indicator stays red, see [MetaTrader 5 integration](mt5-integration/) before continuing.
+If the indicator stays red, see [MetaTrader 5 integration](/cortiq-public/mt5-integration/) before continuing.
 
 ### Minute 10–15 — Configure one AI provider
 
@@ -56,7 +56,7 @@ If the indicator stays red, see [MetaTrader 5 integration](mt5-integration/) bef
 2. Choose a transport: the API (a metered key, least setup), ACP or CLI (reuse a Claude or ChatGPT subscription you already pay for), or a local model on your own hardware.
 3. Confirm the provider's auth badge is green in `Settings` → `AI Providers` — a session won't start an unauthenticated provider.
 
-Simplicity beats flexibility on day one. You can add a fallback provider later. See [AI providers](ai-providers/) if the choice isn't obvious.
+Simplicity beats flexibility on day one. You can add a fallback provider later. See [AI providers](/cortiq-public/ai-providers/) if the choice isn't obvious.
 
 ### Minute 15–20 — Create a narrow strategy setup
 
@@ -66,7 +66,7 @@ Build the smallest playbook and data package that still expresses your idea:
 - One or two important timeframes (not a stack of six).
 - One setup rule, one invalidation rule.
 
-A narrow scope produces journals you can actually read. See [Playbooks & data packages](playbooks-and-data/) for a refresher.
+A narrow scope produces journals you can actually read. See [Playbooks & data packages](/cortiq-public/playbooks-and-data/) for a refresher.
 
 ### Minute 20–25 — Create the first session
 
@@ -112,15 +112,15 @@ The first question is *did this workflow behave in a way I can understand and tr
 
 ## What to read next
 
-1. [Sessions](sessions/) — the next layer of session configuration once the basic loop is green.
-2. [Playbook design guide](trading-cycle/playbook-design/) — raises the quality of your second playbook.
-3. [Journal & analytics](journal-and-analytics/) — what to look for once you have several sessions to compare.
-4. [Risk management](risk-management/) — before any live execution.
+1. [Sessions](/cortiq-public/sessions/) — the next layer of session configuration once the basic loop is green.
+2. [Playbook design guide](/cortiq-public/trading-cycle/playbook-design/) — raises the quality of your second playbook.
+3. [Journal & analytics](/cortiq-public/journal-and-analytics/) — what to look for once you have several sessions to compare.
+4. [Risk management](/cortiq-public/risk-management/) — before any live execution.
 
 ## Related
 
-- [Installation & activation](installation-and-activation/)
-- [MetaTrader 5 integration](mt5-integration/)
-- [AI providers](ai-providers/)
-- [Playbooks & data packages](playbooks-and-data/)
-- [Glossary](glossary/)
+- [Installation & activation](/cortiq-public/installation-and-activation/)
+- [MetaTrader 5 integration](/cortiq-public/mt5-integration/)
+- [AI providers](/cortiq-public/ai-providers/)
+- [Playbooks & data packages](/cortiq-public/playbooks-and-data/)
+- [Glossary](/cortiq-public/glossary/)

@@ -34,7 +34,7 @@ flowchart LR
 
 A data package is referenced by sessions. The same package can be used by many sessions; one session uses exactly one package. Indicators are configured on the package and applied across the timeframes where they're enabled.
 
-For the conceptual overview, see [Playbooks & data packages](../playbooks-and-data/). This page focuses on designing them well.
+For the conceptual overview, see [Playbooks & data packages](/cortiq-public/playbooks-and-data/). This page focuses on designing them well.
 
 ## How to use it
 
@@ -115,13 +115,13 @@ Before treating a data package as ready:
 
 ## What to read next
 
-1. [Playbook design guide](playbook-design/) — disciplined playbook authoring, the natural pair to a tight data package.
-2. [Data packages](entities/data-packages/) — the entity reference for the data package object.
-3. [Supporting context](supporting-context/) — preparation, instrument profiles, sentiment.
+1. [Playbook design guide](/cortiq-public/trading-cycle/playbook-design/) — disciplined playbook authoring, the natural pair to a tight data package.
+2. [Data packages](/cortiq-public/trading-cycle/entities/data-packages/) — the entity reference for the data package object.
+3. [Supporting context](/cortiq-public/trading-cycle/supporting-context/) — preparation, instrument profiles, sentiment.
 
 ## Related
 
-- [Playbooks & data packages](../playbooks-and-data/)
-- [Trading cycle: overview](overview/)
-- [MetaTrader 5 integration](../mt5-integration/)
-- [Glossary](../glossary/)
+- [Playbooks & data packages](/cortiq-public/playbooks-and-data/)
+- [Trading cycle: overview](/cortiq-public/trading-cycle/overview/)
+- [MetaTrader 5 integration](/cortiq-public/mt5-integration/)
+- [Glossary](/cortiq-public/glossary/)

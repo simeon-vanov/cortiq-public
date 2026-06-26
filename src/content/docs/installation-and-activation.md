@@ -5,7 +5,7 @@ sidebar:
   order: 60
 ---
 
-This page takes you from buying a license to a running, activated Cortiq install. By the end you'll have the desktop app open and ready for [First 30 minutes in Cortiq](first-30-minutes/).
+This page takes you from buying a license to a running, activated Cortiq install. By the end you'll have the desktop app open and ready for [First 30 minutes in Cortiq](/cortiq-public/first-30-minutes/).
 
 ## What this is
 
@@ -62,9 +62,9 @@ When the License page shows the activation as active, you're done. Cortiq stores
 
 The next pages to read:
 
-- [MetaTrader 5 integration](mt5-integration/) — connect Cortiq to your MT5 terminal.
-- [AI providers](ai-providers/) — configure at least one provider.
-- [First 30 minutes in Cortiq](first-30-minutes/) — guided walkthrough to a virtual session.
+- [MetaTrader 5 integration](/cortiq-public/mt5-integration/) — connect Cortiq to your MT5 terminal.
+- [AI providers](/cortiq-public/ai-providers/) — configure at least one provider.
+- [First 30 minutes in Cortiq](/cortiq-public/first-30-minutes/) — guided walkthrough to a virtual session.
 
 ## How license enforcement works
 
@@ -106,11 +106,11 @@ Check, in order:
 - The release you installed is current.
 - You haven't already activated two machines on this key.
 
-If none of those resolve it, continue to [Licensing & support](licensing-and-support/).
+If none of those resolve it, continue to [Licensing & support](/cortiq-public/licensing-and-support/).
 
 **Can I get a refund?**
 
-Yes, within 14 days of purchase, through the Stripe checkout. See [Licensing & support](licensing-and-support/).
+Yes, within 14 days of purchase, through the Stripe checkout. See [Licensing & support](/cortiq-public/licensing-and-support/).
 
 **Does Cortiq need to be installed alongside MT5?**
 
@@ -118,12 +118,12 @@ Yes, on the same Windows machine, if you intend to trade live. The MT5 bridge us
 
 ## What to read next
 
-1. [First 30 minutes in Cortiq](first-30-minutes/) — your next stop after activation.
-2. [MetaTrader 5 integration](mt5-integration/) — wire in MT5 before any trading.
-3. [AI providers](ai-providers/) — configure at least one provider.
+1. [First 30 minutes in Cortiq](/cortiq-public/first-30-minutes/) — your next stop after activation.
+2. [MetaTrader 5 integration](/cortiq-public/mt5-integration/) — wire in MT5 before any trading.
+3. [AI providers](/cortiq-public/ai-providers/) — configure at least one provider.
 
 ## Related
 
-- [Getting started](getting-started/)
-- [Licensing & support](licensing-and-support/)
-- [FAQ](faq/)
+- [Getting started](/cortiq-public/getting-started/)
+- [Licensing & support](/cortiq-public/licensing-and-support/)
+- [FAQ](/cortiq-public/faq/)

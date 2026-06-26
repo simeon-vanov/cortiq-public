@@ -39,13 +39,13 @@ Start by understanding what the session controls, then drill into each phase as 
 
 | Phase | Driven by | Read more |
 | --- | --- | --- |
-| Preparation | Preparation packages, instrument profiles, sentiment reports | [Supporting context](supporting-context/) |
-| Data gathering | Data package, MT5 bridge | [Data package design](data-package-design/) |
-| AI decision | Playbook, AI provider | [Playbook design](playbook-design/) |
-| Risk check | Risk validators (global + per-account) | [Risk management](../risk-management/) |
-| Execution | MT5 integration | [MetaTrader 5 integration](../mt5-integration/) |
-| Trade management | Playbook management rules | [Session trades and timeline](entities/session-trades-and-timeline/) |
-| Review | Journal, analytics, conversations | [Journal & analytics](../journal-and-analytics/) |
+| Preparation | Preparation packages, instrument profiles, sentiment reports | [Supporting context](/cortiq-public/trading-cycle/supporting-context/) |
+| Data gathering | Data package, MT5 bridge | [Data package design](/cortiq-public/trading-cycle/data-package-design/) |
+| AI decision | Playbook, AI provider | [Playbook design](/cortiq-public/trading-cycle/playbook-design/) |
+| Risk check | Risk validators (global + per-account) | [Risk management](/cortiq-public/risk-management/) |
+| Execution | MT5 integration | [MetaTrader 5 integration](/cortiq-public/mt5-integration/) |
+| Trade management | Playbook management rules | [Session trades and timeline](/cortiq-public/trading-cycle/entities/session-trades-and-timeline/) |
+| Review | Journal, analytics, conversations | [Journal & analytics](/cortiq-public/journal-and-analytics/) |
 
 ### Add support layers when they earn their place
 
@@ -79,14 +79,14 @@ Add a layer when its absence would noticeably hurt cycle quality. Don't add laye
 
 ## What to read next
 
-1. [Session architecture](session-architecture/) — what the session itself controls and configures.
-2. [Supporting context](supporting-context/) — preparation, instrument profile, sentiment.
-3. [Playbook design guide](playbook-design/) — disciplined section-by-section playbook authoring.
-4. [Data package design guide](data-package-design/) — payload tiers, timeframes, screenshots.
+1. [Session architecture](/cortiq-public/trading-cycle/session-architecture/) — what the session itself controls and configures.
+2. [Supporting context](/cortiq-public/trading-cycle/supporting-context/) — preparation, instrument profile, sentiment.
+3. [Playbook design guide](/cortiq-public/trading-cycle/playbook-design/) — disciplined section-by-section playbook authoring.
+4. [Data package design guide](/cortiq-public/trading-cycle/data-package-design/) — payload tiers, timeframes, screenshots.
 
 ## Related
 
-- [Sessions](entities/sessions/)
-- [Sessions](../sessions/)
-- [Risk management](../risk-management/)
-- [Glossary](../glossary/)
+- [Sessions](/cortiq-public/trading-cycle/entities/sessions/)
+- [Sessions](/cortiq-public/sessions/)
+- [Risk management](/cortiq-public/risk-management/)
+- [Glossary](/cortiq-public/glossary/)

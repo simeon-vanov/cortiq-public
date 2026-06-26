@@ -26,7 +26,7 @@ A session bundles:
 
 Without sessions, you'd reassemble the whole workflow manually each time. The session is what makes the trading cycle repeatable — start it, pause it, review it, improve it, duplicate it into a new template.
 
-For runtime behavior and the session lifecycle, see [Sessions](../../sessions/). For the architectural role, see [Session architecture](../session-architecture/).
+For runtime behavior and the session lifecycle, see [Sessions](/cortiq-public/sessions/). For the architectural role, see [Session architecture](/cortiq-public/trading-cycle/session-architecture/).
 
 ## How to use it
 
@@ -38,23 +38,23 @@ Treat the session as a trading-desk template. Once it's stable, duplicate before
 
 | Reference | Required? | Read more |
 | --- | --- | --- |
-| MT5 account | yes | [MetaTrader 5 integration](../../mt5-integration/) |
-| AI provider + mode | yes | [AI providers](../../ai-providers/) |
-| Data package | yes | [Data packages](../entities/data-packages/) |
-| Playbooks | yes (one or more) | [Playbooks](../entities/playbooks/) |
-| Trade ideas | optional | [Trade ideas](../entities/trade-ideas/) |
-| Preparation package | optional | [Preparation packages](../entities/preparation-packages/) |
-| Instrument profile | optional | [Instrument profiles](../entities/instrument-profiles/) |
-| Sentiment report | optional | [Sentiment reports](../entities/sentiment-reports/) |
+| MT5 account | yes | [MetaTrader 5 integration](/cortiq-public/mt5-integration/) |
+| AI provider + mode | yes | [AI providers](/cortiq-public/ai-providers/) |
+| Data package | yes | [Data packages](/cortiq-public/trading-cycle/entities/data-packages/) |
+| Playbooks | yes (one or more) | [Playbooks](/cortiq-public/trading-cycle/entities/playbooks/) |
+| Trade ideas | optional | [Trade ideas](/cortiq-public/trading-cycle/entities/trade-ideas/) |
+| Preparation package | optional | [Preparation packages](/cortiq-public/trading-cycle/entities/preparation-packages/) |
+| Instrument profile | optional | [Instrument profiles](/cortiq-public/trading-cycle/entities/instrument-profiles/) |
+| Sentiment report | optional | [Sentiment reports](/cortiq-public/trading-cycle/entities/sentiment-reports/) |
 
 ## What to read next
 
-1. [Session architecture](../session-architecture/) — the four scopes a session controls.
-2. [Sessions](../../sessions/) — the runtime view and session lifecycle.
-3. [Trading cycle: overview](../overview/) — the cycle the session drives.
+1. [Session architecture](/cortiq-public/trading-cycle/session-architecture/) — the four scopes a session controls.
+2. [Sessions](/cortiq-public/sessions/) — the runtime view and session lifecycle.
+3. [Trading cycle: overview](/cortiq-public/trading-cycle/overview/) — the cycle the session drives.
 
 ## Related
 
-- [Session trades and timeline](session-trades-and-timeline/)
-- [Workspace & monitoring](../../workspace-and-monitoring/)
-- [Glossary](../../glossary/)
+- [Session trades and timeline](/cortiq-public/trading-cycle/entities/session-trades-and-timeline/)
+- [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/)
+- [Glossary](/cortiq-public/glossary/)

@@ -103,14 +103,14 @@ The best support stack is usually the cleanest one, not the biggest. Add a layer
 
 ## What to read next
 
-1. [Preparation packages](entities/preparation-packages/) — the entity reference for prep packages.
-2. [Instrument profiles](entities/instrument-profiles/) — the entity reference for profiles.
-3. [Sentiment reports](entities/sentiment-reports/) — the entity reference for sentiment.
-4. [Trade ideas](entities/trade-ideas/) — the entity reference for ideas.
+1. [Preparation packages](/cortiq-public/trading-cycle/entities/preparation-packages/) — the entity reference for prep packages.
+2. [Instrument profiles](/cortiq-public/trading-cycle/entities/instrument-profiles/) — the entity reference for profiles.
+3. [Sentiment reports](/cortiq-public/trading-cycle/entities/sentiment-reports/) — the entity reference for sentiment.
+4. [Trade ideas](/cortiq-public/trading-cycle/entities/trade-ideas/) — the entity reference for ideas.
 
 ## Related
 
-- [Trading cycle: overview](overview/)
-- [Session architecture](session-architecture/)
-- [Playbooks & data packages](../playbooks-and-data/)
-- [Glossary](../glossary/)
+- [Trading cycle: overview](/cortiq-public/trading-cycle/overview/)
+- [Session architecture](/cortiq-public/trading-cycle/session-architecture/)
+- [Playbooks & data packages](/cortiq-public/playbooks-and-data/)
+- [Glossary](/cortiq-public/glossary/)

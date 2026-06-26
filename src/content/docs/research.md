@@ -114,13 +114,13 @@ Research calls allow a 30-minute request window to accommodate deep work over sl
 
 ## What to read next
 
-1. [Skills](skills/) — reusable instruction templates you can inject into a research run.
-2. [Playbooks & data](playbooks-and-data/) — the playbook a finished run can become.
-3. [Session review](session-review/) — the other learning loop, after a session has traded.
+1. [Skills](/cortiq-public/skills/) — reusable instruction templates you can inject into a research run.
+2. [Playbooks & data](/cortiq-public/playbooks-and-data/) — the playbook a finished run can become.
+3. [Session review](/cortiq-public/session-review/) — the other learning loop, after a session has traded.
 
 ## Related
 
-- [Sessions](sessions/)
-- [AI providers](ai-providers/)
-- [Journal & analytics](journal-and-analytics/)
-- [Glossary](glossary/)
+- [Sessions](/cortiq-public/sessions/)
+- [AI providers](/cortiq-public/ai-providers/)
+- [Journal & analytics](/cortiq-public/journal-and-analytics/)
+- [Glossary](/cortiq-public/glossary/)

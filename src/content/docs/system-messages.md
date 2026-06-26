@@ -26,7 +26,7 @@ Cortiq has three notification surfaces; this is one of them.
 | Windows toasts | Desktop notification center | Trade events and trade-approval prompts. |
 | X / Telegram | External channels | Public or private broadcast of trade events. |
 
-System Messages is the only one of the three that is fully in-app and the only one that carries permission and background-process events. See [Execution modes & notifications](execution-modes-and-notifications/) for the external channels.
+System Messages is the only one of the three that is fully in-app and the only one that carries permission and background-process events. See [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) for the external channels.
 
 ## How to use it
 
@@ -53,7 +53,7 @@ A few key events override this to toast a success — for example, a finished pr
 
 Most messages are read-only. **Permission** messages are the exception: they are actionable. When an agent requests a capability that hasn't been granted — web access for research, say — the request lands here as a card with **Allow** and **Deny** buttons.
 
-Clicking either resolves the same request the [Copilot](cortiq-copilot/) dock and the Windows toast are showing — they're three views of one decision. **Allow** records the grant and the agent proceeds; **Deny**, or letting the agent's turn time out, fails the request closed. Interactive permission requests are `Warning` severity and toast; unattended auto-allows are logged as silent `Info` rows for the audit trail.
+Clicking either resolves the same request the [Copilot](/cortiq-public/cortiq-copilot/) dock and the Windows toast are showing — they're three views of one decision. **Allow** records the grant and the agent proceeds; **Deny**, or letting the agent's turn time out, fails the request closed. Interactive permission requests are `Warning` severity and toast; unattended auto-allows are logged as silent `Info` rows for the audit trail.
 
 :::note
 Permission cards are the only actionable message type. Every other category is an informational, click-through row.
@@ -88,13 +88,13 @@ Permission cards are the only actionable message type. Every other category is a
 
 ## What to read next
 
-1. [Execution modes & notifications](execution-modes-and-notifications/) — the external channels that broadcast trade events.
-2. [Agent permissions](agent-permissions/) — what the actionable permission cards grant and how to manage them.
-3. [Cortiq Copilot](cortiq-copilot/) — the assistant whose actions and requests surface here.
+1. [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) — the external channels that broadcast trade events.
+2. [Agent permissions](/cortiq-public/agent-permissions/) — what the actionable permission cards grant and how to manage them.
+3. [Cortiq Copilot](/cortiq-public/cortiq-copilot/) — the assistant whose actions and requests surface here.
 
 ## Related
 
-- [Risk management](risk-management/)
-- [Workspace & monitoring](workspace-and-monitoring/)
-- [Journal & analytics](journal-and-analytics/)
-- [Glossary](glossary/)
+- [Risk management](/cortiq-public/risk-management/)
+- [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/)
+- [Journal & analytics](/cortiq-public/journal-and-analytics/)
+- [Glossary](/cortiq-public/glossary/)

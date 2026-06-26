@@ -52,7 +52,7 @@ Open Dashboard when you want the business-level view of the platform — not "wh
 
 `Sessions` is where you control runtime state. The list view shows every session with its current state (`Running`, `RiskPaused`, `TimePaused`, `Stopped`, `Completed`, `Failed`); the detail view drills into one session's live execution feed and AI conversation.
 
-You start, stop, and resume sessions from here. You also use this screen to follow a single session through its cycle when something looks off. The list and detail screens are covered in depth on the [Sessions](sessions/) page.
+You start, stop, and resume sessions from here. You also use this screen to follow a single session through its cycle when something looks off. The list and detail screens are covered in depth on the [Sessions](/cortiq-public/sessions/) page.
 
 ### Trade Ideas
 
@@ -77,19 +77,19 @@ Use Journal when you need to understand *why* a session or trade behaved the way
 
 `Session Reviews` (`/reviews`) lists the AI-driven reviews produced after sessions end. Each review yields scored, apply-able suggestions and durable instrument-scoped lessons that feed back into the next session on the same symbol. Filter by instrument to see the active lessons the AI loop currently knows for that market.
 
-Open this screen to close the learning loop — to see what a completed session taught and to apply or dismiss the proposed changes. The full mechanism is on the [Session review](session-review/) page.
+Open this screen to close the learning loop — to see what a completed session taught and to apply or dismiss the proposed changes. The full mechanism is on the [Session review](/cortiq-public/session-review/) page.
 
 ### Cohorts
 
 `Cohorts` groups sessions into a comparison set. It's the right screen when more than one serious session is running and you need to decide what deserves more capital or more refinement — relative performance, not isolated anecdotes.
 
-There's no dedicated screenshot for this page in the current pass; the comparison view evolves quickly and is documented under [Journal & analytics](journal-and-analytics/).
+There's no dedicated screenshot for this page in the current pass; the comparison view evolves quickly and is documented under [Journal & analytics](/cortiq-public/journal-and-analytics/).
 
 ### System Messages
 
 `System Messages` (`/system-messages`) is the in-app notification center. It is a persisted, filterable list of background-process events and trade operations — preparation auto-refreshes, risk pauses, MT5 feed health, trade opens/closes/failures, and agent permission requests. An unread badge sits next to the entry in the sidebar, and higher-severity events also raise a toast.
 
-Open this screen to find out what happened while you weren't watching. Permission requests here are actionable — you can Allow or Deny an agent capability directly from the row. See [System messages](system-messages/) for the event list.
+Open this screen to find out what happened while you weren't watching. Permission requests here are actionable — you can Allow or Deny an agent capability directly from the row. See [System messages](/cortiq-public/system-messages/) for the event list.
 
 ### Conversations
 
@@ -143,16 +143,16 @@ A risk validator triggered. Open the session detail and check the risk panel —
 
 ## What to read next
 
-1. [App navigation guide](app-navigation-guide/) — maps these screens to the actual sidebar entries in the desktop app.
-2. [Sessions](sessions/) — what's behind the Sessions screen.
-3. [Session review](session-review/) — the learning loop behind the Session Reviews screen.
-4. [System messages](system-messages/) — the event list behind the System Messages inbox.
-5. [Journal & analytics](journal-and-analytics/) — what's behind the Journal and Cohorts screens.
+1. [App navigation guide](/cortiq-public/app-navigation-guide/) — maps these screens to the actual sidebar entries in the desktop app.
+2. [Sessions](/cortiq-public/sessions/) — what's behind the Sessions screen.
+3. [Session review](/cortiq-public/session-review/) — the learning loop behind the Session Reviews screen.
+4. [System messages](/cortiq-public/system-messages/) — the event list behind the System Messages inbox.
+5. [Journal & analytics](/cortiq-public/journal-and-analytics/) — what's behind the Journal and Cohorts screens.
 
 ## Related
 
-- [Execution modes & notifications](execution-modes-and-notifications/)
-- [Risk management](risk-management/)
-- [AI providers](ai-providers/)
-- [Trading cycle: overview](trading-cycle/overview/)
-- [Glossary](glossary/)
+- [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/)
+- [Risk management](/cortiq-public/risk-management/)
+- [AI providers](/cortiq-public/ai-providers/)
+- [Trading cycle: overview](/cortiq-public/trading-cycle/overview/)
+- [Glossary](/cortiq-public/glossary/)

@@ -55,20 +55,20 @@ This site shares its repository with Cortiq's GitHub Releases, Issues, and Discu
 
 ## What to read next
 
-1. [Getting started](getting-started/) — orientation if you're evaluating Cortiq, including who it's for and what the first day looks like.
-2. [App navigation guide](app-navigation-guide/) — maps every doc to the matching sidebar entry and screen in the desktop app.
-3. [Feature overview](feature-overview/) and [Capability reference](capability-reference/) — the at-a-glance and function-by-function maps of everything Cortiq does.
-4. [Installation & activation](installation-and-activation/) — the Windows install and license activation flow.
-5. [First 30 minutes in Cortiq](first-30-minutes/) — guided walkthrough from install to your first safe virtual session.
-6. [MetaTrader 5 integration](mt5-integration/) and [AI providers](ai-providers/) — read these before your first live setup.
-7. [Playbooks & data packages](playbooks-and-data/), [Sessions](sessions/), and [Risk management](risk-management/) — the building blocks of your operating model.
-8. [Backtesting](backtesting/) — replay a session against history first; it's the only path that runs without a license.
-9. [Workspace & monitoring](workspace-and-monitoring/) and [Session reviews](session-review/) — the day-to-day screens, plus the AI review loop that turns runs into durable lessons.
+1. [Getting started](/cortiq-public/getting-started/) — orientation if you're evaluating Cortiq, including who it's for and what the first day looks like.
+2. [App navigation guide](/cortiq-public/app-navigation-guide/) — maps every doc to the matching sidebar entry and screen in the desktop app.
+3. [Feature overview](/cortiq-public/feature-overview/) and [Capability reference](/cortiq-public/capability-reference/) — the at-a-glance and function-by-function maps of everything Cortiq does.
+4. [Installation & activation](/cortiq-public/installation-and-activation/) — the Windows install and license activation flow.
+5. [First 30 minutes in Cortiq](/cortiq-public/first-30-minutes/) — guided walkthrough from install to your first safe virtual session.
+6. [MetaTrader 5 integration](/cortiq-public/mt5-integration/) and [AI providers](/cortiq-public/ai-providers/) — read these before your first live setup.
+7. [Playbooks & data packages](/cortiq-public/playbooks-and-data/), [Sessions](/cortiq-public/sessions/), and [Risk management](/cortiq-public/risk-management/) — the building blocks of your operating model.
+8. [Backtesting](/cortiq-public/backtesting/) — replay a session against history first; it's the only path that runs without a license.
+9. [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/) and [Session reviews](/cortiq-public/session-review/) — the day-to-day screens, plus the AI review loop that turns runs into durable lessons.
 
 ## Related
 
-- [Documentation map](documentation-map/)
-- [Feature overview](feature-overview/)
-- [Glossary](glossary/)
-- [Licensing & support](licensing-and-support/)
-- [FAQ](faq/)
+- [Documentation map](/cortiq-public/documentation-map/)
+- [Feature overview](/cortiq-public/feature-overview/)
+- [Glossary](/cortiq-public/glossary/)
+- [Licensing & support](/cortiq-public/licensing-and-support/)
+- [FAQ](/cortiq-public/faq/)

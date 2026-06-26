@@ -99,13 +99,13 @@ Playbook generation is Copilot-driven and has no LLM-calling service to inject i
 
 ## What to read next
 
-1. [Research](research/) — a creation flow where skills shape a deep run.
-2. [Playbooks & data](playbooks-and-data/) — the artifacts skills help you generate.
-3. [Cortiq Copilot](cortiq-copilot/) — the agent that can author and apply skills.
+1. [Research](/cortiq-public/research/) — a creation flow where skills shape a deep run.
+2. [Playbooks & data](/cortiq-public/playbooks-and-data/) — the artifacts skills help you generate.
+3. [Cortiq Copilot](/cortiq-public/cortiq-copilot/) — the agent that can author and apply skills.
 
 ## Related
 
-- [Session review](session-review/)
-- [Journal & analytics](journal-and-analytics/)
-- [AI providers](ai-providers/)
-- [Glossary](glossary/)
+- [Session review](/cortiq-public/session-review/)
+- [Journal & analytics](/cortiq-public/journal-and-analytics/)
+- [AI providers](/cortiq-public/ai-providers/)
+- [Glossary](/cortiq-public/glossary/)

@@ -29,7 +29,7 @@ flowchart LR
 
 A playbook is referenced by sessions. The same playbook can run on multiple sessions; a single session can stack multiple playbooks at different priorities. The playbook itself doesn't care about the symbol or account — those come from the session.
 
-For the conceptual overview, see [Playbooks & data packages](../playbooks-and-data/). This page focuses on writing them well.
+For the conceptual overview, see [Playbooks & data packages](/cortiq-public/playbooks-and-data/). This page focuses on writing them well.
 
 ## How to use it
 
@@ -110,13 +110,13 @@ Express fit. These support the main logic; they don't replace it.
 
 ## What to read next
 
-1. [Data package design guide](data-package-design/) — disciplined payload design, the natural pair to a tight playbook.
-2. [Playbooks](entities/playbooks/) — the entity reference for the playbook object.
-3. [Trading cycle: overview](overview/) — where the playbook sits inside the broader cycle.
+1. [Data package design guide](/cortiq-public/trading-cycle/data-package-design/) — disciplined payload design, the natural pair to a tight playbook.
+2. [Playbooks](/cortiq-public/trading-cycle/entities/playbooks/) — the entity reference for the playbook object.
+3. [Trading cycle: overview](/cortiq-public/trading-cycle/overview/) — where the playbook sits inside the broader cycle.
 
 ## Related
 
-- [Playbooks & data packages](../playbooks-and-data/)
-- [Sessions](../sessions/)
-- [Capability reference](../capability-reference/)
-- [Glossary](../glossary/)
+- [Playbooks & data packages](/cortiq-public/playbooks-and-data/)
+- [Sessions](/cortiq-public/sessions/)
+- [Capability reference](/cortiq-public/capability-reference/)
+- [Glossary](/cortiq-public/glossary/)

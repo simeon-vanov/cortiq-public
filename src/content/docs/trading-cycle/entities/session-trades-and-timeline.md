@@ -27,7 +27,7 @@ The trades and timeline land in the local SQLite database and surface across the
 - `Library` → `Dashboard` aggregates across sessions.
 - `Library` → `Session Cohorts` compares sessions side-by-side.
 
-For analysis and review, see [Journal & analytics](../../journal-and-analytics/).
+For analysis and review, see [Journal & analytics](/cortiq-public/journal-and-analytics/).
 
 ## How to use it
 
@@ -60,12 +60,12 @@ For analysis and review, see [Journal & analytics](../../journal-and-analytics/)
 
 ## What to read next
 
-1. [Journal & analytics](../../journal-and-analytics/) — the review surface that surfaces this data.
-2. [Workspace & monitoring](../../workspace-and-monitoring/) — the screens that render it.
-3. [Sessions](sessions/) — what generates the timeline.
+1. [Journal & analytics](/cortiq-public/journal-and-analytics/) — the review surface that surfaces this data.
+2. [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/) — the screens that render it.
+3. [Sessions](/cortiq-public/trading-cycle/entities/sessions/) — what generates the timeline.
 
 ## Related
 
-- [Playbooks](playbooks/)
-- [Trading cycle: overview](../overview/)
-- [Glossary](../../glossary/)
+- [Playbooks](/cortiq-public/trading-cycle/entities/playbooks/)
+- [Trading cycle: overview](/cortiq-public/trading-cycle/overview/)
+- [Glossary](/cortiq-public/glossary/)

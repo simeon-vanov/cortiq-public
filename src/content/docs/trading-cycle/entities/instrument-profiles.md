@@ -17,7 +17,7 @@ A profile can include volatility character, range behavior, session tendencies, 
 
 Instrument profiles are reusable support layers attached to sessions. They age slowly — update them every few weeks at most. They're not for short-term directional calls; that's the role of sentiment reports.
 
-For the broader support-layer model, see [Supporting context](../supporting-context/).
+For the broader support-layer model, see [Supporting context](/cortiq-public/trading-cycle/supporting-context/).
 
 ## How to use it
 
@@ -43,12 +43,12 @@ An instrument profile is a *behavior reference layer*, not a short-term bullish 
 
 ## What to read next
 
-1. [Supporting context](../supporting-context/) — how the support layers fit together.
-2. [Sentiment reports](sentiment-reports/) — for shorter-lived external context.
-3. [Preparation packages](preparation-packages/) — for cached analysis.
+1. [Supporting context](/cortiq-public/trading-cycle/supporting-context/) — how the support layers fit together.
+2. [Sentiment reports](/cortiq-public/trading-cycle/entities/sentiment-reports/) — for shorter-lived external context.
+3. [Preparation packages](/cortiq-public/trading-cycle/entities/preparation-packages/) — for cached analysis.
 
 ## Related
 
-- [Sessions](sessions/)
-- [Trading cycle: overview](../overview/)
-- [Glossary](../../glossary/)
+- [Sessions](/cortiq-public/trading-cycle/entities/sessions/)
+- [Trading cycle: overview](/cortiq-public/trading-cycle/overview/)
+- [Glossary](/cortiq-public/glossary/)

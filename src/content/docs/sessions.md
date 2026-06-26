@@ -22,7 +22,7 @@ Cortiq supports two session types — autonomous (the default) and external MCP 
 | Autonomous | Cortiq's internal cycle engine | Default for most users; built-in automated operating loop. |
 | External MCP | An external MCP-compatible AI client | Advanced; the agent drives data gathering, decisions, and execution. |
 
-External MCP sessions skip the internal cycle engine — see [MCP and agent integration](mcp-and-agent-integration/).
+External MCP sessions skip the internal cycle engine — see [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/).
 
 ```mermaid
 stateDiagram-v2
@@ -94,7 +94,7 @@ Each cycle follows the same pattern:
 
 `Data gather → Prompt build → AI call → Response parse → Decision → Risk validate → Execute → Log`
 
-The loop runs only while the session is `Running`. It is suspended in every pause or terminal state. For the full architectural breakdown, read [Trading cycle: overview](trading-cycle/overview/).
+The loop runs only while the session is `Running`. It is suspended in every pause or terminal state. For the full architectural breakdown, read [Trading cycle: overview](/cortiq-public/trading-cycle/overview/).
 
 ### State distinctions worth memorizing
 
@@ -122,16 +122,16 @@ Create one session per instrument. A session is locked to a single symbol by des
 
 ## What to read next
 
-1. [Playbooks & data packages](playbooks-and-data/) — what the session executes.
-2. [Risk management](risk-management/) — what triggers `RiskPaused` and how to configure it.
-3. [Execution modes & notifications](execution-modes-and-notifications/) — virtual vs live execution and alert channels.
-4. [Backtesting](backtesting/) — replay a playbook over historical bars before running it live.
-5. [Trading cycle: session architecture](trading-cycle/session-architecture/) — the architecture behind the session loop.
+1. [Playbooks & data packages](/cortiq-public/playbooks-and-data/) — what the session executes.
+2. [Risk management](/cortiq-public/risk-management/) — what triggers `RiskPaused` and how to configure it.
+3. [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) — virtual vs live execution and alert channels.
+4. [Backtesting](/cortiq-public/backtesting/) — replay a playbook over historical bars before running it live.
+5. [Trading cycle: session architecture](/cortiq-public/trading-cycle/session-architecture/) — the architecture behind the session loop.
 
 ## Related
 
-- [Sessions](trading-cycle/entities/sessions/)
-- [MCP and agent integration](mcp-and-agent-integration/)
-- [Workspace & monitoring](workspace-and-monitoring/)
-- [Capability reference](capability-reference/)
-- [Glossary](glossary/)
+- [Sessions](/cortiq-public/trading-cycle/entities/sessions/)
+- [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/)
+- [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/)
+- [Capability reference](/cortiq-public/capability-reference/)
+- [Glossary](/cortiq-public/glossary/)

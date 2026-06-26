@@ -15,7 +15,7 @@ Playbooks live under `Playbooks` → `My Playbooks`. A single playbook can drive
 
 ## How it fits into Cortiq
 
-Playbooks pair with data packages: the playbook says *what to look for*; the data package says *what to look at*. Both are referenced by sessions. For the design guide, read [Playbook design guide](../playbook-design/).
+Playbooks pair with data packages: the playbook says *what to look for*; the data package says *what to look at*. Both are referenced by sessions. For the design guide, read [Playbook design guide](/cortiq-public/trading-cycle/playbook-design/).
 
 ## How to use it
 
@@ -52,13 +52,13 @@ A playbook is not a catch-all idea list, a macro-news summary, or a one-off acti
 
 ## What to read next
 
-1. [Playbook design guide](../playbook-design/) — the section-by-section authoring guide.
-2. [Data packages](data-packages/) — the natural pair to a playbook.
-3. [Trade ideas](trade-ideas/) — for opportunities that shouldn't become playbooks.
+1. [Playbook design guide](/cortiq-public/trading-cycle/playbook-design/) — the section-by-section authoring guide.
+2. [Data packages](/cortiq-public/trading-cycle/entities/data-packages/) — the natural pair to a playbook.
+3. [Trade ideas](/cortiq-public/trading-cycle/entities/trade-ideas/) — for opportunities that shouldn't become playbooks.
 
 ## Related
 
-- [Playbooks & data packages](../../playbooks-and-data/)
-- [Sessions](sessions/)
-- [Sessions](../../sessions/)
-- [Glossary](../../glossary/)
+- [Playbooks & data packages](/cortiq-public/playbooks-and-data/)
+- [Sessions](/cortiq-public/trading-cycle/entities/sessions/)
+- [Sessions](/cortiq-public/sessions/)
+- [Glossary](/cortiq-public/glossary/)

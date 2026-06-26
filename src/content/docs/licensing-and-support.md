@@ -11,7 +11,7 @@ This page covers how the Cortiq license works and where to go when you need help
 
 Cortiq is a one-time purchase. **€199 buys a permanent license with lifetime updates across the v1.x line.** One key activates up to **two machines** — for example a desktop and a laptop. There is no subscription and no per-machine renewal.
 
-The license controls whether the app can start live sessions, not whether the app runs. You can install, explore, design playbooks, and run [backtests](backtesting/) without a valid license. Any session that binds to MetaTrader 5 — including virtual and broker-demo sessions — requires a valid license.
+The license controls whether the app can start live sessions, not whether the app runs. You can install, explore, design playbooks, and run [backtests](/cortiq-public/backtesting/) without a valid license. Any session that binds to MetaTrader 5 — including virtual and broker-demo sessions — requires a valid license.
 
 Public support runs through the Cortiq GitHub repository. Account-specific or license-sensitive issues go through direct email — never post sensitive details in a public issue.
 
@@ -34,7 +34,7 @@ Purchase at [`cortiq.trade/#pricing`](https://cortiq.trade/#pricing). Checkout r
 
 Open `Settings` → `License` in the desktop app, paste the key, and confirm. The key activates on first launch and can be activated on a second machine — two activations total.
 
-For the full first-install walkthrough, see [Installation & activation](installation-and-activation/).
+For the full first-install walkthrough, see [Installation & activation](/cortiq-public/installation-and-activation/).
 
 ### Understand the license gate
 
@@ -43,7 +43,7 @@ Cortiq checks license validity two ways: a local check on the stored record, and
 The re-verify is **fail-open with a 14-day grace window**. If the backend is temporarily unreachable, an otherwise-valid license keeps working for 14 days since its last successful verification. After 14 days without a successful re-verify, the license is treated as invalid and live sessions are blocked.
 
 :::caution
-Only [backtests](backtesting/) run without a valid license. Every session that binds to MetaTrader 5 — live, virtual, or on a broker-demo server — requires one. The broker-demo exemption was removed on 2026-06-25 because prop-firm accounts run on demo servers and slipped through.
+Only [backtests](/cortiq-public/backtesting/) run without a valid license. Every session that binds to MetaTrader 5 — live, virtual, or on a broker-demo server — requires one. The broker-demo exemption was removed on 2026-06-25 because prop-firm accounts run on demo servers and slipped through.
 :::
 
 When the license is effectively invalid, the app shows a **non-dismissible red banner** until you re-activate or connectivity restores a valid verification. The banner copy is static; it carries no operator or AI text.
@@ -121,11 +121,11 @@ On the [Releases](https://github.com/simeon-vanov/cortiq-public/releases/latest)
 
 ## What to read next
 
-1. [Installation & activation](installation-and-activation/) — first-install activation flow.
-2. [Backtesting](backtesting/) — the one path that needs no license.
-3. [FAQ](faq/) — fast answers to common evaluation, setup, and operational questions.
+1. [Installation & activation](/cortiq-public/installation-and-activation/) — first-install activation flow.
+2. [Backtesting](/cortiq-public/backtesting/) — the one path that needs no license.
+3. [FAQ](/cortiq-public/faq/) — fast answers to common evaluation, setup, and operational questions.
 
 ## Related
 
-- [Documentation map](documentation-map/)
-- [Glossary](glossary/)
+- [Documentation map](/cortiq-public/documentation-map/)
+- [Glossary](/cortiq-public/glossary/)

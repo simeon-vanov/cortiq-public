@@ -99,13 +99,13 @@ Lessons are instrument-scoped. They inject only into sessions on the same symbol
 
 ## What to read next
 
-1. [Journal & analytics](journal-and-analytics/) — the trade record a review reads from.
-2. [Sessions](sessions/) — the next session on the symbol, where lessons fold back.
-3. [Research](research/) — the other improvement loop, for deeper instrument work.
+1. [Journal & analytics](/cortiq-public/journal-and-analytics/) — the trade record a review reads from.
+2. [Sessions](/cortiq-public/sessions/) — the next session on the symbol, where lessons fold back.
+3. [Research](/cortiq-public/research/) — the other improvement loop, for deeper instrument work.
 
 ## Related
 
-- [Playbooks & data](playbooks-and-data/)
-- [Skills](skills/)
-- [Risk management](risk-management/)
-- [Glossary](glossary/)
+- [Playbooks & data](/cortiq-public/playbooks-and-data/)
+- [Skills](/cortiq-public/skills/)
+- [Risk management](/cortiq-public/risk-management/)
+- [Glossary](/cortiq-public/glossary/)

@@ -17,7 +17,7 @@ The chart can't tell the whole story when the market is reacting to events, poli
 
 Sentiment reports attach to sessions as support context. They age fast — replace or detach them when the underlying narrative changes, often within hours or a few days.
 
-For how this layer compares to others, see [Supporting context](../supporting-context/).
+For how this layer compares to others, see [Supporting context](/cortiq-public/trading-cycle/supporting-context/).
 
 ## How to use it
 
@@ -41,13 +41,13 @@ Sentiment should *guide* confidence and caution. It should not override the trad
 
 ## What to read next
 
-1. [Supporting context](../supporting-context/) — the broader support-layer model.
-2. [Preparation packages](preparation-packages/) — for cached analysis that ages slower.
-3. [Instrument profiles](instrument-profiles/) — for persistent behavior context.
+1. [Supporting context](/cortiq-public/trading-cycle/supporting-context/) — the broader support-layer model.
+2. [Preparation packages](/cortiq-public/trading-cycle/entities/preparation-packages/) — for cached analysis that ages slower.
+3. [Instrument profiles](/cortiq-public/trading-cycle/entities/instrument-profiles/) — for persistent behavior context.
 
 ## Related
 
-- [Sessions](sessions/)
-- [Trade ideas](trade-ideas/)
-- [Trading cycle: overview](../overview/)
-- [Glossary](../../glossary/)
+- [Sessions](/cortiq-public/trading-cycle/entities/sessions/)
+- [Trade ideas](/cortiq-public/trading-cycle/entities/trade-ideas/)
+- [Trading cycle: overview](/cortiq-public/trading-cycle/overview/)
+- [Glossary](/cortiq-public/glossary/)

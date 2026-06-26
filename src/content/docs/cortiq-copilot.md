@@ -12,7 +12,7 @@ Copilot is the assistant that lives inside the Cortiq desktop app. It reads your
 
 Copilot is a dock you open over any page. Behind it sits one of your configured AI transports — an ACP local agent, a CLI tool, or a direct API provider — wired to Cortiq's in-process tools. You talk to it in plain language; it calls Cortiq tools to do the work.
 
-Unlike an [External MCP](mcp-and-agent-integration/) session, you don't connect an outside client or edit a config file. Copilot uses the provider you already set up under `Settings` → `AI Providers`, and it runs in the app's process, so its changes appear in the UI immediately.
+Unlike an [External MCP](/cortiq-public/mcp-and-agent-integration/) session, you don't connect an outside client or edit a config file. Copilot uses the provider you already set up under `Settings` → `AI Providers`, and it runs in the app's process, so its changes appear in the UI immediately.
 
 Copilot is not a trading loop. It does not run sessions autonomously. It is an assistant you ask to build and edit things, look up trades, and explain what happened — with a hard gate in front of any real order.
 
@@ -24,7 +24,7 @@ Use Copilot when you want:
 - Quick answers about your sessions, trades, and weekly performance without navigating to a page.
 - An assistant that drives the app for you while you stay in control of execution.
 
-It is not the right surface for hands-off autonomous trading — that is what [sessions](sessions/) are for.
+It is not the right surface for hands-off autonomous trading — that is what [sessions](/cortiq-public/sessions/) are for.
 
 ## How to use it
 
@@ -43,11 +43,11 @@ Copilot authors and edits Cortiq entities through tool calls, and it uses on-pag
 - Look up sessions, trades, trade ideas, and statistics.
 - Answer weekly trade questions — *"give me the trades I took this week"* — using a trusted, in-process context block of your trading week (account numbers, raw reasoning, and journal notes are withheld from that context).
 
-The full Cortiq tool surface is available to Copilot, the same families described in [MCP and agent integration](mcp-and-agent-integration/).
+The full Cortiq tool surface is available to Copilot, the same families described in [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/).
 
 ### The approval gate
 
-Copilot runs in the trusted-Cortiq posture: it authors entities without prompting you for each one. The one exception is trade execution. **Only `execute_trade` and `execute_trade_action`** raise an approval card — opening, modifying, or closing a real position. When that happens, Copilot shows an inline action card in the dock, fires a Windows toast, and writes an actionable row to the [System Messages](system-messages/) inbox. The trade runs only when you approve; a reject, expiry, or timeout denies it.
+Copilot runs in the trusted-Cortiq posture: it authors entities without prompting you for each one. The one exception is trade execution. **Only `execute_trade` and `execute_trade_action`** raise an approval card — opening, modifying, or closing a real position. When that happens, Copilot shows an inline action card in the dock, fires a Windows toast, and writes an actionable row to the [System Messages](/cortiq-public/system-messages/) inbox. The trade runs only when you approve; a reject, expiry, or timeout denies it.
 
 :::caution
 An agent authoring a playbook or data package does not need your approval per action — that is by design. Only real trade orders are gated. Review entities Copilot creates the same way you'd review your own.
@@ -57,19 +57,19 @@ An agent authoring a playbook or data package does not need your approval per ac
 
 When Copilot runs on a local ACP agent, that agent has its own built-in tools — web access, filesystem, shell. Those are governed by a separate, persistable grant store. The first time the agent needs a capability outside its sandbox, Cortiq surfaces an actionable request; once you grant it, the capability is **remembered and auto-allowed** on every future call, in any session.
 
-**Auto-mode** (on by default) lets safe capabilities — web access — auto-allow even in an unattended session, so a long-running agent never hangs waiting for a click. Sensitive capabilities (filesystem outside the sandbox, shell) always ask, regardless of auto-mode. You manage grants and the auto-mode toggle under [Agent permissions](agent-permissions/) in `Settings`.
+**Auto-mode** (on by default) lets safe capabilities — web access — auto-allow even in an unattended session, so a long-running agent never hangs waiting for a click. Sensitive capabilities (filesystem outside the sandbox, shell) always ask, regardless of auto-mode. You manage grants and the auto-mode toggle under [Agent permissions](/cortiq-public/agent-permissions/) in `Settings`.
 
 None of these grants touch trade execution. Trade approval stays on its own gate no matter what else you've granted.
 
 ## What to read next
 
-1. [Agent permissions](agent-permissions/) — the trade gate, the filesystem sandbox, and the capability grant store in full.
-2. [MCP and agent integration](mcp-and-agent-integration/) — drive the same tools from Claude Desktop, Claude Code, or Codex.
-3. [AI providers](ai-providers/) — configure the transport Copilot runs on.
+1. [Agent permissions](/cortiq-public/agent-permissions/) — the trade gate, the filesystem sandbox, and the capability grant store in full.
+2. [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/) — drive the same tools from Claude Desktop, Claude Code, or Codex.
+3. [AI providers](/cortiq-public/ai-providers/) — configure the transport Copilot runs on.
 
 ## Related
 
-- [System messages](system-messages/)
-- [Playbooks & data](playbooks-and-data/)
-- [Research](research/)
-- [Glossary](glossary/)
+- [System messages](/cortiq-public/system-messages/)
+- [Playbooks & data](/cortiq-public/playbooks-and-data/)
+- [Research](/cortiq-public/research/)
+- [Glossary](/cortiq-public/glossary/)

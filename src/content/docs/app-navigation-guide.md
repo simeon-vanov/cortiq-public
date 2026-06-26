@@ -77,36 +77,36 @@ Configuration and inputs on the left, runtime and review in the middle, Copilot 
 
 | Docs page | Main UI surface |
 | --- | --- |
-| [Installation & activation](installation-and-activation/) | `Tools` → `License` |
-| [MetaTrader 5 integration](mt5-integration/) | `Settings` → MT5 accounts tab |
-| [AI providers](ai-providers/) | `Tools` → `AI Providers`, `Library` → `Sessions` |
-| [Playbooks & data packages](playbooks-and-data/) | `Playbooks` → `My Playbooks`, `Tools` → `Data Packages`, `Tools` → `Indicators` |
-| [Skills](skills/) | `Preparation` → `Skills` |
-| [Sessions](sessions/) | `Library` → `Sessions` |
-| [Backtesting](backtesting/) | `Preparation` → `Backtests` |
-| [Research](research/) | `Preparation` → `Research` |
-| [Risk management](risk-management/) | `Tools` → `Risk Management`, `Library` → `Dashboard` |
-| [Execution modes & notifications](execution-modes-and-notifications/) | `Library` → `Sessions`, `Settings` → notifications tab |
-| [Workspace & monitoring](workspace-and-monitoring/) | `Library` (most screens), `Tools` → `Provider Health` |
-| [Journal & analytics](journal-and-analytics/) | `Library` → `Journal`, `Dashboard`, `Cohorts`, `Conversations` |
-| [Session reviews](session-review/) | `Library` → `Session Reviews` |
-| [System messages](system-messages/) | `Library` → `System Messages` |
-| [Cortiq Copilot](cortiq-copilot/) | `Copilot` toggle (`Ctrl+K`) |
-| [Agent permissions](agent-permissions/) | `Settings` → agent permissions tab |
-| [MCP and agent integration](mcp-and-agent-integration/) | `Library` → `Sessions` (external MCP), external clients |
-| [Licensing & support](licensing-and-support/) | `Tools` → `License`, `Community` |
+| [Installation & activation](/cortiq-public/installation-and-activation/) | `Tools` → `License` |
+| [MetaTrader 5 integration](/cortiq-public/mt5-integration/) | `Settings` → MT5 accounts tab |
+| [AI providers](/cortiq-public/ai-providers/) | `Tools` → `AI Providers`, `Library` → `Sessions` |
+| [Playbooks & data packages](/cortiq-public/playbooks-and-data/) | `Playbooks` → `My Playbooks`, `Tools` → `Data Packages`, `Tools` → `Indicators` |
+| [Skills](/cortiq-public/skills/) | `Preparation` → `Skills` |
+| [Sessions](/cortiq-public/sessions/) | `Library` → `Sessions` |
+| [Backtesting](/cortiq-public/backtesting/) | `Preparation` → `Backtests` |
+| [Research](/cortiq-public/research/) | `Preparation` → `Research` |
+| [Risk management](/cortiq-public/risk-management/) | `Tools` → `Risk Management`, `Library` → `Dashboard` |
+| [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) | `Library` → `Sessions`, `Settings` → notifications tab |
+| [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/) | `Library` (most screens), `Tools` → `Provider Health` |
+| [Journal & analytics](/cortiq-public/journal-and-analytics/) | `Library` → `Journal`, `Dashboard`, `Cohorts`, `Conversations` |
+| [Session reviews](/cortiq-public/session-review/) | `Library` → `Session Reviews` |
+| [System messages](/cortiq-public/system-messages/) | `Library` → `System Messages` |
+| [Cortiq Copilot](/cortiq-public/cortiq-copilot/) | `Copilot` toggle (`Ctrl+K`) |
+| [Agent permissions](/cortiq-public/agent-permissions/) | `Settings` → agent permissions tab |
+| [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/) | `Library` → `Sessions` (external MCP), external clients |
+| [Licensing & support](/cortiq-public/licensing-and-support/) | `Tools` → `License`, `Community` |
 
 ## What to read next
 
-1. [Workspace & monitoring](workspace-and-monitoring/) — once you can navigate, this is the tour of the screens you'll spend most of your time in.
-2. [Feature overview](feature-overview/) — the at-a-glance map of every capability the sidebar exposes.
-3. [Capability reference](capability-reference/) — what each major function does in plain English.
+1. [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/) — once you can navigate, this is the tour of the screens you'll spend most of your time in.
+2. [Feature overview](/cortiq-public/feature-overview/) — the at-a-glance map of every capability the sidebar exposes.
+3. [Capability reference](/cortiq-public/capability-reference/) — what each major function does in plain English.
 
 ## Related
 
-- [Documentation map](documentation-map/)
-- [Feature overview](feature-overview/)
-- [Cortiq Copilot](cortiq-copilot/)
-- [System messages](system-messages/)
-- [Glossary](glossary/)
-- [Trading cycle: session architecture](trading-cycle/session-architecture/)
+- [Documentation map](/cortiq-public/documentation-map/)
+- [Feature overview](/cortiq-public/feature-overview/)
+- [Cortiq Copilot](/cortiq-public/cortiq-copilot/)
+- [System messages](/cortiq-public/system-messages/)
+- [Glossary](/cortiq-public/glossary/)
+- [Trading cycle: session architecture](/cortiq-public/trading-cycle/session-architecture/)

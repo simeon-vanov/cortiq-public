@@ -38,8 +38,8 @@ Getting started sits at the front of the Start Here track. It precedes installat
 | Page | What it gives you |
 | --- | --- |
 | Getting started *(this page)* | Decision: is Cortiq for you, and what should you configure first. |
-| [Installation & activation](installation-and-activation/) | The Windows install and license-key flow. |
-| [First 30 minutes in Cortiq](first-30-minutes/) | A guided path from a fresh install to a running virtual session. |
+| [Installation & activation](/cortiq-public/installation-and-activation/) | The Windows install and license-key flow. |
+| [First 30 minutes in Cortiq](/cortiq-public/first-30-minutes/) | A guided path from a fresh install to a running virtual session. |
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ Confirm these before installing:
 
 - Windows 10 or Windows 11.
 - MetaTrader 5 installed on the same machine, for live trading.
-- A Cortiq activation key — a one-time €199 license that activates up to two machines. See [Licensing & support](licensing-and-support/) for what it includes and the 14-day refund.
+- A Cortiq activation key — a one-time €199 license that activates up to two machines. See [Licensing & support](/cortiq-public/licensing-and-support/) for what it includes and the 14-day refund.
 - A way to reach at least one supported AI provider — an API key, a local model endpoint, or a local agent (ACP or CLI) you can authenticate.
 - A clear answer to whether your first run is virtual or live (the section below explains why this matters).
 
@@ -60,7 +60,7 @@ Confirm these before installing:
 5. Start a virtual session before enabling live execution.
 6. Review the journal and analytics output before scaling the strategy.
 
-If you want this as a guided checklist with screenshots, read [First 30 minutes in Cortiq](first-30-minutes/).
+If you want this as a guided checklist with screenshots, read [First 30 minutes in Cortiq](/cortiq-public/first-30-minutes/).
 
 ## Reference
 
@@ -74,16 +74,16 @@ The highest-impact early decisions, and the criterion that picks each one:
 
 ## What to read next
 
-1. [Capability reference](capability-reference/) — practical summary of what each major function does, before you start configuring.
-2. [Installation & activation](installation-and-activation/) — the install and license-activation flow.
-3. [First 30 minutes in Cortiq](first-30-minutes/) — step-by-step path to your first virtual session.
-4. [MetaTrader 5 integration](mt5-integration/) and [AI providers](ai-providers/) — read before any live execution.
+1. [Capability reference](/cortiq-public/capability-reference/) — practical summary of what each major function does, before you start configuring.
+2. [Installation & activation](/cortiq-public/installation-and-activation/) — the install and license-activation flow.
+3. [First 30 minutes in Cortiq](/cortiq-public/first-30-minutes/) — step-by-step path to your first virtual session.
+4. [MetaTrader 5 integration](/cortiq-public/mt5-integration/) and [AI providers](/cortiq-public/ai-providers/) — read before any live execution.
 
 ## Related
 
-- [App navigation guide](app-navigation-guide/)
-- [Feature overview](feature-overview/)
-- [Playbooks & data packages](playbooks-and-data/)
-- [Risk management](risk-management/)
-- [Workspace & monitoring](workspace-and-monitoring/)
-- [Glossary](glossary/)
+- [App navigation guide](/cortiq-public/app-navigation-guide/)
+- [Feature overview](/cortiq-public/feature-overview/)
+- [Playbooks & data packages](/cortiq-public/playbooks-and-data/)
+- [Risk management](/cortiq-public/risk-management/)
+- [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/)
+- [Glossary](/cortiq-public/glossary/)

@@ -34,7 +34,7 @@ There are three distinct surfaces:
 
 Every real trade an agent attempts — open, modify, partial-close, close, cancel — passes through the trade gate. In the trusted-Cortiq posture, **only `execute_trade` and `execute_trade_action`** require approval; everything else (create / update / delete entities, generate, link) runs without a card.
 
-When a trade tool fires, Cortiq raises an approval card in the [Copilot](cortiq-copilot/) dock, a Windows toast, and an actionable [System Messages](system-messages/) row. The trade body runs only on an explicit approve. A reject, expiry, timeout, or error denies it — fail-closed. This gate is independent of every other surface on this page and cannot be turned off by a capability grant.
+When a trade tool fires, Cortiq raises an approval card in the [Copilot](/cortiq-public/cortiq-copilot/) dock, a Windows toast, and an actionable [System Messages](/cortiq-public/system-messages/) row. The trade body runs only on an explicit approve. A reject, expiry, timeout, or error denies it — fail-closed. This gate is independent of every other surface on this page and cannot be turned off by a capability grant.
 
 ## The ACP filesystem sandbox
 
@@ -65,7 +65,7 @@ When a capability needs your decision, Cortiq raises it three ways at once:
 
 - An action card in the Copilot dock.
 - A Windows toast.
-- An actionable **Allow / Deny** row in the [System Messages](system-messages/) inbox.
+- An actionable **Allow / Deny** row in the [System Messages](/cortiq-public/system-messages/) inbox.
 
 Resolving any one of them resolves the request. On **Allow**, Cortiq records the grant and the agent proceeds. On **Deny** — or if you leave it and the agent's turn times out — the request fails closed.
 
@@ -89,13 +89,13 @@ The **Agent permissions** section of the `Settings` page is where you control al
 
 ## What to read next
 
-1. [Cortiq Copilot](cortiq-copilot/) — the assistant these permissions govern.
-2. [System messages](system-messages/) — where permission requests surface as actionable cards.
-3. [MCP and agent integration](mcp-and-agent-integration/) — the same trade gate from an external client.
+1. [Cortiq Copilot](/cortiq-public/cortiq-copilot/) — the assistant these permissions govern.
+2. [System messages](/cortiq-public/system-messages/) — where permission requests surface as actionable cards.
+3. [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/) — the same trade gate from an external client.
 
 ## Related
 
-- [AI providers](ai-providers/)
-- [Risk management](risk-management/)
-- [Execution modes & notifications](execution-modes-and-notifications/)
-- [Glossary](glossary/)
+- [AI providers](/cortiq-public/ai-providers/)
+- [Risk management](/cortiq-public/risk-management/)
+- [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/)
+- [Glossary](/cortiq-public/glossary/)
