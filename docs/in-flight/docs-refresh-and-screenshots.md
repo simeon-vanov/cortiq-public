@@ -16,14 +16,13 @@ and replace every `SCREENSHOT-NEEDED` placeholder with a real captured app scree
 
 CONTENT COMPLETE and committed. All 18 stale pages rewritten + 7 new pages authored, sidebar
 wired, `npm run build` green (41 pages, 0 errors/warnings), 0 broken internal links, code-review
-returned zero blocking findings. 29 app screenshots captured by `DocScreenshotCaptureTests.cs`
+returned zero blocking findings. 30 app screenshots captured by `DocScreenshotCaptureTests.cs`
 and their markers removed. `ARCHITECTURE-CHANGES.md` + engineering references updated.
 
-Remaining before this file can be deleted (ship): the 5 outstanding screenshots tracked in
-`docs/reference/screenshots.md` — 3 inherently manual (SmartScreen, MT5 EA, live health-green),
-`playbooks-and-data__playbook-editor.png` (auto-capture in progress), and
-`workspace-and-monitoring__now-trading-bar.png` (live-cycle only) — plus a push to `main` to
-deploy on GitHub Pages (not yet pushed; user gates pushes).
+Remaining before this file can be deleted (ship): the 4 outstanding screenshots tracked in
+`docs/reference/screenshots.md` — 3 inherently manual (SmartScreen, MT5 EA, live health-green)
+and `workspace-and-monitoring__now-trading-bar.png` (live-cycle only) — plus a push to `main`
+to deploy on GitHub Pages (not yet pushed; user gates pushes).
 
 ## Canonical facts (writers MUST follow — these override anything in the old pages)
 

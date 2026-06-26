@@ -52,7 +52,7 @@ dock closed, and writes 1600x900 PNGs.
 
 ## Manifest — captured (auto-driver)
 
-These 29 PNGs are present in `public/images/screenshots/` and their reader-page markers are
+These 30 PNGs are present in `public/images/screenshots/` and their reader-page markers are
 removed.
 
 | Filename | Page | Route captured |
@@ -86,6 +86,7 @@ removed.
 | `system-messages__inbox.png` | system-messages | `/system-messages` |
 | `agent-permissions__settings.png` | agent-permissions | `/settings` → Copilot tab |
 | `cortiq-copilot__dock.png` | cortiq-copilot | Copilot dock open on `/` |
+| `playbooks-and-data__playbook-editor.png` | playbooks-and-data | `/playbooks/{id}/edit` |
 
 ## Manifest — outstanding
 
@@ -96,7 +97,6 @@ These reader pages still carry a `<!-- SCREENSHOT-NEEDED: ... -->` marker.
 | `installation-and-activation__smartscreen.png` | installation-and-activation | Windows OS dialog, not app UI | Capture by hand on first run of `Cortiq-win-Setup.exe` (More info → Run anyway) |
 | `mt5-integration__zmqfacade-attached.png` | mt5-integration | MetaTrader 5 terminal, not Cortiq | Capture a EURUSD chart with `ZmqFacade` attached (smiley icon visible); mask broker/balance |
 | `mt5-integration__health-green.png` | mt5-integration | Needs a live MT5 connection; automation mode shows Disconnected | Capture the topbar health indicator while connected to a live terminal |
-| `playbooks-and-data__playbook-editor.png` | playbooks-and-data | Pending auto-capture run | Driver capturing `/playbooks/{id}/edit`; remove marker once the PNG lands |
 | `workspace-and-monitoring__now-trading-bar.png` | workspace-and-monitoring | NowTradingBar only renders during a live active cycle | Capture the bottom bar during a running live session; mask account/broker |
 
 ## Entry points / interfaces

@@ -8,7 +8,7 @@
 
 - **Refreshed all 18 existing reader pages** under `src/content/docs/` to current app behaviour: removed dead "browser mode", Grok, and "not a backtester" claims; corrected the session-status set (added `TimePaused`, `Failed`), MT5 ports (`6200/6201`), the BYO-AI provider/transport model (API / ACP / CLI / External MCP), and the license model (€199 one-time, 2 machines, 14-day refund, fail-open re-verify with 14-day grace, backtests-only license-free). Removed the single-instrument-mandate violation on the Home page.
 - **Added 7 new reader pages** for feature areas that shipped after the docs were written: `backtesting`, `research`, `skills`, `session-review`, `system-messages`, `cortiq-copilot`, `agent-permissions`. Wired them into `astro.config.mjs` (new **Research & Skills** sidebar group; new entries under Platform and MCP & Agent).
-- **Automated app-UI screenshots.** Added `Cortiq.E2ETests/Tests/DocScreenshotCaptureTests.cs` (sibling `cortiq-app` repo) — a Playwright-over-WebView2-CDP driver that launches the desktop app under `CORTIQ_AUTOMATION_MODE`, seeds a rich demo DB (`Cortiq.DemoSeeder` + augmented rows), and captures 1600x900 PNGs of each documented screen with the Copilot dock closed. Produced 29 screenshots into `public/images/screenshots/`, replacing their `SCREENSHOT-NEEDED` markers.
+- **Automated app-UI screenshots.** Added `Cortiq.E2ETests/Tests/DocScreenshotCaptureTests.cs` (sibling `cortiq-app` repo) — a Playwright-over-WebView2-CDP driver that launches the desktop app under `CORTIQ_AUTOMATION_MODE`, seeds a rich demo DB (`Cortiq.DemoSeeder` + augmented rows), and captures 1600x900 PNGs of each documented screen with the Copilot dock closed. Produced 30 screenshots into `public/images/screenshots/`, replacing their `SCREENSHOT-NEEDED` markers.
 - **Updated engineering references:** `docs/reference/screenshots.md` (rewritten manifest + capture how-to + gotchas), `docs/reference/pages-and-content.md` (new slugs/groups). Fixed the stale `Cortiq.msix` → `Cortiq-win-Setup.exe` link in `README.md`.
 
 ### Why
@@ -17,7 +17,7 @@ The docs predated whole feature areas and carried stale facts and a single-instr
 
 ### Outstanding
 
-- 5 screenshots remain outstanding (tracked in `screenshots.md`): 3 inherently manual (Windows SmartScreen OS dialog, the MT5-terminal EA shot, the live "health green" indicator), `playbooks-and-data__playbook-editor.png` (auto-capture in progress), and `workspace-and-monitoring__now-trading-bar.png` (renders only during a live cycle).
+- 4 screenshots remain outstanding (tracked in `screenshots.md`): 3 inherently manual (Windows SmartScreen OS dialog, the MT5-terminal EA shot, the live "health green" indicator) and `workspace-and-monitoring__now-trading-bar.png` (renders only during a live cycle).
 - Not yet deployed — GitHub Pages publishes on push to `main`.
 
 ---
