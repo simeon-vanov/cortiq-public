@@ -47,7 +47,7 @@ Confirm these before installing:
 
 - Windows 10 or Windows 11.
 - MetaTrader 5 installed on the same machine, for live trading.
-- A Cortiq activation key.
+- A Cortiq activation key — a one-time €199 license that activates up to two machines. See [Licensing & support](licensing-and-support/) for what it includes and the 14-day refund.
 - A way to reach at least one supported AI provider — an API key, a local model endpoint, or a local agent (ACP or CLI) you can authenticate.
 - A clear answer to whether your first run is virtual or live (the section below explains why this matters).
 
