@@ -34,7 +34,7 @@ The workspace presents itself as a single-instrument analyst station. The detail
 
 Open `Preparation` → `Research`, or navigate to `/research`. The list shows your workspaces, each scoped to one instrument.
 
-![Research page listing single-instrument workspaces with run and snapshot counts](/images/screenshots/research__list.png)
+![Research page listing single-instrument workspaces with run and snapshot counts](/cortiq-public/images/screenshots/research__list.png)
 
 Select **New** (`/research/new`) and enter or pick the symbol. The header of a workspace shows its run and snapshot counts and the downstream approval state.
 
@@ -42,7 +42,7 @@ Select **New** (`/research/new`) and enter or pick the symbol. The header of a w
 
 The detail page opens with a soft pipeline strip: **Understand behaviour → Find an edge → Build a playbook**. Each stage is marked done, now, or next, derived from the workspace's runs — there is no saved stage state. The strip is a signpost, not a gate: click any stage to start that kind of run and jump straight there.
 
-![Research workspace showing the stage strip, results-first card, and the recommended next-step button](/images/screenshots/research__workspace.png)
+![Research workspace showing the stage strip, results-first card, and the recommended next-step button](/cortiq-public/images/screenshots/research__workspace.png)
 
 The results card leads with the answer: the run's headline and a plain-language confidence line (Confirmed / Provisional / Needs more data / Did not hold up), followed by exactly one primary button — the recommended next step. Secondary one-click actions sit alongside: **Create/refine a playbook** and **Ask a follow-up**.
 

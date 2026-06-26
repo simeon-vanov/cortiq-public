@@ -45,7 +45,7 @@ Double-click `Cortiq-win-Setup.exe`. The installer is not yet code-signed, so Wi
 
 If you'd rather verify the download first, the [releases page](https://github.com/simeon-vanov/cortiq-public/releases/latest) lists every release with its checksums.
 
-![Windows SmartScreen notice for Cortiq-win-Setup.exe with the More info link expanded](/images/screenshots/installation-and-activation__smartscreen.png)
+![Windows SmartScreen notice for Cortiq-win-Setup.exe with the More info link expanded](/cortiq-public/images/screenshots/installation-and-activation__smartscreen.png)
 <!-- SCREENSHOT-NEEDED: installation-and-activation__smartscreen.png – Windows SmartScreen "unknown publisher" notice for Cortiq-win-Setup.exe with the More info link expanded and the Run anyway button visible (OS dialog, captured manually) -->
 
 Cortiq now appears in the Start menu.
@@ -54,7 +54,7 @@ Cortiq now appears in the Start menu.
 
 Launch the app and open `Settings` → `License`. Paste the key from your purchase email — Cortiq validates it against the licensing backend and records the activation on this machine. There's an optional email field that supports the multi-machine activation.
 
-![Cortiq license activation screen with a placeholder CRTQ key](/images/screenshots/installation-and-activation__activation-dialog.png)
+![Cortiq license activation screen with a placeholder CRTQ key](/cortiq-public/images/screenshots/installation-and-activation__activation-dialog.png)
 
 When the License page shows the activation as active, you're done. Cortiq stores the state locally.
 

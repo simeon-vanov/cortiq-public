@@ -69,7 +69,7 @@ Changing two things at once turns the review into guesswork.
 
 Open `Library` → `Cohorts` and group sessions you want to compare. Cohorts work best when the sessions actually match on most variables — same symbol, same provider, same risk profile — and differ only on the lever you're testing. Comparing two sessions that differ on five variables tells you nothing.
 
-![Analytics page with P/L chart, win rate, best/worst day stats visible](/images/screenshots/journal-and-analytics__analytics.png)
+![Analytics page with P/L chart, win rate, best/worst day stats visible](/cortiq-public/images/screenshots/journal-and-analytics__analytics.png)
 
 ### Close the learning loop with session reviews
 

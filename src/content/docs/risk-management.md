@@ -46,7 +46,7 @@ Risk is visible in two screens:
 
 Open `Tools` → `Risk Management` and select the `Global` tab. Set conservative defaults before any live execution.
 
-![Risk Management page with the Global tab selected, all six limits visible](/images/screenshots/risk-management__global-panel.png)
+![Risk Management page with the Global tab selected, all six limits visible](/cortiq-public/images/screenshots/risk-management__global-panel.png)
 
 Conservative is not optional. Tighten until you'd be comfortable with the worst-case loss the rule allows; you can always loosen later, but you can't undo a breach that exceeded a too-wide limit.
 
@@ -54,7 +54,7 @@ Conservative is not optional. Tighten until you'd be comfortable with the worst-
 
 Switch to the `Per-Account` tab and configure rules for each MT5 account independently. Use this to encode account-specific mandates: prop-firm challenge limits, a personal account's daily drawdown, a secondary account's max exposure.
 
-![Risk Management page with the Per-Account tab selected, one account's limits visible](/images/screenshots/risk-management__account-panel.png)
+![Risk Management page with the Per-Account tab selected, one account's limits visible](/cortiq-public/images/screenshots/risk-management__account-panel.png)
 
 ### Configure your day-start time
 

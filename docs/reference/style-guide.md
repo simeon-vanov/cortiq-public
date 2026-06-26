@@ -95,10 +95,15 @@ Use only when prose+table can't carry the meaning.
 **Folder:** `cortiq-public/public/images/screenshots/`
 **Filename:** `<page-slug>__<descriptor>.png` (lowercase, double-underscore separator). Examples: `home__first-run-checklist.png`, `mcp-and-agent-integration__claude-config.png`.
 
+**Path prefix (required):** the site is served under `base: '/cortiq-public'`, so every `public/`
+asset URL MUST include that base — `/cortiq-public/images/screenshots/<name>.png`, never bare
+`/images/...`. Astro's dev server and the GitHub Pages build both 404 a base-less public asset.
+If the base or domain ever changes (e.g. `docs.cortiq.trade`), these prefixes must change with it.
+
 **Markdown placeholder pattern:**
 
 ```markdown
-![Home page – first-run checklist showing four setup steps](/images/screenshots/home__first-run-checklist.png)
+![Home page – first-run checklist showing four setup steps](/cortiq-public/images/screenshots/home__first-run-checklist.png)
 <!-- SCREENSHOT-NEEDED: home__first-run-checklist.png – capture the Home page on a fresh install with no sessions started yet -->
 ```
 

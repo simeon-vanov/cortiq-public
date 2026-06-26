@@ -34,7 +34,7 @@ System Messages is the only one of the three that is fully in-app and the only o
 
 The inbox lists messages newest-first. Filter by **All**, **Unread**, or a category (`ArtifactGeneration`, `Risk`, `Health`, `Trade`, `Permission`). Click a row to mark it read and jump to its linked page. Each row has a delete control; the toolbar offers **mark all read** and **clear all**.
 
-![System Messages inbox at /system-messages, showing several messages including an actionable permission card](/images/screenshots/system-messages__inbox.png)
+![System Messages inbox at /system-messages, showing several messages including an actionable permission card](/cortiq-public/images/screenshots/system-messages__inbox.png)
 
 ### The unread badge
 

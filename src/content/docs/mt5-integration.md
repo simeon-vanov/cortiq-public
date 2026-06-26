@@ -46,20 +46,20 @@ The setup has three parts: install the EA in your terminal, configure the accoun
 
 Open `Settings` → `MT5 Accounts` and add an entry. You'll need the terminal's executable path, the data folder, and a unique pair of ZeroMQ ports.
 
-![Cortiq Settings → MT5 Accounts panel](/images/screenshots/mt5-integration__settings-page.png)
+![Cortiq Settings → MT5 Accounts panel](/cortiq-public/images/screenshots/mt5-integration__settings-page.png)
 
 ### 2. Attach `ZmqFacade` to a chart in MT5
 
 Open MetaTrader 5 and drop `ZmqFacade.ex5` onto any chart with automated trading enabled. The EA also needs the MQL5 ZeroMQ library installed under MT5's `Include/Zmq/` folder. The EA's smiley face icon appears in the top-right of the chart when it's running.
 
-![ZmqFacade EA attached to a blank EURUSD chart](/images/screenshots/mt5-integration__zmqfacade-attached.png)
+![ZmqFacade EA attached to a blank EURUSD chart](/cortiq-public/images/screenshots/mt5-integration__zmqfacade-attached.png)
 <!-- SCREENSHOT-NEEDED: mt5-integration__zmqfacade-attached.png – A blank EURUSD chart in MT5 with ZmqFacade EA attached and the smiley face icon visible (top-right of chart). Mask broker name and balance -->
 
 ### 3. Verify the bridge is healthy
 
 Cortiq's topbar shows an MT5 health indicator. Green means the bridge is connected and recent heartbeats arrived on time; red means the EA isn't responding. Don't start a session until the indicator is green.
 
-![Cortiq topbar showing MT5 health indicator in green/connected state](/images/screenshots/mt5-integration__health-green.png)
+![Cortiq topbar showing MT5 health indicator in green/connected state](/cortiq-public/images/screenshots/mt5-integration__health-green.png)
 <!-- SCREENSHOT-NEEDED: mt5-integration__health-green.png – Cortiq topbar showing the MT5 health indicator in green/connected state -->
 
 ### Multi-account setup

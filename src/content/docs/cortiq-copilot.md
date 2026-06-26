@@ -32,7 +32,7 @@ It is not the right surface for hands-off autonomous trading — that is what [s
 
 Open Copilot with the toggle button in the sidebar, or press **Ctrl+K**. The dock slides in over the current page; press the toggle or shortcut again to close it. When Copilot needs your decision on an action, it auto-opens so the approval card is always visible.
 
-![Cortiq Copilot dock open over the app, showing the conversation and an action card](/images/screenshots/cortiq-copilot__dock.png)
+![Cortiq Copilot dock open over the app, showing the conversation and an action card](/cortiq-public/images/screenshots/cortiq-copilot__dock.png)
 
 ### What Copilot can do
 

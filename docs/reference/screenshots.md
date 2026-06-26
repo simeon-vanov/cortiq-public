@@ -45,6 +45,9 @@ dock closed, and writes 1600x900 PNGs.
 
 - **Folder:** `public/images/screenshots/`
 - **Filename:** `<page-slug>__<descriptor>.png` (lowercase; double-underscore separator).
+- **Reference path:** always include the site base — `/cortiq-public/images/screenshots/<name>.png`.
+  Bare `/images/...` 404s in dev and on GitHub Pages because the site is served under
+  `base: '/cortiq-public'`.
 - **Resolution:** 1600x900 for full UI; smaller crops allowed for single components.
 - **Redaction:** no real broker names, no real account numbers, mask balances unless that's
   the point of the screenshot. Automation-mode shots already use demo data and show

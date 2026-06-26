@@ -38,7 +38,7 @@ This page introduces each screen and recommends a daily rhythm. The deeper "why"
 
 Use Home to orient before opening any detail screen.
 
-![Home screen with at least one running session and the first-run checklist still visible](/images/screenshots/workspace-and-monitoring__home.png)
+![Home screen with at least one running session and the first-run checklist still visible](/cortiq-public/images/screenshots/workspace-and-monitoring__home.png)
 
 ### Dashboard
 
@@ -46,7 +46,7 @@ Use Home to orient before opening any detail screen.
 
 Open Dashboard when you want the business-level view of the platform — not "what is this session doing", but "is the whole environment behaving".
 
-![Dashboard with cross-account P/L chart, recent trades, and risk widgets](/images/screenshots/workspace-and-monitoring__dashboard.png)
+![Dashboard with cross-account P/L chart, recent trades, and risk widgets](/cortiq-public/images/screenshots/workspace-and-monitoring__dashboard.png)
 
 ### Sessions
 
@@ -60,7 +60,7 @@ You start, stop, and resume sessions from here. You also use this screen to foll
 
 You can filter ideas by status (active, executed, closed, invalidated, expired, unassigned) and create a session directly from an active idea.
 
-![Trade Ideas page with several ideas at different statuses](/images/screenshots/workspace-and-monitoring__trade-ideas.png)
+![Trade Ideas page with several ideas at different statuses](/cortiq-public/images/screenshots/workspace-and-monitoring__trade-ideas.png)
 
 ### Journal
 
@@ -71,7 +71,7 @@ You can filter ideas by status (active, executed, closed, invalidated, expired, 
 
 Use Journal when you need to understand *why* a session or trade behaved the way it did, not only whether it won or lost.
 
-![Journal page with a closed-trade entry and AI-generated journal text](/images/screenshots/workspace-and-monitoring__journal.png)
+![Journal page with a closed-trade entry and AI-generated journal text](/cortiq-public/images/screenshots/workspace-and-monitoring__journal.png)
 
 ### Session Reviews
 
@@ -97,7 +97,7 @@ Open this screen to find out what happened while you weren't watching. Permissio
 
 System messages can be hidden or shown — keep them hidden for daily review, show them when something looks wrong.
 
-![Conversations panel showing one full prompt+response cycle](/images/screenshots/workspace-and-monitoring__conversations.png)
+![Conversations panel showing one full prompt+response cycle](/cortiq-public/images/screenshots/workspace-and-monitoring__conversations.png)
 
 ### Provider Health
 
@@ -105,13 +105,13 @@ System messages can be hidden or shown — keep them hidden for daily review, sh
 
 Open this screen to answer two questions: *is the strategy underperforming, or is the provider route unhealthy?* and *is this provider actually authenticated right now?*
 
-![Provider Health view with success rate, response times, recent errors per provider](/images/screenshots/workspace-and-monitoring__provider-health.png)
+![Provider Health view with success rate, response times, recent errors per provider](/cortiq-public/images/screenshots/workspace-and-monitoring__provider-health.png)
 
 ### NowTradingBar
 
 The NowTradingBar runs along the bottom of the app whenever a session is active. It shows the live cycle's session name, symbol, current phase, and most recent decision — without leaving whatever screen you're on.
 
-![NowTradingBar with active session metrics during a live cycle](/images/screenshots/workspace-and-monitoring__now-trading-bar.png)
+![NowTradingBar with active session metrics during a live cycle](/cortiq-public/images/screenshots/workspace-and-monitoring__now-trading-bar.png)
 <!-- SCREENSHOT-NEEDED: workspace-and-monitoring__now-trading-bar.png – Bottom NowTradingBar with active session metrics during a live cycle. Mask account, broker -->
 
 ## Reference

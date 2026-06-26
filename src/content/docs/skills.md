@@ -38,7 +38,7 @@ The **category** on a skill is a filter, not a behaviour switch. It decides whic
 
 Open `Preparation` → `Skills`, or navigate to `/skills`. The list shows your skills with their category and enabled state.
 
-![Skills page listing instruction templates with category and enabled state](/images/screenshots/skills__list.png)
+![Skills page listing instruction templates with category and enabled state](/cortiq-public/images/screenshots/skills__list.png)
 
 Select **New** (`/skills/new`) to author one. Give it a name, a description, a single category, and the Markdown body that holds the actual instructions.
 
@@ -46,7 +46,7 @@ Select **New** (`/skills/new`) to author one. Give it a name, a description, a s
 
 The body is plain Markdown — the standing guidance you want the AI to follow whenever this skill is applied. Keep it focused: one skill, one job. Length is bounded (description up to 1,000 characters, body up to 20,000), enforced consistently in the editor, the MCP layer, and the database.
 
-![Skills editor showing the name, category, and Markdown body fields](/images/screenshots/skills__editor.png)
+![Skills editor showing the name, category, and Markdown body fields](/cortiq-public/images/screenshots/skills__editor.png)
 
 The Copilot can author directly into the open editor. It can set a field or apply a draft and request a save, so you can dictate a skill conversationally and watch it fill in.
 

@@ -115,7 +115,7 @@ Open `Settings` → `AI Providers`. Each provider has its own card. Select the t
 - **ACP** — click **Configure**. Cortiq installs the known agent packages for that provider and opens its login command so you sign in directly. For Claude that is `@anthropic-ai/claude-code` plus `@agentclientprotocol/claude-agent-acp`; for ChatGPT it is `@openai/codex` plus `@zed-industries/codex-acp`.
 - **CLI** — point Cortiq at the installed CLI (or leave the default on `PATH`) and authenticate the tool with its own login.
 
-![AI Providers settings panel showing per-provider key fields](/images/screenshots/ai-providers__api-keys.png)
+![AI Providers settings panel showing per-provider key fields](/cortiq-public/images/screenshots/ai-providers__api-keys.png)
 
 ### Read the auth badge
 
@@ -123,7 +123,7 @@ Every provider card carries a `ProviderAuthBadge` showing whether the selected t
 
 The badge matters because a session **will not start an unauthenticated provider**. When you start a run, Cortiq runs an auth preflight; if the provider isn't authenticated, the start fails with an operator-readable message (for example, "Run `claude` to log in") instead of failing mid-cycle. Use **Check now** on the card to re-probe after you sign in.
 
-![A single provider card showing the transport chips and auth badge](/images/screenshots/ai-providers__provider-card.png)
+![A single provider card showing the transport chips and auth badge](/cortiq-public/images/screenshots/ai-providers__provider-card.png)
 
 ### Pick the provider and transport per session
 

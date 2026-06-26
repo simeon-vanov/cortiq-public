@@ -73,7 +73,7 @@ Resolving any one of them resolves the request. On **Allow**, Cortiq records the
 
 The **Agent permissions** section of the `Settings` page is where you control all of this:
 
-![Agent permissions section in Settings, showing the auto-mode toggle and a list of granted capabilities](/images/screenshots/agent-permissions__settings.png)
+![Agent permissions section in Settings, showing the auto-mode toggle and a list of granted capabilities](/cortiq-public/images/screenshots/agent-permissions__settings.png)
 
 - **Auto-mode toggle** — turn unattended auto-allow for safe capabilities on or off.
 - **Granted capabilities list** — every grant with its capability, when it was granted, and its source. Each row has a **Revoke** button; revoking removes the grant, and the next request re-prompts (or auto-allows again if auto-mode is on and the capability is safe).

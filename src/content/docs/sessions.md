@@ -48,7 +48,7 @@ stateDiagram-v2
 
 Open `Library` → `Sessions` and create a new session. The form asks for an account, a symbol, a provider, a time range, and risk settings.
 
-![Cortiq's new-session form with Account, Symbol, Provider, Time Range, and Risk fields visible](/images/screenshots/sessions__create-form.png)
+![Cortiq's new-session form with Account, Symbol, Provider, Time Range, and Risk fields visible](/cortiq-public/images/screenshots/sessions__create-form.png)
 
 Defaults that work well for a first run: virtual mode and conservative risk limits. You can change any of them after the first cycle has run.
 
@@ -64,11 +64,11 @@ If you want to trade a different instrument, create a separate session for it. T
 
 From the Sessions list you can start, stop, and resume sessions. The list shows every session with its current state, so you can see at a glance which sessions are running, paused, or finished.
 
-![Sessions list with sessions at mixed statuses — Running, RiskPaused, Stopped, Completed](/images/screenshots/sessions__list.png)
+![Sessions list with sessions at mixed statuses — Running, RiskPaused, Stopped, Completed](/cortiq-public/images/screenshots/sessions__list.png)
 
 The session detail page shows the current cycle's progress, the live AI conversation, and the decision history.
 
-![Session detail page with the live execution view and the AI conversation panel](/images/screenshots/sessions__detail.png)
+![Session detail page with the live execution view and the AI conversation panel](/cortiq-public/images/screenshots/sessions__detail.png)
 
 When a risk validator triggers a breach, the session transitions to `RiskPaused`. It auto-resumes once the breach condition clears — for example, the next trading day starts and the daily P/L counter resets.
 

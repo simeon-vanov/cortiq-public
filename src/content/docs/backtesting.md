@@ -44,7 +44,7 @@ A backtest still makes real AI calls and spends real provider tokens. The run gu
 
 Open `Preparation` → `Backtests`, or navigate to `/backtests`. The list shows recent persisted runs with status, P/L, period, cycle count, and an unread dot for runs that finished in the background while you were away.
 
-![Backtests page listing recent runs with status, P/L, period, and cycle count](/images/screenshots/backtesting__list.png)
+![Backtests page listing recent runs with status, P/L, period, and cycle count](/cortiq-public/images/screenshots/backtesting__list.png)
 
 Select **New** to start a run. A backtest always targets an existing session, so the session carries the symbol, playbooks, and pinned packages into the run.
 
@@ -54,7 +54,7 @@ Choose the session, then set the **UTC period** with the start and end fields. Y
 
 Editable run settings expose the max-cycle cap and the M1 batch size. Lot fallback, tick size, and tick value are derived from the session's MT5 symbol metadata — they are not operator inputs.
 
-![New backtest form showing session selector, UTC period fields, and run settings](/images/screenshots/backtesting__new.png)
+![New backtest form showing session selector, UTC period fields, and run settings](/cortiq-public/images/screenshots/backtesting__new.png)
 
 Start stays disabled until the selected session has a data package, the period validates, and you acknowledge the run warnings (real token cost, M1 approximation, latency, SL-first exit ordering, and historical-indicator safety).
 
@@ -82,7 +82,7 @@ Pause is in-process only. If the app exits while a run is paused or running, orp
 
 A completed run opens at `/backtests/{id}` with the coverage grid and the cycle timeline. Result tabs cover the overview metrics, simulated trades, AI cycles, warnings, and the frozen settings the run used.
 
-![Backtest detail page showing the per-day coverage grid and the AI cycle timeline](/images/screenshots/backtesting__detail.png)
+![Backtest detail page showing the per-day coverage grid and the AI cycle timeline](/cortiq-public/images/screenshots/backtesting__detail.png)
 
 The AI-cycles view uses the same timeline component as a live session, so cycle action chips (BUY / SELL / WAIT / MANAGE) read identically. Cycles that intended a trade but opened nothing render with a distinct marker and carry the drop reason, including risk rejects prefixed `[Risk]` or `[Risk halt]`.
 

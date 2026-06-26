@@ -28,7 +28,7 @@ The deliberate split is what makes Cortiq's outputs comparable. When a session u
 
 Both objects are referenced by sessions; one playbook can be used by many sessions, and one data package can be used by many sessions.
 
-![Cortiq Playbooks page with one playbook open in the editor](/images/screenshots/playbooks-and-data__playbook-editor.png)
+![Cortiq Playbooks page with one playbook open in the editor](/cortiq-public/images/screenshots/playbooks-and-data__playbook-editor.png)
 
 ## How to use it
 

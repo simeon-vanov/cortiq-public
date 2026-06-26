@@ -45,7 +45,7 @@ Every session has its execution mode set at creation. You can switch a stopped s
 
 Notifications and reports live under the single `Settings` page. Open `Settings` → `Notifications` and enable the channels you want.
 
-![Notifications settings with Windows Toast, X, and Telegram channels configured](/images/screenshots/execution-modes-and-notifications__settings.png)
+![Notifications settings with Windows Toast, X, and Telegram channels configured](/cortiq-public/images/screenshots/execution-modes-and-notifications__settings.png)
 
 The three external channels:
 

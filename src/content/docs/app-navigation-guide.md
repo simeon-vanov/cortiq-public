@@ -13,7 +13,7 @@ The docs explain Cortiq by topic; the desktop app is operated through a left sid
 
 This page closes that gap. It lists each sidebar group, what it contains, and a task-to-screen lookup for the questions readers most often hold while learning the app.
 
-![Cortiq desktop app sidebar showing the Library, Playbooks, Preparation, and Tools groups](/images/screenshots/app-navigation-guide__sidebar.png)
+![Cortiq desktop app sidebar showing the Library, Playbooks, Preparation, and Tools groups](/cortiq-public/images/screenshots/app-navigation-guide__sidebar.png)
 
 ## How it fits into Cortiq
 

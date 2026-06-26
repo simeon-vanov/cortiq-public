@@ -44,7 +44,7 @@ Open the session's analysis page and select **Review session**. The review runs 
 
 Each suggestion renders as a card: an artifact-type badge, a score indicator, an evidence summary, and an action row.
 
-![Session review panel showing scored suggestion cards with Apply, Discuss, and Dismiss actions](/images/screenshots/session-review__panel.png)
+![Session review panel showing scored suggestion cards with Apply, Discuss, and Dismiss actions](/cortiq-public/images/screenshots/session-review__panel.png)
 
 Work each card with one of three actions:
 
