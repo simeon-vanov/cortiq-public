@@ -2,6 +2,25 @@
 
 ---
 
+## 2026-07-06 — Instrument Hub page + Research advancements documented
+
+### What Changed
+
+- **Added the `instrument-hub` reader page** documenting the per-symbol command center: the `/instruments` list and `/instruments/{symbol}` detail, the honest ★ mastery rating (count of Production-maturity playbooks, nothing else), the four-lane maturity pipeline, the append-only knowledge ledger (Observations / Learnings, auto-filled from runs plus manual), alternative-symbol grouping, curated knowledge, and the "what to dig into next" suggestions.
+- **Rewrote the `research` reader page** for the advancements that shipped since it was first written: the two-tab layout (Research Runs + Data Files), managed parquet **data files**, the browse-first launcher with the Behaviour / Edge / Exploration start dialog, **exploration runs** (watch-and-learn sandbox replay) with the State / Candidate instances / Script-run panels and Re-run / Fix, the grounded `research_result` v2 answer card, and **Discuss with AI**.
+- **Sidebar / navigation:** renamed the sidebar group to **Instruments & Research** and added `instrument-hub` ahead of `research` (`astro.config.mjs`). Added the Hub to `documentation-map.md` (group table + best-starting-page-by-intent) and five new terms to `glossary.md` (Instrument Hub, Mastery rating, Knowledge ledger, Managed data file, Exploration run).
+- **Screenshots.** Extended `Cortiq.E2ETests/Tests/DocScreenshotCaptureTests.cs` (sibling `cortiq-app` repo): seeded a managed research data file per XAUUSD and a completed exploration run (state / instances / script-run audit), and added capture routes for `/instruments`, `/instruments/{symbol}` (top + scrolled knowledge feed), the Research Data Files tab, the grounded answer card, and the exploration detail. Captured 6 new PNGs (`instrument-hub__list`, `instrument-hub__detail`, `instrument-hub__knowledge-ledger`, `research__data-files`, `research__answer-card`, `research__exploration`), refreshed `research__list` to the revamped page, and retired `research__workspace`. Updated the `screenshots.md` manifest.
+
+### Why
+
+The Instrument Hub had no reader page at all, and the Research page predated managed data files, exploration runs, run-type start dialogs, and grounded answers — the headline advancements in both areas.
+
+### Outstanding
+
+- Not yet deployed — GitHub Pages publishes on push to `main`.
+
+---
+
 ## 2026-06-26 — Reader-docs refresh, new feature pages, and automated app screenshots
 
 ### What Changed

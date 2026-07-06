@@ -27,13 +27,23 @@ This page defines the terms you'll see across the rest of the documentation. Eac
 
 **External MCP session** — A session whose trading loop is driven by an external MCP client via the `External MCP` transport. The internal workflow engine is not running. See [MCP and Agent Integration](/cortiq-public/mcp-and-agent-integration/).
 
+**Exploration run** — A watch-and-learn research run that steps an AI through historical candles of one instrument with no playbook and no positions, and writes what it notices to the knowledge ledger. Its instance-finder script runs in a network-denied sandbox. See [Research](/cortiq-public/research/).
+
+**Instrument Hub** — The per-symbol command center at `/instruments/{symbol}` that aggregates every playbook, session, backtest, research run, profile, and knowledge entry for one market, headed by the honest ★ mastery rating. See [Instrument Hub](/cortiq-public/instrument-hub/).
+
 **Instrument profile** — A reusable per-symbol context document (typical session, common ranges, behavioral notes). See [Trading Cycle: Instrument Profiles](/cortiq-public/trading-cycle/entities/instrument-profiles/).
 
 **Integration mode** — How Cortiq reaches the provider: `API`, `ACP`, `CLI`, or `External MCP`. Each provider supports one or more. See [AI Providers](/cortiq-public/ai-providers/).
 
+**Knowledge ledger** — The append-only, instrument-scoped evidence trail on the Instrument Hub. Each entry is an Observation (a single noticed instance) or a Learning (a lesson seen across several instances), stamped with its source and a confidence weight. See [Instrument Hub](/cortiq-public/instrument-hub/).
+
 **Lesson** — A durable, instrument-scoped takeaway produced by a Session Review and carried forward into later sessions on that instrument. See [Session Review](/cortiq-public/session-review/).
 
 **Local model** — A self-hosted, OpenAI-compatible model served locally through Ollama or LM Studio. Reached over the `API` transport against a local endpoint. See [AI Providers](/cortiq-public/ai-providers/).
+
+**Managed data file** — A reusable, pre-built parquet dataset for one instrument — a symbol, timeframe, chosen columns, indicators, and an editable build script — that a research or exploration run reads instead of authoring data each time. Managed on the Research page's Data Files tab. See [Research](/cortiq-public/research/).
+
+**Mastery rating (★)** — The Instrument Hub headline. It equals the number of playbooks promoted to Production maturity for a market, and nothing else moves it. See [Instrument Hub](/cortiq-public/instrument-hub/).
 
 **MT5 bridge** — The ZeroMQ connection between Cortiq and a running MetaTrader 5 terminal on the same machine. See [MetaTrader 5 Integration](/cortiq-public/mt5-integration/).
 

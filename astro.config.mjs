@@ -56,8 +56,9 @@ export default defineConfig({
           ],
         },
         {
-          label: 'Research & Skills',
+          label: 'Instruments & Research',
           items: [
+            'instrument-hub',
             'research',
             'skills',
           ],

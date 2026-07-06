@@ -55,8 +55,11 @@ dock closed, and writes 1600x900 PNGs.
 
 ## Manifest — captured (auto-driver)
 
-These 30 PNGs are present in `public/images/screenshots/` and their reader-page markers are
-removed.
+These PNGs are present in `public/images/screenshots/` and their reader-page markers are
+removed. The Instrument Hub and the new Research surfaces (Data Files, grounded answer,
+exploration) are seeded by `DemoDataSeeder.SeedInstrumentHubAsync` plus augmented rows in
+`DocScreenshotCaptureTests` (a managed data file per XAUUSD, and a completed exploration run
+with state / instances / script-run audit).
 
 | Filename | Page | Route captured |
 |---|---|---|
@@ -81,8 +84,13 @@ removed.
 | `backtesting__list.png` | backtesting | `/backtests` |
 | `backtesting__new.png` | backtesting | `/backtests/new` |
 | `backtesting__detail.png` | backtesting | `/backtests/{id}` |
-| `research__list.png` | research | `/research` |
-| `research__workspace.png` | research | `/research/{id}` |
+| `research__list.png` | research | `/research` (browse-first launcher) |
+| `research__data-files.png` | research | `/research?symbol=XAUUSD&tab=files` (Data Files tab) |
+| `research__answer-card.png` | research | `/research/{workspaceId}?runId={groundedRunId}` (grounded v2 answer) |
+| `research__exploration.png` | research | `/research/{workspaceId}?runId={explorationRunId}` (exploration detail) |
+| `instrument-hub__list.png` | instrument-hub | `/instruments` |
+| `instrument-hub__detail.png` | instrument-hub | `/instruments/XAUUSD` |
+| `instrument-hub__knowledge-ledger.png` | instrument-hub | `/instruments/XAUUSD` (scrolled to knowledge feed) |
 | `skills__list.png` | skills | `/skills` |
 | `skills__editor.png` | skills | `/skills/{id}/edit` |
 | `session-review__panel.png` | session-review | `/reviews` |

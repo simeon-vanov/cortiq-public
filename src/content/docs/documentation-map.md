@@ -64,11 +64,12 @@ The site is grouped into **Start Here**, **Platform**, **Research & Skills**, **
 | [Session review](/cortiq-public/session-review/) | Post-session learning | One-click AI review that scores a session into suggestions and durable instrument lessons. |
 | [System messages](/cortiq-public/system-messages/) | Notification inbox | The in-app inbox and the actionable permission cards it surfaces. |
 
-**Research & Skills**
+**Instruments & Research**
 
 | Page | Purpose | What you get |
 | --- | --- | --- |
-| [Research](/cortiq-public/research/) | Single-instrument idea lab | Workspaces, runs, artifacts, and opt-in edge-discovery guardrails. |
+| [Instrument Hub](/cortiq-public/instrument-hub/) | Per-symbol command center | One page per market: the honest ★ mastery rating, maturity pipeline, and knowledge ledger. |
+| [Research](/cortiq-public/research/) | Single-instrument idea lab | Data files, runs, exploration, artifacts, and opt-in edge-discovery guardrails. |
 | [Skills](/cortiq-public/skills/) | Reusable instructions | Markdown instruction templates injected into generation flows. |
 
 **MCP & Agent**
@@ -105,6 +106,7 @@ The site is grouped into **Start Here**, **Platform**, **Research & Skills**, **
 | Configure strategy inputs | [Playbooks & data packages](/cortiq-public/playbooks-and-data/) |
 | Operate day-to-day sessions | [Sessions](/cortiq-public/sessions/) |
 | Validate a playbook against history | [Backtesting](/cortiq-public/backtesting/) |
+| Orient around one market's mastery | [Instrument Hub](/cortiq-public/instrument-hub/) |
 | Research a single instrument deeply | [Research](/cortiq-public/research/) |
 | Understand the desktop workspace after setup | [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/) |
 | Review performance and decisions | [Journal & analytics](/cortiq-public/journal-and-analytics/) |
