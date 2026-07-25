@@ -2,6 +2,25 @@
 
 ---
 
+## 2026-07-25 — Docs-site favicon brought in line with the brand mark
+
+### What Changed
+
+- `public/favicon.ico` (replaced) — regenerated multi-res `.ico` (16/32/48/64/128/256) rendered from
+  the same violet "cortex+Q" `CortiqMark` design used on the landing page, replacing a legacy icon
+  that was previously byte-identical to `cortiq-app`'s (also now-replaced) Windows taskbar icon and
+  unrelated to the rest of the brand.
+- Companion fix — see `cortiq-landing` and `cortiq-app` `docs/ARCHITECTURE-CHANGES.md` for the
+  matching favicon/app-icon changes made in the same pass.
+
+### Why
+
+Part of a cross-repo pass to unify Cortiq's icon identity: four different marks were in use across
+the landing page, this docs site, the app's install icon, and the app's in-app sidebar logo before
+this change.
+
+---
+
 ## 2026-07-06 — Instrument Hub page + Research advancements documented
 
 ### What Changed
