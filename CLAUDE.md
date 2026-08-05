@@ -42,6 +42,8 @@ npm run check                        # astro check only — frontmatter / type v
 
 Node `>=22` is required (pinned in `package.json` engines + the GitHub Actions workflow).
 
+Every code or configuration change must pass `npm run build` before it is committed, reported as successful, or treated as complete. A build failure blocks completion: fix failures caused by the change, investigate pre-existing failures, and report the work as blocked rather than done if the gate cannot pass. Documentation-only changes are exempt from the product build but still require validation of changed links, frontmatter, commands, and paths.
+
 ## Critical gotchas
 
 - **Base path `/cortiq-public`.** `astro.config.mjs` sets `site: 'https://simeon-vanov.github.io'` and `base: '/cortiq-public'`. Internal page links and `public/` asset references MUST be base-absolute — `/cortiq-public/<slug>/` and `/cortiq-public/images/...`. Do NOT use bare relative slugs (`getting-started/`) or `../`-relative paths: Astro only rewrites relative links that end in `.md`, so a bare `slug/` stays a raw href that the browser resolves against the current page URL (e.g. from `/cortiq-public/skills/`, `session-review/` → `/cortiq-public/skills/session-review/` → 404). Renaming the repo or moving to a custom domain (e.g. `docs.cortiq.trade`) requires updating both config values, the GitHub Pages config, and every `/cortiq-public/` prefix in content.
