@@ -82,6 +82,14 @@ The ledger fills two ways:
 
 Each Observation in the feed carries a **Start research** action that deep-links into a research run pre-scoped to the market, so a single noticed instance can become the seed of a deeper study in one click.
 
+### Seeing the evidence on a chart
+
+Every instance attached to a Learning can be expanded onto the candles it describes.
+
+![A Cortiq learning instance charted with one marker per described market moment and a paragraph for each](/cortiq-public/images/screenshots/instrument-hub__instance-events.png)
+
+Where the AI's write-up narrates several moments — a level forming, a sweep, a reclaim, the outcome — the chart marks each one and pairs it with its own timestamped sentence, so you can check the claim against the price action rather than taking the prose on trust. Instances that argue *against* the Learning are kept in the list and marked as rejecting, not dropped. See [Charting](/cortiq-public/charting/) for the marker vocabulary.
+
 ## Curated knowledge and suggestions
 
 Above the raw feed, the Hub shows two lighter-weight panels:

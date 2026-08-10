@@ -71,6 +71,8 @@ with state / instances / script-run audit).
 | `sessions__list.png` | sessions | `/sessions` |
 | `sessions__create-form.png` | sessions | `/sessions/new` |
 | `sessions__detail.png` | sessions | `/sessions/{id}` |
+| `sessions__manual-detail.png` | discretionary-trading | `/sessions/{manualId}` (started, so the ticket quotes) |
+| `sessions__live-chart.png` | charting | `/sessions/{manualId}` — `session-detail-chart` element only |
 | `risk-management__global-panel.png` | risk-management | `/risk` (Global tab) |
 | `risk-management__account-panel.png` | risk-management | `/risk` (Per-Account tab) |
 | `execution-modes-and-notifications__settings.png` | execution-modes-and-notifications | `/settings` → Notifications |
@@ -83,7 +85,8 @@ with state / instances / script-run audit).
 | `journal-and-analytics__analytics.png` | journal-and-analytics | `/dashboard` |
 | `backtesting__list.png` | backtesting | `/backtests` |
 | `backtesting__new.png` | backtesting | `/backtests/new` |
-| `backtesting__detail.png` | backtesting | `/backtests/{id}` |
+| `backtesting__detail.png` | backtesting | `/backtests/{id}` (a DemoDataSeeder run, so the trade ledger is populated) |
+| `backtesting__manual-replay.png` | backtesting, charting | `/backtests/{manualRunId}` — chart replay workspace |
 | `research__list.png` | research | `/research` (browse-first launcher) |
 | `research__data-files.png` | research | `/research?symbol=XAUUSD&tab=files` (Data Files tab) |
 | `research__answer-card.png` | research | `/research/{workspaceId}?runId={groundedRunId}` (grounded v2 answer) |
@@ -91,6 +94,7 @@ with state / instances / script-run audit).
 | `instrument-hub__list.png` | instrument-hub | `/instruments` |
 | `instrument-hub__detail.png` | instrument-hub | `/instruments/XAUUSD` |
 | `instrument-hub__knowledge-ledger.png` | instrument-hub | `/instruments/XAUUSD` (scrolled to knowledge feed) |
+| `instrument-hub__instance-events.png` | instrument-hub, charting | `/instruments/XAUUSD/knowledge/{learningId}` with one instance chart expanded |
 | `skills__list.png` | skills | `/skills` |
 | `skills__editor.png` | skills | `/skills/{id}/edit` |
 | `session-review__panel.png` | session-review | `/reviews` |

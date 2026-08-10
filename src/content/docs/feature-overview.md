@@ -43,6 +43,8 @@ You bring your own AI. Cortiq connects to providers you already pay for — ther
 | Feature | What it does | Why it matters |
 | --- | --- | --- |
 | Trading sessions | Runs a repeatable workflow on an MT5 account for a single symbol, with a chosen provider, time window, and risk settings. | Sessions turn a strategy into an executable operating unit. |
+| Discretionary trading | Manual sessions run no AI decision loop — you place the orders from the session's chart, with position size calculated from your stop and a risk percentage. | Trade the market yourself while keeping the preparation, risk limits, journal, and review. |
+| Charting | A candlestick chart in every session, backtest, journal entry, and piece of recorded evidence, with timeframes, drawing tools, Cortiq-calculated indicators, and trade and decision markers. | See what happened and where each order or decision landed, without leaving the app. |
 | MetaTrader 5 integration | Connects Cortiq to MT5 on the same machine for prices, account state, orders, and position management. | The execution bridge between AI decisions and actual trades. |
 | Bring-your-own AI providers | Connects ChatGPT, Gemini, Claude, OpenRouter / OpenAI-compatible endpoints, and local models over API, ACP, CLI, or External MCP transports. | You use the provider and transport you already pay for; there is no managed Cortiq AI. |
 | Execution modes | Runs each session virtual, live, or under external-MCP control. | Move from rehearsal to real orders inside the same operating model. |
@@ -54,7 +56,7 @@ You bring your own AI. Cortiq connects to providers you already pay for — ther
 
 | Feature | What it does | Why it matters |
 | --- | --- | --- |
-| Backtesting | Replays a session or playbook against historical M1 data, cycle by cycle. | Test a configuration against the past before risking capital — and it's the only path that runs without a license. |
+| Backtesting | Replays a session against historical data on a chart. Autonomous runs replay the AI's own decision cycles; manual runs let you step the chart forward and place the orders yourself. | Test a configuration — or your own execution — against the past before risking capital. |
 
 ### Monitoring and review
 
@@ -112,7 +114,7 @@ In practical terms, the platform supports six jobs:
 1. [Capability reference](/cortiq-public/capability-reference/) — the practical, function-by-function view of what each major feature does for you.
 2. [Getting started](/cortiq-public/getting-started/) — orientation for evaluators.
 3. [Sessions](/cortiq-public/sessions/) — the runtime that ties most of the tables above together.
-4. [Backtesting](/cortiq-public/backtesting/) — the license-free way to validate a session before going live.
+4. [Backtesting](/cortiq-public/backtesting/) — validate a session, or your own execution, against history before going live.
 5. [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/) — for external-agent control.
 
 ## Related

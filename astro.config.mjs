@@ -46,6 +46,8 @@ export default defineConfig({
             'ai-providers',
             'playbooks-and-data',
             'sessions',
+            'discretionary-trading',
+            'charting',
             'risk-management',
             'backtesting',
             'execution-modes-and-notifications',

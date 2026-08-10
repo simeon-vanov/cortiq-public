@@ -6,10 +6,10 @@ sidebar:
   badge: New
 ---
 
-Backtesting replays one of your existing sessions over a historical period, calls the same AI stack it would call live, and simulates the resulting positions in memory instead of sending orders to MT5. By the end of this page you'll know how to start a run, read the coverage grid and cycle timeline, and why backtests are the one path that needs no license.
+Backtesting replays a session over a historical period and simulates the resulting positions in memory instead of sending orders to MT5. A backtest of an autonomous session calls the same AI stack it would call live; a backtest of a manual session hands the controls to you. By the end of this page you'll know how to start a run of either kind, step a replay by hand, and read the coverage grid and cycle timeline.
 
-:::tip
-Backtests are the **only** part of Cortiq that runs without a valid license. Every MT5-bound session needs an active key; a backtest never touches MT5 execution, so you can validate a playbook before you buy.
+:::note
+Starting a backtest requires an active license, the same as any other session. Nothing is sent to MetaTrader 5 either way.
 :::
 
 ## What this is
@@ -19,6 +19,35 @@ A backtest takes an existing `AISession` — its symbol, playbooks, data package
 Nothing is sent to MetaTrader 5. The run measures what the same session *would* have done over that period, including SL/TP exits, pending-order activation, and management actions, all priced from M1 high/low.
 
 Runs execute in a background service and persist to local SQLite. You can leave the page while a costly run continues, then return to History to inspect the saved parameters, simulated trades, AI cycles, warnings, and final metrics. The cycle journal is rich enough to trace a dropped trade — a decision that intended to trade but produced no executable order is recorded as a visible cycle with an explicit drop reason, never silently discarded.
+
+## Two kinds of replay
+
+The replay mode follows the type of the session being backtested — there is no separate mode selector.
+
+| | Manual replay | Autonomous replay |
+| --- | --- | --- |
+| Who trades | You, from the order ticket | The AI decision cycle |
+| Advancing the replay | You, with step and play controls | The engine, as it consumes candles |
+| Setup requirements | None beyond a symbol and a window | Playbook, data package, and artifact coverage |
+| AI token cost | None | Charged per cycle by your provider |
+
+Both open directly onto a chart.
+
+![A Cortiq manual backtest replay showing historical candles, the operator's own trade markers, and protection levels](/cortiq-public/images/screenshots/backtesting__manual-replay.png)
+
+### Stepping a manual replay
+
+A manual run starts paused and consumes no data until you ask for a candle.
+
+- **Step** reveals the next candle on the chart's timeframe.
+- **Play** advances continuously until you pause.
+- The order ticket works exactly as it does in a live session, except orders execute in the simulator at the current replay time.
+
+Positions you open are attributed to you rather than to the AI, so a run's trade list distinguishes the two.
+
+:::caution
+The replay cursor is a hard no-lookahead cutoff. Candles after it are never fetched, so you cannot accidentally see the outcome of the bar you are about to trade. This is the whole point of stepping a replay rather than scrolling a historical chart.
+:::
 
 ## How it fits into Cortiq
 

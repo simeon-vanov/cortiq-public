@@ -13,16 +13,19 @@ A session bundles everything Cortiq needs to trade: an MT5 account, an AI provid
 
 In practical terms, the session is the unit you operate. You start it, watch it cycle, pause or stop it, review the journal, and decide what to change. Every session is locked to exactly one instrument, so the AI builds deep, measurable expertise on that market rather than spreading attention across many.
 
-Cortiq supports two session types — autonomous (the default) and external MCP (advanced). Most users only need autonomous.
+Cortiq supports three session types — manual (the default), autonomous, and external MCP (advanced).
 
 ## How it fits into Cortiq
 
 | Session type | Who controls the trading loop | When to use |
 | --- | --- | --- |
-| Autonomous | Cortiq's internal cycle engine | Default for most users; built-in automated operating loop. |
+| Manual | You | Default. You trade the instrument yourself from the session's chart; no AI decision cycle runs. |
+| Autonomous | Cortiq's internal cycle engine | The built-in automated operating loop, running under your approval settings and risk limits. |
 | External MCP | An external MCP-compatible AI client | Advanced; the agent drives data gathering, decisions, and execution. |
 
-External MCP sessions skip the internal cycle engine — see [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/).
+Manual sessions never run a decision cycle and do not use trade approval — see [Discretionary trading](/cortiq-public/discretionary-trading/). External MCP sessions also skip the internal cycle engine — see [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/).
+
+A session's type is set when you create it and cannot be changed afterwards.
 
 ```mermaid
 stateDiagram-v2
