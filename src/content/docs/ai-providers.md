@@ -112,7 +112,7 @@ Provider and transport setup lives in `Settings` → `AI Providers`. The per-ses
 Open `Settings` → `AI Providers`. Each provider has its own card. Select the transport you want for that provider (the chips list only the transports that provider supports), then fill the matching fields:
 
 - **API** — paste the API key. Optionally pick a non-default model.
-- **ACP** — click **Configure**. Cortiq installs the known agent packages for that provider and opens its login command so you sign in directly. For Claude that is `@anthropic-ai/claude-code` plus `@agentclientprotocol/claude-agent-acp`; for ChatGPT it is `@openai/codex` plus `@zed-industries/codex-acp`.
+- **ACP** — click **Configure**. Cortiq installs the known agent packages for that provider and opens its login command so you sign in directly. For Claude that is `@anthropic-ai/claude-code` plus `@agentclientprotocol/claude-agent-acp`; for ChatGPT it is `@openai/codex` plus `@agentclientprotocol/codex-acp`.
 - **CLI** — point Cortiq at the installed CLI (or leave the default on `PATH`) and authenticate the tool with its own login.
 
 ![AI Providers settings panel showing per-provider key fields](/cortiq-public/images/screenshots/ai-providers__api-keys.png)
