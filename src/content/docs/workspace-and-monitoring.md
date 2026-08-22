@@ -28,7 +28,7 @@ This page introduces each screen and recommends a daily rhythm. The deeper "why"
 | `Cohorts` | Which configuration is outperforming the others? | Review |
 | `Conversations` | What is the AI actually saying across sessions? | Review / debug |
 | `System Messages` | What background events and trade operations have fired? | Monitoring |
-| `Provider Health` | Is the AI provider reliable and authenticated today? | Diagnostics |
+| `Provider Health` | Is the AI provider reliable and ready to use today? | Diagnostics |
 
 ## How to use it
 
@@ -101,9 +101,9 @@ System messages can be hidden or shown — keep them hidden for daily review, sh
 
 ### Provider Health
 
-`Provider Health` is the AI-provider diagnostics screen under `Tools`. It shows request volume, success rate, average and p95 response time, retry counts, and recent errors per provider. Each provider also carries an auth/verdict badge that reports whether its credentials currently authenticate — the same preflight check that blocks a session from starting on an unauthenticated provider.
+`Provider Health` is the AI-provider diagnostics screen under `Tools`. It shows request volume, success rate, average and p95 response time, retry counts, and recent errors per provider. Each provider also carries a readiness badge for its selected transport — the same check that blocks a session from starting when the provider is reported as unavailable.
 
-Open this screen to answer two questions: *is the strategy underperforming, or is the provider route unhealthy?* and *is this provider actually authenticated right now?*
+Open this screen to answer two questions: *is the strategy underperforming, or is the provider route unhealthy?* and *is this provider ready for a new run?*
 
 ![Provider Health view with success rate, response times, recent errors per provider](/cortiq-public/images/screenshots/workspace-and-monitoring__provider-health.png)
 

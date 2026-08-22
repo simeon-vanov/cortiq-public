@@ -119,9 +119,9 @@ Open `Settings` → `AI Providers`. Each provider has its own card. Select the t
 
 ### Read the auth badge
 
-Every provider card carries a `ProviderAuthBadge` showing whether the selected transport is authenticated. The same badge appears on the Copilot dock and the `Provider Health` page.
+Every provider card carries a `ProviderAuthBadge` showing Cortiq's latest readiness result for the selected transport. The same badge appears on the Copilot dock and the `Provider Health` page.
 
-The badge matters because a session **will not start an unauthenticated provider**. When you start a run, Cortiq runs an auth preflight; if the provider isn't authenticated, the start fails with an operator-readable message (for example, "Run `claude` to log in") instead of failing mid-cycle. Use **Check now** on the card to re-probe after you sign in.
+The badge matters because a session **will not start a provider reported as unavailable**. When you start a run, Cortiq runs a readiness check; if the provider isn't ready, the start fails with an operator-readable message (for example, "Run `claude` to log in") instead of failing mid-cycle. Use **Check now** after you sign in or change the provider configuration.
 
 ![A single provider card showing the transport chips and auth badge](/cortiq-public/images/screenshots/ai-providers__provider-card.png)
 
@@ -176,8 +176,8 @@ No. Cortiq is bring-your-own-AI. You configure your own provider account; Cortiq
 **Can I switch a session's provider or transport while it's running?**
 No. They are part of the session config. Stop the session, change them in the session edit dialog, and start a new run.
 
-**A session won't start and says the provider isn't authenticated. Why?**
-The auth preflight blocks any run whose provider isn't signed in. Open the provider's card in `Settings` → `AI Providers`, complete the login (API key, or the CLI/ACP login command), use **Check now**, and start the run again.
+**A session won't start and says the provider isn't ready. Why?**
+The readiness check blocks a run when its provider is reported as unavailable. Open the provider's card in `Settings` → `AI Providers`, check the API key or complete the CLI/ACP login, use **Check now**, and start the run again.
 
 **Why pick ACP over the API for Claude?**
 ACP runs on a Claude subscription you already pay for, with no per-token charge. The API transport bills per token but adds persisted history and automatic fallback. Choose on cost versus traceability.

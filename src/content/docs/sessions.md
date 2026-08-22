@@ -55,7 +55,7 @@ Open `Library` → `Sessions` and create a new session. The form asks for an acc
 
 Defaults that work well for a first run: virtual mode and conservative risk limits. You can change any of them after the first cycle has run.
 
-A session won't start on a provider that isn't authenticated. Cortiq runs an auth preflight check before the first cycle and blocks the start if the configured provider has no valid credentials.
+A session won't start on a provider that Cortiq reports as unavailable. Cortiq runs a readiness check before the first cycle and blocks the start if the configured provider isn't ready.
 
 ### Pick the instrument
 

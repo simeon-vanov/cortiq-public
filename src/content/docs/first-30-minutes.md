@@ -54,7 +54,7 @@ If the indicator stays red, see [MetaTrader 5 integration](/cortiq-public/mt5-in
 
 1. Pick one provider for the first run — ChatGPT, Gemini, Claude, an OpenAI-compatible endpoint, or a local model.
 2. Choose a transport: the API (a metered key, least setup), ACP or CLI (reuse a Claude or ChatGPT subscription you already pay for), or a local model on your own hardware.
-3. Confirm the provider's auth badge is green in `Settings` → `AI Providers` — a session won't start an unauthenticated provider.
+3. Confirm the provider's readiness badge is green in `Settings` → `AI Providers` — a session won't start a provider reported as unavailable.
 
 Simplicity beats flexibility on day one. You can add a fallback provider later. See [AI providers](/cortiq-public/ai-providers/) if the choice isn't obvious.
 
@@ -98,7 +98,7 @@ The first question is *did this workflow behave in a way I can understand and tr
 | Signal | What it tells you |
 | --- | --- |
 | Topbar MT5 indicator stays green | Bridge is healthy. |
-| `Provider Health` shows successful responses | AI provider is configured correctly. |
+| `Provider Health` shows successful responses | AI provider is responding to Cortiq. |
 | Journal entries are readable | Playbook and data package are sensible. |
 | Risk panel shows the configured limits | Risk validators are wired up. |
 | Session moves through `Running` cleanly | Operating loop is intact. |
