@@ -43,7 +43,7 @@ Yes — in advanced setups. The Cortiq MCP server lets an MCP-compatible client 
 
 ### Does the AI place trades on its own?
 
-No. Every trade passes through an approval gate before it reaches MetaTrader 5. The agent proposes; you approve. The trade gate is always on, separate from the capability grants that govern other agent actions. See [Agent permissions](/cortiq-public/agent-permissions/).
+It depends on the session mode and authority you configure. In a Manual session, you place and manage the orders. In an Autonomous session, the agent can execute through MetaTrader 5 inside the session authority, approval policy, and risk limits you set. Cortiq's Copilot and external MCP trade tools use their own explicit trade-approval gate. See [Sessions](/cortiq-public/sessions/) and [Agent permissions](/cortiq-public/agent-permissions/).
 
 ### What is the Research workspace for?
 
@@ -71,7 +71,7 @@ The session transitions to `RiskPaused` and resumes automatically when the breac
 
 ### How does the license work — is it a subscription?
 
-No. €199 buys a one-time license with lifetime v1.x updates. One key activates up to two machines, and there's a 14-day refund. See [Licensing & support](/cortiq-public/licensing-and-support/).
+No. €199 buys a one-time license with all future Cortiq desktop updates included. One key activates up to two machines, and there's a 14-day refund. Broker fees, AI-provider usage, and unrelated products or services are not included. See [Licensing & support](/cortiq-public/licensing-and-support/).
 
 ### Can I run Cortiq without a license?
 

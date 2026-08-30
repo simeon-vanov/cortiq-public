@@ -36,7 +36,7 @@ By the end of this walkthrough you'll have:
 ### Minute 0–5 — Install and activate
 
 1. Download the current Cortiq release from [GitHub Releases](https://github.com/simeon-vanov/cortiq-public/releases/latest).
-2. Run `Cortiq-win-Setup.exe` on the machine that will run Cortiq. If Windows SmartScreen shows an "unknown publisher" notice, choose **More info → Run anyway**.
+2. Run `Cortiq-win-Setup.exe` on the machine that will run Cortiq. Verify that Windows identifies **Decode The Trade Ltd** as the publisher. If SmartScreen still shows a protection screen, choose **More info → Run anyway** only after the publisher matches.
 3. Open the app and complete license activation in `Settings` → `License`.
 
 If activation fails, stop and resolve it before moving on — see [Installation & activation](/cortiq-public/installation-and-activation/).

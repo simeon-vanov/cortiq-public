@@ -1,6 +1,6 @@
 ---
 title: Licensing & support
-description: How the Cortiq one-time license works — two machines, lifetime v1.x updates, 14-day refund — plus where to file bugs and get help.
+description: How the Cortiq one-time license works — two machines, all future desktop updates, 14-day refund — plus where to file bugs and get help.
 sidebar:
   order: 10
 ---
@@ -9,7 +9,7 @@ This page covers how the Cortiq license works and where to go when you need help
 
 ## What this is
 
-Cortiq is a one-time purchase. **€199 buys a permanent license with lifetime updates across the v1.x line.** One key activates up to **two machines** — for example a desktop and a laptop. There is no subscription and no per-machine renewal.
+Cortiq is a one-time purchase. **€199 buys a permanent license with all future Cortiq desktop updates included.** One key activates up to **two machines** — for example a desktop and a laptop. There is no Cortiq subscription and no per-machine renewal. Broker fees and AI-provider usage remain yours; unrelated products or services may be sold separately.
 
 The license controls whether the app can start live sessions, not whether the app runs. You can install, explore, design playbooks, and run [backtests](/cortiq-public/backtesting/) without a valid license. Any session that binds to MetaTrader 5 — including virtual and broker-demo sessions — requires a valid license.
 
@@ -79,7 +79,7 @@ Email `support@cortiq.trade` for:
 | Item | Detail |
 | --- | --- |
 | Price | €199, one time. |
-| Updates | Lifetime updates across the v1.x line. |
+| Updates | All future Cortiq desktop updates included. |
 | Machines | One key, up to two activations. |
 | Refund | 14 days from purchase, via Stripe. |
 | Key shape | `CRTQ-XXXX-XXXX-XXXX-XXXX`. |

@@ -9,9 +9,9 @@ This page takes you from buying a license to a running, activated Cortiq install
 
 ## What this is
 
-Cortiq is a one-time purchase: **€199**, lifetime v1.x updates, no subscription. One key activates up to **two machines**. Purchases are processed by Stripe and the key is emailed to you instantly. If Cortiq isn't for you, there's a **14-day refund**.
+Cortiq is a one-time purchase: **€199**, with all future Cortiq desktop updates included and no Cortiq subscription. One key activates up to **two machines**. Purchases are processed by Stripe and the key is emailed to you instantly. If Cortiq isn't for you, there's a **14-day refund**. Broker fees and AI-provider usage remain yours; unrelated products or services may be sold separately.
 
-The app is distributed as a Windows installer — `Cortiq-win-Setup.exe` — through GitHub Releases. The installer is not yet code-signed, so Windows SmartScreen shows an "unknown publisher" notice the first time you run it; you click through it once. Activation happens inside the app: you install once and paste your key once.
+The app is distributed as a Windows installer — `Cortiq-win-Setup.exe` — through GitHub Releases. The installer is signed by **Decode The Trade Ltd**. Windows SmartScreen may still show a protection screen while a new release builds reputation; verify the publisher before continuing. Activation happens inside the app: you install once and paste your key once.
 
 ## How it fits into Cortiq
 
@@ -41,12 +41,12 @@ Download `Cortiq-win-Setup.exe` to the Windows machine that will run Cortiq. Ins
 
 ### 3. Run the installer
 
-Double-click `Cortiq-win-Setup.exe`. The installer is not yet code-signed, so Windows SmartScreen may show an "unknown publisher" notice the first time. Choose **More info → Run anyway** to continue. The installer is per-user and needs no admin rights; it installs in a couple of clicks and adds a Start-menu shortcut.
+Double-click `Cortiq-win-Setup.exe`. Confirm that Windows shows **Decode The Trade Ltd** as the verified publisher. SmartScreen may still show a protection screen while a new release builds reputation; if the publisher matches, choose **More info → Run anyway** to continue. The installer is per-user and needs no admin rights; it installs in a couple of clicks and adds a Start-menu shortcut.
 
 If you'd rather verify the download first, the [releases page](https://github.com/simeon-vanov/cortiq-public/releases/latest) lists every release with its checksums.
 
 ![Windows SmartScreen notice for Cortiq-win-Setup.exe with the More info link expanded](/cortiq-public/images/screenshots/installation-and-activation__smartscreen.png)
-<!-- SCREENSHOT-NEEDED: installation-and-activation__smartscreen.png – Windows SmartScreen "unknown publisher" notice for Cortiq-win-Setup.exe with the More info link expanded and the Run anyway button visible (OS dialog, captured manually) -->
+<!-- SCREENSHOT-NEEDED: installation-and-activation__smartscreen.png – Windows SmartScreen protection notice for the signed Cortiq-win-Setup.exe, showing Decode The Trade Ltd and the Run anyway button (OS dialog, captured manually) -->
 
 Cortiq now appears in the Start menu.
 
@@ -84,7 +84,7 @@ New versions install themselves. Cortiq's updater polls the public release feed 
 
 | Field | Where | Notes |
 | --- | --- | --- |
-| Price | [cortiq.trade pricing](https://cortiq.trade/#pricing) | €199 one-time; lifetime v1.x updates; 14-day refund. |
+| Price | [cortiq.trade pricing](https://cortiq.trade/#pricing) | €199 one-time; all future Cortiq desktop updates; 14-day refund. |
 | Machines per key | `Settings` → `License` | One key activates up to two machines. |
 | Key format | `CRTQ-XXXX-XXXX-XXXX-XXXX` | Four groups; activated on first launch. |
 | License page | `Settings` → `License` | Shows current state and the activation form. |
