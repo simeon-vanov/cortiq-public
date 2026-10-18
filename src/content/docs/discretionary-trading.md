@@ -1,4 +1,5 @@
 ---
+status: current
 title: Discretionary trading
 description: Manual sessions let you trade an instrument yourself from Cortiq's chart, with the preparation, risk limits, and journal still applied.
 sidebar:
@@ -9,23 +10,23 @@ This page explains how to trade an instrument yourself inside Cortiq, using a ma
 
 ## What this is
 
-A manual session is a session with no AI decision loop. Cortiq never places an order in one. You watch the chart and place the trades.
+A Manual session has no general automatic AI decision loop. You watch the chart and place trades from the order ticket, or explicitly request a Copilot trade action.
 
-Everything else a session does still happens: the instrument is prepared before you sit down, the accumulated research and learnings for that market are attached, your risk limits are enforced, and every trade lands in the journal and session review.
+Risk validation and recorded trade history still apply. Preparation, knowledge context, and AI review depend on what you configure and request. Separately enabled automated trade ideas have their own reviewed mandate; inspect that authority before enabling them.
 
-Manual is the default session type when you create a session.
+New sessions default to **Autonomous**. Select **Manual** explicitly to trade without the general AI cycle.
 
 ## How it fits into Cortiq
 
 | | Manual session | Autonomous session |
 | --- | --- | --- |
-| Who places orders | You, from the order ticket | The AI decision cycle, subject to your approval settings |
+| Who places orders | You or an explicitly requested agent action; separately enabled trade ideas use their own mandate | The AI decision cycle, subject to session authority |
 | Decision loop | None — no cycles run | Wakes on your triggers, reads, decides, acts |
-| Playbook | Optional, used as reference | At least one is required |
-| Data package | Optional | Drives what the AI reads each cycle |
+| Playbook | Optional | Optional; attached playbooks provide pinned operating rules |
+| Data access policy | Optional reference/analysis limits | Controls available execution inputs when selected |
 | Trade approval | Not used — you are the one submitting | Tri-state approval policy |
 | Risk limits | Enforced | Enforced |
-| Journal and review | Written | Written |
+| Journal and review | Trade history is recorded; review is explicitly requested | Decisions and trades are recorded; review is explicitly requested |
 
 A session's type is fixed when you create it and cannot be changed afterwards. Cloning a session keeps its type.
 
@@ -41,12 +42,10 @@ An AI provider is not required to place manual trades, but without one Cortiq ca
 
 1. Select **New Session**.
 2. Enter a name.
-3. Leave **Session Mode** set to **Manual**.
+3. Set **Session Mode** to **Manual**.
 4. Choose the instrument symbol. This is required — a session cannot be created without a real symbol.
-5. Optionally attach playbooks and a data package as reference context.
+5. Optionally attach playbooks and a data access policy as reference context.
 6. Select **Create**, then **Start**.
-
-![A running Cortiq manual session showing the mode badge, the live chart, and the guided order ticket](/cortiq-public/images/screenshots/sessions__manual-detail.png)
 
 The session must be running before the order ticket will quote a price or calculate a position size.
 
@@ -80,11 +79,11 @@ Open positions appear on the **Trades** tab and draw their entry, stop, and targ
 
 | Capability | What it means in a manual session |
 | --- | --- |
-| Preparation | The regime, key levels, structure, and directional skew are generated before the session and refreshed on schedule. |
-| Instrument knowledge | Confirmed learnings and their evidence for this market are available in the [Instrument Hub](/cortiq-public/instrument-hub/). |
+| Preparation | Read or generate configured context when you need it; a Manual session does not imply automatic preparation. |
+| Instrument knowledge | Reviewed conclusions and their evidence are available in the [Instrument Hub](/cortiq-public/instrument-hub/). |
 | Risk limits | Daily and weekly drawdown, profit targets, trade caps, and loss-streak stops are checked on your orders. See [Risk management](/cortiq-public/risk-management/). |
 | Journal | Trades are reconstructed with entry, stop, target, and outcome. See [Journal and analytics](/cortiq-public/journal-and-analytics/). |
-| Session review | A review of the session is generated the same way it is for an autonomous session. |
+| Session review | Explicitly request a review of saved execution evidence, even when there are no AI cycles. |
 | Copilot | Available in the session for analysis and chart annotation. It only submits a trade if you explicitly ask it to. |
 
 ## Practising first

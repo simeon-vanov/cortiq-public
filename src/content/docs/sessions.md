@@ -1,140 +1,115 @@
 ---
+status: current
 title: Sessions
-description: Sessions are Cortiq's operating container — what they configure, the states they move through, and how each one is locked to a single instrument.
+description: Create a single-instrument session, choose Manual or Autonomous, and understand model selection, data checks, and session states.
 sidebar:
   order: 40
 ---
 
-This page explains the Cortiq session — the operating container that turns a configuration into something you can run, pause, review, and improve. By the end you'll know which states a session moves through and how a session is scoped to a single instrument.
+A session is the workspace for trading one instrument on one MT5 account. Choose who makes decisions, select any strategy and supporting context, then start and monitor the session.
 
 ## What this is
 
-A session bundles everything Cortiq needs to trade: an MT5 account, an AI provider and transport, one or more playbooks, a data package, a symbol, a time window, and the risk and execution settings.
+Every session has one concrete symbol. To work on another instrument, create another session. Each session keeps its own trades, recorded runs, decisions, and reviews. Editable chart drawings are shared by their saved account and instrument context.
 
-In practical terms, the session is the unit you operate. You start it, watch it cycle, pause or stop it, review the journal, and decide what to change. Every session is locked to exactly one instrument, so the AI builds deep, measurable expertise on that market rather than spreading attention across many.
+Cortiq offers two session types: `Autonomous` and `Manual`. New sessions default to `Autonomous`. The type is fixed after creation, and cloning preserves it.
 
-Cortiq supports three session types — manual (the default), autonomous, and external MCP (advanced).
+`Virtual Mode` is a separate execution choice. It simulates orders against the current market feed. A non-virtual session sends orders to MT5. Both require a valid license to start.
 
 ## How it fits into Cortiq
 
-| Session type | Who controls the trading loop | When to use |
-| --- | --- | --- |
-| Manual | You | Default. You trade the instrument yourself from the session's chart; no AI decision cycle runs. |
-| Autonomous | Cortiq's internal cycle engine | The built-in automated operating loop, running under your approval settings and risk limits. |
-| External MCP | An external MCP-compatible AI client | Advanced; the agent drives data gathering, decisions, and execution. |
+| Choice | What runs |
+| --- | --- |
+| Autonomous | Cortiq's decision engine plans, evaluates opportunities, and manages exposure within the session's authority and risk limits. |
+| Manual | You trade from the chart, with Copilot available when requested. No general autonomous session cycle runs. |
+| Manual with External MCP client | An outside client uses Cortiq's data and permissioned trade tools. Cortiq does not run a decision cycle for that client. |
 
-Manual sessions never run a decision cycle and do not use trade approval — see [Discretionary trading](/cortiq-public/discretionary-trading/). External MCP sessions also skip the internal cycle engine — see [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/).
+External MCP is a connection choice for a Manual session, rather than a third session type. See [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/).
 
-A session's type is set when you create it and cannot be changed afterwards.
-
-```mermaid
-stateDiagram-v2
-  [*] --> Created
-  Created --> Running: Start
-  Running --> RiskPaused: Risk breach
-  Running --> TimePaused: Outside time window
-  Running --> Stopped: Manual stop
-  Running --> Completed: End of window
-  Running --> Failed: Fatal error
-  RiskPaused --> Running: Auto-resume
-  TimePaused --> Running: Auto-resume
-  Failed --> Running: Auto-restart<br/>(if enabled)
-  Stopped --> [*]
-  Completed --> [*]
-```
-
-*A session moves through `Created`, `Running`, two auto-resuming pause states (`RiskPaused`, `TimePaused`), and the terminal states `Stopped`, `Completed`, and `Failed`. A manual-only `Paused` state also exists but no automatic process writes it.*
+Manual sessions can also host explicitly enabled automated trade ideas. Each idea has its own approved mandate and lifecycle; enabling one does not turn the session into an Autonomous session. See [Trade ideas](/cortiq-public/trading-cycle/entities/trade-ideas/).
 
 ## How to use it
 
 ### Create a session
 
-Open `Library` → `Sessions` and create a new session. The form asks for an account, a symbol, a provider, a time range, and risk settings.
+Before starting, configure an MT5 account and activate your license. For an Autonomous session, also configure an available AI provider and model under `Setup` → `AI Providers`.
 
-![Cortiq's new-session form with Account, Symbol, Provider, Time Range, and Risk fields visible](/cortiq-public/images/screenshots/sessions__create-form.png)
+1. Open `Library` → `Sessions` and select `New Session`.
+2. Enter a name, choose the MT5 account, and select one instrument.
+3. Choose `Autonomous` or `Manual`.
+4. Optionally attach playbooks and a Data Access Policy. For Autonomous sessions, optionally select preparation, sentiment, and instrument profile packages for the chosen instrument.
+5. For Autonomous, choose an available `AI Model`. For Manual, enable `External MCP client` only when an outside client will control the session.
+6. Turn on `Virtual Mode` if you want simulated orders. It is off by default.
+7. Review trade approval, concurrent-trade limits, and the applicable risk settings, then create the session.
+8. Select `Start` and confirm that the status becomes `Running`.
 
-Defaults that work well for a first run: virtual mode and conservative risk limits. You can change any of them after the first cycle has run.
+Playbooks and policies are optional in both session types. When attached rules depend on particular inputs, their compatibility and actual availability still have to pass the launch checks.
 
-A session won't start on a provider that Cortiq reports as unavailable. Cortiq runs a readiness check before the first cycle and blocks the start if the configured provider isn't ready.
+### Choose a model for an Autonomous session
 
-### Pick the instrument
+The `AI Model` picker selects a provider, connection, and exact model together. The Trading Cycle setting supplies the default for a new session.
 
-Each session is locked to one symbol. Choose the instrument the session will specialize in, and pair it with a playbook and data package built for that market. Keeping the session on a single symbol is what lets the AI accumulate readable, comparable results — the journal tells you whether the strategy is improving on that exact market.
+Cortiq saves that full selection when you create the session. It remains fixed for routine decisions, initial planning, replanning, and recovery. Changing global provider settings does not replace the model of an existing session, and a clone preserves its saved selection.
 
-If you want to trade a different instrument, create a separate session for it. Two sessions on two symbols run independently, each with its own playbook, data package, and risk picture.
+Older sessions without a saved model display `Legacy default (see AI Providers)`. They retain their legacy settings behavior. See [AI providers](/cortiq-public/ai-providers/).
 
-### Run, pause, and review
+### Resolve input checks before starting
 
-From the Sessions list you can start, stop, and resume sessions. The list shows every session with its current state, so you can see at a glance which sessions are running, paused, or finished.
+A playbook's execution policy limits the market evidence the AI can retrieve. Cortiq checks the selected rules, policy, exact playbook version, indicator bindings, and required supporting reports together.
 
-![Sessions list with sessions at mixed statuses — Running, RiskPaused, Stopped, Completed](/cortiq-public/images/screenshots/sessions__list.png)
+If the selected playbooks share a saved policy, session setup offers that policy. You can choose an override. If their saved policies differ, select the policy this session will use.
 
-The session detail page shows the current cycle's progress, the live AI conversation, and the decision history.
+A blocked start leaves the session stopped and shows the required correction. Open the playbook to review compatibility findings. During operation, `Input checks and data requests` explains required inputs, available evidence, and the next step. A compatible policy does not prove that a trading signal exists.
 
-![Session detail page with the live execution view and the AI conversation panel](/cortiq-public/images/screenshots/sessions__detail.png)
+Preparation reports are generated under their own recipe and policy. Execution checks the resulting report's instrument, timing, certification, and expiry when the rules require it; it does not automatically recollect the preparation recipe's raw history.
 
-When a risk validator triggers a breach, the session transitions to `RiskPaused`. It auto-resumes once the breach condition clears — for example, the next trading day starts and the daily P/L counter resets.
+### Understand trading windows
 
-When the clock moves outside the session's configured time window, the session transitions to `TimePaused`. It auto-resumes when the schedule re-opens.
+Autonomous entry days, entry windows, and automatic-close offsets belong to the pinned playbook version. Times follow your configured local time zone.
 
-When you reach the end of a configured time window, the session transitions to `Completed`. A fatal error during a cycle moves the session to `Failed`; if you enabled auto-restart, Cortiq schedules a restart with exponential backoff and shows the remaining time on the detail page.
+When a playbook's entry window closes, the session stays `Running`. New planning and entries for that playbook wait for eligibility to return; existing exposure can still be managed. A session's `End Date` is a separate lifetime boundary that can complete the session.
+
+### Monitor and stop a session
+
+Open the session to read its live chart, trades, decisions, recorded runs, settings, alerts, and reviews. Use `Manual Order` to reveal the chart's order ticket. The [charting guide](/cortiq-public/charting/) explains drawings, indicators, and decision markers.
+
+Stopping offers a choice about closing session-owned trades. Keeping trades open does not close them at the broker. Check remaining exposure after stopping, especially if you expected Cortiq to continue managing it.
+
+`Review session` and `Update review` are explicit actions on the `Reviews` tab, including while a session is running. They assess completed saved evidence; stopping a session does not automatically request a review. See [Session review](/cortiq-public/session-review/).
 
 ## Reference
 
-### What a session configures
+### Session states
 
-| Area | Examples |
-| --- | --- |
-| Market scope | One fixed symbol for the life of the session. |
-| Time control | Trading hours, active weekdays, close-before-end rules. |
-| Provider control | Provider choice, transport (API / ACP / CLI / External MCP), fallback provider. |
-| Strategy control | Playbook set, playbook priority, session instructions. |
-| Execution control | Live or virtual mode, trade-approval policy, parallel-trade limits. |
-
-### Per-cycle loop
-
-Each cycle follows the same pattern:
-
-`Data gather → Prompt build → AI call → Response parse → Decision → Risk validate → Execute → Log`
-
-The loop runs only while the session is `Running`. It is suspended in every pause or terminal state. For the full architectural breakdown, read [Trading cycle: overview](/cortiq-public/trading-cycle/overview/).
-
-### State distinctions worth memorizing
-
-| State | Resumes automatically? | Notes |
+| State | Meaning | What happens next |
 | --- | --- | --- |
-| `Created` | n/a — start manually | Initial state after creation. |
-| `Running` | n/a | Normal operating state. |
-| `RiskPaused` | Yes — when breach clears | Triggered by a risk validator. |
-| `TimePaused` | Yes — when the window re-opens | Set when the clock leaves the configured time range. |
-| `Paused` | No — manual resume | Manual-only. No automatic process writes this state. |
-| `Stopped` | No | Terminal for the run. Manual stop or app shutdown. |
-| `Completed` | No | Terminal at end of time window. |
-| `Failed` | Only if auto-restart is enabled | Terminal error. Restarts on a backoff schedule when you enabled auto-restart. |
+| `Created` | Saved, not yet started. | Select `Start`. |
+| `Running` | The session is active. | The selected operating type controls its behavior. |
+| `RiskPaused` | A risk condition paused the session. | Cortiq attempts to resume when the condition clears and start checks permit it. |
+| `Paused` | Explicitly paused. | Resume explicitly. |
+| `Stopped` | Stopped by you or app shutdown. | Start a new run explicitly. |
+| `Completed` | Its lifetime has ended. | It does not resume automatically. |
+| `Failed` | A failure ended the active run. | Inspect the error; enabled auto-restart uses its separate backoff schedule. |
+| `TimePaused` | A historical schedule state. | Current playbook windows do not write this state. |
 
-## Common questions
+Starting again preserves earlier recorded runs. An enabled automatic restart remains visible as `Failed` while waiting, with the attempt and remaining time on the detail page.
 
-**My session is `RiskPaused` — how do I unpause it?**
-Don't, usually. RiskPaused exists so the platform protects the workflow when a risk limit is hit. The session resumes automatically when the breach condition clears. If you want to override that, stop the session manually instead.
+### Approval boundaries
 
-**Can I run two autonomous sessions on the same MT5 account?**
-Yes, but coordinate symbols and risk so they don't compete. Risk validators apply per account regardless of how many sessions are open.
+For Autonomous sessions, `Trade approval` has three choices: inherit the global default, require approval before opening, or full auto. The opening approval setting does not suspend authorized management of an existing position.
 
-**How do I trade more than one instrument?**
-Create one session per instrument. A session is locked to a single symbol by design, so you specialize each session on its own market and run them side by side.
+Manual order submission does not use that Autonomous pending-trade approval workflow. Copilot and external tools have separate permission and execution checks; Manual mode does not bypass them. See [Agent permissions](/cortiq-public/agent-permissions/).
 
 ## What to read next
 
-1. [Playbooks & data packages](/cortiq-public/playbooks-and-data/) — what the session executes.
-2. [Risk management](/cortiq-public/risk-management/) — what triggers `RiskPaused` and how to configure it.
-3. [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) — virtual vs live execution and alert channels.
-4. [Backtesting](/cortiq-public/backtesting/) — replay a playbook over historical bars before running it live.
-5. [Trading cycle: session architecture](/cortiq-public/trading-cycle/session-architecture/) — the architecture behind the session loop.
+1. [Discretionary trading](/cortiq-public/discretionary-trading/) — trade from a Manual session's chart.
+2. [Playbooks & data policies](/cortiq-public/playbooks-and-data/) — configure rules and their evidence limits.
+3. [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) — virtual orders, broker execution, and alerts.
+4. [Session review](/cortiq-public/session-review/) — assess saved decisions and outcomes.
 
 ## Related
 
-- [Sessions](/cortiq-public/trading-cycle/entities/sessions/)
+- [AI providers](/cortiq-public/ai-providers/)
+- [Risk management](/cortiq-public/risk-management/)
 - [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/)
-- [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/)
-- [Capability reference](/cortiq-public/capability-reference/)
-- [Glossary](/cortiq-public/glossary/)
+- [Trading cycle: session architecture](/cortiq-public/trading-cycle/session-architecture/)

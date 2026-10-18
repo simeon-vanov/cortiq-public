@@ -1,4 +1,5 @@
 ---
+status: current
 title: Cortiq Documentation
 description: Official documentation for Cortiq — the Windows desktop platform pairing MetaTrader 5 execution with AI-driven trading decisions and risk control.
 ---
@@ -13,7 +14,7 @@ Trading risk exists in all markets. Cortiq is a trading tool, not a profit guara
 
 Cortiq runs one repeatable operating loop on your Windows machine. It gathers market context from MetaTrader 5, asks an AI provider for a decision under a structured playbook, validates that decision against your risk limits, executes on MT5, and journals every cycle for later review.
 
-You stay in control of the strategy. Playbooks define the rules the AI must follow. Data packages define the context it sees. Risk limits define what trades it can take. Cortiq orchestrates the loop and keeps the boundaries you set hard.
+You stay in control of the strategy. Playbooks define the rules the AI must follow. Data access policies define the context it sees. Risk limits define what trades it can take. Cortiq orchestrates the loop and keeps the boundaries you set hard.
 
 These docs cover the full surface: what Cortiq is, how to install it, the screens you work in day-to-day, and how to design playbooks, run sessions, and audit results.
 
@@ -24,7 +25,7 @@ Every Cortiq feature is a component of one operating loop. Each session is locke
 ```mermaid
 flowchart LR
   A[Session config<br/>+ playbook] --> B(Gather market data<br/>via MT5)
-  B --> C(Build prompt<br/>with data package)
+  B --> C(Build prompt<br/>with data access policy)
   C --> D[AI provider]
   D --> E(Parse decision)
   E --> F{Risk approved?}
@@ -37,17 +38,19 @@ flowchart LR
 
 *Cortiq's per-cycle loop: configured input becomes a structured prompt, the AI returns a decision, risk filters approve or reject, and journals capture every cycle.*
 
+Start research from [Instrument Hub](/cortiq-public/instrument-hub/): prepare Data, ask a topic question, inspect the measured answers, and explicitly review a Learning before saving it. Research conclusions and validated execution policies have separate roles.
+
 ## Reference
 
 | Area | What Cortiq does |
 | --- | --- |
 | Decision support | Sends structured market context to AI providers and receives trading decisions back in a controlled format. |
 | Trade execution | Connects to a local MetaTrader 5 terminal to place, modify, and close trades. |
-| Strategy control | Encodes your logic in playbooks and data packages so the AI executes inside the framework you define. |
+| Strategy control | Encodes your logic in playbooks and data access policies so the AI executes inside the framework you define. |
 | Risk control | Applies global and per-account risk limits before and during every trade. |
-| Validation | Replays a session or playbook against historical M1 data so you can test before risking capital — no license required. |
+| Validation | Replays manual or autonomous execution against historical prices with simulated positions and saved run settings. |
 | Operations | Tracks sessions, journals, notifications, system messages, and account activity in one desktop workspace. |
-| Learning | Runs one-click AI session reviews that score the run and store durable per-instrument lessons. |
+| Research and review | Measures instrument behavior, saves reviewed Learnings, and explicitly reviews recorded decisions and Observations. |
 
 :::note
 This site shares its repository with Cortiq's GitHub Releases, Issues, and Discussions — keeping docs, the Windows installer, bug reports, and usage questions in one public place.
@@ -61,9 +64,9 @@ This site shares its repository with Cortiq's GitHub Releases, Issues, and Discu
 4. [Installation & activation](/cortiq-public/installation-and-activation/) — the Windows install and license activation flow.
 5. [First 30 minutes in Cortiq](/cortiq-public/first-30-minutes/) — guided walkthrough from install to your first safe virtual session.
 6. [MetaTrader 5 integration](/cortiq-public/mt5-integration/) and [AI providers](/cortiq-public/ai-providers/) — read these before your first live setup.
-7. [Playbooks & data packages](/cortiq-public/playbooks-and-data/), [Sessions](/cortiq-public/sessions/), and [Risk management](/cortiq-public/risk-management/) — the building blocks of your operating model.
-8. [Backtesting](/cortiq-public/backtesting/) — replay a session against history first; it's the only path that runs without a license.
-9. [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/) and [Session reviews](/cortiq-public/session-review/) — the day-to-day screens, plus the AI review loop that turns runs into durable lessons.
+7. [Playbooks & data access policies](/cortiq-public/playbooks-and-data/), [Sessions](/cortiq-public/sessions/), and [Risk management](/cortiq-public/risk-management/) — the building blocks of your operating model.
+8. [Backtesting](/cortiq-public/backtesting/) — configure a standalone historical replay, inspect its evidence, and review the results.
+9. [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/) and [Session reviews](/cortiq-public/session-review/) — the day-to-day screens, plus explicit reviews of saved evidence and proposed improvements.
 
 ## Related
 

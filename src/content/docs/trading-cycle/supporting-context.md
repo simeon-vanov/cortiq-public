@@ -1,6 +1,7 @@
 ---
+status: current
 title: Supporting context
-description: The four reusable context layers Cortiq can attach to a session — preparation packages, instrument profiles, sentiment reports, and session instructions — and where each one belongs.
+description: Choose preparation reports, instrument profiles, sentiment research, and session instructions, with separate generation and execution requirements.
 sidebar:
   order: 30
 ---
@@ -23,7 +24,7 @@ Cortiq separates those layers so you can decide what should be fresh, what shoul
 
 | Information type | Best home | Reusable across sessions? |
 | --- | --- | --- |
-| Live factual market payload | Data package | No — generated fresh per cycle. |
+| Allowed factual inputs | Data access policy | The policy is reusable; collected data has its own as-of cutoff. |
 | Reusable setup logic | Playbook | Yes. |
 | One active thesis | Trade idea | No — single-purpose. |
 | Slower-moving prepared analysis | Preparation package | Yes. |
@@ -37,7 +38,7 @@ Cortiq separates those layers so you can decide what should be fresh, what shoul
 
 Use session instructions for operator guidance the AI should respect during this run:
 
-- Symbols to avoid around specific events.
+- Event-related constraints for the session's single instrument.
 - Special broker behavior to keep in mind.
 - Desk-specific execution cautions.
 - Scope reminders that don't belong inside a playbook.
@@ -51,7 +52,7 @@ Use a preparation package when you want the AI to start the cycle with already-p
 - Directional skew from slower charts.
 - Key levels prepared before the session opens.
 
-A daily preparation package refreshed before market open is a high-impact layer for swing-style sessions.
+A package is a recipe; each generation produces a separate report with an effective time and expiry. Review the recipe's inputs before generation. Its raw lookbacks are generation requirements, not automatically execution requirements.
 
 ### Instrument profiles
 
@@ -62,7 +63,7 @@ Use an instrument profile for long-lived context about how an instrument behaves
 - Recurring structural habits of the instrument.
 - Notes that help interpret today's chart against the symbol's longer-term character.
 
-Instrument profiles age slowly. Update them every few weeks at most.
+Review instrument profiles when their evidence or market assumptions change; a recent save alone does not make the underlying research current.
 
 ### Sentiment reports
 
@@ -73,7 +74,7 @@ Use a sentiment report for context that isn't visible in the chart alone:
 - Known event risk ahead.
 - Positioning or macro pressure.
 
-Sentiment reports age fast. Detach or replace them when the underlying narrative changes.
+Sentiment uses current provider-owned web research with observed sources. Inspect report expiry, confidence, coverage, and research time separately. Historical/backdated generation is unsupported.
 
 ### Trade ideas
 
@@ -83,7 +84,7 @@ Use a trade idea for a specific thesis you want Cortiq to track separately from 
 - A pullback setup tied to current structure.
 - An idea that should expire if conditions don't develop in time.
 
-Trade ideas are inherently single-use. Don't promote them into the playbook library.
+A trade idea has its own lifecycle. Automated execution requires a separately reviewed and enabled mandate; a descriptive thesis alone does not grant trading authority.
 
 ## Reference
 
@@ -99,7 +100,7 @@ Trade ideas are inherently single-use. Don't promote them into the playbook libr
 
 ### Best practice
 
-The best support stack is usually the cleanest one, not the biggest. Add a layer only when it improves judgment in a way the data package and playbooks don't already cover.
+The best support stack is usually the cleanest one, not the biggest. Add a layer only when it improves judgment in a way the data access policy and playbooks don't already cover.
 
 ## What to read next
 
@@ -112,5 +113,5 @@ The best support stack is usually the cleanest one, not the biggest. Add a layer
 
 - [Trading cycle: overview](/cortiq-public/trading-cycle/overview/)
 - [Session architecture](/cortiq-public/trading-cycle/session-architecture/)
-- [Playbooks & data packages](/cortiq-public/playbooks-and-data/)
+- [Playbooks & data access policies](/cortiq-public/playbooks-and-data/)
 - [Glossary](/cortiq-public/glossary/)

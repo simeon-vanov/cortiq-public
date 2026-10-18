@@ -1,123 +1,118 @@
 ---
+status: current
 title: Execution modes & notifications
-description: How Cortiq sessions act on a decision — virtual, live, or external-MCP — and how notification channels and the System Messages inbox keep you informed without watching the desktop.
+description: Compare virtual and broker execution, configure session notification toggles, and use Activity and one-shot chart price alerts.
 sidebar:
   order: 60
 ---
 
-This page covers how a Cortiq session acts on the AI's decision and the notification surface that surrounds it. By the end you'll know when to run virtual, live, or external-MCP, how virtual differs from backtesting, and how to receive trade events on the channels you already check.
+Choose virtual execution to practise on the current market without sending orders to MT5. Use the session's notification controls, Activity, and chart price alerts to follow what happens.
 
 ## What this is
 
-A session has to do something with the AI's decision. Cortiq has one execution toggle — virtual vs live — and one transport choice that changes who drives the loop. A virtual session simulates the trade lifecycle on the live feed without sending an MT5 order; a live session sends real orders through the connected account. An external-MCP session hands the loop to an outside agent rather than the built-in cycle engine.
+Execution and decision-making are separate choices. `Virtual Mode` controls whether an order is simulated or sent to the broker. `Manual` or `Autonomous` controls who makes session decisions.
 
-The split exists because users move through phases: most start in virtual mode to rehearse the workflow on today's market, then graduate to live on one account once the journals read well and risk settings are in place. Notifications run across all of these.
-
-:::note
-Copy trading is a data field on the session, not a configurable mode. There is no UI to set up master/follower replication in the current build, so it is not covered here as a first-class workflow.
-:::
+An External MCP client controls a Manual session through tools. It can use virtual or broker execution; it is not an execution mode of its own.
 
 ## How it fits into Cortiq
 
-| Mode | What it does | When to use |
+| Work | Market data | Order handling |
 | --- | --- | --- |
-| Virtual | Simulates the full trade lifecycle on the live feed without sending MT5 orders. | First runs, prop-firm challenges that restrict EAs, and any time you're testing a configuration forward. |
-| Live | Sends real orders to MT5 through the connected account. | Once virtual mode is producing readable journals and risk settings are configured. |
-| External MCP | Hands the trading loop to an outside MCP agent instead of the built-in cycle engine. | Advanced; you want Claude Desktop, Codex, or another MCP client to drive the session. See [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/). |
+| Virtual session | Current MT5 feed. | Simulated in Cortiq. |
+| Non-virtual session | Current MT5 feed. | Orders sent to the connected MT5 account. |
+| Backtest | Historical replay. | Simulated inside the backtest run. |
 
-Notifications and scheduled reports run on top of every mode and are configured separately.
+Virtual and non-virtual sessions need a valid license to start, including sessions connected to broker demo accounts. Backtests also require a valid license. See [Backtesting](/cortiq-public/backtesting/) for replay controls and simulation limits.
 
 ## How to use it
 
-### Virtual versus live versus backtest
+### Choose virtual or broker execution
 
-Three things get confused often. They run on different data and answer different questions.
+1. Create a session and select its instrument and account.
+2. Enable `Virtual Mode` to simulate orders. It is off by default.
+3. Review risk and approval settings before starting.
+4. Start the session and check its execution-mode badge before placing or authorizing orders.
 
-- **Virtual** runs *forward* on the current market. Cortiq goes through every step — data gathering, AI decision, risk validation, journal entry — but skips sending the order to MT5. Use it to rehearse the operating loop and shadow a strategy on today's feed without risking capital.
-- **Live** runs forward on the current market and sends real orders. Don't go live until MT5 connectivity is verified, the playbook is stable, the data package is focused, and risk settings are active.
-- **Backtest** replays *historical* bars through the same decision pipeline so you can measure a playbook against the past. It is a separate run type, not a session execution mode, and it is the only run type that needs no license. See [Backtesting](/cortiq-public/backtesting/).
+A virtual session can use the current feed, chart, trades, and journal without changing the broker account's balance. Its results rehearse the workflow; they do not establish actual broker fills or costs.
 
-So virtual is not backtesting: virtual is live-forward with no order, backtest is historical replay. Reach for virtual to validate the workflow on live conditions, and for backtesting to validate the edge against history.
+To change an existing session's execution setting, stop it, inspect any remaining open exposure, then use `Settings` → `Edit Settings` on its detail page. Confirm the setting before starting again.
 
-Every session has its execution mode set at creation. You can switch a stopped session by editing it; you cannot change the mode of a running session.
+Virtual trades still face entry risk validation. Their closed P/L does not update the global and account realized-P/L counters used for drawdown and profit targets. Virtual execution therefore does not reproduce every account-risk consequence of broker execution.
 
-### Configure notifications
+### Enable trade notification channels
 
-Notifications and reports live under the single `Settings` page. Open `Settings` → `Notifications` and enable the channels you want.
+Open the session's `Settings` tab, select `Edit Settings`, and find `Notifications`.
 
-![Notifications settings with Windows Toast, X, and Telegram channels configured](/cortiq-public/images/screenshots/execution-modes-and-notifications__settings.png)
+| Setting | Effect |
+| --- | --- |
+| `Push Notifications` | Enables the session's Windows trade-event notifications. |
+| `Post to X (Twitter)` | Enables posting through the configured X integration. |
+| `Post to Telegram` | Enables posting through the configured Telegram integration. |
+| `Include AI Reasoning in Notifications` | Includes available reasoning in notification content. |
+| `Include Screenshots in Notifications` | Requests an available chart screenshot for supported sends. |
 
-The three external channels:
+Save the session settings after changing them. X and Telegram also need valid credentials and permission to post to the destination.
 
-- **Windows notifications** — immediate desktop awareness while you're at the machine.
-- **X** — public or semi-public posting workflows.
-- **Telegram** — team or private channel monitoring; also used for scheduled reports.
+The current General settings screen does not expose the older channel-credential or scheduled-report forms. Existing integrations and saved report schedules have supporting services, but a session toggle alone does not set up X or Telegram delivery.
 
-For Telegram, paste a bot token and chat ID. For X, supply the four OAuth 1.0a credentials. The X and Telegram credentials are entered once per installation on the Settings page; the per-channel toggles are set per session on the session detail page.
+### Read Activity
 
-### Watch the System Messages inbox
+Open `Library` → `Activity` for persisted background events, trade operations, failures, and actionable permission requests. Entries can link to the session, report, or other item that needs attention.
 
-The three channels above push events *out* of Cortiq. Inside the app, the **System Messages** inbox is the notification center. It is a persisted list of background-process events and trade operations — preparation auto-refreshes, risk pauses, MT5 feed health, trade opens and closes, and agent permission requests — each linking to the related artifact. Higher-severity events also raise an in-app toast and add to an unread badge in the sidebar.
+Activity is the in-app record. It does not automatically post every entry to X or Telegram. Read [Activity](/cortiq-public/system-messages/) for filters, unread state, and approval actions.
 
-System Messages are in-app only; they do not post to X or Telegram. See [System messages](/cortiq-public/system-messages/) for the full event list and filters.
+### Set a chart price alert
 
-### Schedule performance reports
+A price alert is a one-shot notification for a level you choose. It does not place an order or authorize a trade.
 
-Open `Settings` → `Reports` to schedule daily, weekly, or monthly summaries delivered through Telegram. Reports are a sub-surface of the same single `Settings` page, alongside `Notifications`. You can choose the account scope (one account or all) and which sections appear: P/L summary, trade breakdown, symbol breakdown, streak analysis, and risk metrics. Preview the report once before scheduling so the format is what you expected.
+1. Open the live session chart and select the bell in its toolbar.
+2. Click a price on the main plot.
+3. Review the instrument-rounded price, optionally add a label, and save.
+4. Open the session's `Alerts` tab to inspect or delete pending alerts.
+
+Escape, changing drawing tools, or leaving the chart cancels an unfinished price selection.
+
+Saved alerts monitor Bid while the owning session is `Running`, Cortiq is open, and the MT5 feed is fresh. On the first fresh tick, an exact target touch fires immediately. Later ticks trigger when Bid crosses the target in either direction.
+
+Pending alerts survive pause, stop, and restart. After an interruption, a fresh baseline is established; Cortiq does not infer crossings while monitoring was unavailable.
+
+When an alert fires, it is removed from the pending list and an unread `Price alerts` entry is saved in Activity. Cortiq then attempts a Windows notification that opens the session. Price alerts are independent of the trade-notification toggles; a failed Windows notification does not remove the Activity entry.
 
 ## Reference
 
-### Notification event categories
+### Delivery boundaries
 
-| Category | Examples |
+| Event | Current behavior |
 | --- | --- |
-| Trade open | Market or pending order placed. |
-| Trade close | SL hit, TP hit, manual close, AI-driven close. |
-| Pending order events | Order activated, modified, expired, cancelled. |
-| Partial closes | Volume reduced on an open position. |
-| SL/TP modifications | Stop or target adjusted by the AI. |
+| Pending order fills | Trade notification dispatch is connected. |
+| Position closes fully or partially | Trade notification dispatch is connected. |
+| Market entry, pending-order placement, or cancellation | External trade notification dispatch is not connected for these events. Consult the session and Activity. |
+| Approval request | Uses its own approval notification path, independent of ordinary trade-event push toggles. |
+| Chart price alert | Saves Activity, then attempts its own Windows notification. |
 
-### Notification channels
+Per-event trade notification switches are not exposed in the current UI. Failed X or Telegram sends are not automatically retried by a background delivery worker.
 
-| Channel | Configured in | Typical use |
-| --- | --- | --- |
-| Windows notifications | `Settings` → `Notifications` → Windows Toast | Real-time alerts while at the desk. |
-| X | `Settings` → `Notifications` → X | Public posting; useful for transparency journaling. |
-| Telegram | `Settings` → `Notifications` → Telegram | Private channel; also handles scheduled reports. |
+Windows notification visibility also depends on Windows settings. Installed Windows toast activation and live-feed price-alert delivery remain acceptance checks; the saved Activity entry is the durable record.
 
-### Virtual, live, and backtest compared
+### Keep the meanings separate
 
-| Property | Virtual | Live | Backtest |
-| --- | --- | --- | --- |
-| Data | Live feed, forward | Live feed, forward | Historical bars, replayed |
-| Sends orders to MT5 | No | Yes | No |
-| Risk validators run | Yes (entry only) | Yes | In-engine simulation |
-| Journal output | Yes | Yes | Backtest result tables |
-| Needs a license | Yes | Yes | No |
-| Suitable for first runs | Yes | No | Yes (for the edge, not the workflow) |
+- A chart price alert notifies you when a watched level is reached.
+- An Autonomous wake condition asks the decision engine to reconsider the market.
+- A pending order can execute under its own broker or simulation rules.
+- A trade approval authorizes the specific action presented for review.
 
-## Common questions
-
-**Is virtual mode the same as backtesting?**
-No. Virtual mode runs *forward* on the current market without sending an order; backtesting replays *historical* bars through the same decision pipeline. Use virtual mode to rehearse the operating loop on live conditions, and [backtesting](/cortiq-public/backtesting/) to validate a strategy against the past.
-
-**Can I run a virtual session and a live session at the same time?**
-Yes, on different accounts or even the same account. They produce separate journal entries; only the live session affects the MT5 balance.
-
-**Which notifications actually fire today?**
-On a real trade, you get a notification when a pending order fills and when a position closes (full or partial). Market-entry and order-placed/cancelled events are wired but do not fire in the current build, so the first thing you see for a market entry is its close. The in-app System Messages inbox is the most complete surface — it records opens, closes, failures, and management actions.
+Creating a notification alert does not create any of the other three.
 
 ## What to read next
 
-1. [Sessions](/cortiq-public/sessions/) — where the mode is set per session.
-2. [Backtesting](/cortiq-public/backtesting/) — historical replay, the run type virtual mode is not.
-3. [Risk management](/cortiq-public/risk-management/) — risk validators run for every mode.
-4. [System messages](/cortiq-public/system-messages/) — the in-app notification center.
+1. [Sessions](/cortiq-public/sessions/) — configure who controls the session and when it runs.
+2. [Charting](/cortiq-public/charting/) — use the chart's price, drawing, and indicator tools.
+3. [Risk management](/cortiq-public/risk-management/) — understand checks before execution.
+4. [Activity](/cortiq-public/system-messages/) — inspect saved events and requests.
 
 ## Related
 
+- [Discretionary trading](/cortiq-public/discretionary-trading/)
+- [Backtesting](/cortiq-public/backtesting/)
+- [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/)
 - [MetaTrader 5 integration](/cortiq-public/mt5-integration/)
-- [Journal & analytics](/cortiq-public/journal-and-analytics/)
-- [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/)
-- [Capability reference](/cortiq-public/capability-reference/)
-- [Glossary](/cortiq-public/glossary/)

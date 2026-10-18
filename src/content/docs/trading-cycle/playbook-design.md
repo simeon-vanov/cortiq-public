@@ -1,4 +1,5 @@
 ---
+status: current
 title: Playbook design guide
 description: How to write Cortiq playbooks professionally — section-by-section guidance, the four-step pipeline a playbook represents, and the common mistakes to avoid.
 sidebar:
@@ -29,7 +30,7 @@ flowchart LR
 
 A playbook is referenced by sessions. The same playbook can run on multiple sessions; a single session can stack multiple playbooks at different priorities. The playbook itself doesn't care about the symbol or account — those come from the session.
 
-For the conceptual overview, see [Playbooks & data packages](/cortiq-public/playbooks-and-data/). This page focuses on writing them well.
+For the conceptual overview, see [Playbooks & data access policies](/cortiq-public/playbooks-and-data/). This page focuses on writing them well.
 
 ## How to use it
 
@@ -83,6 +84,14 @@ When the whole idea should be abandoned. One of the most valuable sections in a 
 
 Express fit. These support the main logic; they don't replace it.
 
+## Review the execution policy
+
+The execution policy supplies editable access limits for planning, entry, and management. **Generate execution policy with AI** creates a proposal; **Use this draft** copies it into the form. **Validate execution compatibility** checks the current rules and policy before **Save Playbook**.
+
+Material edits invalidate the matching review. **Save as draft** retains unfinished work and its findings; it does not authorize execution. Configure exact supported indicator versions and parameters, and clarify ambiguous periods or freshness limits.
+
+Preparation skills define generation recipes. Do not copy every recipe lookback into execution requirements: execution consumes the valid report when the trading rules require it. See [Playbooks and policies](/cortiq-public/playbooks-and-data/) for repair and shared-policy behavior.
+
 ## Reference
 
 ### Section purposes at a glance
@@ -110,13 +119,13 @@ Express fit. These support the main logic; they don't replace it.
 
 ## What to read next
 
-1. [Data package design guide](/cortiq-public/trading-cycle/data-package-design/) — disciplined payload design, the natural pair to a tight playbook.
+1. [Data access policy design guide](/cortiq-public/trading-cycle/data-package-design/) — disciplined payload design, the natural pair to a tight playbook.
 2. [Playbooks](/cortiq-public/trading-cycle/entities/playbooks/) — the entity reference for the playbook object.
 3. [Trading cycle: overview](/cortiq-public/trading-cycle/overview/) — where the playbook sits inside the broader cycle.
 
 ## Related
 
-- [Playbooks & data packages](/cortiq-public/playbooks-and-data/)
+- [Playbooks & data access policies](/cortiq-public/playbooks-and-data/)
 - [Sessions](/cortiq-public/sessions/)
 - [Capability reference](/cortiq-public/capability-reference/)
 - [Glossary](/cortiq-public/glossary/)

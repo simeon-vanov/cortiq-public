@@ -1,4 +1,5 @@
 ---
+status: current
 title: Documentation map
 description: How the Cortiq docs are organized, what each page is for, and where to start based on what you're trying to accomplish.
 sidebar:
@@ -21,10 +22,10 @@ Reading order from a cold start:
 2. [Getting started](/cortiq-public/getting-started/) — decide if Cortiq fits.
 3. [Installation & activation](/cortiq-public/installation-and-activation/), then [First 30 minutes](/cortiq-public/first-30-minutes/) — get a first session running.
 4. [MetaTrader 5 integration](/cortiq-public/mt5-integration/) and [AI providers](/cortiq-public/ai-providers/) — wire in the two external systems.
-5. [Playbooks & data packages](/cortiq-public/playbooks-and-data/), [Sessions](/cortiq-public/sessions/), [Risk management](/cortiq-public/risk-management/) — build your operating model.
+5. [Playbooks & data access policies](/cortiq-public/playbooks-and-data/), [Sessions](/cortiq-public/sessions/), [Risk management](/cortiq-public/risk-management/) — build your operating model.
 6. [Backtesting](/cortiq-public/backtesting/) — validate a playbook against history before committing capital.
 7. [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/) and [Journal & analytics](/cortiq-public/journal-and-analytics/) — daily operation and review.
-8. [Session review](/cortiq-public/session-review/) — turn each finished session into durable instrument lessons.
+8. [Session review](/cortiq-public/session-review/) — assess saved decisions, evidence, and proposed improvements.
 
 After the linear path, every page is independently readable.
 
@@ -32,7 +33,7 @@ After the linear path, every page is independently readable.
 
 ### What each page is for
 
-The site is grouped into **Start Here**, **Platform**, **Research & Skills**, **MCP & Agent**, **Trading Cycle**, and **Support**.
+The site is grouped into **Start Here**, **Platform**, **Instruments & Research**, **MCP & Agent**, **Trading Cycle**, and **Support**.
 
 **Start Here**
 
@@ -53,23 +54,23 @@ The site is grouped into **Start Here**, **Platform**, **Research & Skills**, **
 | Page | Purpose | What you get |
 | --- | --- | --- |
 | [MetaTrader 5 integration](/cortiq-public/mt5-integration/) | Broker terminal connectivity | How Cortiq and MT5 connect, plus the multi-account setup. |
-| [AI providers](/cortiq-public/ai-providers/) | AI setup and routing | Supported providers and the API / ACP / CLI / External MCP transports, how to pick. |
-| [Playbooks & data packages](/cortiq-public/playbooks-and-data/) | Strategy input design | How rules and data scope shape AI decisions. |
+| [AI providers](/cortiq-public/ai-providers/) | AI setup and routing | Explicit API/ACP routes; Manual-context External MCP tools are separate. |
+| [Playbooks & data access policies](/cortiq-public/playbooks-and-data/) | Strategy input design | How rules and data scope shape AI decisions. |
 | [Sessions](/cortiq-public/sessions/) | Runtime operation | How autonomous sessions work and how each session is locked to one instrument. |
 | [Risk management](/cortiq-public/risk-management/) | Control layer | The limits and pause behavior that sit above execution. |
-| [Backtesting](/cortiq-public/backtesting/) | Historical validation | Historical M1 replay of a session or playbook; the only license-free path. |
-| [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) | Deployment options | Live, virtual, copy trading, and notification flows. |
+| [Backtesting](/cortiq-public/backtesting/) | Historical validation | Standalone manual or autonomous replay, coverage, risk snapshots, and recovery. |
+| [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) | Execution and delivery | Broker or virtual orders, supported channel events, Activity, and price alerts. |
 | [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/) | Daily operating screens | The Home, Dashboard, Trade Ideas, Journal, Cohorts, Conversations, and Provider Health screens. |
 | [Journal & analytics](/cortiq-public/journal-and-analytics/) | Review and learning | How Cortiq records performance and explains trades. |
-| [Session review](/cortiq-public/session-review/) | Post-session learning | One-click AI review that scores a session into suggestions and durable instrument lessons. |
-| [System messages](/cortiq-public/system-messages/) | Notification inbox | The in-app inbox and the actionable permission cards it surfaces. |
+| [Session review](/cortiq-public/session-review/) | Post-session learning | Explicit saved-evidence assessment, supported Observations, and proposed improvements. |
+| [Activity](/cortiq-public/system-messages/) | Notification inbox | The in-app inbox and the actionable permission cards it surfaces. |
 
 **Instruments & Research**
 
 | Page | Purpose | What you get |
 | --- | --- | --- |
 | [Instrument Hub](/cortiq-public/instrument-hub/) | Per-symbol command center | One page per market: the honest ★ mastery rating, maturity pipeline, and knowledge ledger. |
-| [Research](/cortiq-public/research/) | Single-instrument idea lab | Data files, runs, exploration, artifacts, and opt-in edge-discovery guardrails. |
+| [Research](/cortiq-public/research/) | Single-instrument idea lab | Hub data files, Topic questions, measured answers, continuation, and reviewed Learning publication. |
 | [Skills](/cortiq-public/skills/) | Reusable instructions | Markdown instruction templates injected into generation flows. |
 
 **MCP & Agent**
@@ -77,7 +78,7 @@ The site is grouped into **Start Here**, **Platform**, **Research & Skills**, **
 | Page | Purpose | What you get |
 | --- | --- | --- |
 | [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/) | Advanced external control | How MCP-compatible agents control Cortiq via tool calls. |
-| [Cortiq Copilot](/cortiq-public/cortiq-copilot/) | In-app authoring agent | The Copilot dock (`Ctrl+K`) that authors entities behind the approval gate. |
+| [Cortiq Copilot](/cortiq-public/cortiq-copilot/) | In-app analysis and authoring | Page context, attached guidance, drafts, and scoped actions with their save and approval rules. |
 | [Agent permissions](/cortiq-public/agent-permissions/) | Approval and grants | The always-on trade gate plus persisted capability grants. |
 
 **Trading Cycle**
@@ -86,8 +87,8 @@ The site is grouped into **Start Here**, **Platform**, **Research & Skills**, **
 | --- | --- | --- |
 | [Trading cycle: overview](/cortiq-public/trading-cycle/overview/) | Architecture summary | How one session cycle is assembled from strategy, data, context, and execution. |
 | [Trading cycle: playbook design](/cortiq-public/trading-cycle/playbook-design/) | Professional playbook writing | Disciplined use of each playbook section. |
-| [Trading cycle: data package design](/cortiq-public/trading-cycle/data-package-design/) | Professional payload design | Picking timeframes, indicators, screenshots, and scope. |
-| Trading cycle entity pages | Detailed reference | Per-entity pages for sessions, data packages, playbooks, trade ideas, preparation packages, instrument profiles, sentiment reports, and session trade history. |
+| [Trading cycle: data access policy design](/cortiq-public/trading-cycle/data-package-design/) | Professional payload design | Picking timeframes, indicators, screenshots, and scope. |
+| Trading cycle entity pages | Detailed reference | Per-entity pages for sessions, data access policies, playbooks, trade ideas, preparation packages, instrument profiles, sentiment reports, and session trade history. |
 
 **Support**
 
@@ -103,14 +104,14 @@ The site is grouped into **Start Here**, **Platform**, **Research & Skills**, **
 | Understand where things live in the desktop UI | [App navigation guide](/cortiq-public/app-navigation-guide/) |
 | Decide whether Cortiq fits before installing | [Getting started](/cortiq-public/getting-started/) |
 | Install and activate the product | [Installation & activation](/cortiq-public/installation-and-activation/) |
-| Configure strategy inputs | [Playbooks & data packages](/cortiq-public/playbooks-and-data/) |
+| Configure strategy inputs | [Playbooks & data access policies](/cortiq-public/playbooks-and-data/) |
 | Operate day-to-day sessions | [Sessions](/cortiq-public/sessions/) |
 | Validate a playbook against history | [Backtesting](/cortiq-public/backtesting/) |
 | Orient around one market's mastery | [Instrument Hub](/cortiq-public/instrument-hub/) |
 | Research a single instrument deeply | [Research](/cortiq-public/research/) |
 | Understand the desktop workspace after setup | [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/) |
 | Review performance and decisions | [Journal & analytics](/cortiq-public/journal-and-analytics/) |
-| Turn a finished session into lessons | [Session review](/cortiq-public/session-review/) |
+| Review saved decisions and market evidence | [Session review](/cortiq-public/session-review/) |
 | Control what the agent may do on its own | [Agent permissions](/cortiq-public/agent-permissions/) |
 | Handle support or license issues | [Licensing & support](/cortiq-public/licensing-and-support/) |
 

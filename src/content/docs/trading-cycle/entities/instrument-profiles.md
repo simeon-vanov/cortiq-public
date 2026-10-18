@@ -1,4 +1,5 @@
 ---
+status: current
 title: Instrument profiles
 description: The instrument profile entity — long-lived persistent knowledge about how a symbol behaves, used as a behavior reference layer in the trading cycle.
 sidebar:
@@ -15,7 +16,7 @@ A profile can include volatility character, range behavior, session tendencies, 
 
 ## How it fits into Cortiq
 
-Instrument profiles are reusable support layers attached to sessions. They age slowly — update them every few weeks at most. They're not for short-term directional calls; that's the role of sentiment reports.
+Instrument profiles are reusable support layers attached to sessions. Review them when their evidence or market assumptions change; a recent save does not make old research current. Keep current external news in sentiment reports and prepared technical analysis in preparation reports.
 
 For the broader support-layer model, see [Supporting context](/cortiq-public/trading-cycle/supporting-context/).
 

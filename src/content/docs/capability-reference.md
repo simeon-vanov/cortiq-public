@@ -1,4 +1,5 @@
 ---
+status: current
 title: Capability reference
 description: A practical, function-by-function guide to what each major Cortiq capability does for you and where to read more.
 sidebar:
@@ -28,14 +29,14 @@ If you want a higher-altitude view first, [Feature overview](/cortiq-public/feat
 
 | Function | What it does | What it does for you | Read more |
 | --- | --- | --- | --- |
-| Playbooks | Defines setup, entry, invalidation, risk, and management logic. | Turns a strategy into a repeatable rule system instead of a loose prompt. | [Playbooks & data packages](/cortiq-public/playbooks-and-data/) |
+| Playbooks | Defines setup, entry, invalidation, risk, and management logic. | Turns a strategy into a repeatable rule system instead of a loose prompt. | [Playbooks & data access policies](/cortiq-public/playbooks-and-data/) |
 | Playbook sections | Splits strategy logic into clean fields: setup, entry, risk, management, invalidation. | Makes playbooks the AI can follow and you can review later. | [Playbook design guide](/cortiq-public/trading-cycle/playbook-design/) |
 | Playbook priority | Orders multiple playbooks inside one session. | Decides which setup logic wins when more than one idea is in play. | [Playbooks](/cortiq-public/trading-cycle/entities/playbooks/) |
-| Data packages | Defines what data the AI receives. | Keeps the AI focused on the exact information your strategy needs. | [Data packages](/cortiq-public/trading-cycle/entities/data-packages/) |
-| Screenshot-enabled timeframes | Adds chart images to selected timeframes. | Gives the AI visual confirmation when chart structure matters. | [Data package design guide](/cortiq-public/trading-cycle/data-package-design/) |
-| Indicator inputs | Adds MT5 indicator values to the decision payload. | Brings your technical signal stack into the AI workflow. | [Playbooks & data packages](/cortiq-public/playbooks-and-data/) |
+| Data access policies | Defines allowed inputs and exact indicator bindings. | Check that execution rules have usable data. | [Data access policies](/cortiq-public/trading-cycle/entities/data-packages/) |
+| Screenshot-enabled timeframes | Adds chart images to selected timeframes. | Gives the AI visual confirmation when chart structure matters. | [Data access policy design guide](/cortiq-public/trading-cycle/data-package-design/) |
+| Indicator inputs | Uses supported Cortiq-calculated indicator definitions. | Reuse exact versions and parameters in charting and policies. | [Playbooks and policies](/cortiq-public/playbooks-and-data/) |
 | Trade ideas | Tracks specific active theses. | Monitor one-off opportunities without making them permanent playbooks. | [Trade ideas](/cortiq-public/trading-cycle/entities/trade-ideas/) |
-| Skills | Reusable Markdown instruction templates injected into generation flows. | Encode a house style or checklist once and reuse it across preparation, research, and reviews. | [Skills](/cortiq-public/skills/) |
+| Skills | Reusable Markdown instructions explicitly selected or attached. | Apply the intended method in supported generation or authoring contexts. | [Skills](/cortiq-public/skills/) |
 
 ### Supporting context functions
 
@@ -55,9 +56,9 @@ If you want a higher-altitude view first, [Feature overview](/cortiq-public/feat
 | Active days and time windows | Controls when a session may trade. | Keeps a strategy inside the hours and days that fit its design. | [Sessions](/cortiq-public/trading-cycle/entities/sessions/) |
 | Single-instrument sessions | Locks each session to one instrument. | Clean specialization around one market, so results stay comparable over time. | [Sessions](/cortiq-public/sessions/) |
 | Provider selection | Picks which AI provider runs the session. | Match cost, reliability, and operating style to your workflow. | [AI providers](/cortiq-public/ai-providers/) |
-| Fallback provider | Configures a secondary AI provider. | Keeps the session resilient when the primary is unavailable. | [AI providers](/cortiq-public/ai-providers/) |
-| Provider transport | Picks how the provider is reached: API, ACP, CLI, or External MCP. | Match traceability, cost, and local-vs-hosted needs to your workflow. | [AI providers](/cortiq-public/ai-providers/) |
-| External MCP sessions | Lets an external agent control Cortiq. | Drive the workflow from a separate AI client like Claude Desktop. | [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/) |
+| Explicit provider route | Selects provider, API/ACP transport, model, and effort. | Configuration errors stay visible instead of silently switching providers. | [AI providers](/cortiq-public/ai-providers/) |
+| Provider transport | Uses API or supported ACP for internal model calls. | Match the configured account and connection to the feature. | [AI providers](/cortiq-public/ai-providers/) |
+| External MCP tools | Lets an outside client act in a Manual-session context. | Separate client-driven tool actions from the autonomous loop. | [MCP integration](/cortiq-public/mcp-and-agent-integration/) |
 
 ### Execution functions
 
@@ -65,7 +66,7 @@ If you want a higher-altitude view first, [Feature overview](/cortiq-public/feat
 | --- | --- | --- | --- |
 | Live trading | Sends real orders through MT5. | Move from simulation to real execution inside the same operating model. | [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) |
 | Virtual trading | Simulates the trade lifecycle without sending real orders. | Test and build trust before using live capital. | [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) |
-| Copy trading | Replicates a master workflow to follower accounts. | Scale one decision engine across multiple accounts. | [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) |
+| Account selection | Binds a session to one configured MT5 account and instrument. | Keep execution and evidence scoped to the intended broker connection. | [MT5 integration](/cortiq-public/mt5-integration/) |
 | Trade management | Modifies, partially closes, or closes positions. | The AI is responsible for handling — not only entering — trades. | [Session trades and timeline](/cortiq-public/trading-cycle/entities/session-trades-and-timeline/) |
 | Notifications | Pushes trade events to selected channels. | Stay informed without watching the desktop continuously. | [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) |
 
@@ -73,8 +74,8 @@ If you want a higher-altitude view first, [Feature overview](/cortiq-public/feat
 
 | Function | What it does | What it does for you | Read more |
 | --- | --- | --- | --- |
-| Backtesting | Replays a session or playbook over historical M1 data, cycle by cycle. | Test a configuration against the past before committing capital. | [Backtesting](/cortiq-public/backtesting/) |
-| License-free backtests | Runs backtests without an active license. | Evaluate Cortiq's loop on history before you buy. | [Backtesting](/cortiq-public/backtesting/) |
+| Backtesting | Runs standalone manual or autonomous historical replay. | Inspect simulated execution, coverage, saved risk, instructions, and results. | [Backtesting](/cortiq-public/backtesting/) |
+| Saved replay recovery | Restores supported checkpoints into Paused for explicit continuation. | Resume known saved work after interruption and inspect recovery limits. | [Backtesting](/cortiq-public/backtesting/) |
 
 ### Risk and protection functions
 
@@ -99,18 +100,18 @@ If you want a higher-altitude view first, [Feature overview](/cortiq-public/feat
 | Conversations view | Raw AI conversations across sessions. | Inspect the model's actual responses, not only the summary. | [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/) |
 | Session timeline | What happened in each trading cycle. | Audit and explain the AI workflow. | [Session trades and timeline](/cortiq-public/trading-cycle/entities/session-trades-and-timeline/) |
 | Decision rendering | Analysis, trade ideas, and actions in a readable format. | Understand what the AI concluded, not only what the market did afterward. | [Trading cycle: overview](/cortiq-public/trading-cycle/overview/) |
-| Session reviews | One-click AI review of a finished run. | Get scored suggestions and durable per-instrument lessons instead of a bare result. | [Session reviews](/cortiq-public/session-review/) |
-| System messages | In-app notification inbox with actionable cards. | Read platform alerts and approve agent actions in one place. | [System messages](/cortiq-public/system-messages/) |
+| Session reviews | Explicitly reviews saved evidence, including during an active session. | Inspect assessment, Observations, proposed changes, and the reviewed cutoff. | [Session review](/cortiq-public/session-review/) |
+| Activity | In-app notification inbox with actionable cards. | Read platform alerts and approve agent actions in one place. | [Activity](/cortiq-public/system-messages/) |
 
 ### Agent and research functions
 
 | Function | What it does | What it does for you | Read more |
 | --- | --- | --- | --- |
-| Research | A single-instrument idea lab with workspaces, runs, and artifacts. | Explore and stress-test ideas on one market before they become playbooks. | [Research](/cortiq-public/research/) |
-| Edge-discovery guardrails | Opt-in phased out-of-sample validation for research runs. | Stronger evidence that an edge is real, when you choose to enforce it. | [Research](/cortiq-public/research/) |
+| Topic research | Measures distinct questions and saves independent answers and final interpretation. | Inspect evidence and explicitly save reviewed Learnings. | [Research](/cortiq-public/research/) |
+| Execution-policy validation | Requires eligible evidence and a separate closed validation workflow before Edge promotion. | Keep descriptive findings separate from tested execution authority. | [Instrument Hub](/cortiq-public/instrument-hub/) |
 | MCP server | Exposes Cortiq tools to MCP-compatible clients. | Drive analysis and trading from an external agent. | [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/) |
-| Cortiq Copilot | An in-app Copilot dock (`Ctrl+K`) that authors entities. | Build playbooks, packages, and sessions by asking, behind the approval gate. | [Cortiq Copilot](/cortiq-public/cortiq-copilot/) |
-| Agent permissions | Approval model with an always-on trade gate plus capability grants. | The AI can act while you stay the final authority on trades. | [Agent permissions](/cortiq-public/agent-permissions/) |
+| Cortiq Copilot | An in-app assistant (`Ctrl+K`) with page-specific tools. | Prepare drafts and use permitted actions with the applicable save and approval rules. | [Cortiq Copilot](/cortiq-public/cortiq-copilot/) |
+| Agent permissions | Separates provider permission mode, mutation approvals, and execution checks. | Understand the authority granted for each action. | [Agent permissions](/cortiq-public/agent-permissions/) |
 
 ### Platform and support functions
 
@@ -121,14 +122,14 @@ If you want a higher-altitude view first, [Feature overview](/cortiq-public/feat
 | MT5 integration | Connects Cortiq to the local terminal. | Turns AI decisions into actual broker-side execution. | [MetaTrader 5 integration](/cortiq-public/mt5-integration/) |
 | Provider health | Tracks volume, success rate, response speed, retries, errors. | Diagnose whether provider instability is affecting results. | [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/) |
 | Feature-level provider overrides | Specific functions can use a different provider than the session default. | One session default plus a different provider for a special workflow. | [AI providers](/cortiq-public/ai-providers/) |
-| Automated performance reports | Scheduled summary reports through Telegram. | Monitor performance without opening the desktop. | [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) |
+| Price notifications | Saves session targets and monitors fresh Bid while Running. | Read activations in Activity; a Windows toast is also attempted. | [Charting](/cortiq-public/charting/) |
 | Public releases | Distributes the current public installer. | One place to get updates. | [Licensing & support](/cortiq-public/licensing-and-support/) |
 | Public issues and discussions | Public support and feedback channels. | Report bugs, ask usage questions, request improvements. | [Licensing & support](/cortiq-public/licensing-and-support/) |
 
 ## What to read next
 
 1. [Playbook design guide](/cortiq-public/trading-cycle/playbook-design/) — once you know what to configure, this raises the quality of your playbook writing.
-2. [Data package design guide](/cortiq-public/trading-cycle/data-package-design/) — same for data packages.
+2. [Data access policy design guide](/cortiq-public/trading-cycle/data-package-design/) — same for data access policies.
 3. [Sessions](/cortiq-public/sessions/) — where most of the tables above come together at runtime.
 4. [Backtesting](/cortiq-public/backtesting/) — validate a configuration against history before going live.
 

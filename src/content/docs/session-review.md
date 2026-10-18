@@ -1,111 +1,102 @@
 ---
+status: current
 title: Session review
-description: A one-click AI review of a finished session that produces scored, apply-able suggestions and durable instrument-scoped lessons auto-injected into the next session on that symbol.
+description: Review saved session or backtest evidence, inspect supported Observations, and discuss improvements without changing trading rules automatically.
 sidebar:
   order: 100
-  badge: New
 ---
 
-A session review is a one-click AI pass over a session that has finished trading. It produces two things: scored suggestions you can apply to your artifacts, and durable lessons that fold back into the next session on that instrument. By the end of this page you'll know what each channel does, how the learning loop closes, and where to trigger and read a review.
+A review assesses recorded decisions and outcomes, captures supported market Observations, and proposes improvements. You request it explicitly and inspect its coverage before using the result.
 
 ## What this is
 
-When a session ends, you can ask Cortiq to review it. The review runs an isolated AI pass seeded with the session's trade statistics, the recent trades and their AI reasoning, a price-path movement digest of what the market actually printed, a sample of cycles where the AI chose not to act, any prior reviews of the same session, and the lessons already active for the instrument.
+Review works from saved evidence. It can explain a loss without declaring the decision wrong, or a profit without declaring the strategy sound. A later market move alone does not prove that an entry was available at the time.
 
-It returns two output channels that map onto the trading cycle's authority hierarchy:
-
-- **Suggestions** are the command layer. Each is a scored, evidence-backed proposed change to a playbook, data package, skill, instrument profile, or preparation. They are human-in-loop — nothing changes until you apply one.
-- **Lessons** are the reference layer. They are durable, instrument-scoped observations that auto-inject into the *next* session on the same symbol. They tilt the AI's conviction and flag known pitfalls; they never add rules the playbook does not authorize.
-
-The split is deliberate. Suggestions need your approval before anything changes. Lessons inform without gating.
+Stopping a session, opening a page, receiving new evidence, or restarting Cortiq does not start a review or a paid AI call.
 
 ## How it fits into Cortiq
 
-The review is what closes the loop between one session and the next on the same instrument. A session trades, you review it, lessons distilled from that review ride into the next session on that symbol automatically.
-
-| Channel | Layer | Authority | Effect |
-| --- | --- | --- | --- |
-| Suggestions | Command | Human-in-loop | Apply / Discuss / Dismiss a scored change to an artifact. |
-| Lessons | Reference | Auto-fold | Injected into the next session on the same symbol as advisory context. |
-
-Lessons are **instrument-scoped**, not session-scoped — they are shared across every session on that symbol. They are injected into each trading cycle prompt as a fenced `<operator_reviewed_lessons>` block marked as advisory. The injection is failure-isolated: if fetching lessons faults, the block is omitted and the cycle runs without it.
-
-:::note
-Lessons sit at the reference layer of the authority hierarchy, alongside the instrument profile. They tilt conviction; they cannot gate entry or impose rules the playbook and session instructions do not authorize.
-:::
-
-## How to use it
-
-### 1. Trigger a review on a finished session
-
-Open the session's analysis page and select **Review session**. The review runs as an isolated AI call over the completed session and persists as a new review version — re-reviewing the same session adds a version rather than overwriting the prior one.
-
-### 2. Read the suggestions
-
-Each suggestion renders as a card: an artifact-type badge, a score indicator, an evidence summary, and an action row.
-
-![Session review panel showing scored suggestion cards with Apply, Discuss, and Dismiss actions](/cortiq-public/images/screenshots/session-review__panel.png)
-
-Work each card with one of three actions:
-
-- **Apply** routes the Copilot to the editor surface for that artifact, where the proposed change is made through the normal editing path.
-- **Discuss** hands the suggestion text to the Copilot as a conversation seed so you can talk it through before deciding.
-- **Dismiss** removes the card without persisting any change.
-
-### 3. Let the lessons fold back
-
-Lessons are written automatically when the review is saved. New lessons are deduplicated against the instrument's active lessons before persisting, so the loop does not accumulate redundant advice across repeated reviews. Expired lessons are prunable.
-
-From then on, every new session on that symbol injects the active lessons into its cycle prompts. You don't apply lessons — they fold back on their own.
-
-:::tip
-Visit `/reviews` and filter by instrument to see the lessons the loop currently knows for a symbol. The active-lessons header shows exactly what the AI will carry into the next session on that instrument.
-:::
-
-### 4. Browse all reviews
-
-`/reviews` lists every session review across instruments. Filter by symbol to narrow the list, and read the active-lessons header to see the current state of the learning loop for that instrument.
-
-## Reference
-
-### The two channels
-
-| Channel | Persisted as | Scope | Lifecycle |
-| --- | --- | --- | --- |
-| Suggestion | Part of the review version | Per session | Apply, Discuss, or Dismiss — no auto-effect. |
-| Lesson | Standalone, instrument-scoped | Per symbol | Auto-injected into future cycles; deduplicated; prunable on expiry. |
-
-### What seeds the review
-
-| Input | Provides |
+| Result | What you use it for |
 | --- | --- |
-| Trade statistics | Outcome summary for the session. |
-| Recent trades with reasoning | What the AI did and why. |
-| Movement digest | Ground-truth price path (trend / range / reversal), independent of the AI's own outputs. |
-| Did-nothing cycles | A sample of cycles where the AI chose not to act. |
-| Prior reviews | Version context for a re-review. |
-| Active lessons | What the loop already knows, to avoid duplicate advice. |
+| **Session assessment** | Understand recorded decisions, trade outcomes, and the limits of the available evidence. |
+| **Observations** | Inspect specific market facts admitted into the instrument's Knowledge with supporting proof. |
+| **Suggested improvements** | Discuss a proposed comparison or open an artifact editor to make a deliberate change. |
 
-## Common questions
+A review creates Observations when their evidence passes the required checks. It does not directly create Learnings, Edges, playbooks, rules, or new automatically injected lessons. Use [Research](/cortiq-public/research/) to study comparable events and review a broader conclusion.
 
-**Does applying a suggestion change my artifact automatically?**
-No. Apply routes you into the editor surface for that artifact through the Copilot. You stay in the loop; the review never edits an artifact on its own.
+## Before you begin
 
-**Can a lesson force the AI to take or skip a trade?**
-No. Lessons are reference-layer advisory context. They tilt conviction and flag pitfalls, but they cannot gate entry or add rules the playbook does not authorize.
+- Save session activity or backtest progress to review. Zero-trade sessions and manual backtests can still contain useful evidence.
+- Configure **Setup** → **AI Providers** → **Review**. Review has its own provider/model settings and uses **Max** reasoning effort.
+- Check the provider's billing or subscription allowance. An explicit new review can make AI calls.
 
-**Why did a lesson I expected not appear in the next session?**
-Lessons are instrument-scoped. They inject only into sessions on the same symbol, and only while active — an expired or deduplicated lesson is not carried forward.
+The selected provider must support the required effort. A missing or unsupported route produces a configuration error; Cortiq does not silently select a cheaper model or another provider.
+
+## Review a session
+
+1. Open the session's **Reviews** tab.
+2. Select **Review session**. You can review completed evidence while the session is running; after stopping, the control is also available in the header.
+3. Wait for the saved assessment and Observation results.
+4. Inspect **Reviewed through**, the included run periods, and coverage counts.
+5. Open individual Observations to check their source evidence, or discuss an improvement with Copilot.
+
+**Update review** examines newly completed evidence. If the evidence is unchanged, Cortiq reuses the durable result without another prompt or review version.
+
+In-flight cycles are excluded. Open positions have outcomes frozen at the review cutoff. The coverage display distinguishes included, skipped, unavailable, and unfinished evidence; a partial review is not a complete account of the run.
+
+## Review a backtest
+
+Open a saved backtest after it is **Completed**, **Cancelled**, or **Failed**. An Autonomous backtest can also be reviewed while **Paused**; a paused Manual replay does not show review controls. Do not advance replay while reviewing it.
+
+The review uses the saved execution inventory and replay statistics. A manual run does not need AI decision cycles to be reviewed. Read trade legs, closed positions, and still-pending positions as separate counts.
+
+Saved trade review remains useful when historical market context is unavailable. Additional historical candles, when collected, are retrospective context: they do not prove what you saw at entry. Missing costs, rule versions, or outcomes remain stated limitations.
+
+## Read and act on the results
+
+### Check the assessment's scope
+
+Start with the cutoff and evidence coverage. Distinguish decision quality from outcome quality, and recorded rule adherence from assumptions about what the rules used to be.
+
+### Inspect supported Observations
+
+Observation admission checks the instrument, recognition time, source ownership, and measurable facts. An AI sentence or chart recollection is not enough. Unsupported concepts remain unresolved rather than becoming knowledge automatically.
+
+Repeated captures of the same event do not count as independent evidence. Follow an admitted Observation into the [Instrument Hub](/cortiq-public/instrument-hub/) to review it or research similar events.
+
+### Discuss improvements before changing rules
+
+Use **Discuss** to give Copilot the proposal and its context. Artifact links open the corresponding editors. Review the changes and save them through those editors.
+
+Changing a suggestion's status does not apply a rule, establish an Edge, or validate an experiment. Historical **Applied** labels remain readable as history.
+
+## Continue after interruption
+
+Review saves completed stages and keeps earlier successful content available during an update or failure. Use the visible status to distinguish complete, partial, unavailable, failed, cancelled, outdated, and uncertain work.
+
+**Cancel review** stops the current work. A request that was sent without a saved response has uncertain completion and billing. Ordinary Update does not resend it. **Retry uncertain request** is a separate explicit action that can send another paid request.
+
+Restarting Cortiq does not automatically resume paid review work.
+
+## Verify the review
+
+The result should show the reviewed cutoff, coverage, and an assessment state. Open an admitted Observation and confirm its instrument and source. If coverage is partial or unavailable, retain that limitation when interpreting the conclusion.
+
+The global **Session Reviews** page lists saved versions and links to each session. It reads results; the session's review controls start or update the work.
+
+## Historical reviews and lessons
+
+Older reviews, notes, attention flags, and lessons remain accessible in read-only history. The old automatic distillation and lesson-injection workflow is retired. Historical lessons do not become new session instructions.
 
 ## What to read next
 
-1. [Journal & analytics](/cortiq-public/journal-and-analytics/) — the trade record a review reads from.
-2. [Sessions](/cortiq-public/sessions/) — the next session on the symbol, where lessons fold back.
-3. [Research](/cortiq-public/research/) — the other improvement loop, for deeper instrument work.
+1. [Instrument Hub](/cortiq-public/instrument-hub/) — inspect Observations and reviewed Learnings for the market.
+2. [Research](/cortiq-public/research/) — measure comparable occurrences before generalizing from one run.
+3. [Backtesting](/cortiq-public/backtesting/) — test a proposed execution change on historical data.
 
 ## Related
 
-- [Playbooks & data](/cortiq-public/playbooks-and-data/)
-- [Skills](/cortiq-public/skills/)
-- [Risk management](/cortiq-public/risk-management/)
-- [Glossary](/cortiq-public/glossary/)
+- [Journal and analytics](/cortiq-public/journal-and-analytics/)
+- [AI providers](/cortiq-public/ai-providers/)
+- [Cortiq Copilot](/cortiq-public/cortiq-copilot/)
+- [Sessions](/cortiq-public/sessions/)

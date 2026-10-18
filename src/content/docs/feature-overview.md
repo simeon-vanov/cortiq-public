@@ -1,6 +1,7 @@
 ---
+status: current
 title: Feature overview
-description: A concise summary of every major Cortiq capability — playbooks, sessions, risk, backtesting, bring-your-own AI, research, skills, journals, reviews, and the agent surface.
+description: A map of Cortiq capabilities, from instrument research and reviewed knowledge to data policies, historical replay, sessions, and review.
 sidebar:
   order: 30
 ---
@@ -9,7 +10,7 @@ This page is the at-a-glance map of Cortiq's product surface. Read it once befor
 
 ## What this is
 
-Cortiq's feature set is wide because the platform handles a full operating loop, not a single step. The major features fall into five groups: *strategy and context* (playbooks, data packages, preparation, skills), *execution* (sessions, MT5, providers, risk, execution modes), *validation* (backtesting), *monitoring and review* (workspace screens, journals, session reviews, system messages), and *agent surface* (research, MCP, Copilot, permissions).
+Cortiq's feature set is wide because the platform handles a full operating loop, not a single step. The major features fall into five groups: *strategy and context* (playbooks, data access policies, preparation, skills), *execution* (sessions, MT5, providers, risk, execution modes), *validation* (backtesting), *monitoring and review* (workspace screens, journals, session reviews, system messages), and *agent surface* (research, MCP, Copilot, permissions).
 
 Use this page as a fast index into the rest of the site. The Reference table below names every major capability with one sentence of "what it does" and one sentence of "why it matters", and links to the page that explains it in depth.
 
@@ -32,10 +33,10 @@ You bring your own AI. Cortiq connects to providers you already pay for — ther
 | Feature | What it does | Why it matters |
 | --- | --- | --- |
 | Playbook management | Defines the rules, filters, and operating logic the AI must follow. | You keep control of the trading framework instead of delegating it to a black box. |
-| Data packages | Controls what market data, indicators, screenshots, account state, and context the AI receives. | Tighter scope produces more consistent decisions and prevents noisy prompts. |
+| Data access policies | Sets allowed timeframes, candle limits, and exact indicator bindings. | Align required inputs with the playbook and check actual data delivery. |
 | Preparation layers | Reusable context through instrument profiles, preparation packages, and sentiment reports. | The AI operates with structured background instead of rediscovering it every cycle. |
-| Skills | Reusable Markdown instruction templates injected into generation flows. | Encode a house style once and apply it across preparation, research, and reviews. |
-| Custom indicators | Uses MT5 indicator data, including custom indicators, in the analysis pipeline. | Feed tailored market context into your sessions. |
+| Skills | Reusable Markdown instructions explicitly attached to supported flows. | Apply a chosen method to generation, analysis, or authoring. |
+| Indicator catalogue | Calculates supported built-in indicators in Cortiq from broker candles. | Select exact supported definitions and parameters for charting and execution. |
 | Trade ideas | Captures standalone theses outside the reusable playbook library. | Track one-off opportunities without polluting your strategy framework. |
 
 ### Execution
@@ -46,17 +47,17 @@ You bring your own AI. Cortiq connects to providers you already pay for — ther
 | Discretionary trading | Manual sessions run no AI decision loop — you place the orders from the session's chart, with position size calculated from your stop and a risk percentage. | Trade the market yourself while keeping the preparation, risk limits, journal, and review. |
 | Charting | A candlestick chart in every session, backtest, journal entry, and piece of recorded evidence, with timeframes, drawing tools, Cortiq-calculated indicators, and trade and decision markers. | See what happened and where each order or decision landed, without leaving the app. |
 | MetaTrader 5 integration | Connects Cortiq to MT5 on the same machine for prices, account state, orders, and position management. | The execution bridge between AI decisions and actual trades. |
-| Bring-your-own AI providers | Connects ChatGPT, Gemini, Claude, OpenRouter / OpenAI-compatible endpoints, and local models over API, ACP, CLI, or External MCP transports. | You use the provider and transport you already pay for; there is no managed Cortiq AI. |
-| Execution modes | Runs each session virtual, live, or under external-MCP control. | Move from rehearsal to real orders inside the same operating model. |
+| Bring-your-own AI providers | Uses explicitly selected API or supported ACP connections. | Keep provider, model, transport, and billing under your control. |
+| Execution modes | Chooses virtual simulation or broker execution separately from Manual/Autonomous decision-making. | Rehearse the configured workflow before authorizing real orders. |
 | Risk management | Applies dual-layer global and per-account limits on drawdown, profit, trade counts, exposure, and loss streaks, with an emergency-stop breaker. | Risk rules stay active even when the AI wants to trade more aggressively. |
-| Notifications | Trade and management events delivered through Windows toasts, X, or Telegram. | Stay informed without watching the desktop app all day. |
+| Notifications | Dispatches supported events through configured channels and records Activity and session price alerts. | Inspect delivery boundaries and durable in-app events. |
 | Feature-level provider overrides | Specific product functions can use a different provider than the session default. | One provider may be better for a supporting workflow than for live decisions. |
 
 ### Validation
 
 | Feature | What it does | Why it matters |
 | --- | --- | --- |
-| Backtesting | Replays a session against historical data on a chart. Autonomous runs replay the AI's own decision cycles; manual runs let you step the chart forward and place the orders yourself. | Test a configuration — or your own execution — against the past before risking capital. |
+| Backtesting | Configures standalone manual or autonomous historical replay with frozen risk settings, instructions, coverage checks, and saved recovery. | Inspect execution and simulation limits before evaluating a setup. |
 
 ### Monitoring and review
 
@@ -68,17 +69,17 @@ You bring your own AI. Cortiq connects to providers you already pay for — ther
 | Conversations | The raw AI conversations across selected sessions. | Inspect model behavior and reasoning traces directly. |
 | Provider health monitoring | Tracks success rate, response time, retries, and provider errors. | Decide whether provider reliability is hurting the workflow. |
 | Trade journal and analytics | Trade and session journals plus P/L, win rate, best/worst days. | Track whether a strategy is improving or drifting. |
-| Session reviews | One-click AI review of a finished run, producing scored suggestions and durable instrument lessons. | Turns each run into a learning loop instead of a one-off result. |
-| System messages | In-app notification inbox with actionable permission cards. | Approve agent actions and read platform alerts in one place. |
+| Session reviews | Explicitly assesses saved session or backtest evidence and captures supported Observations and proposed improvements. | Check decision quality and coverage without automatically changing rules. |
+| Activity | In-app notification inbox with actionable permission cards. | Approve agent actions and read platform alerts in one place. |
 
 ### Agent surface
 
 | Feature | What it does | Why it matters |
 | --- | --- | --- |
-| Research | A single-instrument idea lab with workspaces, runs, artifacts, and opt-in edge-discovery guardrails. | Explore and stress-test ideas on one market before they become playbooks. |
-| MCP server and agent control | Exposes Cortiq tools to MCP-compatible AI clients, and runs external-MCP sessions. | Drive analysis and trading through agents like Claude Desktop, not only the internal loop. |
-| Cortiq Copilot | An in-app Copilot dock (`Ctrl+K`) that authors entities behind the approval gate. | Build playbooks, packages, and sessions by asking, without leaving the app. |
-| Agent permissions | An approval and permission model with an always-on trade gate plus capability grants. | The AI can act, but you stay the final authority on trades and sensitive actions. |
+| Research | Starts from an instrument Hub, measures distinct questions over managed data, and retains answers and analysis revisions. | Review scope, distributions, missing outcomes, and conclusions before saving knowledge. |
+| MCP server and agent control | Exposes scoped tools to external clients in Manual-session contexts. | Use direct tools with explicit permissions and host execution checks. |
+| Cortiq Copilot | An in-app assistant (`Ctrl+K`) with page-specific context and tools. | Analyse results, prepare drafts, and use permitted actions under their own save and approval rules. |
+| Agent permissions | Separates provider access, Cortiq mutation approvals, and trading authority. | Understand which layer authorizes each action. |
 
 ### What Cortiq is and isn't
 
@@ -102,11 +103,11 @@ Cortiq **is not**:
 
 In practical terms, the platform supports six jobs:
 
-1. Turn a trading idea into a structured operating framework using playbooks, data packages, skills, and sessions.
+1. Turn a trading idea into a structured operating framework using playbooks, data access policies, skills, and sessions.
 2. Give the AI better context through preparation, instrument profiles, sentiment, and trade ideas.
 3. Validate a configuration against history with backtesting before risking capital.
 4. Execute or simulate that workflow through MT5 with clear operating controls and platform-level risk rules.
-5. Review and improve the workflow with journals, analytics, and one-click session reviews that store durable lessons.
+5. Review and improve the workflow with journals, analytics, and explicit reviews that retain evidence and proposed improvements.
 6. Extend the system with research, the MCP surface, Copilot, and a permission model that keeps you in control.
 
 ## What to read next

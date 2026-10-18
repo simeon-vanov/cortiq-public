@@ -1,6 +1,7 @@
 ---
+status: current
 title: Risk management
-description: Cortiq's dual-layer risk controls — global limits across all accounts, per-account limits, breach behavior, and the operating principles that keep them effective.
+description: Configure global and per-account limits, inspect risk pauses and order validation, and understand the separate risk snapshot used by a backtest.
 sidebar:
   order: 50
 ---
@@ -46,15 +47,11 @@ Risk is visible in two screens:
 
 Open `Tools` → `Risk Management` and select the `Global` tab. Set conservative defaults before any live execution.
 
-![Risk Management page with the Global tab selected, all six limits visible](/cortiq-public/images/screenshots/risk-management__global-panel.png)
-
 Conservative is not optional. Tighten until you'd be comfortable with the worst-case loss the rule allows; you can always loosen later, but you can't undo a breach that exceeded a too-wide limit.
 
 ### Configure per-account limits
 
 Switch to the `Per-Account` tab and configure rules for each MT5 account independently. Use this to encode account-specific mandates: prop-firm challenge limits, a personal account's daily drawdown, a secondary account's max exposure.
-
-![Risk Management page with the Per-Account tab selected, one account's limits visible](/cortiq-public/images/screenshots/risk-management__account-panel.png)
 
 ### Configure your day-start time
 
@@ -62,9 +59,13 @@ Risk validators reset their daily counters at a configured local time, not at OS
 
 ### Watch for `RiskPaused` sessions
 
-When a validator triggers, the affected sessions transition to `RiskPaused`. Don't manually unpause — the platform resumes them automatically when the breach condition clears (for example, the next trading day starts). Stop the session manually if you genuinely want to override.
+When a validator triggers, affected sessions can enter `RiskPaused`. Cortiq attempts to resume when the condition clears and start checks permit it. Inspect the recorded reason and remaining exposure; stopping a session does not override order validation.
 
 ## Reference
+
+### Backtest risk settings
+
+Backtests capture replay-supported global and selected-account limits when they start. Edit those settings on the backtest setup page to compare a configuration without changing live account defaults. The saved run and its recovery use the captured settings. See [Backtesting](/cortiq-public/backtesting/).
 
 ### Limits the platform enforces
 

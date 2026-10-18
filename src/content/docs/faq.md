@@ -1,6 +1,7 @@
 ---
+status: current
 title: FAQ
-description: Fast answers to common Cortiq questions about installation, virtual vs backtesting, AI providers, licensing, the agent approval gate, research, and skills.
+description: Answers about research, backtesting, review, providers, licensing, and agent permissions, with links to current workflows.
 sidebar:
   order: 20
 ---
@@ -31,7 +32,7 @@ ChatGPT (OpenAI), Gemini (Google), Claude (Anthropic), OpenRouter or another Ope
 
 ### How does Cortiq reach the AI provider?
 
-Through one of four transports: `API` (the provider's REST API), `ACP` (a local agent over JSON-RPC, such as `claude-agent-acp` or `codex-acp`), `CLI` (a local command-line tool), or `External MCP` (an outside MCP client posts the decision back). See [AI providers](/cortiq-public/ai-providers/).
+Internal AI calls use an explicit `API` or supported `ACP` route. External MCP is a separate Manual-session tool integration. CLI and automatic provider substitution are not supported by the active router. See [AI providers](/cortiq-public/ai-providers/).
 
 ### Can I start with one AI provider and switch later?
 
@@ -39,15 +40,15 @@ Yes. Each session stores its own provider and transport, so different sessions c
 
 ### Can I use Claude Desktop or another MCP agent with Cortiq?
 
-Yes — in advanced setups. The Cortiq MCP server lets an MCP-compatible client drive an `External MCP` session through tool calls. That's a different operating mode from the autonomous session loop. See [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/).
+Yes. An external MCP client can call tools in a Manual-session context. It does not run an autonomous waiting cycle. Configure its permissions explicitly. See [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/).
 
 ### Does the AI place trades on its own?
 
-It depends on the session mode and authority you configure. In a Manual session, you place and manage the orders. In an Autonomous session, the agent can execute through MetaTrader 5 inside the session authority, approval policy, and risk limits you set. Cortiq's Copilot and external MCP trade tools use their own explicit trade-approval gate. See [Sessions](/cortiq-public/sessions/) and [Agent permissions](/cortiq-public/agent-permissions/).
+It depends on the authority you configure. A Manual session has no general automatic cycle, but requested agent actions and separately enabled automated trade ideas can act under their own permissions or mandate. An Autonomous session executes inside its session authority and risk limits. Copilot and external MCP use separate permission layers; external MCP approval cards depend on server configuration. See [Sessions](/cortiq-public/sessions/) and [Agent permissions](/cortiq-public/agent-permissions/).
 
-### What is the Research workspace for?
+### Where do I start research?
 
-Research is a single-instrument idea lab. You create a workspace for one symbol, run AI research over MT5 candle data, and the output can seed a playbook, instrument profile, or preparation notes. Edge-discovery guardrails are opt-in. See [Research](/cortiq-public/research/).
+Open **Knowledge** → **My Instruments**, choose a market, prepare its **Data**, then select **Research a topic**. Read the measured answers and limitations before explicitly saving a reviewed Learning. Research completion does not automatically create an Edge or playbook. See [Research](/cortiq-public/research/).
 
 ### What is a skill?
 
@@ -75,7 +76,7 @@ No. €199 buys a one-time license with all future Cortiq desktop updates includ
 
 ### Can I run Cortiq without a license?
 
-You can install, design playbooks, and run backtests with no license. Any session bound to MetaTrader 5 — live, virtual, or broker-demo — needs a valid license. See [Licensing & support](/cortiq-public/licensing-and-support/).
+Viewing and preparation remain accessible, but starting sessions, backtests, research runs, and managed data-file builds requires a valid license. See [Licensing & support](/cortiq-public/licensing-and-support/).
 
 ### Where should I ask questions about workflow or setup?
 
@@ -88,6 +89,14 @@ Use [GitHub Issues](https://github.com/simeon-vanov/cortiq-public/issues/new/cho
 ### Where should I ask about license problems?
 
 Email `support@cortiq.trade` rather than public issues if the case involves license keys, payment data, or other sensitive details. See [Licensing & support](/cortiq-public/licensing-and-support/).
+
+### Does a completed study automatically become knowledge?
+
+No. Execution, interpretation, review, and publication are separate. A Learning preserves a reviewed conclusion and its measured scope; it does not certify an executable Edge. See [Instrument Hub](/cortiq-public/instrument-hub/).
+
+### Does review change my strategy automatically?
+
+No. You request Review or Update review, inspect the saved cutoff and coverage, and discuss proposed changes before editing the relevant artifact. Automatic lesson injection is retired. See [Session review](/cortiq-public/session-review/).
 
 ## What to read next
 

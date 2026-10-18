@@ -1,186 +1,181 @@
 ---
 title: Research
-description: A single-instrument idea lab — managed parquet data files, Behaviour / Edge / Exploration runs, grounded answers with charts, opt-in edge-discovery guardrails, and a Copilot hand-off into a playbook, profile, or preparation notes.
+description: Investigate one market with managed data files, measured research questions, saved results, and explicitly reviewed Learnings.
+status: current
 sidebar:
   order: 10
-  badge: New
 ---
 
-Research is where you do deep work on one instrument: prepare a reusable dataset, study how the market behaves, test whether an idea holds up, or watch history and let Cortiq surface what keeps recurring. By the end of this page you'll know the two tabs on the Research page, the three kinds of run, how a grounded answer reads, and how to hand a finished run to the Copilot.
-
-Research is upstream of the trading cycle. A [session](/cortiq-public/sessions/) trades; research is where the thinking that *shapes* a session happens, then feeds back in as a playbook, an [instrument profile](/cortiq-public/trading-cycle/entities/instrument-profiles/), or preparation context. Findings also flow into the [Instrument Hub](/cortiq-public/instrument-hub/) knowledge ledger for the market.
+Use research to investigate how one market behaves, inspect the historical evidence, and decide what to save as a Learning. This guide takes you from a prepared dataset to reviewed findings.
 
 ## What this is
 
-The Research page has two tabs that share one instrument filter:
+Research turns a question into observable setup rules, finds comparable historical occurrences, and measures what happens afterward. Cortiq keeps your original intent alongside the questions derived from it. Measurements and AI explanations are saved separately, so an explanation failure doesn't erase completed measurements.
 
-- **Research Runs** — the deep AI passes over one instrument, and their results.
-- **Data Files** — reusable parquet datasets the runs read from.
-
-Every run reads its market data from one or more **managed data files** rather than authoring data from scratch each time. Cortiq owns the hidden research prompt; anything you type is *additional* instruction layered on top, treated as untrusted notes — it can't override the research rules, the data validation, or the guardrails.
-
-The symbol is validated against your default MT5 account's catalog when you start a run, so a typo or an unknown symbol is rejected with suggestions rather than silently producing nothing. A run that expected candle data but received none fails loudly instead of fabricating output.
+A study describes the selected instrument, files, dates, and setup. It doesn't place trades. Mixed responses, a narrow sample, or no consistent response are useful findings when their scope and limitations are clear.
 
 ## How it fits into Cortiq
 
-| Surface | Cadence | Produces |
-| --- | --- | --- |
-| Research | Occasional, deep | Findings, edge tests, drafts you hand off |
-| [Instrument Hub](/cortiq-public/instrument-hub/) | Always | The per-market view research feeds |
-| [Playbooks & data](/cortiq-public/playbooks-and-data/) | Per strategy | The rules a session executes |
-| [Sessions](/cortiq-public/sessions/) | Continuous | Live or simulated trading |
+Start from the market's [Instrument Hub](/cortiq-public/instrument-hub/). Its `Data` tab holds reusable research datasets; its `Knowledge` tab starts research and holds saved Observations and Learnings. The research-run count opens `All research` for that instrument. Select a run to reopen its results.
 
-## Managed data files
+Research establishes what happened around a defined condition. [Backtesting](/cortiq-public/backtesting/) evaluates a playbook through historical trading decisions. A saved Learning supplies evidence for further work; it doesn't establish an executable Edge or authorize a session.
 
-A **managed data file** is a reusable, pre-built parquet dataset owned by you, not a by-product of a single run. Preparing a file once — then reusing it across many runs — keeps your research grounded in the same, inspectable data. A file stores:
+## Before you begin
 
-- a symbol and timeframe,
-- the base candle columns you want (open, high, low, close, tick volume),
-- selected indicators, each with its own parameters (for example `period=14`),
-- named custom columns you describe in plain language,
-- an editable pandas build script,
-- the latest built parquet plus a preview of its first rows.
+- Configure the `Research & Knowledge` route in [AI Providers](/cortiq-public/ai-providers/).
+- Connect an [MT5 account](/cortiq-public/mt5-integration/) with history for the instrument and period you need to build a dataset.
+- Verify your license before building files or launching research.
+- Prepare at least one built managed data file for the instrument, with the columns and dates your question needs.
 
-![Research page Data Files tab showing the file list with build-status chips and the editor for a managed dataset](/cortiq-public/images/screenshots/research__data-files.png)
+## Prepare a managed data file
 
-Open `Preparation` → `Research`, filter to an instrument, and select the **Data Files** tab. Each file is a card with its name, timeframe, and a build-status chip — `✓ Built · N rows`, `⚠ Never built`, or `✗ Build failed`. The editor on the right groups into **Basics**, **Columns**, **Build script**, and **Build & preview**.
+A managed file is a reusable dataset definition and its built Parquet data. Reuse a suitable built file across studies; rebuild it when its definition, script, or required coverage changes.
 
-To prepare a file, choose the base columns, add indicators through the picker and set their parameters, add any custom columns with explanations, then select **Build parquet**. Cortiq exports the candles, computes the indicators at export time, and runs your script in the same network-denied sandbox exploration uses. The preview shows the first rows so you can confirm the shape before you rely on it.
+1. Open the instrument's `Data` tab and select `Create your first file`, or edit an existing file.
+2. Set its name, timeframe, MT5 account, and history period.
+3. Choose candle columns and any Cortiq indicators. For custom columns, describe the calculation, source columns, when the value becomes available, and required earlier history.
+4. Select `Generate script with AI`, or use the default template for base and indicator columns. Custom calculations need a script that implements them. Save the file.
+5. Select `Build parquet`. Inspect the build message, preview rows, and coverage before starting research. Use the data viewer when the first rows aren't enough to check a column.
 
-:::note
-Indicator columns are computed once at export time and written into the parquet. The build script reads them as-is — it must not recompute indicators with `MetaTrader5` or any other library.
-:::
+Cortiq computes selected indicator columns locally. The build script consumes those values; it must not recalculate the indicators. Build checks also test whether a custom value depends on later candles. A column name or plausible preview alone doesn't establish that it was available at setup time.
 
-**At least one data file is required to start any run.** The start dialog's data-file selector is a multi-select; pick one or more files from the instrument's set. When files are selected and you haven't edited the dates, the run's date range defaults to the overlap of the selected files' periods.
+Saving changes marks the file `NeedsBuild`. A failed rebuild preserves the previous valid build, but it doesn't make the edited definition ready. Rebuild successfully before using the changed file. To correct empty or incorrect columns, open `Edit` and use `Fix script with AI` with a concrete description of the problem.
 
-## Starting a run
+## Start research
 
-`/research` is browse-first. By default it shows recent research across every instrument. Filter to one market and a **fast-start** area appears with three buttons, one per kind of run:
+### Choose the starting point
 
-- **Behaviour** — study how the market behaves across sessions, volatility, range, and structure.
-- **Edge** — test a specific trading idea against the history and see whether it holds up.
-- **Exploration** — watch the history and let Cortiq surface what keeps recurring.
+On the instrument's `Knowledge` tab, choose the action that matches your goal:
 
-![Research page listing recent runs across instruments, with the instrument filter and fast-start actions](/cortiq-public/images/screenshots/research__list.png)
-
-Each button opens a start dialog that collects the run's inputs before anything begins: the instrument, an optional title, the data file(s) to read, and the type-specific fields — the question to study (Behaviour), the idea to test (Edge), or the exploration mode, seed, and date range (Exploration). Cortiq creates the backing storage invisibly, starts the run, and lands you on its result.
-
-## Reading a run's answer
-
-A completed run leads with the **answer**, not a wall of data. The result card shows a one-sentence headline, a plain-language confidence line — **Confirmed**, **Provisional**, **Needs more data**, or **Did not hold up** — and, for grounded runs, a gallery of chart examples paired with a short "what happened" and how each example connects to the conclusion. A typed recommendation sits alongside as a next step.
-
-![Research run detail showing the grounded answer card: headline, verdict, confidence, and chart examples](/cortiq-public/images/screenshots/research__answer-card.png)
-
-The card offers a few one-click actions:
-
-- **Discuss with AI** — opens the Copilot with this run's instrument, title, summary, and result already attached, so you can talk through the finding without re-explaining it.
-- **Create / refine a playbook** — hands the finding to the Copilot to draft or update a playbook.
-- **Ask a follow-up** — continues the analysis in the same research thread.
-
-Everything advanced — the evidence board, the derived validation gates, the run thread, snapshots, and the follow-up box — stays grouped under a **Full details** / **Details** section beneath the answer.
-
-### Plain language, no jargon
-
-Cortiq maps engine states to plain words. The interface deliberately avoids "OOS", "out-of-sample", and "lockbox":
-
-| Engine concept | Shown as |
+| Action | Use it when |
 | --- | --- |
-| Out-of-sample status | Honest-test verdict (Passed / Failed / Not enough examples / Needs review) |
-| Lockbox sample | Examples |
-| Expectancy | Avg result (R) |
-| Readiness | Confirmed / Provisional / Did not hold up / Needs more data |
+| `Research a topic` | You have a behavior, condition, or market period to investigate. |
+| `Gather observations` | You want to find factual occurrences in the selected history, with an optional research focus. |
+| `Research similar observations` | You want to build a study from one saved Observation. |
+| `Gather evidence` | You want more comparable evidence for a saved Learning. |
 
-## Exploration runs
+An Observation or Learning supplies context. It doesn't count as a completed study or remove the need for measured evidence.
 
-An **exploration run** is a watch-and-learn historical replay — no playbook, no positions, no execution. It steps an AI through historical candles of one instrument and writes what it notices to the [Instrument Hub](/cortiq-public/instrument-hub/) knowledge ledger as Observations and Learnings.
+### Set the scope
 
-![Exploration run detail showing the State, Candidate instances, and Script-run audit panels](/cortiq-public/images/screenshots/research__exploration.png)
+1. Select the data files to read and choose a `Primary data file` from that selection. Topic research preserves each selected file's own timeframe; selecting several files doesn't merge their rows into one timeframe.
+2. Review `From` and `To`. Defaults use the builds' saved coverage. When files overlap, the default is their common period. Disjoint coverage produces a wider span and a warning; narrow it when your question requires a shared period.
+3. Set `Number of questions`, from **1 to 20**. The default is **five** unless you've changed the preference. This is a target for distinct questions and a maximum, with an explanation for any shortfall. Several response horizons for one setup aren't separate questions.
+4. Enter a concrete `Research intent`, or the optional focus for gathering observations. For example: “Study H1 closes above the previous day's high. Compare subsequent movement over four and twelve bars, including differences by breakout size.”
+5. If your question compares market sessions, review the saved session definitions. Select `Add a market-session breakdown` when you want that comparison explicitly. Session times use each market's named time zone and follow its daylight-saving changes.
+6. Optionally add a title, then select `Start`.
 
-An exploration run has three modes:
+Launch checks every selected file's instrument, current build, readable data, and requested coverage. A rejection identifies the file and required correction. Missing inputs or a period with no available data remain explicit; Cortiq doesn't fill missing candles or invent a response.
 
-- **Discover** — seeded by an existing Observation, it finds more instances of that pattern, accumulating toward a durable Learning.
-- **Validate** — seeded by a hypothesis, it tests the idea over the period and returns a held or failed verdict.
-- **Free hypothesis** — no seed; it watches the period and proposes new hypotheses.
+For help choosing a study, use `Suggest next research` in Copilot. A recommendation separates `Prepare research file` from `Start research`. Selecting an action puts an editable request in the composer; review and send it to proceed. Preparing a file doesn't authorize a research run.
 
-The exploration detail page has three panels: **State** (the accumulating learning, the last narration, and carried-forward memory), **Candidate instances** (each moment the run examined, marked confirmed or rejected with a note), and **Script-run audit** (every Python script the run authored and ran, with timing and outcome).
+### Build on an earlier study
 
-### How exploration stays safe
+For Topic research, `Build on previous research` adds saved studies as context without changing the selected data files. Review the earlier questions, results, and limitations before starting.
 
-The AI-authored Python **instance-finder** runs in a sandbox whose inputs are parquet files only. It never imports `MetaTrader5`, opens a socket, or reaches a broker. The Cortiq host is the only component that talks to MT5 — it exports the candle history to parquet first, then runs the finder as a confined child process with no network access and no filesystem reach beyond its own scratch folder. The no-execution guarantee is structural, not a policy the model is asked to respect.
+Under `Advanced research settings`, `Reuse an earlier setup method` selects a saved script that finds matching candles. Exact reuse requires compatible setup rules, data, dates, and retained checks. Cortiq executes and checks the method again; otherwise it authors a new method. Earlier evidence doesn't become new evidence through reuse.
 
-### Re-run and fix
+## Follow progress and recover interrupted work
 
-A terminal exploration run exposes two actions. **Re-run** repeats the run, optionally with a one-line steer you type in. **Fix with AI** — shown for failed runs — feeds the failed script and its captured error back to the AI and asks for a corrected script. Both overwrite the run in place.
+The question plan separates the target, planned questions, answered questions, unavailable questions, failures, and pending work. A measured question isn't counted as answered until its AI answer passes validation. Each question has a separate AI context, and successful saved answers survive a failure in another question. A final synthesis combines the available answers.
 
-## Edge discovery — opt-in guardrails
+For Topic and Gather research, use the action that matches the work you want to preserve:
 
-By default a run is **free research** with no constraints. To pin an Edge run down, turn on **Add guardrails (optional)**, which reveals preset pickers — no hand-typed format strings:
-
-- **Session** — Whole day, London open, NY open, Asia, or Custom.
-- **Risk** — 1R stop-target, ATR stop, or Custom.
-- **Setup** — Any, or a named setup family.
-- **Require at least N examples** — a minimum sample size.
-
-A preset left at its non-narrowing value (Whole day, Any, blank) is dropped, so the frozen record holds only the lines you actually narrowed. An Advanced sub-section sets the honest-test hold-back percentage — the chronological out-of-sample split.
-
-:::caution
-Guardrails are opt-in. With guardrails **off**, even a "Find an edge" run goes through the ordinary free-research path: there's **no** phased honest-test validation, and no "What this run was locked to" record appears. That's by design — blank means no lock. Turn guardrails **on** when you want the phased out-of-sample check.
-:::
-
-With guardrails on, the run executes as three sequential phases in one session: freeze the locked constraints and propose train-only hypotheses, build the scoring and threshold plan, then run the chronological honest test and draft a playbook or rejected ideas.
-
-## Hand a finished run to the Copilot
-
-Beyond **Discuss with AI**, a completed run with artifacts exposes:
-
-- **Open report** — reveals `report.md` in your file explorer.
-- **Open data folder** — reveals the run's artifact folder.
-- **Use this research →** — seeds the Copilot with the run's summary and findings, names the saved file paths, and asks which downstream asset to create or update: a **Playbook**, an **Instrument Profile**, or **Preparation notes**. The Copilot drives the chosen path through its tools and the approval gate; preparation notes land in `prep-notes.md` in the run's folder.
-
-## Reference
-
-### On-disk artifact bundle
-
-Each completed run writes a best-effort bundle to disk. A failed disk write is logged and never fails the run — the database stays the source of truth.
-
-| File | Contents |
+| Action | Effect |
 | --- | --- |
-| `report.md` | The run's markdown summary and output. |
-| `candles_<timeframe>.parquet` | Raw MT5 candles per timeframe (D1, H4, H1, M15). |
-| `meta.json` | Symbol, workspace ID, run ID, timestamps, model name. |
-| `prep-notes.md` | Written when a hand-off creates preparation notes. |
-| Chart PNGs | Grounded-run charts referenced by the answer card. |
+| `Pause` | Stops at a safe stage boundary. A current provider response can finish and save first. |
+| `Continue` | Resumes the same saved study with its original intent, question target, period, frozen inputs, and completed stages. An unfinished provider response can need another call. |
+| `Re-run` | Creates a new study. Review its scope and question target before starting. |
+| `Retry explanation` | Requests another AI explanation of retained measurements without repeating the measurements. |
+| `Fix & continue` / `Retry failed checks` | Uses the saved failure and the recovery action offered for that stage. |
 
-### Read-only tools during a run
+After reopening Cortiq, interrupted Topic and Gather runs wait in `Paused` for `Continue`. Startup doesn't automatically restart AI calls. Closing the app stops local execution; continuing later uses the retained checkpoints.
 
-Research and exploration runs get a read-only tool surface. Any tool that would change state — trade execution, session management, settings — is filtered out, so a run can inspect your data but never act on your account.
+## Read the saved results
 
-### Current boundaries
+Completed Topic studies open on `Results`; other execution states open on `Research questions`. Your original intent remains visible across the five views:
 
-- The deterministic edge-discovery engine isn't built yet. Research reasons over the structured prompt and the supplied data, and marks untested ideas as hypotheses or insufficient sample.
-- Grounded finder execution (sandbox plus chart ingest) is wired for the Exploration path today; Behaviour and Edge runs remain pure-AI passes.
-- Every follow-up run re-collects fresh MT5 data and applies the same loud empty-data guard.
+| View | What to inspect |
+| --- | --- |
+| `Results` | Saved numeric outcomes, response distributions, optional AI interpretation, limitations, and the review decision. |
+| `Research questions` | One question at a time, its setup-selection rules, measured response, horizon choices, and comparison with other questions. |
+| `Saved Knowledge` | Copilot Learning drafts and links to Learnings explicitly saved from this study. |
+| `Research map` | Re-run ancestry, cited earlier studies, later follow-ups, and associated Learning drafts or saved Learnings. |
+| `Method & audit` | Frozen scope, prompts, coverage, retained setup-finder scripts, and technical diagnostics. |
+
+### Understand the numbers
+
+Read the setup, horizon, units, and available count before interpreting a chart.
+
+- **Closing change** measures the final close in the chosen horizon relative to the setup close. The middle half describes the distribution of those endpoint changes.
+- **Upward and downward travel** measure the highest high and lowest low during the following bars. They describe movement within the window, rather than its final close.
+- **Setup ATR** scales movement by volatility at the setup. Missing or invalid normalization remains unavailable; it isn't inferred from later candles.
+- **Reach counts** show how often movement reaches a stated distance, including windows that reach both sides. They don't establish which side came first.
+- **Observed-bar horizons** count available market bars across validated recurring closures. They aren't always the same as elapsed clock time.
+
+Newer price-path studies also retain movement before each first extreme and the limits imposed by candle-level ordering. Any displayed reward/risk potential describes historical paths. It isn't trade expectancy, an assumed entry, or proof that a target beats a stop.
+
+Statistics use the complete eligible measured population. Browsable examples are a bounded selection, and missing outcome windows stay separate from measured responses. Counts across questions can overlap; adding them doesn't produce a count of independent trades. Review categorical groups and time-period variation alongside the pooled result.
+
+Distributions retain extreme values in labeled tails. A small number of examples or a concentrated central chart doesn't establish that unusual outcomes are absent. Older studies retain their saved measurements and show unavailable fields where newer evidence wasn't recorded.
+
+### Separate execution from review
+
+`Completed` means execution finished. A run can retain technical or explanation issues, and the Hub can show `Completed with issues`. Read each question's coverage and errors before treating the original request as answered.
+
+A completed Topic study with measured findings has a separate review state. Choose one of the actions under `What's next`:
+
+- `Draft a Learning with Copilot` to prepare a conclusion for explicit review and saving.
+- `Start follow-up research` to launch a new study that references this one.
+- `Keep as research` to record that decision without publishing Knowledge. `Reopen review` makes it actionable again.
+
+Opening Copilot or cancelling a follow-up dialog doesn't resolve the review. Saving a Learning, starting a referenced successor study, or choosing `Keep as research` does.
+
+## Continue the investigation
+
+Use `Discuss with AI` to inspect a saved finding with Copilot. Ask about its setup, missing outcomes, variation, or what the evidence supports testing next.
+
+To add supported response windows to the same frozen population, use `Continue measuring saved setups` in `Research questions`, or ask Copilot for an analysis revision. Revisions remain saved alongside the original analysis. They're exploratory because the earlier outcomes have already been seen; they don't repeat discovery or create a Learning.
+
+To change the question, files, or period, use `Start follow-up research`. The dialog initially selects the source study's files and primary file when available. Review those selections and dates; unavailable files require explicit replacements. Referencing a study doesn't turn an overlapping test into independent validation.
+
+## Save a Learning
+
+Topic completion retains research evidence without automatically publishing Observations or a Learning. A Learning is a reviewed, plain-language conclusion backed by the saved measurements.
+
+1. Select `Draft a Learning with Copilot` and discuss the practical takeaway.
+2. Open `Saved Knowledge` and inspect the draft wording, citations, measurements, scope, and limitations. Edit or reject it if the evidence doesn't support the claim.
+3. Select `Save Learning` when the draft is eligible and represents the conclusion you want to retain.
+4. Open the saved Learning and its evidence from the resulting link.
+
+There is no fixed occurrence minimum for Learning review. Sample size, unavailable responses, overlapping evidence, and complete-population analysis determine how narrow the statement needs to be. Mixed directions or no consistent response can support a Learning; failed analysis or a proposed expectation cannot substitute for one.
+
+Saving rechecks the draft and its primary evidence. Exploratory analysis revisions don't replace that primary publication evidence. A saved Learning still needs separate downstream qualification before it can support an executable trading policy.
+
+## Verify the outcome
+
+Reopen the run from the instrument's research log. Confirm that the saved questions, measurements, limitations, and review decision match the work you completed. A saved Learning appears under `Saved Knowledge` and opens with its evidence; an unsaved draft remains a proposal.
 
 ## Common questions
 
-**Why do I have to prepare a data file before running?**
-So every run reads the same inspectable dataset. You build a file once, confirm its preview, and reuse it across runs instead of re-authoring data each time.
+**Why does a built file need rebuilding before launch?**
+An edited definition or script no longer matches the published build, required custom columns need current build checks, or the requested dates exceed its coverage. Follow the file-specific launch message, rebuild, and inspect the preview.
 
-**Can my typed instructions override Cortiq's research rules?**
-No. Operator text is treated as untrusted notes. It can't move the frozen guardrails, upgrade a hypothesis without evidence, or bypass the prompt and tool-use rules.
+**Why are measurements visible but the explanation failed?**
+Measurement and interpretation are separate stages. Read the saved numbers and limitations, then use `Retry explanation` for another provider request. Successful question answers remain saved.
 
-**Can an exploration run place a trade?**
-No. It has no playbook and no position book, and its instance-finder runs in a network-denied sandbox that can't reach MT5. The no-execution property is enforced by construction.
+**Can research trade on my account?**
+No. Research has a read-only tool surface. Generated data and setup-finder scripts run in a network-denied sandbox; the host supplies the historical data.
 
 ## What to read next
 
-1. [Instrument Hub](/cortiq-public/instrument-hub/) — where research findings land as ledger entries and shape the ★ rating.
-2. [Skills](/cortiq-public/skills/) — reusable instruction templates you can inject into a run.
-3. [Playbooks & data](/cortiq-public/playbooks-and-data/) — the playbook a finished run can become.
+1. [Instrument Hub](/cortiq-public/instrument-hub/) — find your datasets, research history, and saved Knowledge for one market.
+2. [Backtesting](/cortiq-public/backtesting/) — evaluate a playbook through historical execution.
+3. [Playbooks & data](/cortiq-public/playbooks-and-data/) — understand the rules and data a trading session uses.
 
 ## Related
 
-- [Sessions](/cortiq-public/sessions/)
-- [Backtesting](/cortiq-public/backtesting/)
+- [AI Providers](/cortiq-public/ai-providers/)
+- [MT5 integration](/cortiq-public/mt5-integration/)
 - [Session review](/cortiq-public/session-review/)
 - [Glossary](/cortiq-public/glossary/)

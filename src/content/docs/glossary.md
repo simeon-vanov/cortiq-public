@@ -1,82 +1,89 @@
 ---
+status: current
 title: Glossary
-description: Alphabetical definitions of Cortiq's core platform vocabulary, with links to the page that explains each term in depth.
+description: Definitions of Cortiq's research, knowledge, policy, replay, review, provider, and session vocabulary.
 sidebar:
   order: 90
 ---
 
-This page defines the terms you'll see across the rest of the documentation. Each entry links to the page where the concept is explained in depth, so other pages can reference vocabulary without redefining it. Entries are alphabetical.
+Use these definitions when a screen or guide introduces an unfamiliar term. Follow each link for the workflow and its limits.
 
 ## Terms
 
-**ACP** — Agent Client Protocol. A transport where Cortiq drives a local agent (for example `claude-agent-acp` or `codex-acp`) over JSON-RPC instead of calling a REST API. The agent runs under your own local subscription. See [AI Providers](/cortiq-public/ai-providers/).
+**ACP** — Agent Client Protocol: Cortiq communicates with a configured, authenticated local agent over a structured protocol. Provider plans and limits still apply. See [AI providers](/cortiq-public/ai-providers/).
 
-**Agent permission / capability grant** — A persisted grant that lets the agent take a specific class of non-trade action (for example a web action) without prompting each time. Granted once from an actionable System Message, then auto-allowed. Trade execution is never covered by a capability grant — it stays on its own approval gate. See [Agent permissions](/cortiq-public/agent-permissions/).
+**Activity** — The persisted in-app inbox for background events, approvals, and price notifications. Previously called System Messages; the route remains `/system-messages`. See [Activity](/cortiq-public/system-messages/).
 
-**Autonomous session** — A session whose trading loop is driven by Cortiq's internal workflow engine. The default mode for most users. See [Sessions](/cortiq-public/sessions/).
+**Autonomous session** — A session driven by Cortiq's internal AI planning and execution workflow. The default type for a new session. See [Sessions](/cortiq-public/sessions/).
 
-**Backtest** — A historical M1 replay of a session or playbook against past market data. Backtesting is the only license-free path in Cortiq. See [Backtesting](/cortiq-public/backtesting/).
+**Backtest** — A saved historical replay with simulated positions, using either manual execution or autonomous AI decisions. Starting one requires a valid license. See [Backtesting](/cortiq-public/backtesting/).
 
-**Copilot** — The in-app Copilot dock, opened with `Ctrl+K`. It authors and edits entities (playbooks, profiles, preparation notes, and more) on your behalf, behind the same approval gate as the agent. See [Cortiq Copilot](/cortiq-public/cortiq-copilot/).
+**Candidate / research question** — A frozen, measurable condition or distinct aspect of a Topic study. Its measured answer is separate from final synthesis and Learning publication. See [Research](/cortiq-public/research/).
 
-**Data package** — The configurable bundle of market data, indicator values, screenshots, account state, and supporting context that Cortiq sends to the AI on each cycle. See [Playbooks & Data Packages](/cortiq-public/playbooks-and-data/).
+**Conclusion readiness** — A Learning's Current or Needs more data state. Records without a valid conclusion remain Preliminary research. This is not an execution authorization. See [Instrument Hub](/cortiq-public/instrument-hub/).
 
-**Day start time** — The user-configured local time at which Cortiq's daily P/L and trade-count counters reset. Set in risk settings, not in the OS clock. See [Risk Management](/cortiq-public/risk-management/).
+**Copilot** — The in-app assistant opened with **Ctrl+K**. It uses the current screen's context and available tools to analyse or edit work under the applicable permissions. See [Cortiq Copilot](/cortiq-public/cortiq-copilot/).
 
-**External MCP** — A transport where an outside MCP-compatible client (for example Claude Desktop) drives the session loop by calling Cortiq's MCP tools and posting a decision back. Cortiq itself never calls an LLM in this mode. See [MCP and Agent Integration](/cortiq-public/mcp-and-agent-integration/).
+**Data access policy** — Reusable limits on the market inputs the AI may request, including timeframe roles, candle counts, and exact indicator bindings. Older records and URLs use Data package. See [Data access policies](/cortiq-public/trading-cycle/entities/data-packages/).
 
-**External MCP session** — A session whose trading loop is driven by an external MCP client via the `External MCP` transport. The internal workflow engine is not running. See [MCP and Agent Integration](/cortiq-public/mcp-and-agent-integration/).
+**Day start time** — The configured local reset time for daily risk counters. See [Risk management](/cortiq-public/risk-management/).
 
-**Exploration run** — A watch-and-learn research run that steps an AI through historical candles of one instrument with no playbook and no positions, and writes what it notices to the knowledge ledger. Its instance-finder script runs in a network-denied sandbox. See [Research](/cortiq-public/research/).
+**Edge** — A specific execution policy promoted through the required validation workflow, with costs, evidence, and source identity. A descriptive Learning is not an Edge. See [Instrument Hub](/cortiq-public/instrument-hub/).
 
-**Instrument Hub** — The per-symbol command center at `/instruments/{symbol}` that aggregates every playbook, session, backtest, research run, profile, and knowledge entry for one market, headed by the honest ★ mastery rating. See [Instrument Hub](/cortiq-public/instrument-hub/).
+**External MCP** — An outside MCP client calling Cortiq tools in a Manual-session context. It is not an autonomous model transport or an internal waiting decision loop. See [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/).
 
-**Instrument profile** — A reusable per-symbol context document (typical session, common ranges, behavioral notes). See [Trading Cycle: Instrument Profiles](/cortiq-public/trading-cycle/entities/instrument-profiles/).
+**Gather observations** — Research that collects comparable market events for processing or further study. It does not automatically turn unmatched events into Learnings. See [Research](/cortiq-public/research/).
 
-**Integration mode** — How Cortiq reaches the provider: `API`, `ACP`, `CLI`, or `External MCP`. Each provider supports one or more. See [AI Providers](/cortiq-public/ai-providers/).
+**Hypothesis** — A testable execution family created from eligible Learning evidence inside the closed reaction workflow. See [Instrument Hub](/cortiq-public/instrument-hub/).
 
-**Knowledge ledger** — The append-only, instrument-scoped evidence trail on the Instrument Hub. Each entry is an Observation (a single noticed instance) or a Learning (a lesson seen across several instances), stamped with its source and a confidence weight. See [Instrument Hub](/cortiq-public/instrument-hub/).
+**Instrument Hub** — One market's workspace for Overview, Knowledge, Data, research history, and trading artifacts. Open it from **Knowledge** → **My Instruments**. See [Instrument Hub](/cortiq-public/instrument-hub/).
 
-**Lesson** — A durable, instrument-scoped takeaway produced by a Session Review and carried forward into later sessions on that instrument. See [Session Review](/cortiq-public/session-review/).
+**Instrument profile** — Reusable context about an instrument's behavior and characteristics. See [Instrument profiles](/cortiq-public/trading-cycle/entities/instrument-profiles/).
 
-**Local model** — A self-hosted, OpenAI-compatible model served locally through Ollama or LM Studio. Reached over the `API` transport against a local endpoint. See [AI Providers](/cortiq-public/ai-providers/).
+**Knowledge ledger** — Instrument-scoped records of Observations, Learnings, workflow-created Hypotheses, and validated Edges, with evidence and provenance. See [Instrument Hub](/cortiq-public/instrument-hub/).
 
-**Managed data file** — A reusable, pre-built parquet dataset for one instrument — a symbol, timeframe, chosen columns, indicators, and an editable build script — that a research or exploration run reads instead of authoring data each time. Managed on the Research page's Data Files tab. See [Research](/cortiq-public/research/).
+**Learning** — A saved conclusion backed by measured evidence, including its scope and limitations. Mixed results are valid conclusions; no fixed sample count makes a conclusion tradable. See [Instrument Hub](/cortiq-public/instrument-hub/).
 
-**Mastery rating (★)** — The Instrument Hub headline. It equals the number of playbooks promoted to Production maturity for a market, and nothing else moves it. See [Instrument Hub](/cortiq-public/instrument-hub/).
+**Lesson** — A historical review artifact. Automatic lesson production and injection into later trading prompts are retired. See [Session review](/cortiq-public/session-review/).
 
-**MT5 bridge** — The ZeroMQ connection between Cortiq and a running MetaTrader 5 terminal on the same machine. See [MetaTrader 5 Integration](/cortiq-public/mt5-integration/).
+**Local model** — A model served through a configured local/private OpenAI-compatible API endpoint. Live web research is not supported for Local Model. See [AI providers](/cortiq-public/ai-providers/).
 
-**OpenRouter** — An OpenAI-compatible provider Cortiq reaches over the `API` transport; the endpoint can be repointed at any other OpenAI-compatible service. See [AI Providers](/cortiq-public/ai-providers/).
+**Managed data file** — A reusable, built historical dataset for an instrument and timeframe, with selected columns and indicators. Manage files on the Hub's Data tab. See [Research](/cortiq-public/research/).
 
-**Playbook** — A reusable strategy definition: the rules, filters, and operating logic the AI follows during a session. See [Playbooks & Data Packages](/cortiq-public/playbooks-and-data/).
+**Manual session** — A session without the general autonomous AI cycle. Operator actions, explicitly requested agent actions, and separately enabled trade-idea mandates have distinct authority. See [Discretionary trading](/cortiq-public/discretionary-trading/).
 
-**Preparation package** — A reusable context layer (for example, a daily bias note) that supplements the data package on every cycle. See [Trading Cycle: Preparation Packages](/cortiq-public/trading-cycle/entities/preparation-packages/).
+**Mastery rating** — The count of Production-maturity playbooks for an instrument. It is an operator designation, not a forecast or statistical score. See [Instrument Hub](/cortiq-public/instrument-hub/).
 
-**Provider** — An AI service Cortiq talks to: ChatGPT (OpenAI), Gemini (Google), Claude (Anthropic), OpenRouter / OpenAI-compatible, or a local model. You bring your own. See [AI Providers](/cortiq-public/ai-providers/).
+**MT5 bridge** — The local connection to an account's configured MetaTrader 5 terminal for prices, account information, and supported execution. See [MT5 integration](/cortiq-public/mt5-integration/).
 
-**Research workspace** — A single-instrument idea lab. Each workspace is scoped to one symbol and holds research runs and their artifacts; output can seed a playbook, instrument profile, or preparation notes. See [Research](/cortiq-public/research/).
+**Playbook** — Reusable strategy rules, with pinned versions and an execution data policy where selected. See [Playbooks and data access policies](/cortiq-public/playbooks-and-data/).
 
-**Risk limit (global)** — A risk rule that applies across all MT5 accounts combined: total daily drawdown, total weekly drawdown, total daily trades. See [Risk Management](/cortiq-public/risk-management/).
+**Preparation package** — An analysis recipe. Generating it saves a report run with an effective time, input evidence, and expiry. See [Preparation packages](/cortiq-public/trading-cycle/entities/preparation-packages/).
 
-**Risk limit (per-account)** — A risk rule that applies to one MT5 account only. Independent of other accounts. See [Risk Management](/cortiq-public/risk-management/).
+**Provider route** — The explicit provider, supported transport, model, and effort selected for a feature. Internal model calls use API or ACP and do not silently switch providers. See [AI providers](/cortiq-public/ai-providers/).
 
-**Sentiment report** — A reusable context document summarizing market positioning or news sentiment, attached to a session for richer AI context. See [Trading Cycle: Sentiment Reports](/cortiq-public/trading-cycle/entities/sentiment-reports/).
+**Research revision** — A saved additional analysis of a study's evidence. Exploratory revisions do not replace the frozen primary study. See [Research](/cortiq-public/research/).
 
-**Session** — A trading session. The smallest unit of repeatable Cortiq operation: an MT5 account, one symbol, a provider, a time window, and risk settings, executed against a playbook. Each session is locked to a single instrument. See [Sessions](/cortiq-public/sessions/).
+**Research workspace** — The instrument-scoped storage behind research runs. Start research from the Instrument Hub; there is no separate workspace-creation step. See [Research](/cortiq-public/research/).
 
-**Session Review** — A one-click AI review of a finished session that scores what happened and produces suggestions plus durable instrument lessons. See [Session Review](/cortiq-public/session-review/).
+**Risk limit** — A global or per-account constraint checked independently of AI prose. Backtests capture replay-supported risk settings for their own run. See [Risk management](/cortiq-public/risk-management/).
 
-**Skill** — A reusable Markdown instruction template you write once and inject into generation flows. See [Skills](/cortiq-public/skills/).
+**Sentiment report** — Time-limited current external context generated from observed provider web research, with sources and provenance. Historical generation is unsupported. See [Sentiment reports](/cortiq-public/trading-cycle/entities/sentiment-reports/).
 
-**System Message** — An in-app notification in the System Messages inbox. Some are informational; some are actionable permission cards used to grant a capability. See [System messages](/cortiq-public/system-messages/).
+**Session** — An operating context for one MT5 account and one required instrument, with a fixed Manual or Autonomous type. See [Sessions](/cortiq-public/sessions/).
 
-**Trade idea** — A standalone trade thesis captured outside the playbook library, useful for one-off opportunities. See [Trading Cycle: Trade Ideas](/cortiq-public/trading-cycle/entities/trade-ideas/).
+**Session review** — An explicitly requested assessment of saved evidence, supported Observations, and proposed improvements. It does not edit rules or publish Learnings automatically. See [Session review](/cortiq-public/session-review/).
 
-**Virtual mode** — A session mode that runs forward on live data but holds back the order instead of sending it to MT5. Useful for evaluation, rehearsal, and challenge environments. Distinct from a [Backtest](/cortiq-public/backtesting/), which replays history. See [Execution Modes & Notifications](/cortiq-public/execution-modes-and-notifications/).
+**Skill** — A reusable instruction template used by supported generation flows or Copilot. Skills do not bypass input, risk, or permission checks. See [Skills](/cortiq-public/skills/).
+
+**Topic research** — A study that turns an instrument-scoped question into distinct measurable questions, saved answers, and a final explanation. See [Research](/cortiq-public/research/).
+
+**Trade idea** — A specific thesis with its own lifecycle. Automated ideas require a separately reviewed and enabled mandate. See [Trade ideas](/cortiq-public/trading-cycle/entities/trade-ideas/).
+
+**Virtual mode** — Forward execution on current data with simulated positions. A backtest instead replays historical data. Both require a valid license. See [Execution modes and notifications](/cortiq-public/execution-modes-and-notifications/).
 
 ## Related
 
-- [Documentation Map](/cortiq-public/documentation-map/)
-- [App Navigation Guide](/cortiq-public/app-navigation-guide/)
-- [Capability Reference](/cortiq-public/capability-reference/)
+- [Documentation map](/cortiq-public/documentation-map/)
+- [App navigation guide](/cortiq-public/app-navigation-guide/)
+- [Capability reference](/cortiq-public/capability-reference/)

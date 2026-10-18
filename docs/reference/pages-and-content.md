@@ -1,6 +1,7 @@
 ---
+status: reference
 area: pages-and-content
-last_updated: 2026-05-17
+last_updated: 2026-10-18
 ---
 
 # Pages and content
@@ -10,6 +11,30 @@ last_updated: 2026-05-17
 Defines the published-page surface of the docs site. Starlight reads `src/content/docs/` as the `docs` content collection (registered in `src/content.config.ts`), and `astro.config.mjs` declares the sidebar groups that bind page slugs to navigation labels. This reference is the slug-to-purpose map; it is not a duplicate of the reader content.
 
 ## Components
+
+### Reader-content audit baseline
+
+The 2026-10-18 refresh follows the current sibling desktop source, including work
+still awaiting installed/provider acceptance. It does not assert a released runtime
+version or clear the desktop's pending verification gates. Existing reader URLs
+remain stable; screen labels come from the current desktop sidebar.
+
+Maintain the main explanations against these current desktop reference owners:
+
+| Reader topic | Desktop source of truth |
+| --- | --- |
+| Replay, risk snapshots, coverage and recovery | `cortiq-app/docs/reference/backtesting.md`, checked against current Backtest UI/service where historical sections conflict. |
+| Topic questions, results, continuation and publication | `cortiq-app/docs/reference/research.md` and current Research/Hub components. |
+| Knowledge readiness and validated execution | `cortiq-app/docs/reference/instrument-hub.md`. |
+| Explicit review, Observations and historical lessons | `cortiq-app/docs/reference/session-review.md`. |
+| Policy generation, compatibility and delivered inputs | `cortiq-app/docs/reference/playbook-data-policy-validation.md` and indicator references. |
+| Provider routes, permissions, skills and charts | Their specialized desktop references and current settings/tool implementations. |
+
+Specialized current source overrides obsolete paragraphs retained lower in long
+reference histories. Do not derive current licensing, concurrency, or recovery
+claims from old backtesting limitations. Do not describe active designs as shipped
+solely because a specification exists. All licensed starts use the desktop's
+`LicensedActionGate`.
 
 The sidebar in `astro.config.mjs` is the source of truth for what's published. Pages are grouped as follows:
 
@@ -23,7 +48,7 @@ The sidebar in `astro.config.mjs` is the source of truth for what's published. P
 | `feature-overview` | High-level summary of every major capability. |
 | `capability-reference` | Plain-English summary of what each function does for the user. |
 | `getting-started` | Orientation for evaluators (who it's for, first-day shape). |
-| `installation-and-activation` | Windows MSIX install and license-key activation flow. |
+| `installation-and-activation` | Windows Velopack installer and license-key activation flow. |
 | `first-30-minutes` | Guided walkthrough from install to first safe virtual session. |
 | `glossary` | Defined terms — every other page links here instead of redefining. |
 
@@ -32,22 +57,25 @@ The sidebar in `astro.config.mjs` is the source of truth for what's published. P
 | Slug | Purpose |
 |---|---|
 | `mt5-integration` | MetaTrader 5 setup, ZmqFacade EA, per-account multi-MT5 configuration, health indicator. |
-| `ai-providers` | API-key / browser-mode / external-MCP transports for OpenAI, xAI, Anthropic, Google. |
+| `ai-providers` | Explicit API/ACP provider routes, captured models, feature selection, and separate Manual-context External MCP integration. |
 | `playbooks-and-data` | Playbooks (strategy rules) + data packages (what context the AI sees). |
 | `sessions` | Session create form, single-instrument scope, run/pause/stop lifecycle. |
+| `discretionary-trading` | Explicit Manual sessions, operator tickets, scoped agent actions, risk checks, and review. |
+| `charting` | Standalone/live/replay/evidence charts, persistent drawings, exact indicators, and one-shot session price notifications. |
 | `risk-management` | Global + per-account risk limits, emergency-stop circuit breaker. |
-| `backtesting` | Historical M1 replay of a session/playbook; coverage grid; the only license-free path. |
+| `backtesting` | Licensed standalone Manual/Autonomous replay, saved setup and risk, coverage generation, recovery, results, and review. |
 | `execution-modes-and-notifications` | Live / virtual / external-MCP modes; Toast / X / Telegram channels; System Messages. |
 | `workspace-and-monitoring` | Day-to-day screens: Home, Dashboard, Sessions, Trade Ideas, Conversations, Provider Health, Journal, Reviews, System Messages, NowTradingBar. |
 | `journal-and-analytics` | Closed-trade journal + analytics page (P/L, win rate, best/worst day) + the review/lessons loop. |
-| `session-review` | One-click AI session review → scored suggestions + durable instrument-scoped lessons. |
-| `system-messages` | In-app notification inbox + actionable permission cards. |
+| `session-review` | Explicit saved-evidence review, coverage, supported Observations, proposed improvements, and uncertain-request recovery. |
+| `system-messages` | Activity: durable inbox, applicable approval cards, and session price notifications. |
 
-### Research & Skills
+### Instruments & Research
 
 | Slug | Purpose |
 |---|---|
-| `research` | Single-instrument idea lab: workspaces, runs, artifacts, opt-in edge-discovery guardrails. |
+| `instrument-hub` | Overview/Knowledge/Data, conclusion readiness, workflow-created Hypotheses, validated Edges, aliases, and mastery. |
+| `research` | Managed data, Topic question targets, independent answers, saved results, continuation, review, and Learning publication. |
 | `skills` | Reusable Markdown instruction templates injected into the creation flows. |
 
 ### MCP & Agent

@@ -1,196 +1,143 @@
 ---
+status: current
 title: AI providers
-description: The AI providers Cortiq drives, the four transports that reach them, and how to pick the right provider and transport for each part of your workflow.
+description: Configure API or subscription connections and choose models for trading, Copilot, Review, research, and preparation.
 sidebar:
   order: 20
 ---
 
-Cortiq is bring-your-own-AI: you supply the provider, Cortiq drives it. This page explains which providers Cortiq supports, the four transports that reach them, and how to choose a provider and transport for each part of your workflow. By the end you'll know what to configure for your first session and how to wire a different provider into a single feature.
+Cortiq uses your own AI accounts. Configure the connection first, then choose the provider and model for trading, research, preparation, review, and Copilot.
 
 ## What this is
 
-Cortiq never ships a hosted model. Every cycle, every artifact, and every Copilot reply runs through an AI account that you own. You choose the provider and Cortiq routes the request through whichever transport that provider is configured for.
+A model selection includes three parts: the provider, the connection type, and the model. Cortiq uses the selected combination and reports a failure when it cannot run. It does not switch to another provider to hide the failure.
 
-There are five providers and four transports. A provider is the model family — who answers. A transport is the wire — how Cortiq reaches it. Most pairings of the two are valid, and the right pairing depends on whether you want metered API billing, a subscription you already pay for, or a model running entirely on your own hardware.
+The current connections are `API` and `Subscription`. Subscription connects to a locally installed, authenticated Codex or Claude agent through ACP. Legacy CLI and browser selections are not supported routes for current AI workflows.
 
-The router (`AgentLlmRouter`) resolves the transport per session at call time, so the rest of Cortiq — the trading cycle, the journal generator, the MCP tools — never needs to know which provider or transport is in use.
-
-## Who this is for
-
-- You have an API key, a local model endpoint, or a local agent you can authenticate, and you want Cortiq to use it.
-- You want to reuse a Claude or ChatGPT subscription you already pay for instead of paying per token.
-- You want one provider for the trading loop and a cheaper one for supporting work like the journal.
-
-This page is not the right fit if you expected a model bundled with the app. Cortiq is BYO-AI only; there is no managed Cortiq model to turn on.
-
-## Providers
-
-| Provider | Who runs the model | API default model | Local agent transports |
-| --- | --- | --- | --- |
-| ChatGPT (OpenAI) | OpenAI | `gpt-4o` | ACP (`codex-acp`) |
-| Gemini (Google) | Google | `gemini-2.0-flash` | CLI (`gemini`) |
-| Claude (Anthropic) | Anthropic | `claude-sonnet-4-6` | ACP (`claude-agent-acp`), CLI (`claude`) |
-| OpenRouter / OpenAI-compatible | OpenRouter or your endpoint | `openai/gpt-4o-mini` (override per endpoint) | — |
-| Local model | Your machine | depends on your install | — (runs over the API transport) |
-
-The configured model per provider is overridable in `Settings` → `AI Providers`. Leaving the model blank uses the provider default in the table.
-
-:::note
-The **Local model** provider targets a local OpenAI-compatible endpoint such as Ollama or LM Studio (default `http://localhost:11434/v1/chat/completions`). It reaches the model over the API transport, but the endpoint must resolve to your own loopback or private-network host — Cortiq rejects a Local-model endpoint that points at a public address.
-:::
-
-## Transports
-
-A transport is how Cortiq reaches the provider. The same provider can be reachable several ways; you pick one per session (or let Cortiq auto-resolve it).
-
-### API
-
-Cortiq calls the provider's REST API directly with your API key. Keys are stored encrypted on the local machine and never leave it.
-
-API is the default transport for new sessions. It is the only transport that persists structured conversation turns, supports an automatic fallback provider when the primary fails, and offers web-context tools (`web_search`, `web_fetch`) during artifact generation. The cost is metered per token.
-
-Pick API when you want traceability, fallback, and the least setup — one key and you're running.
-
-### ACP
-
-ACP (Agent Client Protocol) drives a local agent command that you have installed and authenticated, talking to it over JSON-RPC on standard input/output. Cortiq launches the agent process and passes prompts to it; it never sees your subscription token.
-
-ACP is supported for **ChatGPT** (via `codex-acp`) and **Claude** (via `claude-agent-acp`). It is the path that reuses a Claude or ChatGPT subscription you already pay for, so there is no per-token charge on top of the plan.
-
-Pick ACP when you already pay for Claude Code or Codex and want Cortiq to run on that plan rather than a metered key.
-
-### CLI
-
-CLI mode runs the provider's command-line tool as a subprocess. It is supported for **Claude** (`claude`) and **Gemini** (`gemini`). Cortiq invokes the tool and reads its output; the tool manages its own authentication and conversation continuity.
-
-For Claude subscription use, ACP is preferred over CLI because it uses a structured agent protocol. CLI remains available as a compatibility fallback.
-
-Pick CLI when you have a provider's CLI installed and authenticated and ACP isn't available for it (Gemini), or as a fallback for Claude.
-
-### External MCP
-
-In External MCP mode Cortiq itself never calls a model. Its MCP server hands the prompt to an outside MCP-aware client — Claude Desktop, Claude Code, or another agent — and waits up to 15 minutes for that client to post a decision back through the `wait_for_cycle_prompt` and `submit_cycle_decision` tools.
-
-Pick External MCP when an external agent, not Cortiq's internal loop, is the thing driving the trade.
-
-:::caution
-External MCP sessions hand control to an outside agent. The external client is the only thing producing decisions — if it never posts back, the cycle waits out its timeout and does nothing.
-:::
-
-### Choosing a transport
-
-| If you want | Prefer |
-| --- | --- |
-| Least setup, persisted history, automatic fallback | API |
-| Reuse a Claude or ChatGPT subscription you already pay for | ACP |
-| A provider CLI you've already installed (Gemini, or Claude fallback) | CLI |
-| An external agent to drive the trade, not Cortiq's loop | External MCP |
-| A model running entirely on your own hardware | Local model (over API transport) |
+An external MCP client is a different workflow: your outside client calls Cortiq tools. Cortiq does not invoke that client as an AI provider. See [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/).
 
 ## How it fits into Cortiq
 
-```mermaid
-flowchart LR
-  S[Session<br/>provider + transport] --> R{AgentLlmRouter}
-  R -->|API| AP[REST API adapter]
-  R -->|ACP| AC[Local agent<br/>over JSON-RPC]
-  R -->|CLI| CL[Provider CLI<br/>subprocess]
-  R -->|External MCP| EX[Outside MCP client<br/>posts decision back]
-  AP --> P[Your AI account]
-  AC --> P
-  CL --> P
-```
+| Provider | API | Subscription |
+| --- | --- | --- |
+| ChatGPT / OpenAI | Your OpenAI API key. | Your authenticated Codex connection. |
+| Claude | Your Anthropic API key. | Your authenticated Claude connection. |
+| Gemini | Your Google API key. | Unavailable. |
+| OpenRouter / compatible endpoint | Your key and compatible endpoint. | Unavailable. |
+| Local Model | A local OpenAI-compatible endpoint. | Unavailable. |
 
-*Each session stores a provider and a transport. The router picks the transport at call time and reaches your own AI account through it.*
-
-Provider and transport setup lives in `Settings` → `AI Providers`. The per-session provider and transport are set in the session create dialog under `Library` → `Sessions`.
+API usage is billed to the selected API account or credits. Subscription use follows your provider's plan, usage limits, and access. A subscription connection does not guarantee unlimited usage or access to every model.
 
 ## How to use it
 
-### Configure a provider
+### Configure an API connection
 
-Open `Settings` → `AI Providers`. Each provider has its own card. Select the transport you want for that provider (the chips list only the transports that provider supports), then fill the matching fields:
+1. Open `Setup` → `AI Providers`.
+2. Select the provider and choose `API`.
+3. Enter its key and, when required, endpoint.
+4. Choose a model or retain the provider default where offered.
+5. Select `Save API Settings`, then verify the connection.
 
-- **API** — paste the API key. Optionally pick a non-default model.
-- **ACP** — click **Configure**. Cortiq installs the known agent packages for that provider and opens its login command so you sign in directly. For Claude that is `@anthropic-ai/claude-code` plus `@agentclientprotocol/claude-agent-acp`; for ChatGPT it is `@openai/codex` plus `@agentclientprotocol/codex-acp`.
-- **CLI** — point Cortiq at the installed CLI (or leave the default on `PATH`) and authenticate the tool with its own login.
+Use `Local Model` for a service running on your computer or private network. OpenRouter's custom endpoint accepts public HTTPS services; it does not replace the Local Model connection for local addresses.
 
-![AI Providers settings panel showing per-provider key fields](/cortiq-public/images/screenshots/ai-providers__api-keys.png)
+### Configure a subscription connection
 
-### Read the auth badge
+1. Open the ChatGPT or Claude provider and choose `Subscription`.
+2. Use the connection setup controls to install or repair the supported local runtime when required.
+3. Authenticate directly with the provider using `Re-authenticate`.
+4. Load the available models and select a `Subscription model`.
+5. Save the selection and verify the connection.
 
-Every provider card carries a `ProviderAuthBadge` showing Cortiq's latest readiness result for the selected transport. The same badge appears on the Copilot dock and the `Provider Health` page.
+Model discovery reads the installed runtime's advertised choices without asking it to generate an answer. Connection verification separately checks that the selected model can respond on your account. Discovery alone does not establish access.
 
-The badge matters because a session **will not start a provider reported as unavailable**. When you start a run, Cortiq runs a readiness check; if the provider isn't ready, the start fails with an operator-readable message (for example, "Run `claude` to log in") instead of failing mid-cycle. Use **Check now** after you sign in or change the provider configuration.
+An unavailable saved model remains visible as a problem. Refreshing the model list does not silently choose a replacement. Changing the model in a separate Codex or Claude application does not change Cortiq's saved selection.
 
-![A single provider card showing the transport chips and auth badge](/cortiq-public/images/screenshots/ai-providers__provider-card.png)
+### Maintain the local connection
 
-### Pick the provider and transport per session
+| Action | Purpose |
+| --- | --- |
+| `Inspect runtime` | Inspect the installed supported packages. |
+| `Repair connection` | Restore a missing or incompatible connection. |
+| `Update packages` | Update within the runtime versions Cortiq supports. |
+| `Re-authenticate` | Sign in again with the provider. |
 
-When you create or edit a session you choose its provider and transport together. One session can run Claude over ACP while another runs ChatGPT over the API. You can also set a fallback provider on the session: the API transport switches to it after the primary exhausts its retries, and retries the primary every five minutes.
+These actions are explicit. Starting a session, running a cycle, or automatic restart does not update global provider packages.
 
-### Set per-feature provider overrides (optional)
+### Choose the AI for each workflow
 
-The `Settings` → `AI Providers` screen maps each AI-driven feature to a provider and transport, so you can run the trading loop on one provider and supporting work on another. The features you can override are:
+Under `Workflow AI Settings`, select the provider, integration mode, optional model override, and thinking effort for each workflow, then select `Save AI Settings`.
 
-- **Journal** — generates the post-session journal entry.
-- **Preparation** — builds preparation packages.
-- **Sentiment** — generates sentiment reports.
-- **Instrument Profile** — builds instrument profiles.
-- **Trading Cycle** — the session default for live decision cycles.
-- **Backtesting** — the provider used when a backtest replays cycles.
-- **Copilot** — the in-app assistant (Ctrl+K).
+The workflows include Journal, Review, Preparation, Sentiment, Instrument Profile, Research & Knowledge, Trading Cycle, and Backtesting. Copilot's default model and effort are also available under `Settings` → `Copilot`.
 
-Changing a feature's provider inherits that provider's selected transport by default, so the two never silently disagree; an explicit per-feature transport override is still available. The **Use one AI for every feature** panel applies a single provider and transport to every feature at once.
+`Use one AI for all workflows` applies the provider and connection together. It leaves individual model and thinking-effort selections unchanged, so review those fields after applying it.
 
-:::tip
-Run the trading cycle on your strongest provider and point Journal, Preparation, and Sentiment at a cheaper or local model. The supporting features don't need the decision-quality of the live loop, and the saving compounds across a trading week.
-:::
+### Understand where a model selection is saved
+
+| Work | Model selection |
+| --- | --- |
+| New Autonomous session | Starts from the Trading Cycle default; you choose the full route during creation. |
+| Existing Autonomous session | Keeps its saved provider, connection, and exact model for decisions, planning, replanning, and recovery. |
+| Copilot conversation | Keeps its own provider, connection, and model; the dock's model picker changes that conversation's selection. |
+| Supporting workflow | Uses the workflow's configured selection and applicable provider default. |
+| Session or backtest review | Uses the independent Review configuration, with verified maximum effort. |
+
+Changing a global default does not replace the model saved on an existing Autonomous session. Cloning preserves its selection. Older sessions without a saved model display `Legacy default (see AI Providers)` and retain their legacy fallback to Trading Cycle settings.
+
+Changing a Copilot conversation's model starts isolated provider context while carrying bounded prior exchanges for continuity. If its saved selection becomes unavailable, sending fails until you correct it; Cortiq does not silently substitute another route.
 
 ## Reference
 
-### Provider × transport support
+### Review uses Max effort
 
-| Provider | API | ACP | CLI | External MCP |
-| --- | --- | --- | --- | --- |
-| ChatGPT (OpenAI) | yes | yes (`codex-acp`) | — | yes |
-| Gemini (Google) | yes | — | yes (`gemini`) | yes |
-| Claude (Anthropic) | yes | yes (`claude-agent-acp`) | yes (`claude`) | yes |
-| OpenRouter / compatible | yes | — | — | yes |
-| Local model | yes | — | — | yes |
+The `Review` workflow has its own provider, connection, and model. Thinking effort is fixed at `Max`, independent of routine Journal, Trading Cycle, and Backtesting effort.
 
-External MCP is a session-level mode rather than a per-provider capability: in that mode Cortiq doesn't call any provider itself, so it applies regardless of which provider account the external client uses.
+Cortiq requires the selected model's verified highest native reasoning setting before sending review evidence. Unsupported models, missing capabilities, or a lower acknowledgement stop the request with a settings error.
 
-### What provider and transport choice affects
+Without a dedicated Review selection, existing session/backtest review settings provide the compatibility fallback. Configure Review explicitly when you want an independent model. Reading saved results does not request another review. See [Session review](/cortiq-public/session-review/).
 
-- **Cost.** API is metered per token; ACP and CLI reuse a subscription you already pay for; Local model runs on your own hardware.
-- **History.** The API transport persists structured conversation turns; ACP, CLI, and External MCP delegate continuity to the agent or client.
-- **Fallback.** Only the API transport has automatic fallback to a second provider.
-- **Setup.** API needs one key; ACP and CLI need an installed, authenticated local tool; External MCP needs an outside client wired to the Cortiq MCP server.
+### Sentiment requires live web research
+
+Sentiment generation first gathers current web evidence through the selected provider, then writes the report from that evidence. A report requires completed search activity, an observed query, and observed source URLs.
+
+| Connection | Verified sentiment research path |
+| --- | --- |
+| OpenAI API or ChatGPT Subscription | Supported. |
+| Claude API or Subscription | Supported. |
+| Gemini API | Supported. |
+| OpenRouter API | Supported. |
+| Local Model | No verified live-search adapter. |
+
+Research charges and limits belong to the selected provider account. Cortiq does not require a separate search-service key for these supported paths. If research fails, the report is not saved and another provider is not used automatically.
+
+Backdated sentiment generation is unavailable. Today's web results cannot stand in for historical evidence. See [Sentiment reports](/cortiq-public/trading-cycle/entities/sentiment-reports/).
+
+### Failures stay on the selected connection
+
+Transient failures can retry on the same connection. An authentication problem, exhausted quota, unsupported selection, or unavailable model needs attention on that connection; there is no automatic failover provider.
+
+Use the readiness result in AI Providers and `Tools` → `Provider Health` to inspect connection problems. An unavailable provider can block Autonomous session start. Manual order entry does not require an AI model.
 
 ## Common questions
 
-**Is there a managed Cortiq model I can turn on?**
-No. Cortiq is bring-your-own-AI. You configure your own provider account; Cortiq supplies the workflow around it.
+**Does a local model support every workflow?**
+No. General API compatibility does not establish every capability. Sentiment needs verified web research, and Review needs verified maximum-effort support.
 
-**Can I switch a session's provider or transport while it's running?**
-No. They are part of the session config. Stop the session, change them in the session edit dialog, and start a new run.
+**Why does refreshing models not repair my selection?**
+Refreshing only discovers choices. Select and save an available model, then verify the connection.
 
-**A session won't start and says the provider isn't ready. Why?**
-The readiness check blocks a run when its provider is reported as unavailable. Open the provider's card in `Settings` → `AI Providers`, check the API key or complete the CLI/ACP login, use **Check now**, and start the run again.
-
-**Why pick ACP over the API for Claude?**
-ACP runs on a Claude subscription you already pay for, with no per-token charge. The API transport bills per token but adds persisted history and automatic fallback. Choose on cost versus traceability.
+**Can a workflow use a different model from Copilot?**
+Yes. Workflow settings, saved Autonomous session models, and individual Copilot conversation selections have separate owners.
 
 ## What to read next
 
-1. [Sessions](/cortiq-public/sessions/) — where the provider and transport are chosen per session.
-2. [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/) — `Provider Health` is where you watch auth and reliability over time.
-3. [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/) — when an external agent drives the workflow instead of the internal loop.
+1. [Sessions](/cortiq-public/sessions/) — choose the model saved on an Autonomous session.
+2. [Cortiq Copilot](/cortiq-public/cortiq-copilot/) — use a conversation's model and tools.
+3. [Session review](/cortiq-public/session-review/) — request a review and recover incomplete work.
+4. [Agent permissions](/cortiq-public/agent-permissions/) — configure provider permission requests and Cortiq approvals.
 
 ## Related
 
-- [Getting started](/cortiq-public/getting-started/)
-- [First 30 minutes in Cortiq](/cortiq-public/first-30-minutes/)
-- [Playbooks & data packages](/cortiq-public/playbooks-and-data/)
-- [Glossary](/cortiq-public/glossary/)
+- [Sentiment reports](/cortiq-public/trading-cycle/entities/sentiment-reports/)
+- [Research](/cortiq-public/research/)
+- [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/)
+- [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/)

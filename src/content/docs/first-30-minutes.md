@@ -1,11 +1,12 @@
 ---
+status: current
 title: First 30 minutes in Cortiq
 description: A guided 30-minute path from a fresh activation to a clean first virtual session, with checkpoints for MT5, providers, playbook, and risk settings.
 sidebar:
   order: 70
 ---
 
-This page takes you from a freshly activated Cortiq install to a running virtual session in roughly thirty minutes. By the end you'll have a session that's actually trading on a chart — without sending real orders.
+This page takes you from a freshly activated Cortiq install to a running virtual session in roughly thirty minutes. By the end you'll have a configured virtual session whose decisions and recorded inputs you can inspect. A valid setup does not guarantee a trade during the walkthrough.
 
 :::caution
 Stay in virtual mode for this entire walkthrough. The goal is to verify that the workflow behaves correctly end-to-end, not to make money on the first day. Live execution comes after several green virtual sessions.
@@ -13,7 +14,7 @@ Stay in virtual mode for this entire walkthrough. The goal is to verify that the
 
 ## What this is
 
-The first thirty minutes are an integration test of your setup, not a strategy test. The walkthrough hits each external dependency once — MT5 bridge, AI provider, playbook, data package, session, journal — so any broken link surfaces fast and in isolation.
+The first thirty minutes are an integration test of your setup, not a strategy test. The walkthrough hits each external dependency once — MT5 bridge, AI provider, playbook, data access policy, session, journal — so any broken link surfaces fast and in isolation.
 
 The strategy you build here is intentionally narrow: one symbol, one or two timeframes, one clear setup and invalidation rule. A simple playbook produces a readable journal, which is the only thing you actually need on day one.
 
@@ -21,14 +22,14 @@ The strategy you build here is intentionally narrow: one symbol, one or two time
 
 | You are here | Comes before | Comes after |
 | --- | --- | --- |
-| First 30 minutes *(this page)* | [Installation & activation](/cortiq-public/installation-and-activation/) | Iteration in [Sessions](/cortiq-public/sessions/) and [Playbooks & data packages](/cortiq-public/playbooks-and-data/) |
+| First 30 minutes *(this page)* | [Installation & activation](/cortiq-public/installation-and-activation/) | Iteration in [Sessions](/cortiq-public/sessions/) and [Playbooks & data access policies](/cortiq-public/playbooks-and-data/) |
 
 By the end of this walkthrough you'll have:
 
 - Cortiq installed and activated.
 - MetaTrader 5 connected on the same machine.
 - One AI provider configured and responding.
-- One simple playbook and a focused data package.
+- One simple playbook and a focused data access policy.
 - One virtual session running and producing journal output.
 
 ## How to use it
@@ -37,7 +38,7 @@ By the end of this walkthrough you'll have:
 
 1. Download the current Cortiq release from [GitHub Releases](https://github.com/simeon-vanov/cortiq-public/releases/latest).
 2. Run `Cortiq-win-Setup.exe` on the machine that will run Cortiq. Verify that Windows identifies **Decode The Trade Ltd** as the publisher. If SmartScreen still shows a protection screen, choose **More info → Run anyway** only after the publisher matches.
-3. Open the app and complete license activation in `Settings` → `License`.
+3. Open the app and complete license activation in `Setup` → `License`.
 
 If activation fails, stop and resolve it before moving on — see [Installation & activation](/cortiq-public/installation-and-activation/).
 
@@ -45,7 +46,7 @@ If activation fails, stop and resolve it before moving on — see [Installation 
 
 1. Open MetaTrader 5 and confirm the correct terminal and account are running.
 2. Attach the `ZmqFacade` Expert Advisor to a chart with algorithmic trading allowed.
-3. In Cortiq, open `Settings` → `MT5 Accounts` and confirm the right account is configured.
+3. In Cortiq, open `Setup` → `MT5 Accounts` and confirm the right account is configured.
 4. Watch the topbar MT5 health indicator turn green.
 
 If the indicator stays red, see [MetaTrader 5 integration](/cortiq-public/mt5-integration/) before continuing.
@@ -53,20 +54,20 @@ If the indicator stays red, see [MetaTrader 5 integration](/cortiq-public/mt5-in
 ### Minute 10–15 — Configure one AI provider
 
 1. Pick one provider for the first run — ChatGPT, Gemini, Claude, an OpenAI-compatible endpoint, or a local model.
-2. Choose a transport: the API (a metered key, least setup), ACP or CLI (reuse a Claude or ChatGPT subscription you already pay for), or a local model on your own hardware.
-3. Confirm the provider's readiness badge is green in `Settings` → `AI Providers` — a session won't start a provider reported as unavailable.
+2. Choose a transport: the API (a metered key, least setup), supported ACP (using your authenticated local agent and provider allowance), or a local model on your own hardware.
+3. Confirm the provider's readiness badge is green in `Setup` → `AI Providers` — a session won't start a provider reported as unavailable.
 
-Simplicity beats flexibility on day one. You can add a fallback provider later. See [AI providers](/cortiq-public/ai-providers/) if the choice isn't obvious.
+Select both provider and supported transport explicitly. Fix an unavailable route before continuing; Cortiq does not silently substitute another provider. See [AI providers](/cortiq-public/ai-providers/) if the choice isn't obvious.
 
 ### Minute 15–20 — Create a narrow strategy setup
 
-Build the smallest playbook and data package that still expresses your idea:
+Build a focused playbook and data policy for your idea. Use the playbook's execution-policy generation and compatibility review, then save the reviewed configuration:
 
 - One symbol — the single instrument this session will trade.
 - One or two important timeframes (not a stack of six).
 - One setup rule, one invalidation rule.
 
-A narrow scope produces journals you can actually read. See [Playbooks & data packages](/cortiq-public/playbooks-and-data/) for a refresher.
+A narrow scope produces journals you can actually read. See [Playbooks & data access policies](/cortiq-public/playbooks-and-data/) for a refresher.
 
 ### Minute 20–25 — Create the first session
 
@@ -76,7 +77,7 @@ Create one session with these defaults:
 - One MT5 account.
 - The provider you configured above.
 - Your simple playbook.
-- Your focused data package.
+- Your focused data access policy.
 - Virtual mode enabled.
 - Conservative risk settings — yes, even though the session is virtual.
 
@@ -99,7 +100,7 @@ The first question is *did this workflow behave in a way I can understand and tr
 | --- | --- |
 | Topbar MT5 indicator stays green | Bridge is healthy. |
 | `Provider Health` shows successful responses | AI provider is responding to Cortiq. |
-| Journal entries are readable | Playbook and data package are sensible. |
+| Journal entries are readable | Playbook and data access policy are sensible. |
 | Risk panel shows the configured limits | Risk validators are wired up. |
 | Session moves through `Running` cleanly | Operating loop is intact. |
 
@@ -122,5 +123,5 @@ The first question is *did this workflow behave in a way I can understand and tr
 - [Installation & activation](/cortiq-public/installation-and-activation/)
 - [MetaTrader 5 integration](/cortiq-public/mt5-integration/)
 - [AI providers](/cortiq-public/ai-providers/)
-- [Playbooks & data packages](/cortiq-public/playbooks-and-data/)
+- [Playbooks & data access policies](/cortiq-public/playbooks-and-data/)
 - [Glossary](/cortiq-public/glossary/)

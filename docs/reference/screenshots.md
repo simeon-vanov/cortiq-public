@@ -1,13 +1,21 @@
 ---
+status: reference
 area: screenshots
-last_updated: 2026-06-26
+last_updated: 2026-10-18
 ---
 
 # Screenshots
 
-This file tracks every screenshot referenced by the reader docs. A PNG either exists at
-`public/images/screenshots/<name>` (captured) or carries an outstanding
-`<!-- SCREENSHOT-NEEDED: ... -->` marker on its reader page.
+This file tracks historical captures and replacement screenshot work. The
+2026-10-18 reader refresh removes outdated image embeds, including retired Research
+screens, old backtest setup, the old sidebar, review, and permission settings.
+The files remain in `public/images/screenshots/` as historical assets; the captured
+manifest is an archive, not evidence that those images match the current desktop.
+
+No new desktop capture was run for this documentation-only update. Refresh captures
+at an explicit desktop/UI QA checkpoint, using the current Hub and saved-result
+workflows and checking that demo seeds represent the current product. Outstanding
+capture comments are editorial reminders, not broken published image links.
 
 ## What it does
 
@@ -53,10 +61,9 @@ dock closed, and writes 1600x900 PNGs.
   the point of the screenshot. Automation-mode shots already use demo data and show
   "MT5 Disconnected"; the License surface shows a DEV-MOCK license.
 
-## Manifest — captured (auto-driver)
+## Manifest — historical captures (auto-driver)
 
-These PNGs are present in `public/images/screenshots/` and their reader-page markers are
-removed. The Instrument Hub and the new Research surfaces (Data Files, grounded answer,
+These PNGs are retained in `public/images/screenshots/`. The former Instrument Hub and Research surfaces (Data Files, grounded answer,
 exploration) are seeded by `DemoDataSeeder.SeedInstrumentHubAsync` plus augmented rows in
 `DocScreenshotCaptureTests` (a managed data file per XAUUSD, and a completed exploration run
 with state / instances / script-run audit).
@@ -103,9 +110,11 @@ with state / instances / script-run audit).
 | `cortiq-copilot__dock.png` | cortiq-copilot | Copilot dock open on `/` |
 | `playbooks-and-data__playbook-editor.png` | playbooks-and-data | `/playbooks/{id}/edit` |
 
-## Manifest — outstanding
+## Manifest — outstanding capture targets
 
-These reader pages still carry a `<!-- SCREENSHOT-NEEDED: ... -->` marker.
+These older capture targets remain useful when the screenshot workflow is next run.
+Also replace the retired Hub/research, backtest, policy, review, provider, and
+permissions screenshots with current views before embedding them again.
 
 | Filename | Page | Why not auto-captured | How to fill |
 |---|---|---|---|

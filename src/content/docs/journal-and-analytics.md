@@ -1,4 +1,5 @@
 ---
+status: current
 title: Journal & analytics
 description: How Cortiq records trade reasoning, session behavior, and performance metrics — and the review loop that turns the data into better playbooks.
 sidebar:
@@ -17,7 +18,7 @@ Three journal types capture different scopes:
 - **Session journal** — one session over a broader window, with cycle-by-cycle behavior.
 - **Run journal** — one start-to-stop run, useful for comparing executions of the same configuration.
 
-Analytics computes the metrics on top of those journals; cohorts let you compare sessions side-by-side; conversations gives you the raw AI dialogue when the rendered journal isn't enough. Session reviews close the loop by turning a finished session's journal into durable, instrument-scoped lessons that the next session reads automatically.
+Analytics computes the metrics on top of those journals; cohorts let you compare sessions side-by-side; conversations gives you the raw AI dialogue when the rendered journal isn't enough. Explicit reviews assess saved decisions, capture supported Observations, and propose improvements. They do not automatically inject lessons into later sessions.
 
 ## How it fits into Cortiq
 
@@ -36,9 +37,9 @@ The review surface lives across five screens:
 
 - `Library` → `Journal` — trade journal and session journal.
 - `Library` → `Dashboard` — performance and risk overview.
-- `Library` → `Session Reviews` — AI reviews and the instrument-scoped lessons they produce.
-- `Library` → `Cohorts` — side-by-side session comparison.
-- `Library` → `Conversations` — raw AI conversations across sessions.
+- `Library` → `Session Reviews` — saved review versions and links to each session's review controls.
+- the existing `/cohorts` screen — side-by-side session comparison.
+- the existing `/conversations` screen — raw AI conversations across sessions.
 
 ## How to use it
 
@@ -46,7 +47,7 @@ The review surface lives across five screens:
 
 Don't open the journal only when something goes wrong. The loop that produces compounding improvement looks like this:
 
-1. Make one strategy change (playbook section, data package input, or risk limit).
+1. Make one strategy change (playbook section, data access policy input, or risk limit).
 2. Run the updated logic in a controlled scope — one symbol, one session.
 3. Review the session journal end-to-end, not only the trade list.
 4. Check whether the metric you intended to move actually moved.
@@ -69,22 +70,17 @@ Changing two things at once turns the review into guesswork.
 
 Open `Library` → `Cohorts` and group sessions you want to compare. Cohorts work best when the sessions actually match on most variables — same symbol, same provider, same risk profile — and differ only on the lever you're testing. Comparing two sessions that differ on five variables tells you nothing.
 
-![Analytics page with P/L chart, win rate, best/worst day stats visible](/cortiq-public/images/screenshots/journal-and-analytics__analytics.png)
+### Review saved evidence explicitly
 
-### Close the learning loop with session reviews
+Open the session's **Reviews** tab and select **Review session**, or **Update review** when new completed evidence is available. An active session can be reviewed through its saved cutoff; in-flight work is excluded.
 
-Reading the journal tells you what happened. A session review turns that reading into something the next session acts on, so improvement compounds instead of living only in your head.
+Read the assessment, admitted Observations, suggested improvements, and coverage counts. Discuss proposed changes with Copilot and save edits through the relevant editor. A review status click does not apply a strategy change.
 
-After a session ends, run a one-click AI review. It reads the session's trade statistics, the AI's per-trade reasoning, a price-path digest of what the market actually printed, and the cycles where the AI chose to do nothing. It produces two channels:
+Historical lessons remain read-only and are no longer injected into later trading prompts. See [Session review](/cortiq-public/session-review/) for recovery, uncertain requests, billing, and evidence limits.
 
-- **Suggestions** — scored, evidence-backed proposed changes to a playbook, data package, skill, instrument profile, or preparation. Each card has Apply, Discuss, or Dismiss. Nothing changes until you approve it.
-- **Lessons** — durable, instrument-scoped observations. Cortiq injects active lessons for that symbol into the *next* session on the same instrument as a reference block. They tilt the AI's conviction and flag known pitfalls; they never add rules the playbook does not authorize.
+### Compare existing groups
 
-This is the loop: journal → review → lesson → next session reads the lesson automatically. The `Session Reviews` screen (`/reviews`) lists every review and shows the active lessons per instrument. The full mechanism, including the command/reference authority split, is on the [Session review](/cortiq-public/session-review/) page.
-
-### Schedule a recurring summary
-
-Set up a daily or weekly Telegram report under `Settings` → `Reports`. The summary is the same data the workspace shows, but lands in your phone without you opening the desktop. See [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) for the configuration steps.
+Cohort and conversation screens remain available through their existing routes or contextual links, although they are not entries in the current main sidebar. The [navigation guide](/cortiq-public/app-navigation-guide/) maps the current visible screens.
 
 ## Reference
 
@@ -122,7 +118,7 @@ For the lifetime of the local Cortiq install. Journals live in the local SQLite 
 
 ## What to read next
 
-1. [Session review](/cortiq-public/session-review/) — the learning loop that turns journals into durable lessons.
+1. [Session review](/cortiq-public/session-review/) — explicit assessment, Observations, coverage, and proposed improvements.
 2. [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/) — the screens that surface the journal data.
 3. [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) — scheduled reports configuration.
 4. [Playbook design guide](/cortiq-public/trading-cycle/playbook-design/) — the iteration that the journal-driven loop should produce.

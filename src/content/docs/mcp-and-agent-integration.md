@@ -1,213 +1,162 @@
 ---
+status: current
 title: MCP and agent integration
-description: Run Cortiq as an MCP server so Claude Desktop, Claude Code, or Codex can drive sessions, analysis, and trades through Cortiq's tool surface.
+description: Connect an external MCP client to Cortiq for local data, authoring, research, and permissioned Manual-session trading.
 sidebar:
   order: 10
   badge: Advanced
 ---
 
-Cortiq ships an MCP server that exposes its sessions, market data, entity authoring, and trade execution as tools an external AI client can call. This page covers when to use it, how to wire up a client like Claude Desktop, the tool families on offer, and the single approval gate that stands between an agent and a real order.
-
-:::caution
-`External MCP` sessions skip Cortiq's internal autonomous workflow engine. The external agent is the only thing driving analysis, decisions, and trades. Risk validators still run, but the orchestration lives entirely in the agent's prompt — not in a Cortiq playbook loop.
-:::
+An external MCP client can inspect Cortiq data, author configurations, and control a Manual session through tools. This guide explains the local connection, approval configuration, and the boundaries between external control and Autonomous sessions.
 
 ## What this is
 
-The Cortiq MCP server lets an MCP-compatible AI client use Cortiq as an execution and market-data system. Instead of relying on Cortiq's built-in trading loop, an external agent reads Cortiq data, gathers fresh market context, authors entities, and places trades through tool calls.
+Cortiq's MCP server runs as a local process over `stdio`. Your client starts it and calls the tools it advertises. The server shares the desktop app's SQLite database, so both must point to the same file.
 
-The server runs as a local process over `stdio`. Your client starts it and shares the same local SQLite database as the Cortiq desktop app. This is a local-machine integration model, not a cloud API — nothing leaves your machine except the calls your AI client already makes to its own provider.
+The external client owns its model, conversation, and analysis cadence. Data returned by tools can be sent to that client's model provider. Cortiq generation and research tools can also call their configured providers; using a local MCP connection does not make every operation local or free.
 
-Use this mode when you want an agent such as Claude Desktop, Claude Code, or Codex to drive the workflow directly: inspect sessions and trades, gather data on demand, run `External MCP` sessions, and execute or manage positions through Cortiq's MT5 path.
-
-## Who this is for
-
-Use MCP integration when you want:
-
-- An MCP-compatible AI client to drive the trading workflow through tool calls.
-- Fine-grained control over when analysis happens and when trading happens.
-- Tool-based inspection of accounts, sessions, risk, and statistics before any execution.
-- An agent that authors Cortiq entities (playbooks, data packages, preparation, research) for you.
-
-If you want the simpler product path, use [autonomous sessions](/cortiq-public/sessions/) instead — Cortiq's own engine runs the loop and you don't connect an external client.
+`External MCP client` is a connection option for a `Manual` session. Starting it permits session operations but does not start Cortiq's general autonomous decision cycle or keep the outside agent running between requests.
 
 ## How it fits into Cortiq
 
-| Mode | Who controls the loop | Best for |
-| --- | --- | --- |
-| Autonomous session | Cortiq's internal workflow engine | Most users who want a built-in operating loop. |
-| `External MCP` session | An external MCP-compatible AI client | Advanced users who want agent-driven control through tool calls. |
+| Workflow | Who requests the next decision? |
+| --- | --- |
+| Autonomous session | Cortiq's internal decision engine. |
+| Manual session with in-app Copilot | You ask Copilot or submit an order from the chart. |
+| Manual session with External MCP | Your external client calls data and trade tools when instructed. |
 
-The difference that matters: an `External MCP` session does not run the internal workflow engine. The external agent decides what to do next and calls the right tools. Cortiq still validates risk and still gates trade execution.
+Use an Autonomous session when you want Cortiq to own the ongoing decision loop. An external client does not inherit an automatic wait-for-trigger loop by starting a Manual session.
 
 ## How to use it
 
-### Prerequisites
+### Before connecting
 
-Before connecting an agent to the Cortiq MCP server, confirm:
+- Install Cortiq and open it so its local database is initialized.
+- Keep the desktop app open when using desktop approval cards or host-owned trading features.
+- Configure the MT5 account, instrument, risk limits, and license before starting an MT5-bound session.
+- Create a Data Access Policy if you want to collect market context through `execute_data_access_policy`.
+- Decide whether the server should expose only reads or allow mutations with approval.
 
-- Cortiq is installed and its local database exists.
-- The Cortiq desktop app is running when you expect live trading actions to execute.
-- MetaTrader 5 is installed and at least one MT5 account is configured in Cortiq, if you intend to trade.
-- A data package exists for any session that needs market-data gathering.
-- Risk settings are configured before any live execution.
-- A valid license is active — any MT5-bound session start requires it. Backtests are the only license-free path.
+Manual sessions can exist without a policy, but `execute_data_access_policy` needs a policy assigned to the session. Historical practice through backtesting also requires a valid license.
 
-### How the server connects
+### Register the local server
 
-The MCP server uses `stdio` transport. Your AI client starts the server as a local process and calls tools over that connection. The server reads and writes the same SQLite database as the desktop app, so an agent's changes appear in the app immediately and approvals round-trip back to the dock.
+Use your client's MCP configuration controls to register the bundled executable under Cortiq's installation directory, in `mcp-server\Cortiq.McpServer.exe`.
 
-### Configure Claude Desktop
-
-On Windows, the Claude Desktop config file is usually at:
-
-```text
-%APPDATA%\Claude\claude_desktop_config.json
-```
-
-Point it at a compiled Cortiq MCP server executable:
+For a JSON-based client, this example enables Cortiq's generic approval filter. Replace both example paths with the executable and database you actually use:
 
 ```json
 {
   "mcpServers": {
     "cortiq": {
-      "command": "C:\\Path\\To\\Cortiq.McpServer.exe"
-    }
-  }
-}
-```
-
-Or run it from source with `dotnet run`:
-
-```json
-{
-  "mcpServers": {
-    "cortiq": {
-      "command": "dotnet",
-      "args": [
-        "run",
-        "--project",
-        "C:\\Path\\To\\Cortiq.McpServer"
-      ]
-    }
-  }
-}
-```
-
-If automatic database discovery fails, set `CORTIQ_DB_PATH` explicitly so the server and the app share one database:
-
-```json
-{
-  "mcpServers": {
-    "cortiq": {
-      "command": "C:\\Path\\To\\Cortiq.McpServer.exe",
+      "command": "C:\\Path\\To\\Cortiq\\mcp-server\\Cortiq.McpServer.exe",
       "env": {
-        "CORTIQ_DB_PATH": "C:\\Path\\To\\cortiq.db"
+        "CORTIQ_DB_PATH": "C:\\Path\\To\\cortiq.db",
+        "CORTIQ_MCP_REQUIRE_APPROVAL": "1"
       }
     }
   }
 }
 ```
 
-### Configure Claude Code or Codex
+The standard desktop database is under `%LOCALAPPDATA%\Cortiq.BlazorApp\Cortiq.BlazorApp\Data\cortiq.db`. Use the database belonging to the installation you opened. `CORTIQ_DB_PATH` overrides discovery; it should not point at a new empty database.
 
-Claude Code and Codex read MCP servers from their own configuration (Claude Code's `.mcp.json` / `~/.claude.json`, Codex's config). Register the same `cortiq` server entry — command, args, and the optional `CORTIQ_DB_PATH` env — using each tool's MCP configuration mechanism. The launch command is identical; only the file that holds it differs.
+Each client has its own configuration format. Register the same command and environment using that client's supported MCP setup, then reconnect it and confirm that Cortiq's tools are listed.
 
-### Core agent workflow
+For an inspection-only connection, also set `CORTIQ_MCP_READ_ONLY` to `1`. The server then filters mutation tools. This is stronger than a prompt asking the agent not to make changes.
 
-1. The agent connects to the Cortiq MCP server.
-2. It discovers accounts, sessions, and data packages.
-3. It creates or updates an `External MCP` session with `create_external_session`.
-4. It starts the session with `start_session`.
-5. It gathers market data with the session's data package.
-6. It decides whether to trade.
-7. It executes or manages trades — and you approve each real order.
+### Verify the connection with reads
 
-### Example prompts
-
-**Read-only — a safe first test:**
+Ask the client:
 
 ```text
-Use the Cortiq MCP server to list my MT5 accounts, list my data packages, and inspect my sessions. Then gather fresh EURUSD data for the right session and summarize the market context only. Do not place any trades.
+List my Cortiq MT5 accounts, sessions, and Data Access Policies.
+Summarize what is configured. Do not create or change anything,
+start a session, generate a report, or place a trade.
 ```
 
-**Virtual session — before any live attempt:**
+Confirm that the accounts and sessions match the desktop. If they do not, correct the executable or database path before allowing mutations.
 
-```text
-Create an External MCP session named 'EURUSD Virtual Agent', use my default MT5 account, assign the right data package, enable virtual mode, start the session, gather fresh EURUSD data, and give me a trade plan with entry, stop loss, take profit, and reasoning. Do not place a live trade.
-```
+### Create a virtual Manual session
 
-**Controlled live — only after the virtual flow is proven:**
+With a mutation-enabled connection:
 
-```text
-Use the Cortiq MCP server to review my account risk settings, gather fresh EURUSD data for the running external session, and only if the setup is valid under existing risk limits, execute one trade with a clear stop loss, take profit, and reasoning. Then report exactly what was executed.
-```
+1. List accounts and policies, and choose the intended account and one concrete symbol.
+2. Use `create_external_session` with a name, that symbol, the account, the chosen `dataAccessPolicyId`, and `isVirtualMode: true`.
+3. Inspect the created session and confirm `Manual`, `ExternalMcp`, and virtual execution.
+4. Use `start_session` and confirm that it is `Running`.
+5. Call `execute_data_access_policy` for that session and symbol to collect market context.
+6. Ask for an analysis or plan. Authorize a simulated trade separately if you want one.
 
-## The approval gate
+`create_external_session` creates the Manual session with an External MCP connection. It does not start trading automatically. Its historical parameter name `symbols` accepts one instrument.
 
-Cortiq runs the MCP server in a **trusted-Cortiq** posture: a tool runs with no approval prompt unless it explicitly opts in. In the gated configuration used for in-app agent sessions, **only `execute_trade` and `execute_trade_action` require explicit approval** — opening, modifying, partially closing, or closing a real position. Every other tool, including the create / update / delete tools that author entities, runs without a card.
+Use `execute_trade` to open an authorized trade and `execute_trade_action` for supported management actions. Keep the session, account, symbol, ownership, license, and risk boundaries in place; an agent's explanation does not bypass execution validation.
 
-When a gated trade tool is called, Cortiq surfaces an approval — in the [Copilot](/cortiq-public/cortiq-copilot/) dock, as a Windows toast, and as an actionable row in the [System Messages](/cortiq-public/system-messages/) inbox. The trade body runs only on an explicit approve; reject, expiry, or error denies the call. Trade execution sits on its own gate and is never widened by any other permission grant.
+## Reference
 
-:::danger
-Live trading sends real orders to MT5. An agent can request a trade, but you approve every real order. Verify your risk settings before starting a non-virtual session.
-:::
+### Approval configuration matters
 
-## Tool families
+The generic MCP approval filter is enabled by `CORTIQ_MCP_REQUIRE_APPROVAL=1`. Cortiq's in-app ACP connection sets this automatically. An independently configured external server needs that setting if you want the same generic approval cards.
 
-The server exposes roughly 130 tools. They group into families — you rarely need to know individual names because the tool descriptions document every parameter. The families:
+With the filter enabled, tools marked as requiring approval wait for your decision in the desktop. Rejection, expiry, or an error denies the call. Do not assume every external real order has an approval card when running a server without this setting.
 
-| Family | What the agent can do |
+Approval applies to more than trades. The marked tools include trade execution, durable playbook creation/update/deletion, and certain settings, knowledge, and cycle-control operations. Other authoring tools can persist changes without a card. Read each offered tool's description and request only the changes you intend.
+
+Some features have additional host-owned boundaries regardless of the generic setting. Enabling an automated trade idea requires its specific mandate approval; an external client cannot approve that mandate itself.
+
+Manual sessions do not use the Autonomous session's pending-opening approval workflow. That distinction does not remove an enabled MCP approval gate, feature approval, or risk check. See [Agent permissions](/cortiq-public/agent-permissions/).
+
+### Tool families
+
+The advertised tools depend on the connection's scope. Use the client's tool descriptions for current parameters and availability.
+
+| Family | Examples of supported work |
 | --- | --- |
-| Sessions | List, inspect, create, update, start, stop, and delete sessions; `create_external_session` for agent-driven control. |
-| Data packages | List, create, update, delete, and execute data packages to gather candles, indicators, and context for a symbol. |
-| Playbooks | List, read, create, update, delete playbooks; link and unlink them to a session. |
-| Trade execution | `execute_trade` to open; `execute_trade_action` to close, partial-close, modify SL/TP, or cancel. **These are the only gated tools.** |
-| Trade management & history | Inspect active trades, trade details, trade actions, cycle logs, and recent trades with reasoning. |
-| Trade ideas | Create, list, read, update, invalidate, and delete trade ideas. |
-| Backtests | List backtests and their trades and cycles; read a backtest and per-cycle detail. |
-| Skills | List, load, create, update, and delete reusable agent skills. |
-| Preparation | Create and list preparation packages; generate, execute, and write preparation outputs, including backdated (`as-of`) generation. |
-| Sentiment | Create and list sentiment reports / packages; generate and refresh sentiment, including backdated runs. |
-| Instrument profiles | Create, read, update, delete, and regenerate instrument profiles for a symbol. |
-| Research | Drive research-workspace runs and read their outputs. |
-| Candles & indicators | Fetch candles and ranged candles; list, search, and compute indicators. |
-| News | Read the economic calendar, today's news, and upcoming events. |
-| Risk | Read and update global and per-account risk settings; calculate lot size. |
-| Statistics | Read the dashboard summary and per-session trade statistics. |
-| Symbols & accounts | List symbols and presets, check symbol existence, read symbol info, manage MT5 accounts, read account info. |
-| Web | `web_search` and `web_fetch` for cross-asset context, behind SSRF protection. |
-| Documentation | `get_cortiq_documentation` pulls built-in docs topics through MCP. |
+| Sessions | Inspect, create, start, stop, and manage sessions; create a Manual External MCP session. |
+| Data Access Policies | Author policies, validate compatibility, and collect permitted market context. |
+| Playbooks | Read and author strategy rules and their execution policy; link playbooks to sessions. |
+| Trades | Inspect trades, request openings, and perform permitted management actions. |
+| Trade ideas | Create disabled automation drafts, inspect them, and request host-reviewed enablement. |
+| Preparation and profiles | Manage recipes and generate saved outputs; supported historical generation uses its own cutoff checks. |
+| Sentiment | Manage packages and generate current reports from verified provider web research. |
+| Research and knowledge | Run supported research workflows, inspect evidence, and use explicit knowledge review tools. |
+| Chart tools and price alerts | Annotate a matching mounted chart, or manage a live session's one-shot price alerts. |
+| Accounts, symbols, risk, and history | Inspect configured accounts, symbol details, risk settings, saved trades, and statistics. |
 
-Backdating note: preparation, sentiment, and profile generation accept an `as-of` date so an agent can build artifacts dated to a past point for backtest alignment. Cortiq enforces no-lookahead on a best-effort basis; verify dates when backdating.
+Authoring follows the same compatibility rules as the app. A generated policy is a proposal until saved through the validated authoring path. Saving a draft does not establish launch readiness, and current source availability does not prove historical availability.
 
-### Best practices
+Historical sentiment generation is unavailable. A backdated request cannot use today's web research as evidence for a past session. Preparation and profile history have different generation contracts; do not treat all supporting artifacts as interchangeable.
 
-1. Start with read-only tool usage.
-2. Use virtual mode before live mode.
-3. Keep risk limits configured in Cortiq, not only in the agent prompt.
-4. Gather data with `execute_data_package` before asking for a trade decision.
-5. Confirm the session is `Running` before using execution tools.
-6. Write prompts that state explicitly whether trading is allowed.
+### Scoped connections
 
-### Limitations and boundaries
+Read-only Research, a manual backtest Copilot, and the standalone Chart workspace have restricted tool surfaces. A chart or historical context does not grant live-trading authority. Missing tools in those contexts can be intentional restrictions.
 
-- The MCP server is a local integration layer, not a public cloud API.
-- `External MCP` sessions skip the internal autonomous workflow engine.
-- The external agent owns its own analysis cadence and decision logic.
-- Live trading depends on the Cortiq app and MT5 connectivity being healthy.
-- A session without a valid data package cannot gather market data until one is assigned.
+A chart drawing request needs a matching mounted chart. It is not a way to queue annotations for an unrelated session. Price alerts notify on fresh live Bid data while their owning session is Running; they never authorize an order.
+
+## Troubleshooting
+
+**The app and the agent show different sessions.**
+Check `CORTIQ_DB_PATH` and the server executable. Both processes must use the same database.
+
+**A Manual session is Running but nothing happens.**
+That is expected without an external request or separately enabled trade-idea automation. The outside client owns its next action; no Autonomous session cycle runs.
+
+**Data collection reports that no policy is assigned.**
+Assign a Data Access Policy to the session, then retry `execute_data_access_policy`. Creating a Manual session does not invent one.
+
+**An approval request expires.**
+Keep the desktop app open and resolve its current request. A timed-out call does not authorize the next attempt; inspect the result before retrying.
 
 ## What to read next
 
-1. [Cortiq Copilot](/cortiq-public/cortiq-copilot/) — the in-app assistant that uses the same tools and the same approval gate, without an external client.
-2. [Agent permissions](/cortiq-public/agent-permissions/) — the full permission model: the trade gate, the filesystem sandbox, and capability grants.
-3. [Sessions](/cortiq-public/sessions/) — the autonomous-session alternative if MCP is more than you need.
+1. [Sessions](/cortiq-public/sessions/) — compare Manual and Autonomous operation.
+2. [Agent permissions](/cortiq-public/agent-permissions/) — distinguish provider permission requests from Cortiq authority.
+3. [Cortiq Copilot](/cortiq-public/cortiq-copilot/) — use the in-app assistant instead of an outside client.
+4. [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) — virtual execution and one-shot alerts.
 
 ## Related
 
+- [Playbooks & data policies](/cortiq-public/playbooks-and-data/)
 - [AI providers](/cortiq-public/ai-providers/)
-- [System messages](/cortiq-public/system-messages/)
+- [Activity](/cortiq-public/system-messages/)
 - [Risk management](/cortiq-public/risk-management/)
-- [Trading cycle: overview](/cortiq-public/trading-cycle/overview/)
-- [Glossary](/cortiq-public/glossary/)

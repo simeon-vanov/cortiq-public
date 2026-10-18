@@ -1,4 +1,5 @@
 ---
+status: current
 title: Trade ideas
 description: The trade idea entity — single-purpose theses Cortiq can monitor alongside reusable playbooks, with optional expiry and per-idea status tracking.
 sidebar:
@@ -17,7 +18,7 @@ A trade idea typically includes a name, an optional symbol target, the thesis de
 
 ## How it fits into Cortiq
 
-Trade ideas are configured in the workspace and can be attached to sessions. They surface on `Library` → `Trade Ideas`, with statuses like *active*, *executed*, *closed*, *invalidated*, *expired*, *unassigned*. Active ideas can spawn a session directly.
+Trade ideas are configured in their dedicated screen or contextual session/Copilot workflow, with statuses such as active, executed, closed, invalidated, expired, and unassigned. The existing Trade Ideas route is not an entry in the current main sidebar.
 
 ## How to use it
 
@@ -30,6 +31,14 @@ Capture trade ideas when:
 Don't use trade ideas as a replacement for your core playbook library. If the logic is reusable and central to your workflow, it belongs in a playbook.
 
 ## Reference
+
+### Automated trade ideas
+
+Where the runtime supports automated ideas, a Manual session can host one under its own reviewed mandate. A saved thesis alone does not enable automatic execution.
+
+Review the concrete plan, source account and instrument, entry/management constraints, expiry, and proposed changes before approving and enabling it. Invalid or incomplete mandate rules keep approval disabled. This authority is separate from the general Autonomous session loop and from a one-time operator order.
+
+Check the idea's current lifecycle and approval status after edits. Copilot draft preparation does not grant permission to enable it. See [Agent permissions](/cortiq-public/agent-permissions/) for the approval boundaries.
 
 ### When to use what
 

@@ -1,6 +1,6 @@
 ---
 status: index
-last_updated: 2026-05-17
+last_updated: 2026-10-18
 ---
 
 # Cortiq Public Documentation
@@ -54,7 +54,10 @@ _(Add a new row whenever a `reference/<area>.md` file is added or renamed.)_
 
 _(Updated at session end by the agent. Lists everything currently in `in-flight/`.)_
 
-- _none._
+- [Earlier screenshot backlog](in-flight/docs-refresh-and-screenshots.md) — retained
+  historical capture work; it is not the source of current product facts. The
+  2026-10-18 reader refresh is independent of an optional future desktop capture
+  checkpoint. See [screenshot status](reference/screenshots.md).
 
 ## Decisions (ADRs)
 

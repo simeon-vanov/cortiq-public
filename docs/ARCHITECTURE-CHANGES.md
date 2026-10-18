@@ -1,4 +1,24 @@
+---
+status: changelog
+last_updated: 2026-10-18
+---
+
 # Architecture Changes Log
+
+## 2026-10-18 — Align public guides with current desktop workflows
+
+- Refresh reader content against current desktop source: Hub-owned research,
+  managed data readiness, independent question answers, saved results and explicit
+  Learning publication; standalone replay with captured risk, instructions,
+  coverage queues and durable recovery; explicit saved-evidence Review.
+- Correct connected navigation, licensing, API/ACP routing, input-policy and
+  indicator contracts, permission boundaries, explicit skill attachments,
+  preparation/sentiment evidence, and session price notifications.
+- Preserve existing page slugs while using current screen names. Remove obsolete
+  screenshot embeds and retain their files as historical assets.
+- This is a documentation change. It does not ship desktop code, complete pending
+  runtime acceptance, or deploy the site. Validation evidence belongs to the task's
+  ignored `.verification/` artifacts.
 
 ---
 

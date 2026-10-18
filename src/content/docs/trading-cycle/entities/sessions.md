@@ -1,6 +1,7 @@
 ---
+status: current
 title: Sessions
-description: The session entity — the operating container that bundles account, symbols, provider, playbooks, data package, support layers, and execution settings into one runnable unit.
+description: One account and instrument, a fixed session type, optional pinned playbooks and policy, context, and execution settings.
 sidebar:
   order: 10
 ---
@@ -14,10 +15,10 @@ The session is the main operating unit in the Cortiq trading cycle — the pract
 A session bundles:
 
 - One MT5 account.
-- One primary AI provider and integration mode.
+- A fixed Manual or Autonomous session type; Autonomous requires a supported explicit AI route.
 - One symbol — the single instrument the session trades.
-- One data package.
-- One or more playbooks (with priority).
+- An optional data access policy.
+- Optional ordered playbooks pinned to saved versions.
 - Optional trade ideas.
 - Optional support layers — preparation package, instrument profile, sentiment report.
 - A time window, active days, and execution settings.
@@ -39,9 +40,9 @@ Treat the session as a trading-desk template. Once it's stable, duplicate before
 | Reference | Required? | Read more |
 | --- | --- | --- |
 | MT5 account | yes | [MetaTrader 5 integration](/cortiq-public/mt5-integration/) |
-| AI provider + mode | yes | [AI providers](/cortiq-public/ai-providers/) |
-| Data package | yes | [Data packages](/cortiq-public/trading-cycle/entities/data-packages/) |
-| Playbooks | yes (one or more) | [Playbooks](/cortiq-public/trading-cycle/entities/playbooks/) |
+| AI provider + mode | Required for Autonomous AI execution; Manual operator trading does not need a model | [AI providers](/cortiq-public/ai-providers/) |
+| Data access policy | Optional; selected policies and actual required inputs must pass validation | [Data access policies](/cortiq-public/trading-cycle/entities/data-packages/) |
+| Playbooks | Optional; attached versions and required context are checked | [Playbooks](/cortiq-public/trading-cycle/entities/playbooks/) |
 | Trade ideas | optional | [Trade ideas](/cortiq-public/trading-cycle/entities/trade-ideas/) |
 | Preparation package | optional | [Preparation packages](/cortiq-public/trading-cycle/entities/preparation-packages/) |
 | Instrument profile | optional | [Instrument profiles](/cortiq-public/trading-cycle/entities/instrument-profiles/) |

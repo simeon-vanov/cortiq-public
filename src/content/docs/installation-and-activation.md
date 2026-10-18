@@ -1,4 +1,5 @@
 ---
+status: current
 title: Installation & activation
 description: Buy a Cortiq license, run the Windows installer past the SmartScreen notice, and activate your key — plus how license enforcement and auto-updates work.
 sidebar:
@@ -20,9 +21,9 @@ The app is distributed as a Windows installer — `Cortiq-win-Setup.exe` — thr
 | 1. Buy a license | [cortiq.trade pricing](https://cortiq.trade/#pricing) | A `CRTQ-XXXX-XXXX-XXXX-XXXX` key emailed to you. |
 | 2. Download the installer | [GitHub Releases](https://github.com/simeon-vanov/cortiq-public/releases/latest) | `Cortiq-win-Setup.exe` on disk. |
 | 3. Run the installer | `Cortiq-win-Setup.exe` (click past SmartScreen) | Cortiq appears in the Start menu. |
-| 4. Activate | `Settings` → `License` inside the app | License state is active. |
+| 4. Activate | `Setup` → `License` inside the app | License state is active. |
 
-After activation, the rest of first-day setup happens in `Settings` → `MT5 Accounts`, `Settings` → `AI Providers`, and `Library` → `Sessions`.
+After activation, the rest of first-day setup happens in `Setup` → `MT5 Accounts`, `Setup` → `AI Providers`, and `Library` → `Sessions`.
 
 ## How to use it
 
@@ -45,16 +46,13 @@ Double-click `Cortiq-win-Setup.exe`. Confirm that Windows shows **Decode The Tra
 
 If you'd rather verify the download first, the [releases page](https://github.com/simeon-vanov/cortiq-public/releases/latest) lists every release with its checksums.
 
-![Windows SmartScreen notice for Cortiq-win-Setup.exe with the More info link expanded](/cortiq-public/images/screenshots/installation-and-activation__smartscreen.png)
 <!-- SCREENSHOT-NEEDED: installation-and-activation__smartscreen.png – Windows SmartScreen protection notice for the signed Cortiq-win-Setup.exe, showing Decode The Trade Ltd and the Run anyway button (OS dialog, captured manually) -->
 
 Cortiq now appears in the Start menu.
 
 ### 4. Open Cortiq and activate
 
-Launch the app and open `Settings` → `License`. Paste the key from your purchase email — Cortiq validates it against the licensing backend and records the activation on this machine. There's an optional email field that supports the multi-machine activation.
-
-![Cortiq license activation screen with a placeholder CRTQ key](/cortiq-public/images/screenshots/installation-and-activation__activation-dialog.png)
+Launch the app and open `Setup` → `License`. Paste the key from your purchase email — Cortiq validates it against the licensing backend and records the activation on this machine. There's an optional email field that supports the multi-machine activation.
 
 When the License page shows the activation as active, you're done. Cortiq stores the state locally.
 
@@ -70,7 +68,7 @@ The next pages to read:
 
 Cortiq checks your license locally and re-verifies it against the backend periodically. The re-verification is **fail-open with a 14-day grace window**: if the backend is briefly unreachable, an otherwise-valid license keeps working as long as it was successfully verified within the last 14 days. After 14 days with no successful re-verify, sessions are blocked until verification succeeds again.
 
-A valid license is required to **start any MT5-bound session** — including virtual and broker-demo sessions. The one exception is **backtesting**, which is always license-free. When the license is effectively invalid, Cortiq shows a non-dismissible red banner.
+A valid license is required to **start any MT5-bound session** — including virtual and broker-demo sessions. Starting backtests, research runs, and managed data-file builds also requires a valid license. When the license is effectively invalid, Cortiq shows a non-dismissible red banner.
 
 :::note
 Prop-firm evaluation accounts run on the broker's demo server. They still need a valid license to start a session — only backtests are exempt.
@@ -85,17 +83,17 @@ New versions install themselves. Cortiq's updater polls the public release feed 
 | Field | Where | Notes |
 | --- | --- | --- |
 | Price | [cortiq.trade pricing](https://cortiq.trade/#pricing) | €199 one-time; all future Cortiq desktop updates; 14-day refund. |
-| Machines per key | `Settings` → `License` | One key activates up to two machines. |
+| Machines per key | `Setup` → `License` | One key activates up to two machines. |
 | Key format | `CRTQ-XXXX-XXXX-XXXX-XXXX` | Four groups; activated on first launch. |
-| License page | `Settings` → `License` | Shows current state and the activation form. |
+| License page | `Setup` → `License` | Shows current state and the activation form. |
 | Installer | `releases/latest/download/Cortiq-win-Setup.exe` | Velopack installer; always the current build. |
-| Enforcement | — | Fail-open re-verify, 14-day grace; only backtests are license-free. |
+| Enforcement | — | Fail-open re-verify, 14-day grace; sessions, backtests, research starts, and data-file builds are licensed. |
 
 ## Common questions
 
 **How many machines can I run on one key?**
 
-Up to two. Activate the second machine the same way — paste the key in `Settings` → `License`.
+Up to two. Activate the second machine the same way — paste the key in `Setup` → `License`.
 
 **Activation fails — what's wrong?**
 

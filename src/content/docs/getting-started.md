@@ -1,4 +1,5 @@
 ---
+status: current
 title: Getting started
 description: Who Cortiq is for, what you need before installing, and the recommended first-day path from evaluation to your first virtual session.
 sidebar:
@@ -13,7 +14,7 @@ Plan your first session in virtual mode. It validates your playbook against toda
 
 ## What this is
 
-Cortiq is a structured AI-assisted trading workflow around MetaTrader 5. The platform is opinionated: it expects you to define your strategy in playbooks, your inputs in data packages, and your guardrails in risk limits — and then it runs the loop on your behalf.
+Cortiq is a structured AI-assisted trading workflow around MetaTrader 5. The platform is opinionated: it expects you to define your strategy in playbooks, your inputs in data access policies, and your guardrails in risk limits — and then it runs the loop on your behalf.
 
 If you've been stitching together AI prompts, scripts, and chat windows, Cortiq replaces that with one repeatable surface: every cycle uses the same playbook, sees a controlled context, runs through risk validation, and ends in a journal entry. That structure is what makes results comparable across sessions.
 
@@ -48,7 +49,7 @@ Confirm these before installing:
 - Windows 10 or Windows 11.
 - MetaTrader 5 installed on the same machine, for live trading.
 - A Cortiq activation key — a one-time €199 license that activates up to two machines. See [Licensing & support](/cortiq-public/licensing-and-support/) for what it includes and the 14-day refund.
-- A way to reach at least one supported AI provider — an API key, a local model endpoint, or a local agent (ACP or CLI) you can authenticate.
+- A way to reach at least one supported AI provider — an API key, a local model endpoint, or a supported local agent (ACP) you can authenticate.
 - A clear answer to whether your first run is virtual or live (the section below explains why this matters).
 
 ## Recommended first-day path
@@ -69,7 +70,7 @@ The highest-impact early decisions, and the criterion that picks each one:
 | Decision | Why it matters | Default |
 | --- | --- | --- |
 | Live vs virtual first | Determines whether your first cycles affect the market or only your internal review. | Virtual until the playbook produces consistent journals over a few sessions. |
-| Which AI transport | API uses a metered key; ACP or CLI reuse a subscription you already pay for; a local model runs on your own hardware. | API for minimum setup friction; ACP/CLI if you already pay for a provider's plan. |
+| Which AI transport | API uses a metered key; supported ACP uses your authenticated local agent and provider allowance; a local model runs on your own hardware. | API for minimum setup friction; supported ACP when your configured provider plan permits it. |
 | Conservative vs aggressive risk limits | Sets how much freedom the session has before risk pauses or stops it. | Conservative — you can always relax limits after a green journal. |
 
 ## What to read next
@@ -83,7 +84,7 @@ The highest-impact early decisions, and the criterion that picks each one:
 
 - [App navigation guide](/cortiq-public/app-navigation-guide/)
 - [Feature overview](/cortiq-public/feature-overview/)
-- [Playbooks & data packages](/cortiq-public/playbooks-and-data/)
+- [Playbooks & data access policies](/cortiq-public/playbooks-and-data/)
 - [Risk management](/cortiq-public/risk-management/)
 - [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/)
 - [Glossary](/cortiq-public/glossary/)

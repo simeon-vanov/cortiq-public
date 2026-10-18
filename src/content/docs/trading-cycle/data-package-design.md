@@ -1,127 +1,121 @@
 ---
-title: Data package design guide
-description: How to choose timeframes, candle depth, indicators, and screenshots professionally — the design discipline that makes data packages produce clean AI decisions.
+title: Data access policy design guide
+description: Choose candle windows, exact Cortiq indicators, and context permissions, then validate a policy against the playbook that uses it.
+status: current
 sidebar:
   order: 50
 ---
 
-This page is the practical guide to designing data packages. By the end you'll know which decisions matter most, which combinations produce noise, and how to keep the payload disciplined enough for the AI to reason cleanly.
+Design a data access policy around the decisions your playbook makes. This guide shows how to choose its inputs, generate a draft, and check both configuration and delivered evidence.
 
 ## What this is
 
-The goal of a good data package is not to include everything. The goal is to include the right information for the strategy.
+A data access policy sets the allowed market-data scope: timeframes, history limits, exact indicator selections, and additional context. It doesn't define the trading strategy or establish that current data has arrived.
 
-A data package is the assembly point for everything the AI sees in one cycle. It bundles live MT5 candles, indicator values, account state, and selected support layers into one structured prompt:
-
-```mermaid
-flowchart LR
-  M[(MT5 terminal)] --> Cd(Candles)
-  M --> Ind(Indicators)
-  M --> Acc(Account state)
-  Cd --> DP(Data Package<br/>assembly)
-  Ind --> DP
-  Acc --> DP
-  Pre(Preparation packages) --> DP
-  Sen(Sentiment reports) --> DP
-  IP(Instrument profiles) --> DP
-  DP --> Pr(Structured prompt)
-  Pr --> AI[AI provider]
-```
-
-*The Data Package is the assembly point for everything the AI sees in one cycle: live MT5 data plus reusable context layers, packaged into one structured prompt.*
+Start with the playbook's planning, entry, and management needs. Add enough evidence for each role, then keep optional context within the available budget. Extra inputs don't repair an unspecified strategy rule.
 
 ## How it fits into Cortiq
 
-A data package is referenced by sessions. The same package can be used by many sessions; one session uses exactly one package. Indicators are configured on the package and applied across the timeframes where they're enabled.
+The playbook's `Execution policy` card lets you review and edit the rules and policy together. `Tools` → `Data Access Policies` manages reusable saved policies independently.
 
-For the conceptual overview, see [Playbooks & data packages](/cortiq-public/playbooks-and-data/). This page focuses on designing them well.
+Preparation generation uses a separate policy and recipe. Its output can become an execution input, but its raw research lookbacks don't automatically become execution requirements. See [Playbooks & data access policies](/cortiq-public/playbooks-and-data/) for the distinction.
+
+## Before you begin
+
+- Write the playbook rules you want to support, including indicator parameters and required report types.
+- Configure an AI connection for explicit compatibility reviews or AI policy generation.
+- Connect the default MT5 account if you want to inspect a live payload with `Test Data`.
+- Identify other playbooks or runs using a saved policy before editing it. Use a separate policy when you want an independent experiment.
 
 ## How to use it
 
-### Pick timeframes with a job in mind
+### 1. Identify each required input
 
-Each timeframe should have a specific role. A common professional pattern:
+For every rule, identify the timeframe, history, calculation, and decision role it needs.
 
-- One higher timeframe for structure.
-- One main timeframe for setup validation.
-- One tighter timeframe for entry confirmation.
-
-If you can't explain why a timeframe is in the package, it probably doesn't belong there. Three well-chosen timeframes beat six that compete with each other.
-
-### Pick candle depth deliberately
-
-More history is not always better. Use deeper history when the strategy needs broader structure (swing setups, regime classification). Use shallower history when the strategy needs speed and clarity (intraday breakouts).
-
-The question to ask: *how much history does the AI actually need to make this strategy work well?*
-
-### Pick indicators to support — not compete with — the playbook
-
-Indicators should support the playbook, not duplicate or contradict it. Use them when:
-
-- The strategy genuinely depends on them.
-- The AI benefits from the values consistently.
-- They reduce ambiguity rather than add noise.
-
-Don't add indicators because they're popular. Two indicators that disagree usually produce worse decisions than one indicator that's load-bearing.
-
-### Use screenshots where the image earns its place
-
-Screenshots are configured per timeframe. Choose which timeframes capture chart images, and the indicators on that timeframe become part of the visual context.
-
-Screenshots are most useful when:
-
-- The setup depends on visual pattern recognition.
-- Higher-timeframe chart structure matters strongly.
-- You want the AI to confirm what a human would normally inspect visually.
-
-Use them sparingly when:
-
-- The strategy is already clear from candles and indicators alone.
-- Multiple chart images would duplicate the same information.
-- Prompt size matters more than visual confirmation.
-
-Professional setups enable screenshots only on the timeframes where the image carries weight the candles don't.
-
-## Reference
-
-### Data package design parts
-
-| Part | Main job |
+| Rule dependency | What the policy needs to cover |
 | --- | --- |
-| Timeframes | Decide which market views the AI receives. |
-| Candle depth | Decide how much history is sent per timeframe. |
-| Indicators | Add technical context where it matters. |
-| Screenshots | Add visual chart context where it helps. |
-| News and account context | Add broader operating information. |
-| Token budget | Keep the payload within a sensible size. |
+| Closed-candle structure | The named timeframe and sufficient completed candles. |
+| An indicator condition | The exact indicator version, parameters, timeframe, outputs, and confirmation requirement. |
+| A preparation conclusion | The required report type and valid report coverage; its generation inputs stay with the preparation package. |
+| Calendar, account, risk, or trade-history context | The corresponding inclusion setting and verified runtime delivery. |
 
-### Tiers and per-timeframe scope
+Keep genuine strategy choices in the rules. Specify a required indicator period or explicit freshness duration where the strategy depends on one. Don't treat the AI's proposed value as an answer to an unresolved choice.
 
-The data-package model supports different collection depth and screenshot scope for lighter and heavier passes. The practical takeaway:
+### 2. Create or generate the policy
 
-- Not every timeframe needs the same amount of history every time.
-- Not every timeframe needs screenshots every time.
-- The package can be designed so the most important visual context is attached where it matters most.
+To generate a policy from the playbook:
 
-### Production-ready checklist
+1. Open the playbook editor's `Execution policy` card.
+2. Select `Generate execution policy with AI`.
+3. Inspect the proposal and its compatibility findings.
+4. Select `Use this draft` to place it in the editable form.
+5. Adjust the policy and rules, then select `Validate execution compatibility`.
+6. Select `Save Playbook` to persist the reviewed pair.
 
-Before treating a data package as ready:
+Generation resolves concrete candle and indicator requirements against Cortiq's catalogue. It leaves unsupported inputs and ambiguous strategy choices as findings. Selecting `Use this draft` doesn't persist the proposal.
 
-1. Does each timeframe have a clear job?
-2. Does each indicator serve the strategy rather than decorate it?
-3. Are screenshots enabled only where visual context really helps?
-4. Is the package still understandable when reviewed later in journals and session output?
-5. Could I remove anything without hurting the strategy?
+To start independently, open `Tools` → `Data Access Policies` and select `New Data Access Policy` or `From Template`. Name the policy, configure its inputs, and create it. A standalone policy without connected playbooks uses configuration checks; it doesn't need an AI model merely to save.
+
+### 3. Choose timeframes and history
+
+Set exactly one timeframe to `Primary` and the others to `Secondary`. Give each timeframe a reason to exist: structural context, setup evidence, or entry confirmation.
+
+Set `Candle Count` to cover both the rule's lookback and the indicator's calculation requirements. Indicator details show lookback and warm-up needs; parameter choices can change those needs. A larger number isn't useful if the strategy never uses that history.
+
+Primary and Secondary also define tiered collection scope. The policy editor describes Primary as included in Initial, Stream, and Analysis, with Secondary included in Initial and Analysis. These scopes don't schedule AI decisions. Active rules and accepted triggers control decision timing; `Legacy feed health timeframe` is a feed-recovery fallback.
+
+Required history beyond the supported collection limit or evidence budget is a configuration issue. Current compatibility checks reject requirements beyond the collector's 500-candle ceiling. Increasing a policy field doesn't create unavailable history or bypass that boundary.
+
+### 4. Bind exact Cortiq indicators
+
+1. Add the indicator's timeframe to the policy.
+2. Select `Add indicator`.
+3. Find the calculation in the catalogue and inspect its purpose and outputs.
+4. Set the timeframe and parameters.
+5. Choose the outputs the rules use.
+6. Select `Required` or `Optional`, and choose whether to `Allow provisional values`.
+7. Select `Add indicator` or `Save indicator` in the dialog.
+
+Use `Required` for an input the rule cannot evaluate without. A failed required calculation blocks that use; an optional failure remains a visible warning. Provisional values describe a calculation that can still change, so they don't satisfy a rule requiring confirmed closed-candle evidence.
+
+Cortiq computes these values from MT5 candles using its built-in catalogue. Arbitrary custom MT5 indicator buffers aren't policy inputs. Stored selections retain the exact version, parameters, and outputs instead of automatically adopting a later version.
+
+Indicator details also hold shared AI presentation settings, such as inline values, a separate indicator section, duplicate removal, and trading guidance. Changing those settings affects every policy using that exact version. It doesn't change raw calculations, chart values, or research data.
+
+### 5. Choose context and budget
+
+Enable account, risk, economic news, and trade-history inputs when the rules need them. Set the relevant news horizon, importance filter, or history count. An enabled flag permits collection; runtime checks still need evidence that the requested context was delivered.
+
+Set a token budget when you need an additional input bound. Required data cannot be silently removed to make a decision fit. If required evidence exceeds the allowed packet size, Cortiq reports `Needs setup`; reduce unnecessary context or revise the required scope.
+
+Some policy forms expose per-timeframe screenshot settings. Treat screenshots as optional visual context in workflows that support them. They don't replace required candle or indicator evidence or import the terminal's custom indicator calculations.
+
+### 6. Validate and inspect the result
+
+Select `Validate execution compatibility` in the playbook, or `Validate compatibility with connected playbooks` in the policy editor. Inspect missing configuration, unresolved rules, and validation failures separately.
+
+A saved shared-policy edit is checked against connected current playbooks and selected immutable versions in sessions and backtests. Saving a draft doesn't bypass an incompatible shared-policy change. If the changes are for an experiment, duplicate the policy and deliberately select that copy.
+
+Use `Fix with AI` for proposed editor repairs. Its changes remain unsaved until you save the playbook. Material manual edits invalidate the old review, so validate the final rules and policy together.
+
+## Verify the policy
+
+Reopen the saved playbook's `Execution policy` card. Check that it shows the intended saved policy and matching review, then expand `View full policy configuration` for counts, versions, parameters, outputs, and limits. Opening the card doesn't start another AI review.
+
+For a collection check, open the saved policy and select `Test Data`. Choose a message tier and symbol, then select `Run Test`. The dialog displays the live payload or an explicit error using the default MT5 account. `Preview Tokens` estimates size; neither action proves historical coverage or validates a trade signal.
+
+When a session or backtest runs, inspect `Input checks and data requests` for what actually arrived at its cutoff. Successful configuration review and successful current delivery are separate checks. Required report coverage and expiry still apply, especially in historical replay.
 
 ## What to read next
 
-1. [Playbook design guide](/cortiq-public/trading-cycle/playbook-design/) — disciplined playbook authoring, the natural pair to a tight data package.
-2. [Data packages](/cortiq-public/trading-cycle/entities/data-packages/) — the entity reference for the data package object.
-3. [Supporting context](/cortiq-public/trading-cycle/supporting-context/) — preparation, instrument profiles, sentiment.
+1. [Data access policies](/cortiq-public/trading-cycle/entities/data-packages/) — field and status reference.
+2. [Playbook design guide](/cortiq-public/trading-cycle/playbook-design/) — define rules and evidence requirements.
+3. [Backtesting](/cortiq-public/backtesting/) — test the selected policy over a historical period.
 
 ## Related
 
-- [Playbooks & data packages](/cortiq-public/playbooks-and-data/)
-- [Trading cycle: overview](/cortiq-public/trading-cycle/overview/)
+- [Playbooks & data access policies](/cortiq-public/playbooks-and-data/)
+- [Supporting context](/cortiq-public/trading-cycle/supporting-context/)
 - [MetaTrader 5 integration](/cortiq-public/mt5-integration/)
 - [Glossary](/cortiq-public/glossary/)

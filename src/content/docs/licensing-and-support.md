@@ -1,4 +1,5 @@
 ---
+status: current
 title: Licensing & support
 description: How the Cortiq one-time license works — two machines, all future desktop updates, 14-day refund — plus where to file bugs and get help.
 sidebar:
@@ -11,7 +12,7 @@ This page covers how the Cortiq license works and where to go when you need help
 
 Cortiq is a one-time purchase. **€199 buys a permanent license with all future Cortiq desktop updates included.** One key activates up to **two machines** — for example a desktop and a laptop. There is no Cortiq subscription and no per-machine renewal. Broker fees and AI-provider usage remain yours; unrelated products or services may be sold separately.
 
-The license controls whether the app can start live sessions, not whether the app runs. You can install, explore, design playbooks, and run [backtests](/cortiq-public/backtesting/) without a valid license. Any session that binds to MetaTrader 5 — including virtual and broker-demo sessions — requires a valid license.
+The license gates starting sessions, backtests, research runs, and managed data-file builds. Viewing and preparation remain accessible when the license is not valid. Live, virtual, and broker-demo sessions all require a valid license; backtesting is not a license-free exception.
 
 Public support runs through the Cortiq GitHub repository. Account-specific or license-sensitive issues go through direct email — never post sensitive details in a public issue.
 
@@ -19,7 +20,7 @@ Public support runs through the Cortiq GitHub repository. Account-specific or li
 
 | Surface | Where | Use it for |
 | --- | --- | --- |
-| License activation | `Settings` → `License` (in the app) | Activate, check status, re-activate. |
+| License activation | `Setup` → `License` (in the app) | Activate, check status, re-activate. |
 | Purchase | [`cortiq.trade/#pricing`](https://cortiq.trade/#pricing) | Buy a key; it arrives by email. |
 | Bug reports | GitHub Issues | Reproducible bugs and feature requests. |
 | Usage questions | GitHub Discussions | How-to and workflow questions. |
@@ -32,7 +33,7 @@ Public support runs through the Cortiq GitHub repository. Account-specific or li
 
 Purchase at [`cortiq.trade/#pricing`](https://cortiq.trade/#pricing). Checkout runs through Stripe, and your `CRTQ-XXXX-XXXX-XXXX-XXXX` key is emailed to you immediately.
 
-Open `Settings` → `License` in the desktop app, paste the key, and confirm. The key activates on first launch and can be activated on a second machine — two activations total.
+Open `Setup` → `License` in the desktop app, paste the key, and confirm. The key activates on first launch and can be activated on a second machine — two activations total.
 
 For the full first-install walkthrough, see [Installation & activation](/cortiq-public/installation-and-activation/).
 
@@ -40,10 +41,10 @@ For the full first-install walkthrough, see [Installation & activation](/cortiq-
 
 Cortiq checks license validity two ways: a local check on the stored record, and a periodic re-verify against the licensing backend.
 
-The re-verify is **fail-open with a 14-day grace window**. If the backend is temporarily unreachable, an otherwise-valid license keeps working for 14 days since its last successful verification. After 14 days without a successful re-verify, the license is treated as invalid and live sessions are blocked.
+The re-verify is **fail-open with a 14-day grace window**. If the backend is temporarily unreachable, an otherwise-valid license keeps working for 14 days since its last successful verification. After 14 days without a successful re-verify, the license is treated as invalid and licensed starts are blocked.
 
 :::caution
-Only [backtests](/cortiq-public/backtesting/) run without a valid license. Every session that binds to MetaTrader 5 — live, virtual, or on a broker-demo server — requires one. The broker-demo exemption was removed on 2026-06-25 because prop-firm accounts run on demo servers and slipped through.
+Activate a valid license before starting a session, backtest, research run, or data-file build. A historical simulation still uses a licensed start path even though it sends no broker order.
 :::
 
 When the license is effectively invalid, the app shows a **non-dismissible red banner** until you re-activate or connectivity restores a valid verification. The banner copy is static; it carries no operator or AI text.
@@ -84,7 +85,7 @@ Email `support@cortiq.trade` for:
 | Refund | 14 days from purchase, via Stripe. |
 | Key shape | `CRTQ-XXXX-XXXX-XXXX-XXXX`. |
 | Grace window | 14 days fail-open between successful re-verifications. |
-| License-free path | Backtests only. |
+| Licensed starts | Sessions, backtests, research runs, and managed data-file builds. |
 
 ### Public support channels
 
@@ -105,10 +106,10 @@ Email `support@cortiq.trade` for:
 ## Common questions
 
 **Can I run Cortiq on two machines?**
-Yes. One key activates up to two machines. Activate on each from `Settings` → `License`.
+Yes. One key activates up to two machines. Activate on each from `Setup` → `License`.
 
 **My red banner won't go away.**
-The license is effectively invalid — either not activated, or more than 14 days since the last successful backend verification. Re-activate from `Settings` → `License`. If activation succeeds and the banner persists, email support.
+The license is effectively invalid — either not activated, or more than 14 days since the last successful backend verification. Re-activate from `Setup` → `License`. If activation succeeds and the banner persists, email support.
 
 **Can I run a session if the licensing backend is down?**
 Yes, within the 14-day grace window since your last successful verification. Backtests never need a valid license.
@@ -122,7 +123,7 @@ On the [Releases](https://github.com/simeon-vanov/cortiq-public/releases/latest)
 ## What to read next
 
 1. [Installation & activation](/cortiq-public/installation-and-activation/) — first-install activation flow.
-2. [Backtesting](/cortiq-public/backtesting/) — the one path that needs no license.
+2. [Backtesting](/cortiq-public/backtesting/) — historical replay setup, costs, and simulation limits.
 3. [FAQ](/cortiq-public/faq/) — fast answers to common evaluation, setup, and operational questions.
 
 ## Related

@@ -1,4 +1,5 @@
 ---
+status: current
 title: MetaTrader 5 integration
 description: How Cortiq connects to MetaTrader 5 over a local ZeroMQ bridge, what to configure before live trading, and how to run multiple accounts on one machine.
 sidebar:
@@ -44,22 +45,18 @@ The setup has three parts: install the EA in your terminal, configure the accoun
 
 ### 1. Configure the MT5 account in Cortiq
 
-Open `Settings` → `MT5 Accounts` and add an entry. You'll need the terminal's executable path, the data folder, and a unique pair of ZeroMQ ports.
-
-![Cortiq Settings → MT5 Accounts panel](/cortiq-public/images/screenshots/mt5-integration__settings-page.png)
+Open `Setup` → `MT5 Accounts` and add an entry. You'll need the terminal's executable path, the data folder, and a unique pair of ZeroMQ ports.
 
 ### 2. Attach `ZmqFacade` to a chart in MT5
 
 Open MetaTrader 5 and drop `ZmqFacade.ex5` onto any chart with automated trading enabled. The EA also needs the MQL5 ZeroMQ library installed under MT5's `Include/Zmq/` folder. The EA's smiley face icon appears in the top-right of the chart when it's running.
 
-![ZmqFacade EA attached to a blank EURUSD chart](/cortiq-public/images/screenshots/mt5-integration__zmqfacade-attached.png)
 <!-- SCREENSHOT-NEEDED: mt5-integration__zmqfacade-attached.png – A blank EURUSD chart in MT5 with ZmqFacade EA attached and the smiley face icon visible (top-right of chart). Mask broker name and balance -->
 
 ### 3. Verify the bridge is healthy
 
 Cortiq's topbar shows an MT5 health indicator. Green means the bridge is connected and recent heartbeats arrived on time; red means the EA isn't responding. Don't start a session until the indicator is green.
 
-![Cortiq topbar showing MT5 health indicator in green/connected state](/cortiq-public/images/screenshots/mt5-integration__health-green.png)
 <!-- SCREENSHOT-NEEDED: mt5-integration__health-green.png – Cortiq topbar showing the MT5 health indicator in green/connected state -->
 
 ### Multi-account setup
@@ -78,11 +75,11 @@ The exact numbers don't matter — non-overlap does. Two terminals on the same p
 
 | Setting | Where | Notes |
 | --- | --- | --- |
-| Terminal path | `Settings` → `MT5 Accounts` → *Terminal executable* | Full path to `terminal64.exe`. |
-| Data folder | `Settings` → `MT5 Accounts` → *Data folder* | Where Cortiq writes the EA companion files. |
-| Command port | `Settings` → `MT5 Accounts` → *ZMQ command port* | REQ/REP. Default `6200`. Must be unique across accounts. |
-| Data port | `Settings` → `MT5 Accounts` → *ZMQ data port* | PUB/SUB. Default `6201`. Must be unique across accounts. |
-| Default account | `Settings` → `MT5 Accounts` → *Default* | The account that new sessions and trade ideas pre-select. |
+| Terminal path | `Setup` → `MT5 Accounts` → *Terminal executable* | Full path to `terminal64.exe`. |
+| Data folder | `Setup` → `MT5 Accounts` → *Data folder* | Where Cortiq writes the EA companion files. |
+| Command port | `Setup` → `MT5 Accounts` → *ZMQ command port* | REQ/REP. Default `6200`. Must be unique across accounts. |
+| Data port | `Setup` → `MT5 Accounts` → *ZMQ data port* | PUB/SUB. Default `6201`. Must be unique across accounts. |
+| Default account | `Setup` → `MT5 Accounts` → *Default* | The account that new sessions and trade ideas pre-select. |
 
 ## Common questions
 

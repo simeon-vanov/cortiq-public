@@ -1,6 +1,7 @@
 ---
+status: current
 title: Session architecture
-description: Why the session is the root of Cortiq's trading cycle, the four scopes it controls, and how two sessions on the same symbol can operate as completely different systems.
+description: How a session binds one account and instrument to operating rules, an explicit AI route, allowed inputs, and supporting context.
 sidebar:
   order: 20
 ---
@@ -26,13 +27,15 @@ The session sits in the middle of every cycle:
 
 `Session → Data gather → Prompt build → AI decision → Risk check → Execute → Timeline`
 
-Every other Cortiq concept is something a session points at. Playbooks, data packages, support layers, providers — all of them are referenced by sessions and reused across sessions.
+Every other Cortiq concept is something a session points at. Playbooks, data access policies, support layers, providers — all of them are referenced by sessions and reused across sessions.
+
+Manual and Autonomous sessions can have no playbooks. When you attach playbooks, Cortiq pins their versions and checks their execution inputs. Closed entry windows prevent new entries while a Running session can continue management. A standalone backtest captures its own setup; it does not require an existing live session.
 
 ## How to use it
 
 ### Treat the session as a system, not a form
 
-When you create or edit a session, you're not filling in a form — you're assembling a trading system from reusable parts. Those parts (playbooks, data packages, instrument profiles, sentiment reports) live in their own sidebar areas precisely because the same building block can show up in many sessions.
+When you create or edit a session, you're not filling in a form — you're assembling a trading system from reusable parts. Those parts (playbooks, data access policies, instrument profiles, sentiment reports) live in their own sidebar areas precisely because the same building block can show up in many sessions.
 
 ### Duplicate before you experiment
 
@@ -42,8 +45,8 @@ Once a session has produced a stable journal, duplicate it before changing anyth
 
 Two sessions on the same symbol can be radically different operating systems:
 
-- Session A — a narrow London-breakout playbook, a lean data package, no support layers.
-- Session B — a swing-oriented playbook stack, a broader multi-timeframe data package, a preparation package, an instrument profile, and a fresh sentiment report.
+- Session A — a narrow London-breakout playbook, a lean data access policy, no support layers.
+- Session B — a swing-oriented playbook stack, a broader multi-timeframe data access policy, a preparation package, an instrument profile, and a fresh sentiment report.
 
 Both are valid. Both produce different results. Neither is wrong. Pick the support set that matches the strategy's actual needs — adding a sentiment report to an intraday breakout session usually noises up the prompt without improving it.
 
@@ -54,9 +57,9 @@ Both are valid. Both produce different results. Neither is wrong. Pick the suppo
 | Area | What you choose |
 | --- | --- |
 | Broker and market scope | MT5 account and the one symbol the session trades. |
-| AI routing | Provider, integration mode, fallback behavior. |
+| AI routing | Explicit provider, supported transport, captured model and effort; no silent provider substitution. |
 | Strategy | Playbooks and their priority. |
-| Data | Data package and indicator scope. |
+| Data | Data access policy and indicator scope. |
 | Support context | Preparation package, instrument profile, sentiment report, instructions. |
 | Operating window | Active days, hours, close-before-end behavior. |
 | Execution mode | Live, virtual, copy-trading behavior, notifications. |
@@ -76,7 +79,7 @@ Both are valid. Both produce different results. Neither is wrong. Pick the suppo
 
 1. [Supporting context](/cortiq-public/trading-cycle/supporting-context/) — what each support layer offers, in detail.
 2. [Playbook design guide](/cortiq-public/trading-cycle/playbook-design/) — disciplined playbook authoring.
-3. [Data package design guide](/cortiq-public/trading-cycle/data-package-design/) — payload discipline.
+3. [Data access policy design guide](/cortiq-public/trading-cycle/data-package-design/) — payload discipline.
 
 ## Related
 

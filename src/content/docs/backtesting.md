@@ -1,172 +1,165 @@
 ---
 title: Backtesting
-description: Replay an existing session and its playbooks over a historical UTC window, simulate positions in memory, and inspect per-day artifact coverage and the AI cycle timeline — the only license-free path in Cortiq.
+description: Create a single-instrument historical replay, trade manually or run autonomous AI decisions, and inspect saved results and reviews.
+status: current
 sidebar:
   order: 60
-  badge: New
 ---
 
-Backtesting replays a session over a historical period and simulates the resulting positions in memory instead of sending orders to MT5. A backtest of an autonomous session calls the same AI stack it would call live; a backtest of a manual session hands the controls to you. By the end of this page you'll know how to start a run of either kind, step a replay by hand, and read the coverage grid and cycle timeline.
+Backtesting lets you practise manual trading or evaluate autonomous decisions over a historical period. This guide covers setup, artifact coverage, replay controls, recovery, and reading the saved results.
 
-:::note
-Starting a backtest requires an active license, the same as any other session. Nothing is sent to MetaTrader 5 either way.
+:::caution
+Starting a backtest requires an active Cortiq license. Autonomous replay makes real AI requests and uses your provider's billing or subscription allowance. Copilot and requested reviews also use AI.
 :::
 
 ## What this is
 
-A backtest takes an existing `AISession` — its symbol, playbooks, data package, and pinned context packages — and runs it against historical M1 candles over a UTC window you choose. The engine streams those candles in batches, uses the AI's own `nextTrigger` directives to decide when to call the model again, and books the trades the AI opens into an in-memory position simulator.
+A backtest is a standalone replay for one MT5 account, one instrument, and one historical period. You don't need to create a trading session first. MT5 supplies historical data and broker information; replay orders stay inside Cortiq's simulator.
 
-Nothing is sent to MetaTrader 5. The run measures what the same session *would* have done over that period, including SL/TP exits, pending-order activation, and management actions, all priced from M1 high/low.
+Choose `Manual` when you want to reveal candles and place simulated trades yourself. Choose `Autonomous` when you want Cortiq to run AI planning and decision cycles. Both modes allow you to start without a playbook.
 
-Runs execute in a background service and persist to local SQLite. You can leave the page while a costly run continues, then return to History to inspect the saved parameters, simulated trades, AI cycles, warnings, and final metrics. The cycle journal is rich enough to trace a dropped trade — a decision that intended to trade but produced no executable order is recorded as a visible cycle with an explicit drop reason, never silently discarded.
-
-## Two kinds of replay
-
-The replay mode follows the type of the session being backtested — there is no separate mode selector.
-
-| | Manual replay | Autonomous replay |
-| --- | --- | --- |
-| Who trades | You, from the order ticket | The AI decision cycle |
-| Advancing the replay | You, with step and play controls | The engine, as it consumes candles |
-| Setup requirements | None beyond a symbol and a window | Playbook, data package, and artifact coverage |
-| AI token cost | None | Charged per cycle by your provider |
-
-Both open directly onto a chart.
-
-![A Cortiq manual backtest replay showing historical candles, the operator's own trade markers, and protection levels](/cortiq-public/images/screenshots/backtesting__manual-replay.png)
-
-### Stepping a manual replay
-
-A manual run starts paused and consumes no data until you ask for a candle.
-
-- **Step** reveals the next candle on the chart's timeframe.
-- **Play** advances continuously until you pause.
-- The order ticket works exactly as it does in a live session, except orders execute in the simulator at the current replay time.
-
-Positions you open are attributed to you rather than to the AI, so a run's trade list distinguishes the two.
-
-:::caution
-The replay cursor is a hard no-lookahead cutoff. Candles after it are never fetched, so you cannot accidentally see the outcome of the bar you are about to trade. This is the whole point of stepping a replay rather than scrolling a historical chart.
-:::
+Autonomous replay requires a saved data access policy and an available AI model. Selected playbooks retain their order and pinned versions for the run. The policy controls the market data available to the AI; playbook requirements determine which preparation, sentiment, and instrument-profile inputs need coverage.
 
 ## How it fits into Cortiq
 
-A backtest reuses the live trading cycle end to end. It calls the same prompt builder, the same provider, and the same response parser the session uses live, and it never tells the model it is being simulated — a model that knows it is being evaluated may behave differently and distort the result.
+Use backtesting to inspect decisions and execution before starting a [session](/cortiq-public/sessions/). Autonomous replay uses the live planning and decision workflow with historical inputs and simulated execution. It still depends on the selected model, policy, playbooks, and available evidence.
 
-| Aspect | Live session | Backtest |
-| --- | --- | --- |
-| Market data | Live MT5 stream | Historical M1 candles, replayed |
-| Order routing | Real orders to MT5 | In-memory position book |
-| License | Required | Not required |
-| Clock | Real time | Replay clock over your UTC window |
-| Context layers | Live as-of now | As-of the candle date, no lookahead |
+Use [Research](/cortiq-public/research/) to measure recurring market behaviour across occurrences. A backtest shows what happened in a particular replay; a profitable result alone doesn't establish a repeatable edge.
 
-Because backtests can spend real provider tokens, the service runs **one** active background run at a time and rejects a second start until the current run finishes or is cancelled.
+## Before you begin
 
-:::caution
-A backtest still makes real AI calls and spends real provider tokens. The run guardrails cap cycles and candle volume, but the cost is yours. Start with a short window before committing to a long one.
-:::
+- Activate your [license](/cortiq-public/licensing-and-support/).
+- Configure the MT5 account that supplies the instrument, historical candles, and broker specifications. Replay needs access to that account's available history.
+- For Autonomous replay, save a `Backtest` provider, connection, and model in [AI Providers](/cortiq-public/ai-providers/). Backtests support API and subscription connections.
+- For Autonomous replay, prepare a saved [data access policy](/cortiq-public/playbooks-and-data/) and any packages required by your selected playbooks.
 
 ## How to use it
 
-### 1. Open Backtests and pick a session
+### 1. Create the replay
 
-Open `Preparation` → `Backtests`, or navigate to `/backtests`. The list shows recent persisted runs with status, P/L, period, cycle count, and an unread dot for runs that finished in the background while you were away.
+1. Open `Preparation` → `Backtests`.
+2. Select `New Backtest`.
+3. Choose `Manual` or `Autonomous`.
+4. Select the `MT5 Account` and one `Instrument`.
+5. Add compatible playbooks if you want them, then arrange their priority with the arrow controls.
 
-![Backtests page listing recent runs with status, P/L, period, and cycle count](/cortiq-public/images/screenshots/backtesting__list.png)
+Choosing an instrument creates a saved draft. Later setup changes save automatically, and the Backtests list lets you reopen the draft. Starting successfully replaces the draft with the run; a rejected start preserves it. Run acknowledgements must be selected again when needed.
 
-Select **New** to start a run. A backtest always targets an existing session, so the session carries the symbol, playbooks, and pinned packages into the run.
+### 2. Choose the autonomous data policy
 
-### 2. Define the window and acknowledge the warnings
+For Autonomous replay, the `Data access policy` section uses the selected playbooks' shared saved policy when they have one. To test a different policy, expand `Use a different policy for this backtest` and choose a `Policy override`.
 
-Choose the session, then set the **UTC period** with the start and end fields. You enter the period in your local machine time; Cortiq converts it to UTC once before the engine sees it, and converts back to local for every display.
+If the playbooks don't share one saved policy, or you haven't selected a playbook, choose the policy explicitly. `Use playbook policy` restores the inherited selection. Resolve any confirmed compatibility or required-input blockers before starting.
 
-Editable run settings expose the max-cycle cap and the M1 batch size. Lot fallback, tick size, and tick value are derived from the session's MT5 symbol metadata — they are not operator inputs.
+Manual replay doesn't require a data access policy, AI model, or artifact coverage.
 
-![New backtest form showing session selector, UTC period fields, and run settings](/cortiq-public/images/screenshots/backtesting__new.png)
+### 3. Set the period and fill required coverage
 
-Start stays disabled until the selected session has a data package, the period validates, and you acknowledge the run warnings (real token cost, M1 approximation, latency, SL-first exit ordering, and historical-indicator safety).
+Enter `Start` and `End` under `Backtest period` in your computer's local time. Cortiq converts them to UTC for replay. The artifact coverage grid labels its dates and expected windows in UTC.
 
-### 3. Fill any required coverage gaps
+For Autonomous replay, select preparation, sentiment, and instrument-profile packages for the chosen instrument. Required packages and uncovered required intervals block launch. Optional gaps don't block it. These requirements come from the playbooks, rather than per-run requirement switches.
 
-If the session's playbooks require a context layer — preparation, sentiment, or instrument profile — the new-backtest page renders a **coverage grid**: a per-day ✓/✕ matrix per pinned package across the whole window.
+The grid uses the selected account's recorded historical trading dates. Dates without recorded bars are excluded, while weekends remain when that market traded. A history-read failure leaves coverage unready; Cortiq doesn't treat it as a market closure.
 
-A missing cell offers **click-to-generate**, which backdates that artifact to the day in question (stamped with an effective date so the engine selects it without lookahead). A **Generate all missing** action fills the row. Where a layer is `Required`, any uncovered day blocks Start until it is filled; an `Optional` layer never blocks and is omitted on days it has no artifact.
+1. Inspect each missing cell's reason and expected coverage window.
+2. Select a missing cell to queue that package and date, or select `Generate all missing`.
+3. Wait for the required cells to become covered before starting.
+
+Generation runs sequentially in the background, with a limit of 90 package/date cells per attempt. You can append other missing cells while it runs. Progress and completed dates survive navigation; after an app restart, an interrupted attempt needs an explicit retry. Completed work is retained, so retrying targets the remaining gaps.
 
 :::note
-Context-layer usage is derived from the session's playbook requirements. There are no per-run toggles — the playbook decides whether a layer is `Off`, `Optional`, or `Required`.
+Historical sentiment generation is currently unavailable. A missing required historical sentiment report remains a launch blocker; the generator doesn't substitute today's news. Future artifact dates cannot be generated either.
 :::
 
-### 4. Start, then pause or resume
+### 4. Set capital, risk, and AI guidance
 
-Starting hands the run to the background service and returns you a running state; the page polls history while the run is active. Navigating away does not cancel it.
+Set `Starting capital` and choose whether to `Apply risk management rules`.
 
-While a run is `Running` you can **Pause** it. The current in-flight AI call finishes, then the candle loop parks at the next boundary and the status persists as `Paused`. **Resume** continues from exactly that boundary with no state lost. Cancel is valid from both `Running` and `Paused`.
+When risk enforcement is on, expand `Risk management settings` to edit the supported limits for this backtest. The initial values come from your global and selected-account settings. Each layer keeps its own limits and UTC trading-day boundary; zero disables an individual limit. Changing the selected account reloads its defaults.
 
-:::caution
-Pause is in-process only. If the app exits while a run is paused or running, orphan recovery marks it `Failed` on restart — there is no durable mid-run resume across a process restart. A paused run also holds the single concurrency slot until you resume or cancel it.
-:::
+These edits belong to the draft and run. They don't change your account settings. Launch captures the risk configuration, so later changes to live defaults don't alter the run or its recovered replay.
 
-### 5. Read the result
+For Autonomous replay:
 
-A completed run opens at `/backtests/{id}` with the coverage grid and the cycle timeline. Result tabs cover the overview metrics, simulated trades, AI cycles, warnings, and the frozen settings the run used.
+1. Select the model and set `Max AI cycles`.
+2. Add optional `Instructions` for strategy notes or special guidance. Cortiq retains these for planning, later decisions, and resumed replay.
+3. Read the run summary and acknowledge the real-cost, candle-approximation, latency, SL-first, and historical-indicator warnings.
 
-![Backtest detail page showing the per-day coverage grid and the AI cycle timeline](/cortiq-public/images/screenshots/backtesting__detail.png)
+Broker-cost warnings explain estimated results. They don't require a separate cost acknowledgement.
 
-The AI-cycles view uses the same timeline component as a live session, so cycle action chips (BUY / SELL / WAIT / MANAGE) read identically. Cycles that intended a trade but opened nothing render with a distinct marker and carry the drop reason, including risk rejects prefixed `[Risk]` or `[Risk halt]`.
+Select `Start Backtest`. The detail page opens with the replay chart and saved run state. Start remains disabled while required model, coverage, or setup checks are incomplete.
 
-## Reference
+### 5. Control manual replay
 
-### Run status values
+A new Manual run waits for your input before advancing. Select a timeframe in the chart toolbar, then use:
 
-| Status | Meaning |
+- `Next candle` to reveal the next available completed candle on that timeframe.
+- `Previous candle` to restore an earlier retained replay state while auto replay is stopped. Rewind stops at the latest trade opening or the earliest retained checkpoint.
+- `Auto replay` to repeat advances using `Delay` and `Candles/tick`.
+- `Stop auto replay` to stop automatic advances while keeping manual stepping available.
+
+Use the order ticket for simulated market, limit, and stop orders. Risk sizing uses simulated equity: starting capital plus realised replay P/L. Manage open positions from `Trade` with close, partial-close, and SL/TP actions.
+
+The page-header `Pause` stops the whole run and disables stepping and trading. `Resume` enables those controls without advancing time. Leaving the detail page pauses Manual replay, and normal app close saves its checkpoint. Reopen the run and resume to continue.
+
+Chart drawings and the selected timeframe are saved with the run. Manual replay Copilot uses the revealed replay context and simulated book; its tools don't place live orders.
+
+### 6. Monitor autonomous replay and recover interruptions
+
+Autonomous replay advances through historical M1 candles and runs AI cycles when its planning or accepted triggers require them. During a provider turn, replay time stays fixed while the status shows the active work. A turn can take several minutes.
+
+Navigating away leaves an autonomous run working in the background. `Pause` lets the current AI call finish before parking replay; `Resume` continues from the committed boundary. `Cancel Run` ends the replay and keeps its recorded partial results.
+
+Cortiq supports up to five active background backtests. Pause doesn't free an active run's slot; finish or cancel a run before starting a sixth.
+
+After an app restart, interrupted runs with valid saved checkpoints return as `Paused`. Resume them explicitly. An interrupted provider request isn't continued mid-call. If a failed autonomous run has a valid checkpoint before the end of its period, the page offers `Resume from checkpoint`. Completed and cancelled runs don't resume; a Manual run without a valid checkpoint cannot recover.
+
+Provider rate limits and some bounded recovery conditions also pause autonomous replay with a reason. Inspect that reason before choosing `Resume` or `Retry and resume`. Open simulated positions remain in the saved recovery state; Cortiq doesn't infer when your provider's allowance resets.
+
+## Verify the result
+
+Open the run from Backtests and check its status, period, warnings, and recorded coverage before interpreting P/L. `Completed` means replay reached its stopping condition; check whether the AI-cycle cap shortened it.
+
+| View | What to inspect |
 | --- | --- |
-| `Queued` | Run record written, background task not yet started. |
-| `Running` | The replay loop is active. |
-| `Paused` | Operator paused at a candle boundary; resumable in-process. |
-| `Completed` | Replay finished and results persisted. |
-| `Cancelled` | Operator cancelled; open positions force-closed and partial results kept. |
-| `Failed` | Run errored, or orphan recovery found it interrupted by an app restart. |
+| `Overview` | Recorded performance, analysis metrics, and their evidence coverage or limitations. |
+| `Trade` | Open and pending simulated positions. Manual actions require an active Manual run. |
+| `History` | Closed trades, execution prices, net result, and cost evidence. |
+| `Observations` | Saved observations and historical cycle-memory material; raw text alone isn't verified proof. |
+| `Warnings` | Replay approximations, missing evidence, and run limits. |
+| `AI Cycles` | Autonomous decisions, execution outcomes, and reasons an intended trade didn't open. |
+| `Settings` | Autonomous run settings, selected packages, model, and saved instructions. |
 
-### Cycle outcomes
+Autonomous chart decision markers open the corresponding decision details. Inspect the recorded evidence and rejection reason when the AI intended a trade but no position opened.
 
-| Outcome | Meaning |
-| --- | --- |
-| `Wait` | No trade intent this cycle. |
-| `Opened` | A position was opened. |
-| `IntendedNotOpened` | The AI flagged a trade but produced no executable order; carries a drop reason. |
-| `Managed` | A management action (CLOSE / MOVE_SL / MOVE_TP) was applied. |
-| `Error` | The cycle errored or the response was unparseable; carries a drop reason. |
+### Request a review
 
-### What a backtest does not reconstruct
+Select `Review backtest` when the control is available. Reviews use stable saved evidence: terminal runs can qualify, as can paused autonomous runs. Running replay isn't reviewed concurrently. Manual backtests can be reviewed without AI cycles.
 
-| Limitation | Detail |
-| --- | --- |
-| Account balance / margin / drawdown | Not reconstructed historically; equity is tracked as starting capital plus realized P/L. |
-| Intra-minute tick order | M1 OHLC cannot know tick sequence; SL is checked first as the conservative default. |
-| Durable pause | Pause and resume are in-memory; an app restart fails a paused run. |
-| Historical news | Depends on MT5 economic-calendar availability for the requested window. |
+A review assesses decisions and outcomes, identifies supported Observations, and proposes improvements. It doesn't automatically edit a playbook or create a Learning or Edge. `Discuss` opens the suggestion in Copilot for further work.
 
-## Common questions
+`Update review` incorporates new completed evidence; unchanged evidence reuses the saved result. Review generation is explicit and can spend provider allowance. Opening, finishing, or recovering a backtest doesn't start a review automatically. See [Session review](/cortiq-public/session-review/) for review configuration and uncertain-request recovery.
 
-**Do I need a license to run a backtest?**
-No. Backtests are the only license-free path. Any session bound to MT5 needs a valid license; a backtest never reaches MT5.
+## Understand the limits
 
-**Why did my run finish with fewer cycles than I expected?**
-The run respects a max-AI-cycle cap and hard first-slice limits on candle volume. If the cap stopped the run, the result records it. Lower the window or raise the cap.
+Replay results depend on the historical data and broker evidence available to Cortiq.
 
-**A required coverage cell won't generate for a future date — why?**
-Backdated artifacts cannot be stamped with a future effective date. A day later than today is skipped; pick a window that ends on or before today.
+- **Candle fills are approximate.** M1 OHLC doesn't reconstruct tick order, intraminute spread movement, or actual slippage. Ambiguous exits use conservative SL-first ordering after available lower-timeframe evidence.
+- **Costs can be estimates.** Spread is included in execution prices. Commission, swap, and separate broker fees appear as explicit charges when calculable. Missing charges are omitted with a reason and an estimated-net label; they aren't proof of zero cost. Open `Trade costs` to inspect the evidence.
+- **Broker rules are captured at run start.** Current specifications and commission rules don't reproduce every historical broker schedule.
+- **Historical account state isn't reconstructed.** Starting capital and replay trades determine simulated equity and risk results, rather than the account's actual past balance or margin.
+- **Historical inputs have limits.** News depends on available historical sources, and indicators need historical-range support. Review the run's input and warning details.
+- **No-lookahead applies to supplied replay evidence.** Chart, candle, artifact, and Manual Copilot reads are bounded by the revealed cursor. This doesn't remove a model's pre-existing knowledge or turn an approximate replay into proof of future performance.
 
 ## What to read next
 
-1. [Sessions](/cortiq-public/sessions/) — the session a backtest replays, and its lifecycle states.
-2. [Playbooks & data](/cortiq-public/playbooks-and-data/) — the playbooks and data package that drive every cycle.
-3. [Journal & analytics](/cortiq-public/journal-and-analytics/) — how live runs are recorded once you go past simulation.
+1. [Playbooks & data](/cortiq-public/playbooks-and-data/) — prepare the playbooks and policy for an autonomous replay.
+2. [Research](/cortiq-public/research/) — investigate whether a market observation repeats across occurrences.
+3. [Session review](/cortiq-public/session-review/) — interpret saved evidence and evaluate suggested improvements.
 
 ## Related
 
+- [Sessions](/cortiq-public/sessions/)
 - [Risk management](/cortiq-public/risk-management/)
 - [AI providers](/cortiq-public/ai-providers/)
-- [Research](/cortiq-public/research/)
 - [Glossary](/cortiq-public/glossary/)

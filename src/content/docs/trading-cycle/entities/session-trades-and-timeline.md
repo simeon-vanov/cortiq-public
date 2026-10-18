@@ -1,4 +1,5 @@
 ---
+status: current
 title: Session trades & timeline
 description: The session trades and timeline entities — Cortiq's per-cycle execution record that turns AI decisions into reviewable, auditable history.
 sidebar:
