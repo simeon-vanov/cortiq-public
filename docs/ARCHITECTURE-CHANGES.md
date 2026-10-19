@@ -5,6 +5,14 @@ last_updated: 2026-10-18
 
 # Architecture Changes Log
 
+## 2026-10-19 — Export revision-pinned offline help
+
+- Build a deterministic reader-only Markdown/MDX section corpus with canonical
+  public URLs, Unicode heading anchors, revision and content hashes.
+- Run exporter regressions in the site build and upload a separate corpus artifact
+  for explicit digest-checked desktop release imports. GitHub Pages publication is
+  unchanged; no runtime retrieval service or crawler is introduced.
+
 ## 2026-10-18 — Align public guides with current desktop workflows
 
 - Refresh reader content against current desktop source: Hub-owned research,

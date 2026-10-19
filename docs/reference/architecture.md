@@ -1,4 +1,5 @@
 ---
+status: current
 area: architecture
 last_updated: 2026-05-17
 ---
@@ -26,6 +27,18 @@ The repo intentionally does **not** contain the desktop app source, license back
 - `.github/ISSUE_TEMPLATE/` — bug-report / feature-request templates.
 
 ## Entry points / interfaces
+
+The build also exports `public/retrieval/corpus.json` from reader-facing
+`src/content/docs/` only. `scripts/build-retrieval-corpus.mjs` parses markup as
+data, uses the site's GitHub heading-slug rules, and records canonical URLs,
+source commit, parent headings and SHA-256 section/content identities. Engineering
+docs, issues and image files never enter this corpus. The output is deterministic
+for the same reader revision and is an additional CI artifact; site publication
+still uses GitHub Pages.
+
+The desktop release imports an explicit package and expected digest into its
+Business embedded resources. This public repository does not update desktop help
+automatically or provide a runtime network dependency.
 
 - **Read the docs:** <https://simeon-vanov.github.io/cortiq-public/>
 - **Download an installer:** <https://github.com/simeon-vanov/cortiq-public/releases/latest/download/Cortiq-win-Setup.exe>

@@ -1,4 +1,5 @@
 ---
+status: current
 area: deployment
 last_updated: 2026-05-17
 ---
@@ -12,12 +13,12 @@ The docs site builds and ships to **GitHub Pages** from this repository. There i
 ## Components
 
 - `.github/workflows/docs.yml` — the build + deploy workflow.
-  - Trigger: `push` to `main` when `src/**`, `public/**`, `astro.config.mjs`, `package.json`, `package-lock.json`, `tsconfig.json`, or `README.md` change; plus `workflow_dispatch`.
-  - Build job: `withastro/action@v6` on `ubuntu-latest`, `node-version: 22`. Runs `npm ci && astro check && astro build` and uploads the Pages artifact.
+  - Trigger: `push` to `main` when `src/**`, `public/**`, `scripts/**`, this workflow, `astro.config.mjs`, `package.json`, `package-lock.json`, `tsconfig.json`, or `README.md` change; plus `workflow_dispatch`.
+  - Build job: `withastro/action@v6` on `ubuntu-latest`, `node-version: 22`. Installs dependencies and runs `npm run build`, including retrieval exporter tests, corpus generation, Astro check and Astro build. Uploads the Pages artifact and the separate `cortiq-help-corpus` artifact.
   - Deploy job: `actions/deploy-pages@v5` against the `github-pages` environment.
   - Concurrency: `group: pages, cancel-in-progress: true` — a fresher push cancels an in-flight build.
-- `astro.config.mjs` — `site: 'https://simeon-vanov.github.io'`, `base: '/cortiq-public'`. Both values must stay in sync with the GitHub Pages URL. Internal links must therefore use Starlight's relative slugs (e.g. `getting-started/`), not absolute paths.
-- `package.json` scripts — `build` runs `astro check && astro build` (typecheck before build, so a `.md` frontmatter mistake fails CI).
+- `astro.config.mjs` — `site: 'https://simeon-vanov.github.io'`, `base: '/cortiq-public'`. Both values must stay in sync with the GitHub Pages URL. Reader links use base-absolute paths such as `/cortiq-public/getting-started/`, matching the corpus canonical URLs.
+- `package.json` scripts — `build` runs `npm run test:retrieval-corpus && npm run build:retrieval-corpus && astro check && astro build`. `build:retrieval-corpus` writes the deterministic ignored `public/retrieval/corpus.json`, including the checked-out public commit. `test:retrieval-corpus` exercises Unicode/duplicate heading anchors, MDX-as-data, private-source exclusion and tamper detection.
 
 ## Entry points / interfaces
 

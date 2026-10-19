@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "npm run test:retrieval-corpus && npm run build:retrieval-corpus && astro check && astro build",
     "preview": "astro preview",
-    "check": "astro check"
+    "check": "astro check",
+    "build:retrieval-corpus": "node scripts/build-retrieval-corpus.mjs",
+    "test:retrieval-corpus": "node --test scripts/tests/retrieval-corpus.test.mjs"
   },
   "engines": {
     "node": ">=22.0.0"
@@ -22,6 +24,10 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.8",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "github-slugger": "2.0.0",
+    "js-yaml": "4.1.1",
+    "unified": "11.0.5",
+    "remark-parse": "11.0.0"
   }
 }

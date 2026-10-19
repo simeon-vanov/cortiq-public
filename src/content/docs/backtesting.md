@@ -79,6 +79,14 @@ When risk enforcement is on, expand `Risk management settings` to edit the suppo
 
 These edits belong to the draft and run. They don't change your account settings. Launch captures the risk configuration, so later changes to live defaults don't alter the run or its recovered replay.
 
+`Use Learnings` starts off. Enable it to let Copilot and autonomous replay search your current Learning library for relevant findings. The choice is saved with the run and retained when you resume it.
+
+:::caution
+Current Learnings can include knowledge learned from data after the replay period. This introduces hindsight into general knowledge. Individual observations, example candles, and known outcomes remain limited to the current replay time. The library isn't frozen, so changes to your Learnings can affect later runs.
+:::
+
+Leave `Use Learnings` off when you want to evaluate decisions without your saved library. Copilot can still answer questions about using the app from the bundled official documentation.
+
 For Autonomous replay:
 
 1. Select the model and set `Max AI cycles`.

@@ -38,6 +38,8 @@ npm run dev                          # local preview at http://localhost:4321/co
 npm run build                        # astro check && astro build (used by CI)
 npm run preview                      # serve the built site
 npm run check                        # astro check only — frontmatter / type validation
+npm run test:retrieval-corpus        # deterministic offline-help exporter tests
+npm run build:retrieval-corpus       # public reader corpus; generated public/retrieval/corpus.json
 ```
 
 Node `>=22` is required (pinned in `package.json` engines + the GitHub Actions workflow).

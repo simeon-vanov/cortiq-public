@@ -58,6 +58,18 @@ Saved conversations restore their messages and recorded activity. A provider rec
 
 ## Work with research evidence
 
+### Search your Learnings and app help
+
+Ask Copilot to find Learnings relevant to a setup, compare findings, or browse your saved library. Search covers indexed Learnings across the library; a chart or session limits market knowledge to its instrument. Copilot can inspect the supporting sections and look for conflicting findings before applying a conclusion.
+
+For app questions, ask how to complete a task, such as “How do I pause a backtest?” Copilot searches the bundled official documentation and links to the relevant public page. Documentation explains the app; it doesn't provide market evidence.
+
+Indexing and semantic search run locally. Retrieved text is included in the request to your configured AI provider when Copilot uses it. An incomplete index or unavailable semantic search is reported, so an empty result doesn't prove your library contains no relevant finding.
+
+In a backtest, Learning access follows the run's `Use Learnings` setting. Enabled runs use current general knowledge, including later research, while individual examples and outcomes respect replay time. See [backtest setup](/cortiq-public/backtesting/) before interpreting those results.
+
+### Inspect a research study
+
 From an instrument or research page, Copilot can inspect the current instrument's managed data files, saved questions, measured results, and analysis revisions. Research context stays bound to that instrument.
 
 Use these requests for different outcomes:
