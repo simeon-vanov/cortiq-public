@@ -96,7 +96,7 @@ No. Execution, interpretation, review, and publication are separate. A Learning 
 
 ### Does review change my strategy automatically?
 
-No. You request Review or Update review, inspect the saved cutoff and coverage, and discuss proposed changes before editing the relevant artifact. Automatic lesson injection is retired. See [Session review](/cortiq-public/session-review/).
+No. Prepare a fixed evidence scope, start its review explicitly, and inspect the assessment and coverage before publishing. Discuss proposed changes and save them through the relevant editor. Automatic lesson injection is retired. See [Session review](/cortiq-public/session-review/).
 
 ## What to read next
 

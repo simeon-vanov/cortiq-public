@@ -142,11 +142,11 @@ Autonomous chart decision markers open the corresponding decision details. Inspe
 
 ### Request a review
 
-Select `Review backtest` when the control is available. Reviews use stable saved evidence: terminal runs can qualify, as can paused autonomous runs. Running replay isn't reviewed concurrently. Manual backtests can be reviewed without AI cycles.
+Open the run's **Review** tab and choose **Review scope**. Eligible paused Manual and Autonomous runs and finished runs share this flow. Manual runs need no AI cycles; choose **Completed trades** or **Date range**. Running replay isn't reviewed concurrently.
 
-A review assesses decisions and outcomes, identifies supported Observations, and proposes improvements. It doesn't automatically edit a playbook or create a Learning or Edge. `Discuss` opens the suggestion in Copilot for further work.
+Select **Prepare review** to freeze the scope locally, then **Start review** to send the first request in the dedicated Copilot chat. Use **Open Copilot** or **Resume review** to reopen the same review; those actions send no request. Choosing another scope preserves the earlier review.
 
-`Update review` incorporates new completed evidence; unchanged evidence reuses the saved result. Review generation is explicit and can spend provider allowance. Opening, finishing, or recovering a backtest doesn't start a review automatically. See [Session review](/cortiq-public/session-review/) for review configuration and uncertain-request recovery.
+Inspect coverage, save a draft, or publish an assessment with its limitations. Supported Observations require saved proof; suggestions don't edit a playbook or create a Learning or Edge. See [Session review](/cortiq-public/session-review/) for the complete workflow and older attempt recovery.
 
 ## Understand the limits
 

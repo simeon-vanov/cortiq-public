@@ -37,6 +37,8 @@ Copilot doesn't run an autonomous trading loop. [Sessions](/cortiq-public/sessio
 
 Use the composer model and thinking-effort selector to choose settings for subsequent turns. A change doesn't alter an active request. Skills apply through explicit attachment; Copilot doesn't choose instructions from your entire skill library on its own.
 
+Dedicated Review conversations use the configured Review model and verified maximum effort. Their saved scope and evidence tools remain pinned. See [Session review](/cortiq-public/session-review/) to prepare, start, or reopen one.
+
 ### Keep the chat on the right context
 
 When you navigate away from a started chat's context, Copilot names the current page and the chat's original context. The composer waits for your choice:

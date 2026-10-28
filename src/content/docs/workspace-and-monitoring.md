@@ -70,7 +70,7 @@ Use Journal when you need to understand *why* a session or trade behaved the way
 
 ### Session Reviews
 
-`Session Reviews` (`/reviews`) lists saved review versions and links to each session. Start or update a review explicitly from the session's Reviews tab, including while it is Running. Read the assessment, admitted Observations, proposed improvements, and reviewed cutoff.
+**Reviews** (`/reviews`) lists saved session and backtest selections, with older session review versions retained separately. Use **Open review** for the exact selection or **View saved assessment** for its publication. Prepare a new scope from the session's **Reviews** tab or backtest's **Review** tab. Starting or sending a message is explicit.
 
 Open this screen to close the learning loop — to inspect saved evidence and discuss proposed changes. Reviews do not apply strategy edits or inject new lessons automatically. The full mechanism is on the [Session review](/cortiq-public/session-review/) page.
 

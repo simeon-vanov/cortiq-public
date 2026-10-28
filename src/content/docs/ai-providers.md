@@ -77,13 +77,15 @@ The workflows include Journal, Review, Preparation, Sentiment, Instrument Profil
 | --- | --- |
 | New Autonomous session | Starts from the Trading Cycle default; you choose the full route during creation. |
 | Existing Autonomous session | Keeps its saved provider, connection, and exact model for decisions, planning, replanning, and recovery. |
-| Copilot conversation | Keeps its own provider, connection, and model; the dock's model picker changes that conversation's selection. |
+| Copilot conversation | Keeps its own provider, connection, and model; the dock's model picker changes that conversation's selection. Dedicated Review conversations use the Review configuration. |
 | Supporting workflow | Uses the workflow's configured selection and applicable provider default. |
 | Session or backtest review | Uses the independent Review configuration, with verified maximum effort. |
 
 Changing a global default does not replace the model saved on an existing Autonomous session. Cloning preserves its selection. Older sessions without a saved model display `Legacy default (see AI Providers)` and retain their legacy fallback to Trading Cycle settings.
 
 Changing a Copilot conversation's model starts isolated provider context while carrying bounded prior exchanges for continuity. If its saved selection becomes unavailable, sending fails until you correct it; Cortiq does not silently substitute another route.
+
+Dedicated Review conversations keep the Review provider, model, maximum effort, and saved-evidence tools. Ordinary Copilot model and effort controls don't override that review scope.
 
 ## Reference
 
@@ -93,7 +95,7 @@ The `Review` workflow has its own provider, connection, and model. Thinking effo
 
 Cortiq requires the selected model's verified highest native reasoning setting before sending review evidence. Unsupported models, missing capabilities, or a lower acknowledgement stop the request with a settings error.
 
-Without a dedicated Review selection, existing session/backtest review settings provide the compatibility fallback. Configure Review explicitly when you want an independent model. Reading saved results does not request another review. See [Session review](/cortiq-public/session-review/).
+Without a dedicated Review selection, existing session/backtest review settings provide the compatibility fallback. Configure Review explicitly when you want an independent model. Preparing a scope, reading a saved result, and opening or resuming its chat don't send a generation request. **Start review** and accepted follow-up messages can use provider allowance. See [Session review](/cortiq-public/session-review/).
 
 ### Sentiment requires live web research
 
@@ -132,7 +134,7 @@ Yes. Workflow settings, saved Autonomous session models, and individual Copilot 
 
 1. [Sessions](/cortiq-public/sessions/) — choose the model saved on an Autonomous session.
 2. [Cortiq Copilot](/cortiq-public/cortiq-copilot/) — use a conversation's model and tools.
-3. [Session review](/cortiq-public/session-review/) — request a review and recover incomplete work.
+3. [Session review](/cortiq-public/session-review/) — prepare a scope, review it in Copilot, and inspect coverage.
 4. [Agent permissions](/cortiq-public/agent-permissions/) — configure provider permission requests and Cortiq approvals.
 
 ## Related

@@ -72,11 +72,11 @@ Open `Library` → `Cohorts` and group sessions you want to compare. Cohorts wor
 
 ### Review saved evidence explicitly
 
-Open the session's **Reviews** tab and select **Review session**, or **Update review** when new completed evidence is available. An active session can be reviewed through its saved cutoff; in-flight work is excluded.
+Select **Review in Copilot** to open the session's **Reviews** tab. Choose **Latest cycles**, **Completed trades**, or **Date range**, then select **Prepare review**. Check the frozen scope before **Start review** sends the first Copilot request. Active sessions are reviewable through their saved cutoff; in-flight cycles are excluded.
 
-Read the assessment, admitted Observations, suggested improvements, and coverage counts. Discuss proposed changes with Copilot and save edits through the relevant editor. A review status click does not apply a strategy change.
+Read the assessment and coverage in the dedicated conversation. Save a draft or publish with its limitations. Open admitted Observations to inspect their proof, and save proposed rule changes through the relevant editor.
 
-Historical lessons remain read-only and are no longer injected into later trading prompts. See [Session review](/cortiq-public/session-review/) for recovery, uncertain requests, billing, and evidence limits.
+Historical lessons remain read-only and are no longer injected into later trading prompts. See [Session review](/cortiq-public/session-review/) for reopening a review, coverage, billing, and older attempt recovery.
 
 ### Compare existing groups
 

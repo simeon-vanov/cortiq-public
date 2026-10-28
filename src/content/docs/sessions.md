@@ -75,7 +75,7 @@ Open the session to read its live chart, trades, decisions, recorded runs, setti
 
 Stopping offers a choice about closing session-owned trades. Keeping trades open does not close them at the broker. Check remaining exposure after stopping, especially if you expected Cortiq to continue managing it.
 
-`Review session` and `Update review` are explicit actions on the `Reviews` tab, including while a session is running. They assess completed saved evidence; stopping a session does not automatically request a review. See [Session review](/cortiq-public/session-review/).
+From **Reviews**, choose a scope and prepare it locally. Select **Start review** when you're ready to send the first AI request. Completed saved evidence is reviewable while a session runs; stopping it doesn't request a review. Select **Open Copilot** to continue the saved conversation. See [Session review](/cortiq-public/session-review/).
 
 ## Reference
 
