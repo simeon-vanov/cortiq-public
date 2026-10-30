@@ -76,11 +76,13 @@ test('published reader badges and image references remain valid', async () => {
 test('documentation branding uses the approved landing logo and ICO artwork', async () => {
   const assets = {
     'public/favicon.ico': '62c2532f6e0c3ec2b587539d63a1ae6642f06af0851f942c6d9121d310825779',
-    'src/assets/brand/cortiq-mark-on-dark.svg': '707fd89146233f790ba5cdbaa91e86d19b1d1e6c93dd116a1591182deb21089b',
-    'src/assets/brand/cortiq-mark-on-light.svg': 'eb3af4af90a5c7112f51952d72e731bcc5953692caaeabcd89ba807e8eb35127',
+    'src/assets/brand/cortiq-mark-on-dark.svg': 'ec19b761ae185b27fcf76e91315d6974d1048edcceff57018cb8ed5707bafcc3',
+    'src/assets/brand/cortiq-mark-on-light.svg': '87516fe251a9224b8b90ef0641dd042a8e1c8a7cd19fb384cfbee636cfac078b',
   };
   for (const [path, expected] of Object.entries(assets)) {
-    const actual = createHash('sha256').update(await readFile(path)).digest('hex');
+    const bytes = await readFile(path);
+    const artwork = path.endsWith('.svg') ? bytes.toString('utf8').replaceAll('\r\n', '\n') : bytes;
+    const actual = createHash('sha256').update(artwork).digest('hex');
     assert.equal(actual, expected, `${path}: landing-brand artwork drifted`);
   }
 });
