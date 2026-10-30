@@ -56,7 +56,7 @@ An unavailable saved model remains visible as a problem. Refreshing the model li
 
 | Action | Purpose |
 | --- | --- |
-| `Inspect runtime` | Inspect the installed supported packages. |
+| `Check setup` | Inspect the installed supported packages. |
 | `Repair connection` | Restore a missing or incompatible connection. |
 | `Update packages` | Update within the runtime versions Cortiq supports. |
 | `Re-authenticate` | Sign in again with the provider. |

@@ -82,6 +82,8 @@ Viewing and preparation remain accessible, but starting sessions, backtests, res
 
 Use [GitHub Discussions](https://github.com/simeon-vanov/cortiq-public/discussions) for public questions and shared workflows.
 
+If you have setup questions or get stuck, email `support@cortiq.trade`. We can hop on a call to help. If we can't get setup working, we'll refund your purchase.
+
 ### Where should I report bugs?
 
 Use [GitHub Issues](https://github.com/simeon-vanov/cortiq-public/issues/new/choose) when you can describe a reproducible product problem clearly.

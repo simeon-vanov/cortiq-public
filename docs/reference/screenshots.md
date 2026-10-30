@@ -1,7 +1,7 @@
 ---
 status: reference
 area: screenshots
-last_updated: 2026-10-18
+last_updated: 2026-10-30
 ---
 
 # Screenshots
@@ -16,6 +16,13 @@ No new desktop capture was run for this documentation-only update. Refresh captu
 at an explicit desktop/UI QA checkpoint, using the current Hub and saved-result
 workflows and checking that demo seeds represent the current product. Outstanding
 capture comments are editorial reminders, not broken published image links.
+
+The [2026-10-30 audit](../research/2026-10-30-public-documentation-audit.md)
+visually reviewed all 39 archived PNGs and checked every live image URL. The live
+site still serves the older documentation: 39 historical images and four missing
+capture targets. Current reader source embeds none of them. Do not reintroduce
+archived captures without checking the current screen; the audit lists replacement
+priorities and per-image observations.
 
 ## What it does
 

@@ -53,6 +53,10 @@ When the license is effectively invalid, the app shows a **non-dismissible red b
 
 Cortiq offers a **14-day refund**. If Cortiq isn't a fit within 14 days of purchase, email `support@cortiq.trade` and the Stripe payment is refunded.
 
+### Get help with setup
+
+Email `support@cortiq.trade` if you have questions or get stuck. We can hop on a call to help. If we can't get setup working, we'll refund your purchase.
+
 ### Open a bug or feature request
 
 Use [GitHub Issues](https://github.com/simeon-vanov/cortiq-public/issues/new/choose) for anything reproducible. A good bug report includes the Cortiq version, what you did, what you expected, and what actually happened. Include screenshots when the UI matters.
@@ -112,7 +116,7 @@ Yes. One key activates up to two machines. Activate on each from `Setup` → `Li
 The license is effectively invalid — either not activated, or more than 14 days since the last successful backend verification. Re-activate from `Setup` → `License`. If activation succeeds and the banner persists, email support.
 
 **Can I run a session if the licensing backend is down?**
-Yes, within the 14-day grace window since your last successful verification. Backtests never need a valid license.
+Yes, while an otherwise-valid license is within the 14-day grace window since its last successful verification. Backtests also require a valid license.
 
 **I want a refund.**
 Email `support@cortiq.trade` within 14 days of purchase. The Stripe charge is refunded.

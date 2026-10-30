@@ -12,7 +12,7 @@ This page is the index for the rest of the site. It explains the logic behind th
 
 The Cortiq docs are organized around the decisions a real operator makes in order: *what is this and is it for me?*, *how do I install it?*, *how do the major features fit together?*, *where do I go for help?*. The site is shaped like an operating manual, not an engineering wiki.
 
-The desktop app itself is organized differently. It uses sidebar groups like `Library`, `Playbooks`, `Preparation`, `Tools`, and `Community`, plus standalone entries — `Settings` is a lone NavItem, not a group, and `Copilot` is a toggle button (`Ctrl+K`). The docs therefore do two jobs at once: explain the product concept-first, and translate each concept back to the screen where you'll find it. The [App navigation guide](/cortiq-public/app-navigation-guide/) handles the second job in detail.
+The desktop app uses sidebar groups including `Library`, `Knowledge`, `Preparation`, `Tools`, `Setup`, `Settings`, and `Community`. The Copilot settings page is separate from the dock, which you open with `Ctrl+K`. The docs explain each concept and point to the screen where you'll find it. The [App navigation guide](/cortiq-public/app-navigation-guide/) maps the current navigation in detail.
 
 ## How it fits into Cortiq
 

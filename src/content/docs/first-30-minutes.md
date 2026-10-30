@@ -16,7 +16,7 @@ Stay in virtual mode for this entire walkthrough. The goal is to verify that the
 
 The first thirty minutes are an integration test of your setup, not a strategy test. The walkthrough hits each external dependency once — MT5 bridge, AI provider, playbook, data access policy, session, journal — so any broken link surfaces fast and in isolation.
 
-The strategy you build here is intentionally narrow: one symbol, one or two timeframes, one clear setup and invalidation rule. A simple playbook produces a readable journal, which is the only thing you actually need on day one.
+The strategy you build here is intentionally narrow: one symbol, one or two timeframes, one clear setup and invalidation rule. Use a focused playbook so you can inspect the recorded inputs and decisions on day one.
 
 ## How it fits into Cortiq
 
@@ -30,7 +30,7 @@ By the end of this walkthrough you'll have:
 - MetaTrader 5 connected on the same machine.
 - One AI provider configured and responding.
 - One simple playbook and a focused data access policy.
-- One virtual session running and producing journal output.
+- One virtual session running with decisions and recorded inputs you can inspect.
 
 ## How to use it
 
@@ -67,7 +67,7 @@ Build a focused playbook and data policy for your idea. Use the playbook's execu
 - One or two important timeframes (not a stack of six).
 - One setup rule, one invalidation rule.
 
-A narrow scope produces journals you can actually read. See [Playbooks & data access policies](/cortiq-public/playbooks-and-data/) for a refresher.
+A narrow scope keeps the recorded inputs and decisions readable. See [Playbooks & data access policies](/cortiq-public/playbooks-and-data/) for a refresher.
 
 ### Minute 20–25 — Create the first session
 
@@ -87,7 +87,7 @@ Conservative risk settings on a virtual session matter because you're rehearsing
 
 1. Start the session.
 2. Let it complete one or more cycles.
-3. Open the journal and read the AI's reasoning, the decision, and the simulated outcome.
+3. Open the session's **Decision Log** and inspect the AI's reasoning and recorded decisions. Open **Journal** to inspect trades once the session has recorded one.
 4. Look for clarity, not perfection.
 
 The first question is *did this workflow behave in a way I can understand and trust enough to improve?* — not *did it make money?*
@@ -100,7 +100,7 @@ The first question is *did this workflow behave in a way I can understand and tr
 | --- | --- |
 | Topbar MT5 indicator stays green | Bridge is healthy. |
 | `Provider Health` shows successful responses | AI provider is responding to Cortiq. |
-| Journal entries are readable | Playbook and data access policy are sensible. |
+| Decision Log records are readable | You can inspect the session's inputs and decisions, even before a trade occurs. |
 | Risk panel shows the configured limits | Risk validators are wired up. |
 | Session moves through `Running` cleanly | Operating loop is intact. |
 

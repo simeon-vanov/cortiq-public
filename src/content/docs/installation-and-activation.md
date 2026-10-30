@@ -44,7 +44,7 @@ Download `Cortiq-win-Setup.exe` to the Windows machine that will run Cortiq. Ins
 
 Double-click `Cortiq-win-Setup.exe`. Confirm that Windows shows **Decode The Trade Ltd** as the verified publisher. SmartScreen may still show a protection screen while a new release builds reputation; if the publisher matches, choose **More info → Run anyway** to continue. The installer is per-user and needs no admin rights; it installs in a couple of clicks and adds a Start-menu shortcut.
 
-If you'd rather verify the download first, the [releases page](https://github.com/simeon-vanov/cortiq-public/releases/latest) lists every release with its checksums.
+Check the [release page](https://github.com/simeon-vanov/cortiq-public/releases/latest) for the version, release notes, and download assets. Verify the installer's publisher before running it.
 
 <!-- SCREENSHOT-NEEDED: installation-and-activation__smartscreen.png – Windows SmartScreen protection notice for the signed Cortiq-win-Setup.exe, showing Decode The Trade Ltd and the Run anyway button (OS dialog, captured manually) -->
 
@@ -71,12 +71,12 @@ Cortiq checks your license locally and re-verifies it against the backend period
 A valid license is required to **start any MT5-bound session** — including virtual and broker-demo sessions. Starting backtests, research runs, and managed data-file builds also requires a valid license. When the license is effectively invalid, Cortiq shows a non-dismissible red banner.
 
 :::note
-Prop-firm evaluation accounts run on the broker's demo server. They still need a valid license to start a session — only backtests are exempt.
+Prop-firm evaluation accounts run on the broker's demo server. They still need a valid license to start a session. Backtests also require a valid license.
 :::
 
 ## How updates work
 
-New versions install themselves. Cortiq's updater polls the public release feed in the background and downloads the next version when one is available. It applies the update **on restart, and only in a safe window** — no session is active and no trade is open. You never re-download the installer for an update; you only use `Cortiq-win-Setup.exe` for the first install.
+Cortiq checks the public release feed and downloads available updates in the background. A staged update waits for you to select `Update to <version>` in the top bar. Applying it restarts Cortiq and requires a safe window with no active session or open trade. Downloading an update does not apply it automatically.
 
 ## Reference
 
@@ -108,7 +108,7 @@ If none of those resolve it, continue to [Licensing & support](/cortiq-public/li
 
 **Can I get a refund?**
 
-Yes, within 14 days of purchase, through the Stripe checkout. See [Licensing & support](/cortiq-public/licensing-and-support/).
+Yes. Email `support@cortiq.trade` within 14 days of purchase, or use the [online withdrawal form](https://cortiq.trade/legal/withdrawal/). See [Licensing & support](/cortiq-public/licensing-and-support/).
 
 **Does Cortiq need to be installed alongside MT5?**
 

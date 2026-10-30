@@ -1,6 +1,7 @@
 ---
+status: reference
 area: style-guide
-last_updated: 2026-05-17
+last_updated: 2026-10-30
 ---
 
 # Style guide
@@ -21,7 +22,7 @@ title: <Sentence case page title>
 description: <One factual sentence; used as SEO meta>
 sidebar:
   order: <N>
-  badge: <Advanced | New | omit>
+  badge: <Advanced | omit>
 ---
 
 <Lede: 1-2 sentence opener stating what this page is for and what
@@ -116,7 +117,7 @@ The full manifest lives at [`screenshots.md`](screenshots.md).
 - `title`: sentence case, matches sidebar label exactly.
 - `description`: one factual sentence under 160 chars.
 - `sidebar.order`: integer in multiples of 10 (10, 20, 30...) for easy insertion.
-- `sidebar.badge`: `New` for pages added in past 30 days; `Advanced` for MCP/agent and developer-leaning pages; omit by default.
+- `sidebar.badge`: `Advanced` for MCP/agent and developer-leaning pages; omit by default. Do not add `New` or other novelty badges.
 - `lastUpdated`: leave to Starlight; never set manually.
 
 ## 7. Glossary
