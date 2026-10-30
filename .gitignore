@@ -2,3 +2,9 @@ node_modules/
 dist/
 .astro/
 public/retrieval/
+
+# Copilot / Codex / agent-generated scratch — verification runs, remote attachments,
+# and per-task report drops (never commit)
+.verification/
+.codex-remote-attachments/
+task-*-report.md
