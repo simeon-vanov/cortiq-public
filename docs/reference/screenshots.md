@@ -18,11 +18,11 @@ workflows and checking that demo seeds represent the current product. Outstandin
 capture comments are editorial reminders, not broken published image links.
 
 The [2026-10-30 audit](../research/2026-10-30-public-documentation-audit.md)
-visually reviewed all 39 archived PNGs and checked every live image URL. The live
-site still serves the older documentation: 39 historical images and four missing
-capture targets. Current reader source embeds none of them. Do not reintroduce
-archived captures without checking the current screen; the audit lists replacement
-priorities and per-image observations.
+visually reviewed all 39 archived PNGs and checked every live image URL. It found
+39 historical images and four missing capture targets on the older live site.
+After publication on 2026-10-30, all 43 live reader pages were checked and contain
+no image embeds. Do not reintroduce archived captures without checking the current
+screen; the audit lists replacement priorities and per-image observations.
 
 ## What it does
 

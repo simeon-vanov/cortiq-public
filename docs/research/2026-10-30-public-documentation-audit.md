@@ -218,3 +218,29 @@ No push, deployment, installer execution, desktop capture, MT5/LLM call, checkou
 or refund was performed. The live site therefore remains stale after this local
 audit. Further behavioral rewrites and fresh screenshots are flagged work, not
 silently claimed complete.
+
+## Publication acceptance — 2026-10-30
+
+After the audit, the owner explicitly authorized publication of the reviewed docs
+and local fixes, with the larger workflow issues remaining flagged. The five
+outgoing commits were pushed to `main`. The first push received HTTP 408; a remote
+check confirmed no update, and one retry succeeded.
+
+[GitHub Pages run 41014168818](https://github.com/simeon-vanov/cortiq-public/actions/runs/41014168818)
+successfully built and deployed reader source `8cb7f00`. The published retrieval
+corpus independently identifies full source commit
+`8cb7f00e45c63913f1883cc9ac9ae826fceb31f6` and all 43 reader pages.
+
+Post-publication checks confirmed all 43 live pages return HTTP 200, with zero
+novelty badges, zero image embeds, zero broken page/heading-anchor links, and seven
+successful external-destination checks. The badge check was also tested against
+the saved old homepage, where it detects all seven former badges; legitimate
+`New` action labels remain. Localized licensing, updater, support-call, and
+first-run corrections were checked in live HTML.
+
+The original audit evidence above remains a pre-publication snapshot. Acceptance
+evidence is saved separately in `.verification/docs-publication-20261030/`,
+including `final-smoke.json`, both link inventories, live responses, and the
+deployment log. Archived screenshots remain stored but are not embedded. No fresh
+desktop capture or installed-runtime/provider acceptance was performed. The
+broader content rewrites remain flagged as requested.

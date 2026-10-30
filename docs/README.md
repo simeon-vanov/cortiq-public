@@ -55,8 +55,9 @@ _(Add a new row whenever a `reference/<area>.md` file is added or renamed.)_
 The [2026-10-30 public documentation audit](research/2026-10-30-public-documentation-audit.md)
 reviews all 43 reader pages and 39 screenshots, records live/source publication
 drift, and separates localized corrections from outstanding workflow rewrites.
-It includes full page coverage and source evidence; it does not certify a released
-desktop or a newly published docs site.
+It includes full page coverage, source evidence, and publication acceptance for
+the reviewed corrections. It does not certify a released desktop or resolve every
+flagged workflow discrepancy.
 
 _(Updated at session end by the agent. Lists everything currently in `in-flight/`.)_
 
