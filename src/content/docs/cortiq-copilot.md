@@ -115,7 +115,7 @@ If a turn fails, inspect its visible failure and completed activity before retry
 
 ## Screenshots
 
-These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+Screenshots use sample data. Connection states and amounts are illustrative.
 
 ![Copilot dock showing a saved chat and a page-context choice](/cortiq-public/images/screenshots/cortiq-copilot__dock.png)
 

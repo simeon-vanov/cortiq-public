@@ -89,7 +89,7 @@ Inspect `Input checks and data requests` in the decision or session evidence for
 
 ## Screenshots
 
-These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+Screenshots use sample data. Connection states and amounts are illustrative.
 
 ![Playbook editor with identity and strategy sections](/cortiq-public/images/screenshots/playbooks-and-data__playbook-editor.png)
 

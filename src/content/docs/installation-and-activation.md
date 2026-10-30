@@ -8,10 +8,6 @@ sidebar:
 
 This page takes you from buying a license to a running, activated Cortiq install. By the end you'll have the desktop app open and ready for [First 30 minutes in Cortiq](/cortiq-public/first-30-minutes/).
 
-:::note
-The guides and screenshots describe the current development desktop. Compare your app version with the release notes if an older public installer shows different controls.
-:::
-
 ## What this is
 
 Cortiq is a one-time purchase: **€199**, with all future Cortiq desktop updates included and no Cortiq subscription. One key activates up to **two machines**. Purchases are processed by Stripe and the key is emailed after payment confirmation. If Cortiq isn't for you, there's a **14-day refund**. Broker fees and AI-provider usage remain yours; unrelated products or services may be sold separately.
@@ -126,11 +122,11 @@ Yes, on the same Windows machine, if you intend to trade live. The MT5 bridge us
 
 ## Screenshots
 
-These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+Screenshots use sample data. Connection states and amounts are illustrative.
 
-![License activation page with a mock active development license](/cortiq-public/images/screenshots/installation-and-activation__activation-dialog.png)
+![License activation page with a sample active license](/cortiq-public/images/screenshots/installation-and-activation__activation-dialog.png)
 
-*Development activation record. Keep your own license key private.*
+*Example activation record. Keep your own license key private.*
 
 ## Related
 

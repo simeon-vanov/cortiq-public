@@ -128,7 +128,7 @@ An evidence chart needs the timeframe the observation was recorded on. Cortiq ne
 
 ## Screenshots
 
-These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+Screenshots use sample data. Connection states and amounts are illustrative.
 
 ![Session chart with protection lines and the Manual Order preview](/cortiq-public/images/screenshots/sessions__live-chart.png)
 

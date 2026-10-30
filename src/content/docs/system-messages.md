@@ -96,7 +96,7 @@ The inbox also includes **Price alerts**. A fired session price target is saved 
 
 ## Screenshots
 
-These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+Screenshots use sample data. Connection states and amounts are illustrative.
 
 ![Activity inbox with risk, artifact, and health notices](/cortiq-public/images/screenshots/system-messages__inbox.png)
 

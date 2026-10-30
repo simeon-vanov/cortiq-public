@@ -128,7 +128,7 @@ Yes. Both autonomous and external sessions go through the same validator pipelin
 
 ## Screenshots
 
-These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+Screenshots use sample data. Connection states and amounts are illustrative.
 
 ![Global risk controls with daily, weekly, and position limits](/cortiq-public/images/screenshots/risk-management__global-panel.png)
 

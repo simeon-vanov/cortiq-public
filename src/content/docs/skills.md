@@ -80,7 +80,7 @@ No. Select it explicitly. The global library is not automatically injected into 
 
 ## Screenshots
 
-These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+Screenshots use sample data. Connection states and amounts are illustrative.
 
 ![Skills library with saved instruction templates](/cortiq-public/images/screenshots/skills__list.png)
 

@@ -75,7 +75,7 @@ Check the page heading and selected instrument or session before starting work. 
 
 ## Screenshots
 
-These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+Screenshots use sample data. Connection states and amounts are illustrative.
 
 ![Current Library and Knowledge navigation beside MT5 Accounts](/cortiq-public/images/screenshots/app-navigation-guide__sidebar.png)
 

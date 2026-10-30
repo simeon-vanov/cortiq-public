@@ -115,7 +115,7 @@ Manual order submission does not use that Autonomous pending-trade approval work
 
 ## Screenshots
 
-These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+Screenshots use sample data. Connection states and amounts are illustrative.
 
 ![Trading Sessions list with Manual and Autonomous sessions](/cortiq-public/images/screenshots/sessions__list.png)
 
@@ -123,7 +123,7 @@ These captures use the development desktop with isolated demo data. Connection s
 
 ![Create-session form with session type, playbooks, symbol, and account fields](/cortiq-public/images/screenshots/sessions__create-form.png)
 
-*This isolated example has no AI credentials, so the form shows a model-configuration warning. Complete provider setup before creating an Autonomous session.*
+*AI provider setup is incomplete in this example, so the form shows a model-configuration warning. Complete provider setup before creating an Autonomous session.*
 
 ![Saved Autonomous session with chart and recorded trade statistics](/cortiq-public/images/screenshots/sessions__detail.png)
 

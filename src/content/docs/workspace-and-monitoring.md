@@ -141,11 +141,11 @@ A risk validator triggered. Open the session detail and check the risk panel —
 
 ## Screenshots
 
-These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+Screenshots use sample data. Connection states and amounts are illustrative.
 
 ![Home setup checklist for license, MT5, AI provider, and risk review](/cortiq-public/images/screenshots/workspace-and-monitoring__home.png)
 
-*The isolated demo has no live MT5 connection or AI credentials. Home identifies the remaining setup work.*
+*This example shows an installation before MT5 and AI provider setup. Home identifies the remaining setup work.*
 
 ![Dashboard with saved demo trade statistics and risk summaries](/cortiq-public/images/screenshots/workspace-and-monitoring__dashboard.png)
 

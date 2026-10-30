@@ -192,7 +192,7 @@ No. Research has a read-only tool surface. Generated data and setup-finder scrip
 
 ## Screenshots
 
-These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+Screenshots use sample data. Connection states and amounts are illustrative.
 
 ![Research draft wizard showing Intent, Scope, Questions, and approval steps](/cortiq-public/images/screenshots/research__draft.png)
 

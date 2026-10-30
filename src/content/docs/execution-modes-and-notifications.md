@@ -108,7 +108,7 @@ Creating a notification alert does not create any of the other three.
 
 ## Screenshots
 
-These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+Screenshots use sample data. Connection states and amounts are illustrative.
 
 ![Session Settings showing Push Notifications, reasoning, and screenshot toggles](/cortiq-public/images/screenshots/execution-modes-and-notifications__settings.png)
 

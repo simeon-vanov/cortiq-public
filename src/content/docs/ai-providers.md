@@ -139,7 +139,7 @@ Yes. Workflow settings, saved Autonomous session models, and individual Copilot 
 
 ## Screenshots
 
-These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+Screenshots use sample data. Connection states and amounts are illustrative.
 
 ![AI Providers page with API and Subscription connection choices](/cortiq-public/images/screenshots/ai-providers__api-keys.png)
 

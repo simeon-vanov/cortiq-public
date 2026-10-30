@@ -100,7 +100,7 @@ A backtest that requires historical sentiment needs usable historical evidence. 
 
 ## Screenshots
 
-These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+Screenshots use sample data. Connection states and amounts are illustrative.
 
 ![Sentiment package list with the Create package entry point](/cortiq-public/images/screenshots/sentiment__packages.png)
 

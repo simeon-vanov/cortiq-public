@@ -123,7 +123,7 @@ The first question is *did this workflow behave in a way I can understand and tr
 
 ## Screenshots
 
-This development capture uses isolated demo data. Complete each setup requirement in your own installation.
+This example uses sample data. Complete each setup requirement in your own installation.
 
 ![Home setup checklist showing license, MT5, provider, and risk-review readiness](/cortiq-public/images/screenshots/workspace-and-monitoring__home.png)
 

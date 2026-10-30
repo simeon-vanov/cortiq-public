@@ -124,7 +124,7 @@ For the lifetime of the local Cortiq install. Journals live in the local SQLite 
 
 ## Screenshots
 
-These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+Screenshots use sample data. Connection states and amounts are illustrative.
 
 ![Journal listing recorded trades grouped by session](/cortiq-public/images/screenshots/workspace-and-monitoring__journal.png)
 

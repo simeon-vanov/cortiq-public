@@ -100,7 +100,7 @@ Existing broker-side protective orders remain at MT5. Cortiq cannot reliably pla
 
 ## Screenshots
 
-These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+Screenshots use sample data. Connection states and amounts are illustrative.
 
 ![MT5 Accounts page showing command and data ports for demo accounts](/cortiq-public/images/screenshots/mt5-integration__settings-page.png)
 

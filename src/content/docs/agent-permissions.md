@@ -103,7 +103,7 @@ No. Some operations run under their existing validated authority, some require a
 
 ## Screenshots
 
-These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+Screenshots use sample data. Connection states and amounts are illustrative.
 
 ![Copilot settings showing behavior and Agent permissions controls](/cortiq-public/images/screenshots/agent-permissions__settings.png)
 

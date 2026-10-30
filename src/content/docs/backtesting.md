@@ -168,7 +168,7 @@ Replay results depend on the historical data and broker evidence available to Co
 
 ## Screenshots
 
-These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+Screenshots use sample data. Connection states and amounts are illustrative.
 
 ![Standalone Backtest setup with execution mode and replay period](/cortiq-public/images/screenshots/backtesting__new.png)
 

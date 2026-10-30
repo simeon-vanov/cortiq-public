@@ -99,7 +99,7 @@ Historical reviews, notes, attention flags, and lessons remain readable. Histori
 
 ## Screenshots
 
-These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+Screenshots use sample data. Connection states and amounts are illustrative.
 
 ![Backtest Review tab with scope and Prepare review action](/cortiq-public/images/screenshots/session-review__backtest-workspace.png)
 

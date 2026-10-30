@@ -72,7 +72,7 @@ Keep recurring behavior in the profile. Use sentiment for changing external news
 
 ## Screenshots
 
-These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+Screenshots use sample data. Connection states and amounts are illustrative.
 
 ![Instrument Profiles package list with the Create package entry point](/cortiq-public/images/screenshots/profiles__packages.png)
 

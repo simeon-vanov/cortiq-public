@@ -6,10 +6,6 @@ description: Research one market, test your rules, and trade through MetaTrader 
 
 Cortiq is a Windows desktop workspace for researching one market, testing trading rules, and trading through MetaTrader 5. Use AI to investigate evidence, work in a Manual session, or authorize an Autonomous session within defined limits.
 
-:::note
-These guides and screenshots follow the current development desktop. Older published installers can show different controls. Check your app version against the release notes if a screen differs.
-:::
-
 :::danger
 Trading risk exists in all markets. Cortiq is a trading tool, not a profit guarantee. Use conservative risk limits, test in virtual mode first, and review your own regulatory obligations before deploying live capital.
 :::

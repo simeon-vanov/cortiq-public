@@ -114,8 +114,12 @@ an image and an accurate caption:
 ```markdown
 ![Home setup checklist](/cortiq-public/images/screenshots/workspace-and-monitoring__home.png)
 
-*Isolated development demo before MT5, provider, and risk review setup is complete.*
+*Example installation before MT5, provider, and risk review setup is complete.*
 ```
+
+Reader pages describe the product and the task. Label illustrative screenshot
+data as sample data; keep capture environments, development baselines, and test
+acceptance details in engineering notes rather than public guide copy.
 
 The build's content guard checks image paths and alt text.
 `rg -n "SCREENSHOT-NEEDED" src/content/docs/` lists pending editorial reminders.

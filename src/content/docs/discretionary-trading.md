@@ -95,7 +95,7 @@ Two options let you rehearse without risking money:
 
 ## Screenshots
 
-These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+Screenshots use sample data. Connection states and amounts are illustrative.
 
 ![Stopped Manual session with an editable Lots field and Manual sizing](/cortiq-public/images/screenshots/sessions__manual-detail.png)
 

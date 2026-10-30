@@ -91,7 +91,7 @@ For a **Current** full-population Topic Learning, **Investigate trading idea** c
 
 Validation needs later, previously untouched data beyond the original exposed period and the required embargo. Splitting the already studied history does not create independent validation. Overlapping execution windows cannot qualify under the current independent-path protocol. Missing original evidence, unverified inputs, or failed qualification block the workflow.
 
-The workflow determines eligibility; **Promote validated policy** remains a separate action that rechecks the source and validation. These instructions describe the current development desktop workflow, not installed-release or live-provider acceptance. See [Research continuation](/cortiq-public/research/#continue-the-investigation).
+The workflow determines eligibility; **Promote validated policy** remains a separate action that rechecks the source and validation. See [Research continuation](/cortiq-public/research/#continue-the-investigation).
 
 ## Read mastery and playbook maturity
 
@@ -136,7 +136,7 @@ The rating counts your Production playbooks. It does not measure future returns,
 
 ## Screenshots
 
-These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+Screenshots use sample data. Connection states and amounts are illustrative.
 
 ![My Instruments list with the demo markets](/cortiq-public/images/screenshots/instrument-hub__list.png)
 
