@@ -1,6 +1,7 @@
 ---
-status: active
+status: shipped
 started_at: 2026-10-30
+shipped_at: 2026-10-30
 spec: ../research/2026-10-30-public-documentation-audit.md
 ---
 
@@ -46,7 +47,7 @@ explicitly requested implementation, capture, push, and deployment.
 - [x] Run the docs production build (including corpus tests/Astro validation),
   link/anchor/image/badge checks, screenshot freshness/coverage checks, and
   `git diff --check`. Review text and images independently; resolve findings.
-- [ ] Commit only owned files, push and monitor Pages deployment, then crawl all
+- [x] Commit only owned files, push and monitor Pages deployment, then crawl all
   published reader pages and verify the source revision and image hashes. After
   that evidence passes, mark this plan shipped and remove its in-flight note in
   a documentation-only follow-up commit.

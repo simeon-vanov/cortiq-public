@@ -53,16 +53,17 @@ _(Add a new row whenever a `reference/<area>.md` file is added or renamed.)_
 
 ## Active work
 
-- [Workflow and screenshot refresh](in-flight/workflow-and-screenshot-refresh.md)
-  — all audited reader corrections and 44 fresh capture assets are verified;
-  publication is in progress. Current evidence: [resolution ledger](reference/workflow-refresh.md).
+The workflow and screenshot refresh is shipped. Its
+[resolution ledger](reference/workflow-refresh.md) records all remaining audit
+corrections, 44 fresh capture assets, focused verification, and live publication.
 
 The [2026-10-30 public documentation audit](research/2026-10-30-public-documentation-audit.md)
 reviews all 43 reader pages and 39 screenshots, records live/source publication
 drift, and separates localized corrections from outstanding workflow rewrites.
-It includes full page coverage, source evidence, and publication acceptance for
-the reviewed corrections. It does not certify a released desktop or resolve every
-flagged workflow discrepancy.
+It preserves the original findings and first publication evidence. The later
+resolution ledger records the completed workflow corrections and current capture
+set. These references describe the development desktop, not a released-installer
+certification.
 
 _(Updated at session end by the agent. Lists everything currently in `in-flight/`.)_
 

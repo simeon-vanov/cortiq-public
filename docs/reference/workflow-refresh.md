@@ -1,5 +1,5 @@
 ---
-status: active
+status: reference
 last_updated: 2026-10-30
 ---
 
@@ -82,8 +82,25 @@ assets removed, and seven current-workflow captures added. Alternate captures ar
 retained with their provenance in the
 [machine manifest](../../public/images/screenshots/capture-manifest.json).
 
-Publication is the remaining step in the
-[implementation plan](../plans/2026-10-30-workflow-and-screenshot-refresh.md).
+## Publication acceptance
+
+Reader source `39ac4a0` was pushed and published by
+[Pages run 41023902517](https://github.com/simeon-vanov/cortiq-public/actions/runs/41023902517).
+The workflow succeeded. The live retrieval corpus identifies full source commit
+`39ac4a01f07749b92729aca79e7f8153ca9c41c6`.
+
+Post-publication checks passed for all 43 reader pages, all 41 figure embeds,
+39 unique embedded image URLs, and seven external destinations. Every one of the
+44 published PNGs matched its accepted SHA256. There were no novelty badges or
+broken page/heading-anchor links, and the former planning deep link still exists.
+Evidence: public `.verification/docs-refresh-published-20261030/final-smoke.json`
+and `live-image-hashes.json`.
+
+Capture support is committed locally in the app repo as `7a4a62eb`. That repo also
+has unrelated unpublished application work, which this documentation task did not
+push. The public documentation and screenshot publication does not release a new
+desktop installer or assert live provider/broker acceptance. The
+[implementation plan](../plans/2026-10-30-workflow-and-screenshot-refresh.md) is shipped.
 
 The installation guide also describes the current first-run product-analytics
 choice. Capture selects **Continue without sharing** only in the isolated demo
