@@ -11,7 +11,17 @@ export default defineConfig({
     starlight({
       title: 'Cortiq Docs',
       description: 'Official product documentation for Cortiq.',
+      logo: {
+        dark: './src/assets/brand/cortiq-mark-on-dark.svg',
+        light: './src/assets/brand/cortiq-mark-on-light.svg',
+      },
+      customCss: ['./src/styles/brand.css'],
       favicon: '/favicon.ico',
+      head: [
+        { tag: 'link', attrs: { rel: 'icon', type: 'image/svg+xml', href: '/cortiq-public/favicon.svg' } },
+        { tag: 'link', attrs: { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/cortiq-public/favicon-32.png' } },
+        { tag: 'link', attrs: { rel: 'apple-touch-icon', sizes: '180x180', href: '/cortiq-public/apple-touch-icon.png' } },
+      ],
       lastUpdated: true,
       plugins: [starlightImageZoom()],
       editLink: {

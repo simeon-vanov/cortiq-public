@@ -1,7 +1,7 @@
 ---
 status: current
 area: architecture
-last_updated: 2026-05-17
+last_updated: 2026-10-30
 ---
 
 # Architecture
@@ -27,6 +27,17 @@ The repo intentionally does **not** contain the desktop app source, license back
 - `.github/ISSUE_TEMPLATE/` — bug-report / feature-request templates.
 
 ## Entry points / interfaces
+
+The documentation shares the landing page's brand assets. Starlight selects the
+dark or light mark from `src/assets/brand/`; `src/styles/brand.css` applies the
+landing palette and locally hosted typefaces. Dark mode uses the charcoal and
+violet palette; light mode uses cream, navy, and violet. The system theme choice
+and Starlight print styles remain available.
+
+`public/favicon.ico`, `favicon.svg`, `favicon-32.png`, and `apple-touch-icon.png`
+are copied unchanged from `cortiq-landing/public/`. Font sources and licenses live
+in `public/fonts/`. When the landing brand changes, refresh these copies and the
+artwork hashes in `scripts/tests/retrieval-corpus.test.mjs` together.
 
 The build also exports `public/retrieval/corpus.json` from reader-facing
 `src/content/docs/` only. `scripts/build-retrieval-corpus.mjs` parses markup as

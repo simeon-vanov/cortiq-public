@@ -1,0 +1,16 @@
+Google Fonts revision: 6157dfaa640ca5738b4d1a7070fe389c3036d7fc
+
+BricolageGrotesque-Variable.ttf
+Source: https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/bricolagegrotesque/BricolageGrotesque%5Bopsz%2Cwdth%2Cwght%5D.ttf
+SHA256: 413e7357809ddd12fd80a96a8a396de0e401638d4acd3cb3e37532f0472ac682
+License: BricolageGrotesque-OFL.txt (https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/bricolagegrotesque/OFL.txt)
+
+HankenGrotesk-Variable.ttf
+Source: https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/hankengrotesk/HankenGrotesk%5Bwght%5D.ttf
+SHA256: 813b3f8fa0965405669a89b38e51bbefd95eef6b8e20d1cb2d8c10cce062662f
+License: HankenGrotesk-OFL.txt (https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/hankengrotesk/OFL.txt)
+
+JetBrainsMono-Variable.ttf
+Source: https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/jetbrainsmono/JetBrainsMono%5Bwght%5D.ttf
+SHA256: 48715a42ec242c21e9f02692891e147d022299a52e48d5e413e1a942193ffeda
+License: JetBrainsMono-OFL.txt (https://raw.githubusercontent.com/google/fonts/6157dfaa640ca5738b4d1a7070fe389c3036d7fc/ofl/jetbrainsmono/OFL.txt)

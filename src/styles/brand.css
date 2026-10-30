@@ -1,0 +1,90 @@
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('/cortiq-public/fonts/InstrumentSerif-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Hanken Grotesk';
+  src: url('/cortiq-public/fonts/HankenGrotesk-Variable.ttf') format('truetype');
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('/cortiq-public/fonts/BricolageGrotesque-Variable.ttf') format('truetype');
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/cortiq-public/fonts/JetBrainsMono-Variable.ttf') format('truetype');
+  font-weight: 400 600;
+  font-display: swap;
+}
+
+@media screen {
+  :root {
+    --sl-font: 'Hanken Grotesk';
+    --sl-font-mono: 'JetBrains Mono';
+    --sl-color-white: #f7f2e7;
+    --sl-color-gray-1: #deddd8;
+    --sl-color-gray-2: #aaaab3;
+    --sl-color-gray-3: #9696a1;
+    --sl-color-gray-4: #55565f;
+    --sl-color-gray-5: #24252d;
+    --sl-color-gray-6: #191a20;
+    --sl-color-black: #101114;
+    --sl-color-accent-low: #282644;
+    --sl-color-accent: #a4a6ff;
+    --sl-color-accent-high: #c3c4ff;
+    --sl-color-text: #deddd8;
+    --sl-color-text-invert: #101114;
+    --sl-color-bg: #101114;
+    --sl-color-bg-nav: #141519;
+    --sl-color-bg-sidebar: #101114;
+    --sl-color-bg-inline-code: #24252d;
+  }
+
+  :root[data-theme='light'] {
+    --sl-color-white: #171c3b;
+    --sl-color-gray-1: #171c3b;
+    --sl-color-gray-2: #3c3e49;
+    --sl-color-gray-3: #646570;
+    --sl-color-gray-4: #9696a1;
+    --sl-color-gray-5: #ddd8cf;
+    --sl-color-gray-6: #eee9df;
+    --sl-color-gray-7: #fffdf8;
+    --sl-color-black: #fffdf8;
+    --sl-color-accent-low: #eceaff;
+    --sl-color-accent: #5a3ff0;
+    --sl-color-accent-high: #5a3ff0;
+    --sl-color-text: #171c3b;
+    --sl-color-text-invert: #fffdf8;
+    --sl-color-bg: #f7f2e7;
+    --sl-color-bg-nav: #f7f2e7;
+    --sl-color-bg-sidebar: #f7f2e7;
+    --sl-color-bg-inline-code: #eee9df;
+  }
+}
+
+.site-title {
+  gap: 0.625rem;
+  color: var(--sl-color-white);
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.site-title img {
+  width: 1.5625rem;
+  height: 1.5625rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Bricolage Grotesque', var(--sl-font-system);
+}

@@ -5,6 +5,16 @@ last_updated: 2026-10-30
 
 # Architecture Changes Log
 
+## 2026-10-30 — Match the documentation to the landing brand
+
+- Use the landing page's current dark/light marks, charcoal/violet palette,
+  cream light theme, and locally hosted typography through Starlight configuration
+  and a single stylesheet.
+- Replace the previous ICO and add the matching SVG, PNG, and Apple touch icons.
+  Keep the original artwork unchanged and guard logo/ICO identity in the build.
+- Build and all five offline checks pass; desktop/mobile browser checks cover
+  both themes, loaded logos, fonts, selected-link contrast, and ICO content.
+
 ## 2026-10-30 — Correct workflow guides and restore current desktop captures
 
 - Align reader workflows with saved research drafts and human approval,

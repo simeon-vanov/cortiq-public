@@ -6,6 +6,7 @@ import { join } from 'node:path';
 import { load as yaml } from 'js-yaml';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
+import { createHash } from 'node:crypto';
 
 const options = { publicBaseUrl: 'https://simeon-vanov.github.io/cortiq-public/', sourceCommit: 'a'.repeat(40), chunkerVersion: '1' };
 async function fixture(run) {
@@ -69,5 +70,17 @@ test('published reader badges and image references remain valid', async () => {
       assert.ok((await stat(asset)).size > 0, `${path}: missing or empty image ${node.url}`);
       assert.ok(node.alt?.trim(), `${path}: screenshot needs descriptive alt text`);
     }
+  }
+});
+
+test('documentation branding uses the approved landing logo and ICO artwork', async () => {
+  const assets = {
+    'public/favicon.ico': '62c2532f6e0c3ec2b587539d63a1ae6642f06af0851f942c6d9121d310825779',
+    'src/assets/brand/cortiq-mark-on-dark.svg': '707fd89146233f790ba5cdbaa91e86d19b1d1e6c93dd116a1591182deb21089b',
+    'src/assets/brand/cortiq-mark-on-light.svg': 'eb3af4af90a5c7112f51952d72e731bcc5953692caaeabcd89ba807e8eb35127',
+  };
+  for (const [path, expected] of Object.entries(assets)) {
+    const actual = createHash('sha256').update(await readFile(path)).digest('hex');
+    assert.equal(actual, expected, `${path}: landing-brand artwork drifted`);
   }
 });
