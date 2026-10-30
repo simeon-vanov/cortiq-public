@@ -53,7 +53,7 @@ If you want a higher-altitude view first, [Feature overview](/cortiq-public/feat
 | Function | What it does | What it does for you | Read more |
 | --- | --- | --- | --- |
 | Sessions | Creates the operating container for a strategy. | Turns a configuration into something you can run, pause, review, and improve. | [Sessions](/cortiq-public/sessions/) |
-| Active days and time windows | Controls when a session may trade. | Keeps a strategy inside the hours and days that fit its design. | [Sessions](/cortiq-public/trading-cycle/entities/sessions/) |
+| Active days and entry windows | Pinned playbooks control entry days, hours, and close offsets; session End Date is a separate lifetime limit. | Keep entries inside the intended schedule while existing exposure can still be managed. | [Sessions](/cortiq-public/trading-cycle/entities/sessions/) |
 | Single-instrument sessions | Locks each session to one instrument. | Clean specialization around one market, so results stay comparable over time. | [Sessions](/cortiq-public/sessions/) |
 | Provider selection | Picks which AI provider runs the session. | Match cost, reliability, and operating style to your workflow. | [AI providers](/cortiq-public/ai-providers/) |
 | Explicit provider route | Selects provider, API/ACP transport, model, and effort. | Configuration errors stay visible instead of silently switching providers. | [AI providers](/cortiq-public/ai-providers/) |
@@ -67,7 +67,7 @@ If you want a higher-altitude view first, [Feature overview](/cortiq-public/feat
 | Live trading | Sends real orders through MT5. | Move from simulation to real execution inside the same operating model. | [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) |
 | Virtual trading | Simulates the trade lifecycle without sending real orders. | Test and build trust before using live capital. | [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) |
 | Account selection | Binds a session to one configured MT5 account and instrument. | Keep execution and evidence scoped to the intended broker connection. | [MT5 integration](/cortiq-public/mt5-integration/) |
-| Trade management | Modifies, partially closes, or closes positions. | The AI is responsible for handling — not only entering — trades. | [Session trades and timeline](/cortiq-public/trading-cycle/entities/session-trades-and-timeline/) |
+| Trade management | Modifies, partially closes, or closes positions within the selected session authority. | Manage positions yourself in Manual mode or grant bounded agent authority. | [Session trades and timeline](/cortiq-public/trading-cycle/entities/session-trades-and-timeline/) |
 | Notifications | Pushes trade events to selected channels. | Stay informed without watching the desktop continuously. | [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) |
 
 ### Validation functions
@@ -83,7 +83,7 @@ If you want a higher-altitude view first, [Feature overview](/cortiq-public/feat
 | --- | --- | --- | --- |
 | Global risk controls | Limits across the full environment. | Protect the whole operating environment, not one account. | [Risk management](/cortiq-public/risk-management/) |
 | Per-account risk controls | Limits account-by-account. | Different mandates for different accounts. | [Risk management](/cortiq-public/risk-management/) |
-| Drawdown and profit targets | Pause behavior based on account performance. | Hard boundaries on how much damage or overtrading the workflow can do. | [Risk management](/cortiq-public/risk-management/) |
+| Drawdown and profit targets | Pause behavior based on measured account performance. | Respond to limit breaches; fills and market gaps can still exceed a configured threshold. | [Risk management](/cortiq-public/risk-management/) |
 | Trade-count and exposure limits | Restricts how much the system can open. | Prevents runaway activity and concentration in one symbol or account. | [Risk management](/cortiq-public/risk-management/) |
 | Automatic risk pause | Pauses sessions when a breach occurs. | An independent safety layer above the AI decision itself. | [Risk management](/cortiq-public/risk-management/) |
 | Emergency-stop breaker | Halts all trading activity immediately on demand or on a hard breach. | A single switch to stop the whole environment when something looks wrong. | [Risk management](/cortiq-public/risk-management/) |
@@ -98,7 +98,7 @@ If you want a higher-altitude view first, [Feature overview](/cortiq-public/feat
 | Dashboard | Cross-account performance, recent trades, global state. | Understand the whole environment without opening every session. | [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/) |
 | Session cohorts | Compare grouped sessions side-by-side. | Test which configuration or style is working better. | [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/) |
 | Conversations view | Raw AI conversations across sessions. | Inspect the model's actual responses, not only the summary. | [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/) |
-| Session timeline | What happened in each trading cycle. | Audit and explain the AI workflow. | [Session trades and timeline](/cortiq-public/trading-cycle/entities/session-trades-and-timeline/) |
+| Session timeline | Saved assessments, actions, and session events. | Inspect what happened even when an assessment produced no trade. | [Session trades and timeline](/cortiq-public/trading-cycle/entities/session-trades-and-timeline/) |
 | Decision rendering | Analysis, trade ideas, and actions in a readable format. | Understand what the AI concluded, not only what the market did afterward. | [Trading cycle: overview](/cortiq-public/trading-cycle/overview/) |
 | Session reviews | Explicitly reviews saved evidence, including during an active session. | Inspect assessment, Observations, proposed changes, and the reviewed cutoff. | [Session review](/cortiq-public/session-review/) |
 | Activity | In-app notification inbox with actionable cards. | Read platform alerts and approve agent actions in one place. | [Activity](/cortiq-public/system-messages/) |
@@ -107,7 +107,7 @@ If you want a higher-altitude view first, [Feature overview](/cortiq-public/feat
 
 | Function | What it does | What it does for you | Read more |
 | --- | --- | --- | --- |
-| Topic research | Measures distinct questions and saves independent answers and final interpretation. | Inspect evidence and explicitly save reviewed Learnings. | [Research](/cortiq-public/research/) |
+| Topic research | Starts from a saved, human-approved draft, measures distinct questions, and saves answers and interpretation. | Check measurements before starting and explicitly review Learnings afterward. | [Research](/cortiq-public/research/) |
 | Execution-policy validation | Requires eligible evidence and a separate closed validation workflow before Edge promotion. | Keep descriptive findings separate from tested execution authority. | [Instrument Hub](/cortiq-public/instrument-hub/) |
 | MCP server | Exposes Cortiq tools to MCP-compatible clients. | Drive analysis and trading from an external agent. | [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/) |
 | Cortiq Copilot | An in-app assistant (`Ctrl+K`) with page-specific tools. | Prepare drafts and use permitted actions with the applicable save and approval rules. | [Cortiq Copilot](/cortiq-public/cortiq-copilot/) |

@@ -101,14 +101,24 @@ asset URL MUST include that base — `/cortiq-public/images/screenshots/<name>.p
 `/images/...`. Astro's dev server and the GitHub Pages build both 404 a base-less public asset.
 If the base or domain ever changes (e.g. `docs.cortiq.trade`), these prefixes must change with it.
 
-**Markdown placeholder pattern:**
+**Before capture:** record only an editorial comment. Do not embed a file that
+does not exist yet.
 
 ```markdown
-![Home page – first-run checklist showing four setup steps](/cortiq-public/images/screenshots/home__first-run-checklist.png)
-<!-- SCREENSHOT-NEEDED: home__first-run-checklist.png – capture the Home page on a fresh install with no sessions started yet -->
+<!-- SCREENSHOT-NEEDED: describe the required current UI and capture state -->
 ```
 
-The HTML comment stays until the PNG is in place. `grep -rn "SCREENSHOT-NEEDED" src/content/docs/` lists all outstanding.
+After a fresh image passes visual and manifest checks, replace the comment with
+an image and an accurate caption:
+
+```markdown
+![Home setup checklist](/cortiq-public/images/screenshots/workspace-and-monitoring__home.png)
+
+*Isolated development demo before MT5, provider, and risk review setup is complete.*
+```
+
+The build's content guard checks image paths and alt text.
+`rg -n "SCREENSHOT-NEEDED" src/content/docs/` lists pending editorial reminders.
 
 The full manifest lives at [`screenshots.md`](screenshots.md).
 

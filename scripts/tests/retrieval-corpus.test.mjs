@@ -1,8 +1,11 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { mkdtemp, mkdir, writeFile, rm } from 'node:fs/promises';
+import { mkdtemp, mkdir, writeFile, rm, readFile, stat } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { load as yaml } from 'js-yaml';
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
 
 const options = { publicBaseUrl: 'https://simeon-vanov.github.io/cortiq-public/', sourceCommit: 'a'.repeat(40), chunkerVersion: '1' };
 async function fixture(run) {
@@ -43,3 +46,28 @@ test('tampered content fails validation', () => fixture(async ({ sourceRoot, bui
 test('source root must be the reader content directory', () => fixture(async ({ sourceRoot, buildCorpus }) => {
   await assert.rejects(buildCorpus({ ...options, sourceRoot: join(sourceRoot, '../../..') }), /reader|src.content.docs/i);
 }));
+
+test('published reader badges and image references remain valid', async () => {
+  const { buildCorpus } = await import('../build-retrieval-corpus.mjs');
+  const root = process.cwd();
+  const sourceRoot = join(root, 'src/content/docs');
+  const corpus = await buildCorpus({ ...options, sourceRoot });
+  for (const path of new Set(corpus.sections.map(section => section.path))) {
+    const raw = await readFile(join(sourceRoot, path), 'utf8');
+    const front = /^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/.exec(raw);
+    const metadata = yaml(front?.[1] ?? '');
+    const badge = metadata?.sidebar?.badge;
+    assert.notEqual(typeof badge === 'object' ? badge?.text : badge, 'New', `${path}: novelty badge`);
+    const tree = unified().use(remarkParse).parse(raw.slice(front?.[0].length ?? 0));
+    const nodes = [tree];
+    while (nodes.length) {
+      const node = nodes.pop();
+      nodes.push(...(node.children ?? []));
+      if (node.type !== 'image') continue;
+      assert.ok(node.url.startsWith('/cortiq-public/images/'), `${path}: image must include the public base`);
+      const asset = join(root, 'public', node.url.slice('/cortiq-public/'.length));
+      assert.ok((await stat(asset)).size > 0, `${path}: missing or empty image ${node.url}`);
+      assert.ok(node.alt?.trim(), `${path}: screenshot needs descriptive alt text`);
+    }
+  }
+});

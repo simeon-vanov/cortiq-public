@@ -14,7 +14,9 @@ Use these definitions when a screen or guide introduces an unfamiliar term. Foll
 
 **Activity** — The persisted in-app inbox for background events, approvals, and price notifications. Previously called System Messages; the route remains `/system-messages`. See [Activity](/cortiq-public/system-messages/).
 
-**Autonomous session** — A session driven by Cortiq's internal AI planning and execution workflow. The default type for a new session. See [Sessions](/cortiq-public/sessions/).
+**Assessment** — An Autonomous evaluation of the permitted market context that updates retained market understanding, opportunities, and proposed actions. A separate global market plan is not required. See [Trading cycle](/cortiq-public/trading-cycle/overview/).
+
+**Autonomous session** — A session driven by Cortiq's continuous market assessments and bounded execution. The default type for a new session. See [Sessions](/cortiq-public/sessions/).
 
 **Backtest** — A saved historical replay with simulated positions, using either manual execution or autonomous AI decisions. Starting one requires a valid license. See [Backtesting](/cortiq-public/backtesting/).
 
@@ -38,7 +40,7 @@ Use these definitions when a screen or guide introduces an unfamiliar term. Foll
 
 **Instrument Hub** — One market's workspace for Overview, Knowledge, Data, research history, and trading artifacts. Open it from **Knowledge** → **My Instruments**. See [Instrument Hub](/cortiq-public/instrument-hub/).
 
-**Instrument profile** — Reusable context about an instrument's behavior and characteristics. See [Instrument profiles](/cortiq-public/trading-cycle/entities/instrument-profiles/).
+**Instrument profile** — Saved context about a market's behavior, produced by a configured profile package and generation run. Inspect the saved result's effective time and expiry before use. See [Instrument profiles](/cortiq-public/trading-cycle/entities/instrument-profiles/).
 
 **Knowledge ledger** — Instrument-scoped records of Observations, Learnings, workflow-created Hypotheses, and validated Edges, with evidence and provenance. See [Instrument Hub](/cortiq-public/instrument-hub/).
 
@@ -76,7 +78,9 @@ Use these definitions when a screen or guide introduces an unfamiliar term. Foll
 
 **Skill** — A reusable instruction template used by supported generation flows or Copilot. Skills do not bypass input, risk, or permission checks. See [Skills](/cortiq-public/skills/).
 
-**Topic research** — A study that turns an instrument-scoped question into distinct measurable questions, saved answers, and a final explanation. See [Research](/cortiq-public/research/).
+**Research draft** — Saved intent, scope, and questions prepared before a study starts. Copilot can help edit and check measurements; the operator approves and starts the research in the draft wizard. See [Research](/cortiq-public/research/).
+
+**Topic research** — A human-approved study that measures an instrument-scoped question, saves distinct answers, and produces a final explanation. See [Research](/cortiq-public/research/).
 
 **Trade idea** — A specific thesis with its own lifecycle. Automated ideas require a separately reviewed and enabled mandate. See [Trade ideas](/cortiq-public/trading-cycle/entities/trade-ideas/).
 

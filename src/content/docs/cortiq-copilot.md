@@ -78,12 +78,12 @@ Use these requests for different outcomes:
 
 - **Choose a study:** select `Suggest next research`. The recommendation explains its question, rationale, evidence, limitations, and data needs.
 - **Prepare data:** select `Prepare research file`, review the inserted composer request, and send it. File preparation includes checking the build and preview; it doesn't authorize starting a study.
-- **Run the study:** use the run-ready `Start research` proposal after the files are verified. Selecting the action inserts an editable request; send it to proceed.
+- **Prepare the study:** open a saved Research draft from the instrument or follow-up action. Use `Discuss/change in Copilot` to save questions and `Check measurements in Copilot` to check their definitions. Review the saved study, then select `Approve and start research` yourself. Copilot cannot approve or start it.
 - **Discuss a result:** ask what its saved measurements establish, where outcomes are unavailable, and what to test next.
 - **Measure another window:** request a supported analysis revision on the frozen population. The revision remains exploratory and doesn't replace the original finding.
 - **Draft a Learning:** request a practical conclusion, then inspect its wording and cited evidence under `Saved Knowledge`. Select `Save Learning` explicitly to publish it.
 
-A recommendation, draft, completed run, and saved Learning are separate outcomes. See [Research](/cortiq-public/research/) for the full workflow and measurement limitations.
+A recommendation, saved draft, measurement check, approved run, and saved Learning are separate outcomes. Opening a draft or completing a Copilot turn does not start research. See [Research](/cortiq-public/research/) for the full workflow and measurement limitations.
 
 ## Inspect charts and saved trading data
 
@@ -112,6 +112,14 @@ If a turn fails, inspect its visible failure and completed activity before retry
 1. [Agent permissions](/cortiq-public/agent-permissions/) — distinguish provider access, action approvals, and execution authority.
 2. [Research](/cortiq-public/research/) — prepare inputs, inspect measured findings, and save a Learning.
 3. [AI Providers](/cortiq-public/ai-providers/) — configure the connection used by Copilot.
+
+## Screenshots
+
+These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+
+![Copilot dock showing a saved chat and a page-context choice](/cortiq-public/images/screenshots/cortiq-copilot__dock.png)
+
+*A saved demo chat opened from another page asks you to choose its context. No model turn was sent for the capture.*
 
 ## Related
 

@@ -65,6 +65,8 @@ Use an instrument profile for long-lived context about how an instrument behaves
 
 Review instrument profiles when their evidence or market assumptions change; a recent save alone does not make the underlying research current.
 
+`Preparation` → `Instrument Profiles` manages reusable profile packages. A package holds the recipe, policy, skills, and validity settings; generation creates saved runs and profile outputs. Inspect run metadata and freshness before reuse. The detailed analysis remains the latest valid profile when you expand historical runs.
+
 ### Sentiment reports
 
 Use a sentiment report for context that isn't visible in the chart alone:
@@ -74,7 +76,9 @@ Use a sentiment report for context that isn't visible in the chart alone:
 - Known event risk ahead.
 - Positioning or macro pressure.
 
-Sentiment uses current provider-owned web research with observed sources. Inspect report expiry, confidence, coverage, and research time separately. Historical/backdated generation is unsupported.
+Sentiment uses current provider-owned web research with observed sources. Inspect claim-linked evidence, supplied source dates, saved expiry, confidence, coverage, and research time separately. Missing dates remain unknown. Historical/backdated generation is unsupported.
+
+While Cortiq runs, active packages can update after relevant High-impact events even without a session. These updates use your provider allowance or billing and keep the original expiry. See [Sentiment reports](/cortiq-public/trading-cycle/entities/sentiment-reports/) for delay, retry, and history controls.
 
 ### Trade ideas
 

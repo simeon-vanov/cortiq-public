@@ -47,10 +47,15 @@ When entering a fresh session, read in this order:
 | Deployment | [`reference/deployment.md`](reference/deployment.md) | GitHub Pages deploy via `.github/workflows/docs.yml`, the `withastro/action@v6` build, base path `/cortiq-public`, release-asset role |
 | Style guide | [`reference/style-guide.md`](reference/style-guide.md) | Page skeleton, voice rules, callouts, mermaid, frontmatter, glossary — the writing contract for `src/content/docs/` |
 | Screenshots | [`reference/screenshots.md`](reference/screenshots.md) | Filename / folder / resolution / redaction rules and the manifest of every PNG referenced from the docs |
+| Workflow refresh | [`reference/workflow-refresh.md`](reference/workflow-refresh.md) | Resolution of audit findings 13–33, capture baseline, focused verification, and publication evidence |
 
 _(Add a new row whenever a `reference/<area>.md` file is added or renamed.)_
 
 ## Active work
+
+- [Workflow and screenshot refresh](in-flight/workflow-and-screenshot-refresh.md)
+  — all audited reader corrections and 44 fresh capture assets are verified;
+  publication is in progress. Current evidence: [resolution ledger](reference/workflow-refresh.md).
 
 The [2026-10-30 public documentation audit](research/2026-10-30-public-documentation-audit.md)
 reviews all 43 reader pages and 39 screenshots, records live/source publication

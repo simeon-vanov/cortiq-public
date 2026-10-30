@@ -28,10 +28,9 @@ flowchart LR
   C(AI conversation) --> S
   S --> J(Journal page)
   S --> A(Analytics page)
-  S --> R(Scheduled<br/>Telegram report)
 ```
 
-*Every closed trade and every AI cycle lands in one store. The Journal, Analytics, and scheduled-report views are different lenses on the same data.*
+*Saved trades and AI activity support journal, analytics, and review views. The desktop does not offer scheduled Telegram reports.*
 
 The review surface lives across five screens:
 
@@ -68,7 +67,7 @@ Changing two things at once turns the review into guesswork.
 
 ### Compare configurations with cohorts
 
-Open `Library` → `Cohorts` and group sessions you want to compare. Cohorts work best when the sessions actually match on most variables — same symbol, same provider, same risk profile — and differ only on the lever you're testing. Comparing two sessions that differ on five variables tells you nothing.
+Open the existing `/cohorts` route or a contextual cohort link and group sessions you want to compare. Cohorts is not a current sidebar entry. Cohorts work best when the sessions actually match on most variables — same symbol, same provider, same risk profile — and differ only on the lever you're testing. Comparing two sessions that differ on five variables tells you nothing.
 
 ### Review saved evidence explicitly
 
@@ -120,8 +119,20 @@ For the lifetime of the local Cortiq install. Journals live in the local SQLite 
 
 1. [Session review](/cortiq-public/session-review/) — explicit assessment, Observations, coverage, and proposed improvements.
 2. [Workspace & monitoring](/cortiq-public/workspace-and-monitoring/) — the screens that surface the journal data.
-3. [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) — scheduled reports configuration.
+3. [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) — Windows trade notifications, Activity, and price alerts.
 4. [Playbook design guide](/cortiq-public/trading-cycle/playbook-design/) — the iteration that the journal-driven loop should produce.
+
+## Screenshots
+
+These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+
+![Journal listing recorded trades grouped by session](/cortiq-public/images/screenshots/workspace-and-monitoring__journal.png)
+
+*Journal contains recorded trades; inspect the session Decision Log for decisions that produced no trade.*
+
+![Dashboard analytics for the selected demo account and date range](/cortiq-public/images/screenshots/journal-and-analytics__analytics.png)
+
+*Illustrative demo statistics, not trading results from a customer account.*
 
 ## Related
 

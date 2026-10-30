@@ -1,9 +1,21 @@
 ---
 status: changelog
-last_updated: 2026-10-18
+last_updated: 2026-10-30
 ---
 
 # Architecture Changes Log
+
+## 2026-10-30 — Correct workflow guides and restore current desktop captures
+
+- Align reader workflows with saved research drafts and human approval,
+  continuous assessment, current session authority and sizing, risk ownership and
+  monitoring, actual notification channels, and package/run evidence behavior.
+- Replace historical images with 44 verified real development-desktop captures;
+  publish 41 figures across 24 pages with demo-state captions and capture hashes.
+- Add offline guards for image references, alt text, base paths, and novelty badges.
+  Capture support enforces isolated demo state, current routes and readiness, and
+  complete fresh output acceptance. No desktop runtime release is implied.
+- Current resolution and verification: [workflow refresh](reference/workflow-refresh.md).
 
 ## 2026-10-19 — Export revision-pinned offline help
 

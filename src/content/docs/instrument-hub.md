@@ -10,7 +10,7 @@ The Instrument Hub brings one market's data, research, knowledge, and trading hi
 
 ## What this is
 
-Open **Instruments** and select a market. The list includes instruments with saved work. To start a market with no history, select **Add instrument** and choose its broker symbol.
+Open **My Instruments** and select a market. The list includes instruments with saved work. To start a market with no history, select **Add instrument** and choose its broker symbol.
 
 Each Hub groups work for that instrument: research runs, playbooks, sessions, backtests, preparation, profiles, sentiment, and knowledge. Research starts from this Hub; the former standalone Research list redirects to Instruments.
 
@@ -24,15 +24,16 @@ The Hub connects research to trading without treating a research finding as an e
 | **Knowledge** | Review Observations, Learnings, Hypotheses, Edges, and Playbooks. |
 | **Data** | Build and manage the historical data files used by research. |
 
-Select **Research a topic** to start a study, or the research-run count to open the instrument's research history. See [Research](/cortiq-public/research/) for launch settings, data requirements, saved answers, and continuation.
+Select **Research a topic** to create a saved study draft, or the research-run count to open the instrument's research history. See [Research](/cortiq-public/research/) for launch settings, data requirements, saved answers, and continuation.
 
 ## Start with one market
 
-1. Open **Instruments** and select or add your instrument.
+1. Open **My Instruments** and select or add your instrument.
 2. Open **Data** and prepare the dataset for the period and timeframe you want to study.
 3. Select **Research a topic** and describe the behavior or question you want measured.
-4. Open the saved results and inspect their sample, measurements, examples, and limitations.
-5. Review a proposed Learning before saving it into **Knowledge**.
+4. Review **Intent**, **Scope**, and **Questions** in the saved draft. Check measurements in Copilot, then select **Review study** → **Approve and start research**.
+5. Open the saved results and inspect their sample, measurements, examples, and limitations.
+6. Review a proposed Learning before saving it into **Knowledge**.
 
 Verify the result by opening the saved Learning and following its source research and evidence. A completed study and a saved Learning are separate outcomes.
 
@@ -86,7 +87,11 @@ An eligible Learning can enter a reaction workflow that declares the measurement
 
 Discovery compares the declared variants. A selected policy then requires its untouched validation evidence. **Promote validated policy** is a separate explicit action after validation, rather than an automatic result of a favorable research summary.
 
-Availability depends on the Learning's evidence contract and source data. Full-population Topic Learnings currently do not support reaction qualification or Edge promotion. If the required evidence is absent or unreadable, the product reports the limitation instead of treating missing values as zero.
+For a **Current** full-population Topic Learning, **Investigate trading idea** continues from the complete archived population. The current workflow supports one original managed input and one successfully built current execution file. That file must preserve the original account, timeframe, historical prices, and verified causal inputs. Rebuild the selected execution file if its causal or prefix checks are missing; the completed original study stays frozen. Signals must reproduce all original setups, and a full-bar setup can enter only at a proven later open. A selection of chart examples cannot substitute.
+
+Validation needs later, previously untouched data beyond the original exposed period and the required embargo. Splitting the already studied history does not create independent validation. Overlapping execution windows cannot qualify under the current independent-path protocol. Missing original evidence, unverified inputs, or failed qualification block the workflow.
+
+The workflow determines eligibility; **Promote validated policy** remains a separate action that rechecks the source and validation. These instructions describe the current development desktop workflow, not installed-release or live-provider acceptance. See [Research continuation](/cortiq-public/research/#continue-the-investigation).
 
 ## Read mastery and playbook maturity
 
@@ -128,6 +133,26 @@ The rating counts your Production playbooks. It does not measure future returns,
 1. [Research](/cortiq-public/research/) — prepare data, run a study, and interpret its saved findings.
 2. [Backtesting](/cortiq-public/backtesting/) — test execution rules against historical prices.
 3. [Playbooks and data access policies](/cortiq-public/playbooks-and-data/) — configure the rules and inputs a session uses.
+
+## Screenshots
+
+These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+
+![My Instruments list with the demo markets](/cortiq-public/images/screenshots/instrument-hub__list.png)
+
+*Open one instrument to inspect its knowledge and research.*
+
+![Instrument overview with knowledge and activity summaries](/cortiq-public/images/screenshots/instrument-hub__detail.png)
+
+*Demo overview values describe saved work, not a statistical trading guarantee.*
+
+![Instrument Knowledge tab with Active Learnings and saved research drafts](/cortiq-public/images/screenshots/instrument-hub__knowledge-ledger.png)
+
+*Conclusion readiness and execution readiness have separate meanings.*
+
+![Learning detail with linked observation chart and event list](/cortiq-public/images/screenshots/instrument-hub__instance-events.png)
+
+*This preliminary demo record shows linked evidence; it is not a validated execution Edge.*
 
 ## Related
 

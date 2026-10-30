@@ -60,8 +60,16 @@ Chart indicators are a display choice. Adding one does not change the session's 
 | Solid horizontal line | The entry price of an open position |
 | Dashed red line | A stop loss |
 | Dashed green line | A take profit |
-| Dashed lines while the ticket is open | The stop and target you are planning, before you submit |
+| Temporary order-bracket tags | Draft entry, stop, and target prices before submission |
 | Marker on the decision rail | A point where the autonomous agent made a decision |
+
+### Adjust a draft order bracket
+
+Open **Manual Order** on a running session to preview entry, stop, and target handles. When quote and ATR inputs are ready, the ticket seeds a 1× ATR stop and 2× ATR target. **Reset to ATR** rebuilds those defaults.
+
+Drag a pending entry to shift the whole bracket, or drag the stop or target independently. Market entry tracks the quote and cannot be dragged. Arrow keys move a selected handle one price increment; Shift or Page keys move ten. Escape cancels a gesture.
+
+Entry or stop changes recalculate automatic risk sizing; manually entered **Lots** remain manual. Target-only changes preserve size. These are temporary previews, separate from saved drawings and broker orders. **Place Order** is the execution action. See [Discretionary trading](/cortiq-public/discretionary-trading/#place-a-trade) for sizing and submission checks.
 
 ## The backtest replay chart
 
@@ -117,6 +125,18 @@ Observations recorded before timed events were introduced show a single marker a
 :::caution
 An evidence chart needs the timeframe the observation was recorded on. Cortiq never guesses one — an observation with no recorded timeframe shows **Chart unavailable** instead of a chart drawn at the wrong scale.
 :::
+
+## Screenshots
+
+These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+
+![Session chart with protection lines and the Manual Order preview](/cortiq-public/images/screenshots/sessions__live-chart.png)
+
+*Stopped-session preview. Editable Lots is separate from automatic risk sizing; the example is not a sizing recommendation.*
+
+![Historical replay chart with simulated positions and trade levels](/cortiq-public/images/screenshots/backtesting__manual-replay.png)
+
+*Saved replay evidence uses simulated positions, not broker orders.*
 
 ## Related pages
 

@@ -20,7 +20,7 @@ Cortiq offers two session types: `Autonomous` and `Manual`. New sessions default
 
 | Choice | What runs |
 | --- | --- |
-| Autonomous | Cortiq's decision engine plans, evaluates opportunities, and manages exposure within the session's authority and risk limits. |
+| Autonomous | Cortiq's decision engine updates market understanding, evaluates opportunities, and manages exposure within the session's authority and risk limits. |
 | Manual | You trade from the chart, with Copilot available when requested. No general autonomous session cycle runs. |
 | Manual with External MCP client | An outside client uses Cortiq's data and permissioned trade tools. Cortiq does not run a decision cycle for that client. |
 
@@ -49,7 +49,7 @@ Playbooks and policies are optional in both session types. When attached rules d
 
 The `AI Model` picker selects a provider, connection, and exact model together. The Trading Cycle setting supplies the default for a new session.
 
-Cortiq saves that full selection when you create the session. It remains fixed for routine decisions, initial planning, replanning, and recovery. Changing global provider settings does not replace the model of an existing session, and a clone preserves its saved selection.
+Cortiq saves that full selection when you create the session. It remains fixed for assessments, execution decisions, and recovery. Changing global provider settings does not replace the model of an existing session, and a clone preserves its saved selection.
 
 Older sessions without a saved model display `Legacy default (see AI Providers)`. They retain their legacy settings behavior. See [AI providers](/cortiq-public/ai-providers/).
 
@@ -67,7 +67,13 @@ Preparation reports are generated under their own recipe and policy. Execution c
 
 Autonomous entry days, entry windows, and automatic-close offsets belong to the pinned playbook version. Times follow your configured local time zone.
 
-When a playbook's entry window closes, the session stays `Running`. New planning and entries for that playbook wait for eligibility to return; existing exposure can still be managed. A session's `End Date` is a separate lifetime boundary that can complete the session.
+When a playbook's entry window closes, the session stays `Running`. New entries for that playbook wait for eligibility to return; existing exposure can still be managed. A session's `End Date` is a separate lifetime boundary that can complete the session.
+
+### Understand continuous assessment
+
+Autonomous sessions retain market understanding separately from individual opportunities. An assessment updates that understanding, evaluates available opportunities, and sets meaningful local watches for changes that need attention. A global plan or an active opportunity is not required before the next assessment.
+
+Live sessions, Autonomous backtests, and approved automated Trade Ideas share this assessment workflow. Their data cutoffs, execution authority, approvals, and risk checks remain specific to their context. A chart price alert only notifies you; it does not create an assessment watch or authorize a trade.
 
 ### Monitor and stop a session
 
@@ -85,7 +91,7 @@ From **Reviews**, choose a scope and prepare it locally. Select **Start review**
 | --- | --- | --- |
 | `Created` | Saved, not yet started. | Select `Start`. |
 | `Running` | The session is active. | The selected operating type controls its behavior. |
-| `RiskPaused` | A risk condition paused the session. | Cortiq attempts to resume when the condition clears and start checks permit it. |
+| `RiskPaused` | A risk condition paused the session. | Automatic resumption checks global counters and ordinary start checks; it does not recheck per-account breach counters. See [risk resumption](/cortiq-public/risk-management/#watch-for-riskpaused-sessions). |
 | `Paused` | Explicitly paused. | Resume explicitly. |
 | `Stopped` | Stopped by you or app shutdown. | Start a new run explicitly. |
 | `Completed` | Its lifetime has ended. | It does not resume automatically. |
@@ -106,6 +112,22 @@ Manual order submission does not use that Autonomous pending-trade approval work
 2. [Playbooks & data policies](/cortiq-public/playbooks-and-data/) — configure rules and their evidence limits.
 3. [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) — virtual orders, broker execution, and alerts.
 4. [Session review](/cortiq-public/session-review/) — assess saved decisions and outcomes.
+
+## Screenshots
+
+These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+
+![Trading Sessions list with Manual and Autonomous sessions](/cortiq-public/images/screenshots/sessions__list.png)
+
+*Session type and state remain visible in the list.*
+
+![Create-session form with session type, playbooks, symbol, and account fields](/cortiq-public/images/screenshots/sessions__create-form.png)
+
+*This isolated example has no AI credentials, so the form shows a model-configuration warning. Complete provider setup before creating an Autonomous session.*
+
+![Saved Autonomous session with chart and recorded trade statistics](/cortiq-public/images/screenshots/sessions__detail.png)
+
+*Illustrative saved session. Simulated values are not customer trading results.*
 
 ## Related
 

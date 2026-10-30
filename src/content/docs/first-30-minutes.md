@@ -71,10 +71,13 @@ A narrow scope keeps the recorded inputs and decisions readable. See [Playbooks 
 
 ### Minute 20–25 — Create the first session
 
+Open **Tools** → **Risk Management** first. Review the applied global and account limits, then select **Confirm current limits reviewed**. Home's setup checklist tracks that acknowledgement separately from configuring MT5 and an AI provider.
+
 Create one session with these defaults:
 
 - One symbol.
 - One MT5 account.
+- Autonomous session type for this walkthrough; use the Manual guide if you want to place orders yourself.
 - The provider you configured above.
 - Your simple playbook.
 - Your focused data access policy.
@@ -86,7 +89,7 @@ Conservative risk settings on a virtual session matter because you're rehearsing
 ### Minute 25–30 — Run and review
 
 1. Start the session.
-2. Let it complete one or more cycles.
+2. Let the Autonomous session complete an assessment. A valid assessment can leave the session waiting without entering a trade.
 3. Open the session's **Decision Log** and inspect the AI's reasoning and recorded decisions. Open **Journal** to inspect trades once the session has recorded one.
 4. Look for clarity, not perfection.
 
@@ -117,6 +120,14 @@ The first question is *did this workflow behave in a way I can understand and tr
 2. [Playbook design guide](/cortiq-public/trading-cycle/playbook-design/) — raises the quality of your second playbook.
 3. [Journal & analytics](/cortiq-public/journal-and-analytics/) — what to look for once you have several sessions to compare.
 4. [Risk management](/cortiq-public/risk-management/) — before any live execution.
+
+## Screenshots
+
+This development capture uses isolated demo data. Complete each setup requirement in your own installation.
+
+![Home setup checklist showing license, MT5, provider, and risk-review readiness](/cortiq-public/images/screenshots/workspace-and-monitoring__home.png)
+
+*The example has only license activation complete. Connection setup and risk acknowledgement are separate requirements.*
 
 ## Related
 

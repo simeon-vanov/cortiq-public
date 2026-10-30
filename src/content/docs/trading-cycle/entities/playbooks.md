@@ -6,7 +6,7 @@ sidebar:
   order: 30
 ---
 
-This is the entity reference for playbooks. By the end you'll know what a playbook contains, how each section behaves at runtime, and what separates a clean playbook from a vague one.
+This reference explains a playbook's strategy fields, structured risk settings, schedule, and context requirements.
 
 ## What this is
 
@@ -20,10 +20,10 @@ Playbooks pair with data access policies: the playbook says *what to look for*; 
 
 ## How to use it
 
-A pinned playbook version supplies operating rules to planning and decisions. Each section contributes to a different phase:
+A pinned playbook version supplies operating rules to continuous assessment. Cortiq evaluates the fields together; the sections describe different responsibilities rather than a stepped execution pipeline:
 
 - **Market bias, primary/entry timeframes** — set the reasoning frame.
-- **Setup conditions** — gate whether to evaluate at all.
+- **Setup conditions** — describe the market context a valid setup needs.
 - **Entry conditions** — gate whether to act.
 - **Risk rules** — frame the trade.
 - **Trade-management rules** — drive post-entry behavior.
@@ -46,6 +46,21 @@ Keep setup conditions broader than entry conditions. Keep risk rules separate fr
 | Trade-management rules | Trailing, partials, break-even, hold-or-reduce. |
 | Invalidation conditions | When the setup is no longer trustworthy. |
 | Instrument preferences and entry windows | Identifies fit; pinned entry days, windows, and close offsets also govern execution eligibility. |
+
+### Structured risk and context
+
+| Setting | Meaning |
+| --- | --- |
+| `Risk Multiplier (% of base risk)` | Scales base sizing risk. 100 means base risk, 25 means one quarter, and 200 means double; blank uses base risk. Global and account limits still apply. |
+| `Minimum reward-to-risk` | Optional positive lower bound; blank lets the AI choose for each setup. |
+| `Maximum reward-to-risk` | Optional upper bound; it must be at least the minimum when both are set. |
+| Preparation, sentiment, and profile requirements | Each is `Off`, `Optional`, or `Required`. The strongest requirement across enabled playbooks applies to the session. Required reports must have usable coverage and validity. |
+| Generation skills | Separate instructions for generating the corresponding context artifacts, included in their input review. |
+| Default data access policy | Proposed execution inputs for new setup; the actual selected policy is checked. |
+
+Free-text risk rules explain stop, target, and management reasoning. Structured numeric settings provide execution bounds; prose does not replace those controls.
+
+The pinned version owns active days, entry windows, and automatic-close offsets in your configured local time zone. A closed entry window suppresses new entries for that playbook while the session continues managing exposure. The session's `End Date` separately limits its lifetime.
 
 ### What a playbook should not be
 

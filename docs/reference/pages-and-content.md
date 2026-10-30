@@ -1,7 +1,7 @@
 ---
 status: reference
 area: pages-and-content
-last_updated: 2026-10-18
+last_updated: 2026-10-30
 ---
 
 # Pages and content
@@ -13,6 +13,11 @@ Defines the published-page surface of the docs site. Starlight reads `src/conten
 ## Components
 
 ### Reader-content audit baseline
+
+The [2026-10-30 workflow refresh](workflow-refresh.md) resolves the remaining
+audited discrepancies and restores checked current-development screenshots.
+Reader instructions distinguish source support from older installer availability;
+the capture manifest identifies the actual application binary and demo state.
 
 The 2026-10-18 refresh follows the current sibling desktop source, including work
 still awaiting installed/provider acceptance. It does not assert a released runtime

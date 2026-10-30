@@ -16,13 +16,13 @@ Starting a backtest requires an active Cortiq license. Autonomous replay makes r
 
 A backtest is a standalone replay for one MT5 account, one instrument, and one historical period. You don't need to create a trading session first. MT5 supplies historical data and broker information; replay orders stay inside Cortiq's simulator.
 
-Choose `Manual` when you want to reveal candles and place simulated trades yourself. Choose `Autonomous` when you want Cortiq to run AI planning and decision cycles. Both modes allow you to start without a playbook.
+Choose `Manual` when you want to reveal candles and place simulated trades yourself. Choose `Autonomous` when you want Cortiq to run AI assessments and execution decisions. Both modes allow you to start without a playbook.
 
 Autonomous replay requires a saved data access policy and an available AI model. Selected playbooks retain their order and pinned versions for the run. The policy controls the market data available to the AI; playbook requirements determine which preparation, sentiment, and instrument-profile inputs need coverage.
 
 ## How it fits into Cortiq
 
-Use backtesting to inspect decisions and execution before starting a [session](/cortiq-public/sessions/). Autonomous replay uses the live planning and decision workflow with historical inputs and simulated execution. It still depends on the selected model, policy, playbooks, and available evidence.
+Use backtesting to inspect decisions and execution before starting a [session](/cortiq-public/sessions/). Autonomous replay uses the live continuous-assessment workflow with historical inputs and simulated execution. It still depends on the selected model, policy, playbooks, and available evidence.
 
 Use [Research](/cortiq-public/research/) to measure recurring market behaviour across occurrences. A backtest shows what happened in a particular replay; a profitable result alone doesn't establish a repeatable edge.
 
@@ -89,9 +89,10 @@ Leave `Use Learnings` off when you want to evaluate decisions without your saved
 
 For Autonomous replay:
 
-1. Select the model and set `Max AI cycles`.
-2. Add optional `Instructions` for strategy notes or special guidance. Cortiq retains these for planning, later decisions, and resumed replay.
-3. Read the run summary and acknowledge the real-cost, candle-approximation, latency, SL-first, and historical-indicator warnings.
+1. Select the model and set `AI cycle cap`.
+2. Select `Select skills` to attach enabled guidance for `Entry`, `Management`, or `Both`, then select `Apply skills`. Attachments are explicit; the actor does not search the global skill library.
+3. Add optional `Instructions` for strategy notes or special guidance. Cortiq retains these for assessments, later decisions, and resumed replay.
+4. Read the run summary and acknowledge the real-cost, candle-approximation, latency, SL-first, and historical-indicator warnings.
 
 Broker-cost warnings explain estimated results. They don't require a separate cost acknowledgement.
 
@@ -114,7 +115,7 @@ Chart drawings and the selected timeframe are saved with the run. Manual replay 
 
 ### 6. Monitor autonomous replay and recover interruptions
 
-Autonomous replay advances through historical M1 candles and runs AI cycles when its planning or accepted triggers require them. During a provider turn, replay time stays fixed while the status shows the active work. A turn can take several minutes.
+Autonomous replay advances through historical M1 candles and runs assessments when its accepted local watches or scheduling conditions require them. Market understanding persists independently of individual opportunities; no initial global plan or replanning response is required before assessing an entry. During a provider turn, replay time stays fixed while the status shows the active work. A turn can take several minutes.
 
 Navigating away leaves an autonomous run working in the background. `Pause` lets the current AI call finish before parking replay; `Resume` continues from the committed boundary. `Cancel Run` ends the replay and keeps its recorded partial results.
 
@@ -164,6 +165,22 @@ Replay results depend on the historical data and broker evidence available to Co
 1. [Playbooks & data](/cortiq-public/playbooks-and-data/) — prepare the playbooks and policy for an autonomous replay.
 2. [Research](/cortiq-public/research/) — investigate whether a market observation repeats across occurrences.
 3. [Session review](/cortiq-public/session-review/) — interpret saved evidence and evaluate suggested improvements.
+
+## Screenshots
+
+These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+
+![Standalone Backtest setup with execution mode and replay period](/cortiq-public/images/screenshots/backtesting__new.png)
+
+*Choose replay inputs and authority before starting. No replay was started for this capture.*
+
+![Saved backtest result with chart and evidence tabs](/cortiq-public/images/screenshots/backtesting__detail.png)
+
+*The chart and results belong to a saved simulated run.*
+
+![Manual replay chart and simulated position ledger](/cortiq-public/images/screenshots/backtesting__manual-replay.png)
+
+*Inspect the recorded positions and levels before drawing conclusions from a result.*
 
 ## Related
 

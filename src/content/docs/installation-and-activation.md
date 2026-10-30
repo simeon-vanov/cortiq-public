@@ -8,9 +8,13 @@ sidebar:
 
 This page takes you from buying a license to a running, activated Cortiq install. By the end you'll have the desktop app open and ready for [First 30 minutes in Cortiq](/cortiq-public/first-30-minutes/).
 
+:::note
+The guides and screenshots describe the current development desktop. Compare your app version with the release notes if an older public installer shows different controls.
+:::
+
 ## What this is
 
-Cortiq is a one-time purchase: **€199**, with all future Cortiq desktop updates included and no Cortiq subscription. One key activates up to **two machines**. Purchases are processed by Stripe and the key is emailed to you instantly. If Cortiq isn't for you, there's a **14-day refund**. Broker fees and AI-provider usage remain yours; unrelated products or services may be sold separately.
+Cortiq is a one-time purchase: **€199**, with all future Cortiq desktop updates included and no Cortiq subscription. One key activates up to **two machines**. Purchases are processed by Stripe and the key is emailed after payment confirmation. If Cortiq isn't for you, there's a **14-day refund**. Broker fees and AI-provider usage remain yours; unrelated products or services may be sold separately.
 
 The app is distributed as a Windows installer — `Cortiq-win-Setup.exe` — through GitHub Releases. The installer is signed by **Decode The Trade Ltd**. Windows SmartScreen may still show a protection screen while a new release builds reputation; verify the publisher before continuing. Activation happens inside the app: you install once and paste your key once.
 
@@ -29,7 +33,7 @@ After activation, the rest of first-day setup happens in `Setup` → `MT5 Accoun
 
 ### 1. Buy a license
 
-Buy from the pricing section at [cortiq.trade](https://cortiq.trade/#pricing). Checkout runs through Stripe; the `CRTQ-XXXX-XXXX-XXXX-XXXX` key arrives by email straight after payment. The same key activates up to two machines, so you don't need a second purchase for a laptop and a desktop.
+Buy from the pricing section at [cortiq.trade](https://cortiq.trade/#pricing). Checkout runs through Stripe; the `CRTQ-XXXX-XXXX-XXXX-XXXX` key is sent by email after payment confirmation. The same key activates up to two machines, so you don't need a second purchase for a laptop and a desktop.
 
 ### 2. Download the installer
 
@@ -46,13 +50,13 @@ Double-click `Cortiq-win-Setup.exe`. Confirm that Windows shows **Decode The Tra
 
 Check the [release page](https://github.com/simeon-vanov/cortiq-public/releases/latest) for the version, release notes, and download assets. Verify the installer's publisher before running it.
 
-<!-- SCREENSHOT-NEEDED: installation-and-activation__smartscreen.png – Windows SmartScreen protection notice for the signed Cortiq-win-Setup.exe, showing Decode The Trade Ltd and the Run anyway button (OS dialog, captured manually) -->
-
 Cortiq now appears in the Start menu.
 
 ### 4. Open Cortiq and activate
 
-Launch the app and open `Setup` → `License`. Paste the key from your purchase email — Cortiq validates it against the licensing backend and records the activation on this machine. There's an optional email field that supports the multi-machine activation.
+Launch the app. If prompted to choose whether to share product analytics, select **Continue without sharing**, or check **Share product analytics from this desktop** and select **Share and continue** if you want to opt in. Complete that choice before continuing to the workspace.
+
+Open `Setup` → `License`. Paste the key from your purchase email — Cortiq validates it against the licensing backend and records the activation on this machine. There's an optional email field that supports the multi-machine activation.
 
 When the License page shows the activation as active, you're done. Cortiq stores the state locally.
 
@@ -119,6 +123,14 @@ Yes, on the same Windows machine, if you intend to trade live. The MT5 bridge us
 1. [First 30 minutes in Cortiq](/cortiq-public/first-30-minutes/) — your next stop after activation.
 2. [MetaTrader 5 integration](/cortiq-public/mt5-integration/) — wire in MT5 before any trading.
 3. [AI providers](/cortiq-public/ai-providers/) — configure at least one provider.
+
+## Screenshots
+
+These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+
+![License activation page with a mock active development license](/cortiq-public/images/screenshots/installation-and-activation__activation-dialog.png)
+
+*Development activation record. Keep your own license key private.*
 
 ## Related
 

@@ -31,7 +31,7 @@ Public support runs through the Cortiq GitHub repository. Account-specific or li
 
 ### Buy and activate
 
-Purchase at [`cortiq.trade/#pricing`](https://cortiq.trade/#pricing). Checkout runs through Stripe, and your `CRTQ-XXXX-XXXX-XXXX-XXXX` key is emailed to you immediately.
+Purchase at [`cortiq.trade/#pricing`](https://cortiq.trade/#pricing). Checkout runs through Stripe, and your `CRTQ-XXXX-XXXX-XXXX-XXXX` key is emailed after payment confirmation.
 
 Open `Setup` → `License` in the desktop app, paste the key, and confirm. The key activates on first launch and can be activated on a second machine — two activations total.
 

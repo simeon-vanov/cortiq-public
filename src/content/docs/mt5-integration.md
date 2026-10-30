@@ -37,7 +37,7 @@ flowchart LR
 | Account context | Reads balance, equity, margin level, and symbol properties on every cycle. |
 | Order flow | Places market and pending orders when a session is allowed to execute. |
 | Position management | Modifies stop-loss / take-profit, performs partial and full closes, runs trailing logic. |
-| Monitoring | Tracks bridge health and pauses sessions cleanly on disconnect or risk events. |
+| Monitoring | Checks bridge and broker-feed health, reports outages, and applies the relevant failure and restart path. |
 
 ## How to use it
 
@@ -51,13 +51,9 @@ Open `Setup` → `MT5 Accounts` and add an entry. You'll need the terminal's exe
 
 Open MetaTrader 5 and drop `ZmqFacade.ex5` onto any chart with automated trading enabled. The EA also needs the MQL5 ZeroMQ library installed under MT5's `Include/Zmq/` folder. The EA's smiley face icon appears in the top-right of the chart when it's running.
 
-<!-- SCREENSHOT-NEEDED: mt5-integration__zmqfacade-attached.png – A blank EURUSD chart in MT5 with ZmqFacade EA attached and the smiley face icon visible (top-right of chart). Mask broker name and balance -->
-
 ### 3. Verify the bridge is healthy
 
 Cortiq's topbar shows an MT5 health indicator. Green means the bridge is connected and recent heartbeats arrived on time; red means the EA isn't responding. Don't start a session until the indicator is green.
-
-<!-- SCREENSHOT-NEEDED: mt5-integration__health-green.png – Cortiq topbar showing the MT5 health indicator in green/connected state -->
 
 ### Multi-account setup
 
@@ -90,13 +86,25 @@ No. Only MT5. Brokers that offer both will work as long as you connect through t
 No. Cortiq and MT5 must be on the same Windows machine. The bridge uses `localhost` ZeroMQ and assumes both processes share the same OS.
 
 **What happens if MT5 disconnects mid-session?**
-The session pauses on the next health-check failure. No new orders are placed; open positions remain managed by MT5 itself until the bridge recovers and Cortiq re-attaches.
+Bridge availability and the terminal's broker connection are checked separately. An EA/socket failure is debounced and confirmed with a longer PING before Cortiq reports the outage and attempts reconnection. One missed health check does not immediately pause every session.
+
+A confirmed broker-feed outage that persists through its debounce fails the account's running sessions. Inspect their **Failed** state and error. An enabled auto-restart follows the session's backoff and readiness checks; otherwise restart explicitly after correcting the connection. Bridge recovery alone does not establish that a session has resumed.
+
+Existing broker-side protective orders remain at MT5. Cortiq cannot reliably place, change, close, or actively manage orders while the required connection is unavailable. Verify the account, pending orders, open exposure, and session state after recovery.
 
 ## What to read next
 
 1. [First 30 minutes in Cortiq](/cortiq-public/first-30-minutes/) — installs the EA and runs a virtual session end-to-end.
 2. [Sessions](/cortiq-public/sessions/) — once the bridge is green, this is where you build the session that uses it.
 3. [Risk management](/cortiq-public/risk-management/) — configure global and per-account limits before any live execution.
+
+## Screenshots
+
+These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+
+![MT5 Accounts page showing command and data ports for demo accounts](/cortiq-public/images/screenshots/mt5-integration__settings-page.png)
+
+*The shown temporary ports isolate the capture. Configure the actual ports used by your terminal.*
 
 ## Related
 

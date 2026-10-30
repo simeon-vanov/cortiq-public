@@ -10,7 +10,7 @@ This page is the at-a-glance map of Cortiq's product surface. Read it once befor
 
 ## What this is
 
-Cortiq's feature set is wide because the platform handles a full operating loop, not a single step. The major features fall into five groups: *strategy and context* (playbooks, data access policies, preparation, skills), *execution* (sessions, MT5, providers, risk, execution modes), *validation* (backtesting), *monitoring and review* (workspace screens, journals, session reviews, system messages), and *agent surface* (research, MCP, Copilot, permissions).
+The major capabilities cover *instrument research and knowledge*, *strategy and context*, *historical replay*, *Manual or Autonomous execution*, and *monitoring and review*. Copilot, provider connections, and permissions support those workflows without making every task part of a trading session.
 
 Use this page as a fast index into the rest of the site. The Reference table below names every major capability with one sentence of "what it does" and one sentence of "why it matters", and links to the page that explains it in depth.
 
@@ -43,14 +43,14 @@ You bring your own AI. Cortiq connects to providers you already pay for — ther
 
 | Feature | What it does | Why it matters |
 | --- | --- | --- |
-| Trading sessions | Runs a repeatable workflow on an MT5 account for a single symbol, with a chosen provider, time window, and risk settings. | Sessions turn a strategy into an executable operating unit. |
-| Discretionary trading | Manual sessions run no AI decision loop — you place the orders from the session's chart, with position size calculated from your stop and a risk percentage. | Trade the market yourself while keeping the preparation, risk limits, journal, and review. |
+| Trading sessions | Runs Manual execution or Autonomous assessments on one configured account and instrument. Pinned playbooks own entry schedules; session End Date is separate. | Keep execution, selected rules, authority, and risk settings together. |
+| Discretionary trading | Place and manage orders from a Manual session's chart, using risk-based sizing or an editable Lots override. | Keep control of order decisions while retaining preparation, risk checks, journal, and review. |
 | Charting | A candlestick chart in every session, backtest, journal entry, and piece of recorded evidence, with timeframes, drawing tools, Cortiq-calculated indicators, and trade and decision markers. | See what happened and where each order or decision landed, without leaving the app. |
 | MetaTrader 5 integration | Connects Cortiq to MT5 on the same machine for prices, account state, orders, and position management. | The execution bridge between AI decisions and actual trades. |
 | Bring-your-own AI providers | Uses explicitly selected API or supported ACP connections. | Keep provider, model, transport, and billing under your control. |
 | Execution modes | Chooses virtual simulation or broker execution separately from Manual/Autonomous decision-making. | Rehearse the configured workflow before authorizing real orders. |
 | Risk management | Applies dual-layer global and per-account limits on drawdown, profit, trade counts, exposure, and loss streaks, with an emergency-stop breaker. | Risk rules stay active even when the AI wants to trade more aggressively. |
-| Notifications | Dispatches supported events through configured channels and records Activity and session price alerts. | Inspect delivery boundaries and durable in-app events. |
+| Notifications | Offers Windows trade notifications, durable Activity entries, and independent session price alerts. | Distinguish desktop delivery from saved in-app events. |
 | Feature-level provider overrides | Specific product functions can use a different provider than the session default. | One provider may be better for a supporting workflow than for live decisions. |
 
 ### Validation
@@ -76,7 +76,7 @@ You bring your own AI. Cortiq connects to providers you already pay for — ther
 
 | Feature | What it does | Why it matters |
 | --- | --- | --- |
-| Research | Starts from an instrument Hub, measures distinct questions over managed data, and retains answers and analysis revisions. | Review scope, distributions, missing outcomes, and conclusions before saving knowledge. |
+| Research | Starts from a saved draft in an instrument Hub, requires human approval, measures questions, and retains answers and analysis revisions. | Check scope and measurements before starting; inspect the evidence before saving knowledge. |
 | MCP server and agent control | Exposes scoped tools to external clients in Manual-session contexts. | Use direct tools with explicit permissions and host execution checks. |
 | Cortiq Copilot | An in-app assistant (`Ctrl+K`) with page-specific context and tools. | Analyse results, prepare drafts, and use permitted actions under their own save and approval rules. |
 | Agent permissions | Separates provider access, Cortiq mutation approvals, and trading authority. | Understand which layer authorizes each action. |

@@ -21,7 +21,7 @@ A session bundles:
 - Optional ordered playbooks pinned to saved versions.
 - Optional trade ideas.
 - Optional support layers — preparation package, instrument profile, sentiment report.
-- A time window, active days, and execution settings.
+- An optional `End Date`, lifecycle controls, and execution settings.
 
 ## How it fits into Cortiq
 
@@ -31,7 +31,9 @@ For runtime behavior and the session lifecycle, see [Sessions](/cortiq-public/se
 
 ## How to use it
 
-Treat the session as a trading-desk template. Once it's stable, duplicate before changing — keep the original running as a control while you experiment on the duplicate. Cohort comparison turns the two runs into evidence.
+Treat the session as a trading-desk template. Duplicate a stable setup before experimenting, then compare saved runs and trade history. Use virtual sessions or replay when broker execution isn't needed; simultaneous live sessions create separate exposure.
+
+Pinned playbooks own user-local active days, entry windows, and automatic-close offsets. A closed playbook window suppresses new entries for that playbook without pausing the session or ending management. The session's `End Date` separately limits its lifetime.
 
 ## Reference
 

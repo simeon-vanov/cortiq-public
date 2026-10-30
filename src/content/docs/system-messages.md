@@ -6,33 +6,33 @@ sidebar:
   order: 110
 ---
 
-Activity is the inbox inside the Cortiq app where background processes, trades, risk events, MT5 health, and permission requests post durable, click-through notifications. It is in-app only — separate from the Windows toasts and X / Telegram posts that broadcast your trades. This page covers what lands there, how toasts are gated, and how permission requests become actionable cards.
+Activity is the inbox inside the Cortiq app where background processes, trades, risk events, MT5 health, and permission requests post durable, click-through notifications. It is separate from Windows trade notifications and one-shot chart price alerts. This page covers what lands there, how toasts are gated, and how permission requests become actionable cards.
 
 ## What this is
 
 Background services in Cortiq generate events all the time: an artifact finished generating, a session got risk-paused, the MT5 feed dropped, an agent needs a capability. Activity collects those into one persisted, filterable list with an unread badge.
 
-Each message is durable — it stays in the inbox until you read or clear it — and most carry a deep link to the artifact or page they're about. Higher-severity events also pop a toast so you notice them in the moment; routine ones land quietly with an unread count.
+Each message stays in the inbox until you delete it or select **Clear all**. Reading marks it read without deleting it. Most messages link to their artifact or page. Higher-severity events also pop a toast so you notice them in the moment; routine ones land quietly with an unread count.
 
 Open it from **Activity** in the sidebar's `Library` section. The route is `/system-messages`.
 
 ## How it fits into Cortiq
 
-Cortiq has three notification surfaces; this is one of them.
+Activity keeps the saved event record. Windows notifications provide a separate delivery surface.
 
 | Surface | Where it goes | What it carries |
 | --- | --- | --- |
 | Activity | In-app inbox (`/system-messages`) | Background, trade, risk, health, and permission events. |
 | Windows toasts | Desktop notification center | Trade events and trade-approval prompts. |
-| X / Telegram | External channels | Public or private broadcast of trade events. |
+| Chart price alerts | Activity, followed by a best-effort Windows notification | A saved session Bid target was touched or crossed. |
 
-Activity is the only one of the three that is fully in-app and the only one that carries permission and background-process events. See [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) for the external channels.
+Activity also carries background-process and permission events. X and Telegram are not available desktop channels. See [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) for Windows Push and independent price alerts.
 
 ## How to use it
 
 ### Read and filter the inbox
 
-The inbox lists messages newest-first. Filter by **All**, **Unread**, or a category (`ArtifactGeneration`, `Risk`, `Health`, `Trade`, `Permission`). Click a row to mark it read and jump to its linked page. Each row has a delete control; the toolbar offers **mark all read** and **clear all**.
+The inbox lists messages newest-first. The **Filter** menu offers **All**, **Unread**, **Artifact generation**, **Risk**, **Health**, **Trade**, and **Price alerts**. Permission and research notices can appear in the inbox without dedicated filter options. Click a row to mark it read and jump to its linked page. Each row has a delete control; the toolbar offers **Mark all read** and **Clear all**.
 
 ### The unread badge
 
@@ -67,9 +67,11 @@ The inbox also includes **Price alerts**. A fired session price target is saved 
 | --- | --- |
 | `ArtifactGeneration` | A preparation package finished generating, or generation failed. |
 | `Risk` | A session was risk-paused after hitting a limit. |
-| `Health` | The MT5 broker feed went down or was restored; a scheduled report was generated. |
+| `Health` | The MT5 bridge or broker feed became unavailable or recovered. |
 | `Trade` | A trade opened, closed, failed, had SL/TP moved, was partially closed, or an approval was proposed, rejected, or expired. |
-| `Permission` | An agent capability request — the only actionable type. |
+| `Permission` | A provider permission request or protected-action approval card. |
+| `Research` | Research progress, completion, or attention notices. |
+| `Alert` | A saved session price alert fired. |
 
 ### Severities
 
@@ -82,15 +84,23 @@ The inbox also includes **Price alerts**. A fired session price target is saved 
 
 ### What it does not do
 
-- An in-app message does not guarantee a Windows notification or an external-channel post. Price alerts have their own best-effort Windows delivery path.
+- An in-app message does not guarantee a Windows notification. Price alerts have their own best-effort Windows delivery path.
 - It does not emit session-lifecycle messages (started, stopped, failed). Those surface on the session and dashboard.
 - It has no per-category mute; gating is by severity and emitter only.
 
 ## What to read next
 
-1. [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) — the external channels that broadcast trade events.
+1. [Execution modes & notifications](/cortiq-public/execution-modes-and-notifications/) — Windows trade notifications and independent chart price alerts.
 2. [Agent permissions](/cortiq-public/agent-permissions/) — what the actionable permission cards grant and how to manage them.
 3. [Cortiq Copilot](/cortiq-public/cortiq-copilot/) — the assistant whose actions and requests surface here.
+
+## Screenshots
+
+These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+
+![Activity inbox with risk, artifact, and health notices](/cortiq-public/images/screenshots/system-messages__inbox.png)
+
+*Synthetic notices illustrate the inbox. Marking a notice read is separate from deleting it.*
 
 ## Related
 

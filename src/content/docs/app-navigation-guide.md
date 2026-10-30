@@ -39,7 +39,7 @@ Open Copilot with **Ctrl+K**. Its context follows the current screen; it is sepa
 | Activate a license | **Setup** → **License** | [Licensing and support](/cortiq-public/licensing-and-support/) |
 | Study a market | **Knowledge** → **My Instruments** → instrument | [Instrument Hub](/cortiq-public/instrument-hub/) |
 | Build research input files | Instrument Hub → **Data** | [Research](/cortiq-public/research/) |
-| Start or reopen research | Instrument Hub → **Research a topic** or research-run count | [Research](/cortiq-public/research/) |
+| Prepare or reopen research | Instrument Hub → **Research a topic** or saved drafts/research history; approve a ready draft in its wizard | [Research](/cortiq-public/research/) |
 | Inspect knowledge and its evidence | Instrument Hub → **Knowledge** | [Instrument Hub](/cortiq-public/instrument-hub/) |
 | Create or edit trading rules | **Preparation** → **My Playbooks** | [Playbooks and data](/cortiq-public/playbooks-and-data/) |
 | Define AI input limits | **Tools** → **Data Access Policies**, or the playbook policy editor | [Data policy design](/cortiq-public/trading-cycle/data-package-design/) |
@@ -51,7 +51,7 @@ Open Copilot with **Ctrl+K**. Its context follows the current screen; it is sepa
 | Read alerts or pending approvals | **Library** → **Activity** | [Activity](/cortiq-public/system-messages/) |
 | Configure trading limits | **Tools** → **Risk Management** | [Risk management](/cortiq-public/risk-management/) |
 | Inspect provider errors | **Tools** → **Provider Health** | [Workspace and monitoring](/cortiq-public/workspace-and-monitoring/) |
-| Configure notifications and reports | **Settings** → **General** | [Execution modes and notifications](/cortiq-public/execution-modes-and-notifications/) |
+| Configure trade notifications | Session detail → **Settings** | [Execution modes and notifications](/cortiq-public/execution-modes-and-notifications/) |
 | Configure Copilot permissions | **Settings** → **Copilot** | [Agent permissions](/cortiq-public/agent-permissions/) |
 
 ## Older names and links
@@ -72,6 +72,14 @@ Check the page heading and selected instrument or session before starting work. 
 1. [Instrument Hub](/cortiq-public/instrument-hub/) — the starting point for research and knowledge.
 2. [Workspace and monitoring](/cortiq-public/workspace-and-monitoring/) — operate and inspect daily activity.
 3. [First 30 minutes](/cortiq-public/first-30-minutes/) — follow the initial setup path.
+
+## Screenshots
+
+These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+
+![Current Library and Knowledge navigation beside MT5 Accounts](/cortiq-public/images/screenshots/app-navigation-guide__sidebar.png)
+
+*The middle sidebar scrolls to reveal the remaining sections. Demo accounts use temporary ports.*
 
 ## Related
 

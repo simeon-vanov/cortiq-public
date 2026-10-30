@@ -101,6 +101,14 @@ No. Some operations run under their existing validated authority, some require a
 2. [Activity](/cortiq-public/system-messages/) — find permission requests and their outcomes.
 3. [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/) — configure an external client.
 
+## Screenshots
+
+These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+
+![Copilot settings showing behavior and Agent permissions controls](/cortiq-public/images/screenshots/agent-permissions__settings.png)
+
+*Provider permissions and Cortiq session authority are separate controls.*
+
 ## Related
 
 - [AI Providers](/cortiq-public/ai-providers/)

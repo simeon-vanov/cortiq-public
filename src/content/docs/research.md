@@ -22,10 +22,10 @@ Research establishes what happened around a defined condition. [Backtesting](/co
 
 ## Before you begin
 
-- Configure the `Research & Knowledge` route in [AI Providers](/cortiq-public/ai-providers/).
+- Configure Copilot for drafting and measurement checks, then the `Research & Knowledge` route in [AI Providers](/cortiq-public/ai-providers/).
 - Connect an [MT5 account](/cortiq-public/mt5-integration/) with history for the instrument and period you need to build a dataset.
 - Verify your license before building files or launching research.
-- Prepare at least one built managed data file for the instrument, with the columns and dates your question needs.
+- For a new occurrence search, prepare at least one built managed data file for the instrument, with the columns and dates your question needs. Saved-evidence follow-ups use the earlier study's retained results.
 
 ## Prepare a managed data file
 
@@ -58,22 +58,37 @@ An Observation or Learning supplies context. It doesn't count as a completed stu
 
 ### Set the scope
 
-1. Select the data files to read and choose a `Primary data file` from that selection. Topic research preserves each selected file's own timeframe; selecting several files doesn't merge their rows into one timeframe.
-2. Review `From` and `To`. Defaults use the builds' saved coverage. When files overlap, the default is their common period. Disjoint coverage produces a wider span and a warning; narrow it when your question requires a shared period.
-3. Set `Number of questions`, from **1 to 20**. The default is **five** unless you've changed the preference. This is a target for distinct questions and a maximum, with an explanation for any shortfall. Several response horizons for one setup aren't separate questions.
-4. Enter a concrete `Research intent`, or the optional focus for gathering observations. For example: “Study H1 closes above the previous day's high. Compare subsequent movement over four and twelve bars, including differences by breakout size.”
-5. If your question compares market sessions, review the saved session definitions. Select `Add a market-session breakdown` when you want that comparison explicitly. Session times use each market's named time zone and follow its daylight-saving changes.
-6. Optionally add a title, then select `Start`.
+Choosing a research action creates a saved draft. Work through **Intent**, **Scope**, **Questions**, and **Approve & start**. The draft saves automatically; opening it or discussing it never starts research.
 
-Launch checks every selected file's instrument, current build, readable data, and requested coverage. A rejection identifies the file and required correction. Missing inputs or a period with no available data remain explicit; Cortiq doesn't fill missing candles or invent a response.
+1. In **Intent**, describe the behavior and decision you want to investigate. For example: “Study H1 closes above the previous day's high. Compare movement over four and twelve bars, including differences by breakout size.”
+2. In **Scope**, choose the evidence basis. **New occurrence search** finds cases in selected files and dates. A follow-up also offers **Saved measurements** to analyse retained results, or **Same saved occurrences** to add supported measurements over those cases.
+3. For a new search, select built data files and a **Primary data file**. Topic research retains each file's timeframe; it doesn't merge rows into one timeframe. Review **From (local date)** and **To (local date)** against the files' coverage.
+4. Set **Number of distinct questions** and review any market-session comparison. The target is 1–20 distinct questions, with five as the default unless your preference differs. Multiple response horizons for one setup don't count as separate questions. Session comparisons use the saved named time zones and their daylight-saving rules.
 
-For help choosing a study, use `Suggest next research` in Copilot. A recommendation separates `Prepare research file` from `Start research`. Selecting an action puts an editable request in the composer; review and send it to proceed. Preparing a file doesn't authorize a research run.
+Launch checks the instrument, build, readable data, and coverage of each required file. Resolve missing required coverage and review any disjoint-coverage warning; Cortiq doesn't invent missing candles. Saved-evidence follow-ups use the retained source evidence rather than running a new occurrence search.
+
+### Review questions and approve the study
+
+1. Open **Questions** and select **Discuss/change in Copilot**. Ask for the changes you need. Copilot saves the ordered questions to this draft; wait for **Draft saved** and inspect the updated wording.
+2. Expand **How it will be answered** for each question. Check its population, windows, measurements, and treatment of missing data.
+3. Select **Check measurements in Copilot**. Copilot defines the measurements; Cortiq checks them against the selected files or saved evidence. This check doesn't run discovery or outcome measurements, or call a separate Research AI.
+4. Resolve failed checks. Changing a question or its scope requires another check. **Draft saved** and **Measurements checked** describe different states.
+5. Select **Review study**. Inspect the exact questions, evidence basis, primary input, session clocks, and any enabled comparison policy.
+6. Select **Approve and start research** yourself. Confirm that the result page shows the queued, running, or completed saved-evidence study.
+
+Copilot cannot approve or start a Research draft. **Suggest next research** prepares a recommendation; **Prepare research file** helps build its inputs. Neither a sent composer request nor an AI's readiness statement replaces your approval in the draft.
+
+### Save a draft for later
+
+Select **Save for later** and reopen the draft from **Research drafts** on the instrument page. **Active** and **Archived** separate drafts in use from those you've put aside. **Archive** retains an idle draft's questions and conversation; **Restore draft** makes it editable again. Busy or approved studies cannot be archived.
+
+If another view has changed the draft, select **Review conflicting edits**, compare the saved and local versions, then choose **Reload saved plan** or **Save my edits**. Failed reads keep your local edits. An approved study retains its exact plan; use a follow-up or rerun for further changes.
 
 ### Build on an earlier study
 
-For Topic research, `Build on previous research` adds saved studies as context without changing the selected data files. Review the earlier questions, results, and limitations before starting.
+From a saved result, open a follow-up draft. **Build on an earlier question** selects the question to explore, or **Original research intent** keeps the broader focus. The source study remains linked context.
 
-Under `Advanced research settings`, `Reuse an earlier setup method` selects a saved script that finds matching candles. Exact reuse requires compatible setup rules, data, dates, and retained checks. Cortiq executes and checks the method again; otherwise it authors a new method. Earlier evidence doesn't become new evidence through reuse.
+Choose the evidence basis deliberately. Re-reading saved measurements does not find new cases. Adding measurements to the same occurrences remains exploratory. A new occurrence search uses the selected files and period, but overlapping earlier history still isn't independent validation.
 
 ## Follow progress and recover interrupted work
 
@@ -85,7 +100,7 @@ For Topic and Gather research, use the action that matches the work you want to 
 | --- | --- |
 | `Pause` | Stops at a safe stage boundary. A current provider response can finish and save first. |
 | `Continue` | Resumes the same saved study with its original intent, question target, period, frozen inputs, and completed stages. An unfinished provider response can need another call. |
-| `Re-run` | Creates a new study. Review its scope and question target before starting. |
+| `Re-run` | Opens a new saved draft with the original questions prefilled. Review its scope, check measurements, and approve it before starting. |
 | `Retry explanation` | Requests another AI explanation of retained measurements without repeating the measurements. |
 | `Fix & continue` / `Retry failed checks` | Uses the saved failure and the recovery action offered for that stage. |
 
@@ -126,10 +141,10 @@ Distributions retain extreme values in labeled tails. A small number of examples
 A completed Topic study with measured findings has a separate review state. Choose one of the actions under `What's next`:
 
 - `Draft a Learning with Copilot` to prepare a conclusion for explicit review and saving.
-- `Start follow-up research` to launch a new study that references this one.
+- `Start follow-up research` to prepare a saved draft that references this study.
 - `Keep as research` to record that decision without publishing Knowledge. `Reopen review` makes it actionable again.
 
-Opening Copilot or cancelling a follow-up dialog doesn't resolve the review. Saving a Learning, starting a referenced successor study, or choosing `Keep as research` does.
+Opening Copilot or leaving an unstarted follow-up draft doesn't resolve the review. Saving a Learning, starting a referenced successor study, or choosing `Keep as research` does.
 
 ## Continue the investigation
 
@@ -137,7 +152,9 @@ Use `Discuss with AI` to inspect a saved finding with Copilot. Ask about its set
 
 To add supported response windows to the same frozen population, use `Continue measuring saved setups` in `Research questions`, or ask Copilot for an analysis revision. Revisions remain saved alongside the original analysis. They're exploratory because the earlier outcomes have already been seen; they don't repeat discovery or create a Learning.
 
-To change the question, files, or period, use `Start follow-up research`. The dialog initially selects the source study's files and primary file when available. Review those selections and dates; unavailable files require explicit replacements. Referencing a study doesn't turn an overlapping test into independent validation.
+To change the question, files, or period, use `Start follow-up research`. The saved draft retains the source study as context. Choose saved measurements, the same saved occurrences, or a new occurrence search in **Scope**. For a new search, review the preselected files, primary file, and dates; unavailable files require explicit replacements. Check the questions and measurements, then approve the study in the draft. Referencing a study doesn't turn an overlapping test into independent validation.
+
+A **Current** Topic Learning can also offer **Investigate trading idea** for execution research. This uses its complete archived population and verified original evidence, with one original input and a current causal execution file. Later untouched Validation and explicit policy promotion are separate requirements. See [Hypotheses and Edges](/cortiq-public/instrument-hub/#hypotheses-and-edges-require-a-separate-workflow) for the current limits.
 
 ## Save a Learning
 
@@ -172,6 +189,22 @@ No. Research has a read-only tool surface. Generated data and setup-finder scrip
 1. [Instrument Hub](/cortiq-public/instrument-hub/) — find your datasets, research history, and saved Knowledge for one market.
 2. [Backtesting](/cortiq-public/backtesting/) — evaluate a playbook through historical execution.
 3. [Playbooks & data](/cortiq-public/playbooks-and-data/) — understand the rules and data a trading session uses.
+
+## Screenshots
+
+These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+
+![Research draft wizard showing Intent, Scope, Questions, and approval steps](/cortiq-public/images/screenshots/research__draft.png)
+
+*The Intent step starts a saved draft. Complete scope and measurement checks before human approval.*
+
+![Instrument research history with saved drafts and recorded runs](/cortiq-public/images/screenshots/research__log.png)
+
+*Saved drafts and executed runs remain distinct.*
+
+![Instrument Data tab with managed historical files](/cortiq-public/images/screenshots/instrument-hub__data.png)
+
+*Prepare the study input files here. No data build or provider generation was started for the capture.*
 
 ## Related
 

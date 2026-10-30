@@ -48,11 +48,13 @@ A generated or Copilot-repaired policy remains an editor proposal until saved. S
 | --- | --- |
 | `TF` / `Timeframe` | An allowed candle timeframe. The session or replay remains locked to its instrument. |
 | `Candle Count` | The configured history size. Requirements must also fit supported collection limits and evidence budgets. |
-| `Tier` | Exactly one timeframe must be `Primary`; the others are `Secondary`. Primary participates in Initial, Stream, and Analysis scopes; Secondary participates in Initial and Analysis. |
+| `Tier` | Exactly one timeframe must be `Primary`; the others are `Secondary`. Primary supplies scheduling context. Every permitted timeframe contributes its configured rolling numeric history to autonomous assessments. |
 | `Include Screenshot` | An optional visual-context setting in forms and workflows that expose it. It doesn't supply required numeric evidence. |
 | `Legacy feed health timeframe` | A feed-recovery fallback. It doesn't schedule analysis or trigger AI cycles. |
 
 Runtime checks evaluate complete closed windows at the decision cutoff. A configured history size doesn't prove that the source returned enough usable candles. Forming candles don't satisfy a closed-candle requirement.
+
+Continuing assessments receive the full configured history even when no new candle has closed. The `Initial`, `Stream`, and `Analysis` choices retained in `Test Data` are preview vocabulary, not the current autonomous delivery contract.
 
 ### Indicator selections
 
@@ -111,7 +113,7 @@ Runtime evidence appears in `Input checks and data requests`, separately from th
 | `Inputs available` | Required inputs passed the checks for the applicable decision role. |
 | `Waiting for signal` | Inputs are available and checked evidence shows an entry condition remains unmet. |
 
-Planning, entry, and management can require different inputs. Missing entry evidence stops new-entry planning; management needs its own valid evidence. Protective exposure controls remain available. A blocked replay pauses at its saved cutoff and records the reason.
+Assessment, entry, and management can require different inputs. Missing required entry evidence blocks new entries; management needs its own valid evidence. Protective exposure controls remain available. A blocked replay pauses at its saved cutoff and records the reason.
 
 Preparation admission checks the report's instrument, analysis type, effective time, producer certification, and expiry. The preparation package's generation review and input certification remain separate from execution compatibility.
 

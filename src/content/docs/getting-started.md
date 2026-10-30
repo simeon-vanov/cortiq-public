@@ -9,14 +9,14 @@ sidebar:
 This page is the orientation step for prospective Cortiq operators. By the end you'll know whether Cortiq fits your workflow, what you need before installing, and the order in which to make the first day's decisions.
 
 :::tip
-Plan your first session in virtual mode. It validates your playbook against today's live market without sending orders to MT5, and it costs nothing to discard.
+Run your first session in virtual mode to inspect the workflow without sending broker orders. AI-provider usage still applies; one virtual run does not validate a strategy.
 :::
 
 ## What this is
 
-Cortiq is a structured AI-assisted trading workflow around MetaTrader 5. The platform is opinionated: it expects you to define your strategy in playbooks, your inputs in data access policies, and your guardrails in risk limits — and then it runs the loop on your behalf.
+Cortiq connects instrument research, saved knowledge, historical replay, and trading through MetaTrader 5. Define reusable rules in playbooks, permitted inputs in data access policies, and limits in risk settings. Then choose Manual execution or authorize an Autonomous session.
 
-If you've been stitching together AI prompts, scripts, and chat windows, Cortiq replaces that with one repeatable surface: every cycle uses the same playbook, sees a controlled context, runs through risk validation, and ends in a journal entry. That structure is what makes results comparable across sessions.
+Keep the inputs, selected rule versions, decisions, and trades together so you can inspect what happened. Autonomous assessments retain market understanding and opportunities; Manual sessions keep order decisions with you. The session Decision Log records decisions even when no trade occurs, while Journal shows recorded trades.
 
 Reading this page makes the rest of the Start Here section actionable. After it, you can install with confidence and run a virtual session inside thirty minutes.
 

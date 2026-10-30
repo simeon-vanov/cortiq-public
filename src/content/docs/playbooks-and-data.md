@@ -23,7 +23,7 @@ The distinction matters when you investigate a decision. A rule can be clear whi
 | Item | Its role | Where you work on it |
 | --- | --- | --- |
 | Playbook | Defines the trading rules and required supporting outputs. | `Preparation` → `My Playbooks` |
-| Execution policy | Defines access to the inputs used for planning, entry, and management. | The playbook's `Execution policy` card, or `Tools` → `Data Access Policies` |
+| Execution policy | Defines access to the inputs used for assessment, entry, and management. | The playbook's `Execution policy` card, or `Tools` → `Data Access Policies` |
 | Indicator selection | Identifies the calculation, version, timeframe, parameters, and outputs. | The policy's `Indicators` section |
 | Preparation package | Defines how a preparation report is generated, with its own policy and recipe. | The `Preparation` page |
 | Session or backtest | Applies the selected playbooks and actual effective policy to current or replay evidence. | [Sessions](/cortiq-public/sessions/) or [Backtesting](/cortiq-public/backtesting/) |
@@ -77,7 +77,7 @@ For example, using an H4 preparation bias doesn't alone require H4 execution can
 
 A policy setting grants access; it doesn't prove successful delivery. Required candles need complete closed history at the decision cutoff. Required indicators need the exact calculation and usable output. Required reports need valid coverage and expiry. Calendar, account, history, and risk inputs also need verified delivery when the rules require them.
 
-Missing entry inputs stop new-entry planning. Management has its own input requirements; available entry data doesn't automatically permit AI management. Protective exposure controls remain available. A blocked replay pauses with a reason and saved checkpoint rather than advancing past the missing evidence.
+Missing entry inputs block new-entry decisions. Management has its own input requirements; available entry data doesn't automatically permit AI management. Protective exposure controls remain available. A blocked replay pauses with a reason and saved checkpoint rather than advancing past the missing evidence.
 
 Inspect `Input checks and data requests` in the decision or session evidence for the required input, what arrived, and the next action. Correct the policy when access is insufficient; correct the source or report coverage when delivery is missing.
 
@@ -86,6 +86,18 @@ Inspect `Input checks and data requests` in the decision or session evidence for
 1. [Playbook design guide](/cortiq-public/trading-cycle/playbook-design/) — write rules that identify their required evidence.
 2. [Data access policy design guide](/cortiq-public/trading-cycle/data-package-design/) — choose and validate the input scope.
 3. [Data access policies](/cortiq-public/trading-cycle/entities/data-packages/) — look up policy fields and status meanings.
+
+## Screenshots
+
+These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+
+![Playbook editor with identity and strategy sections](/cortiq-public/images/screenshots/playbooks-and-data__playbook-editor.png)
+
+*The sections organize authored rules; they are not four sequential runtime calls.*
+
+![Data Access Policies list with saved reusable policies](/cortiq-public/images/screenshots/playbooks-and-data__policy-list.png)
+
+*Select and review the policy appropriate to the workflow inputs.*
 
 ## Related
 

@@ -12,7 +12,7 @@ Design a data access policy around the decisions your playbook makes. This guide
 
 A data access policy sets the allowed market-data scope: timeframes, history limits, exact indicator selections, and additional context. It doesn't define the trading strategy or establish that current data has arrived.
 
-Start with the playbook's planning, entry, and management needs. Add enough evidence for each role, then keep optional context within the available budget. Extra inputs don't repair an unspecified strategy rule.
+Start with the playbook's assessment, entry, and management needs. Add enough evidence for each role, then keep optional context within the available budget. Extra inputs don't repair an unspecified strategy rule.
 
 ## How it fits into Cortiq
 
@@ -63,7 +63,7 @@ Set exactly one timeframe to `Primary` and the others to `Secondary`. Give each 
 
 Set `Candle Count` to cover both the rule's lookback and the indicator's calculation requirements. Indicator details show lookback and warm-up needs; parameter choices can change those needs. A larger number isn't useful if the strategy never uses that history.
 
-Primary and Secondary also define tiered collection scope. The policy editor describes Primary as included in Initial, Stream, and Analysis, with Secondary included in Initial and Analysis. These scopes don't schedule AI decisions. Active rules and accepted triggers control decision timing; `Legacy feed health timeframe` is a feed-recovery fallback.
+Every autonomous assessment receives the configured rolling numeric history for every permitted timeframe, including unchanged history when no new candle has closed. `Primary` supplies scheduling context; `Secondary` does not mean that timeframe disappears from continuing assessments. Accepted watches and runtime conditions govern meaningful wakes. `Legacy feed health timeframe` is a feed-recovery fallback.
 
 Required history beyond the supported collection limit or evidence budget is a configuration issue. Current compatibility checks reject requirements beyond the collector's 500-candle ceiling. Increasing a policy field doesn't create unavailable history or bypass that boundary.
 
@@ -104,6 +104,8 @@ Use `Fix with AI` for proposed editor repairs. Its changes remain unsaved until 
 Reopen the saved playbook's `Execution policy` card. Check that it shows the intended saved policy and matching review, then expand `View full policy configuration` for counts, versions, parameters, outputs, and limits. Opening the card doesn't start another AI review.
 
 For a collection check, open the saved policy and select `Test Data`. Choose a message tier and symbol, then select `Run Test`. The dialog displays the live payload or an explicit error using the default MT5 account. `Preview Tokens` estimates size; neither action proves historical coverage or validates a trade signal.
+
+`Initial`, `Stream`, and `Analysis` in `Test Data` describe that collection preview. They don't describe the current autonomous assessment's rolling-history delivery.
 
 When a session or backtest runs, inspect `Input checks and data requests` for what actually arrived at its cutoff. Successful configuration review and successful current delivery are separate checks. Required report coverage and expiry still apply, especially in historical replay.
 

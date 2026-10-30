@@ -68,7 +68,7 @@ Yes. Cortiq supports multi-account MT5 setups, but each account needs correct co
 
 ### What happens when a risk limit is hit?
 
-The session transitions to `RiskPaused` and resumes automatically when the breach condition clears. Don't manually unpause; stop the session if you want to override. See [Risk management](/cortiq-public/risk-management/).
+The session can enter `RiskPaused`. Automatic resumption currently checks global daily and weekly P/L and the daily entry count; it does not re-evaluate per-account breach counters. A resumed session does not prove an account-level breach cleared, and entry validation still applies. Inspect the relevant limits in **Risk Management**. See [Risk management](/cortiq-public/risk-management/).
 
 ### How does the license work — is it a subscription?
 

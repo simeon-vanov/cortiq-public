@@ -21,7 +21,7 @@ New sessions default to **Autonomous**. Select **Manual** explicitly to trade wi
 | | Manual session | Autonomous session |
 | --- | --- | --- |
 | Who places orders | You or an explicitly requested agent action; separately enabled trade ideas use their own mandate | The AI decision cycle, subject to session authority |
-| Decision loop | None — no cycles run | Wakes on your triggers, reads, decides, acts |
+| Decision loop | None — no cycles run | Updates retained market understanding and opportunities through assessments and local watches |
 | Playbook | Optional | Optional; attached playbooks provide pinned operating rules |
 | Data access policy | Optional reference/analysis limits | Controls available execution inputs when selected |
 | Trade approval | Not used — you are the one submitting | Tri-state approval policy |
@@ -51,21 +51,21 @@ The session must be running before the order ticket will quote a price or calcul
 
 ## Place a trade
 
-The order ticket sits beside the chart and works in a fixed order: protection first, then risk, then volume, then target.
+Open **Manual Order** beside the chart. With a fresh quote and enough candles, the ticket seeds a stop at 1× ATR(14) and a target at 2× ATR(14), using the selected chart timeframe. Pending entry starts 0.5× ATR from the executable quote. Missing inputs leave the price fields available with an explanation.
 
 1. Choose **Buy** or **Sell**, and **Market**, **Limit**, or **Stop**.
-2. Set the **Stop Loss**. Type a price, use a 1×, 2×, or 3× ATR(14) preset calculated on the current chart timeframe, or select the crosshair and click the level on the chart.
-3. Choose a risk percentage — **0.5%**, **1%**, or **2%**. Cortiq calculates the lot size from your live account balance and the stop distance.
-4. Optionally set a **Target**, using the same presets or chart picking.
-5. Select **Place order**.
+2. Review **Entry Price**, **Stop Loss**, and **Target**. Type prices, use the 1×, 2×, or 3× ATR presets, or drag the chart's bracket handles. Market entry follows the quote and is read-only.
+3. Review **Lots**. A valid stop lets Cortiq size from your configured default risk. Choose **0.5%**, **1%**, or **2%** to recalculate at that risk, or enter lots directly.
+4. Check the sizing indicator: **Auto · …% risk** identifies calculated size; **Manual** identifies your lot override. Manual lots stay manual when the bracket changes.
+5. Check the prices, size, and reward/risk preview, then select **Place Order**.
 
-There is no free-form volume field. Position size always comes from a stop distance and a risk percentage, so an order cannot be sized by accident.
+Dragging a pending entry moves the whole bracket. Dragging the stop changes its distance and recalculates automatic size; a target-only edit preserves size. **Reset to ATR** deliberately recreates the default bracket. Editing or dragging is a preview; only **Place Order** submits it.
 
 :::note
 The preview is advisory. Cortiq re-runs license, risk, and broker validation at submission, so an order can still be rejected after the ticket has shown you a size.
 :::
 
-While you are filling in the ticket, the planned stop and target are drawn on the chart as dashed lines. Hiding the panel clears them.
+The chart shows temporary entry, stop, and target tags while the ticket is open. Hiding the panel clears the draft bracket. Moving prices across an invalid stop or target blocks placement until you correct them.
 
 ## Manage an open position
 
@@ -92,6 +92,14 @@ Two options let you rehearse without risking money:
 
 - **Virtual mode** runs a session with no real orders reaching MT5.
 - **A manual backtest** replays historical candles and lets you place orders against them. See [Backtesting](/cortiq-public/backtesting/).
+
+## Screenshots
+
+These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+
+![Stopped Manual session with an editable Lots field and Manual sizing](/cortiq-public/images/screenshots/sessions__manual-detail.png)
+
+*Unsubmitted order preview with an illustrative 0.10 Lots value. The session must be running to place an order; no order was submitted.*
 
 ## Related pages
 

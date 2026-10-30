@@ -46,20 +46,16 @@ Open the session's `Settings` tab, select `Edit Settings`, and find `Notificatio
 | Setting | Effect |
 | --- | --- |
 | `Push Notifications` | Enables the session's Windows trade-event notifications. |
-| `Post to X (Twitter)` | Enables posting through the configured X integration. |
-| `Post to Telegram` | Enables posting through the configured Telegram integration. |
 | `Include AI Reasoning in Notifications` | Includes available reasoning in notification content. |
 | `Include Screenshots in Notifications` | Requests an available chart screenshot for supported sends. |
 
-Save the session settings after changing them. X and Telegram also need valid credentials and permission to post to the destination.
-
-The current General settings screen does not expose the older channel-credential or scheduled-report forms. Existing integrations and saved report schedules have supporting services, but a session toggle alone does not set up X or Telegram delivery.
+Save the session settings after changing them. Windows Push is the desktop trade-notification channel. X and Telegram delivery and their setup controls have been removed; retained flags from older settings do not deliver posts. Scheduled social reports are not an available desktop workflow.
 
 ### Read Activity
 
 Open `Library` → `Activity` for persisted background events, trade operations, failures, and actionable permission requests. Entries can link to the session, report, or other item that needs attention.
 
-Activity is the in-app record. It does not automatically post every entry to X or Telegram. Read [Activity](/cortiq-public/system-messages/) for filters, unread state, and approval actions.
+Activity is the durable in-app record, separate from Windows notification delivery. Read [Activity](/cortiq-public/system-messages/) for filters, unread state, and approval actions.
 
 ### Set a chart price alert
 
@@ -86,13 +82,13 @@ When an alert fires, it is removed from the pending list and an unread `Price al
 | --- | --- |
 | Pending order fills | Trade notification dispatch is connected. |
 | Position closes fully or partially | Trade notification dispatch is connected. |
-| Market entry, pending-order placement, or cancellation | External trade notification dispatch is not connected for these events. Consult the session and Activity. |
+| Market entry, pending-order placement, or cancellation | Windows trade notification dispatch is not connected for these events. Consult the session and Activity. |
 | Approval request | Uses its own approval notification path, independent of ordinary trade-event push toggles. |
 | Chart price alert | Saves Activity, then attempts its own Windows notification. |
 
-Per-event trade notification switches are not exposed in the current UI. Failed X or Telegram sends are not automatically retried by a background delivery worker.
+Per-event trade notification switches are not exposed in the current UI.
 
-Windows notification visibility also depends on Windows settings. Installed Windows toast activation and live-feed price-alert delivery remain acceptance checks; the saved Activity entry is the durable record.
+Windows notification visibility also depends on Windows settings. A Windows toast is best-effort delivery; the saved Activity entry is the durable record.
 
 ### Keep the meanings separate
 
@@ -109,6 +105,14 @@ Creating a notification alert does not create any of the other three.
 2. [Charting](/cortiq-public/charting/) — use the chart's price, drawing, and indicator tools.
 3. [Risk management](/cortiq-public/risk-management/) — understand checks before execution.
 4. [Activity](/cortiq-public/system-messages/) — inspect saved events and requests.
+
+## Screenshots
+
+These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+
+![Session Settings showing Push Notifications, reasoning, and screenshot toggles](/cortiq-public/images/screenshots/execution-modes-and-notifications__settings.png)
+
+*The panel is in read-only mode here. Select Edit Settings to change the available controls.*
 
 ## Related
 

@@ -1,0 +1,536 @@
+{
+  "capturedAtUtc": "2026-10-30T07:36:06.2712518Z",
+  "startedAtUtc": "2026-10-30T07:34:18.138525Z",
+  "source": "real MAUI Blazor Hybrid development desktop",
+  "demoData": true,
+  "sourceHead": "f755cc8d175ae53ea8752d3d8e37ee6f1a214ae0",
+  "appAssemblySha256": "2ECC5D1E68F592BA23A8CEC9407031679A8F94D8A9D4903D8E335812A6D723B1",
+  "executableSha256": "C7D57528379B3250DEDFF8EF005CFCCE45747FEDE9667F6318A348391E76CCB2",
+  "viewport": {
+    "width": 1600,
+    "height": 900
+  },
+  "imageCount": 44,
+  "images": [
+    {
+      "file": "app-navigation-guide__sidebar.png",
+      "route": "https://0.0.0.1/mt5-accounts",
+      "capturedAtUtc": "2026-10-30T07:34:42.0333538Z",
+      "sha256": "65d5c43831a4eb58a6830ae5acce6d58449e1619914ea44ca54b7af70b4029cd",
+      "bytes": 134414,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "app-navigation-guide.md"
+      ]
+    },
+    {
+      "file": "ai-providers__api-keys.png",
+      "route": "https://0.0.0.1/ai-providers",
+      "capturedAtUtc": "2026-10-30T07:34:42.9567136Z",
+      "sha256": "954277df7690e76a66bc26cd4a2a5c0e1b04f942354acd25737055d4630aaff2",
+      "bytes": 128216,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "ai-providers.md"
+      ]
+    },
+    {
+      "file": "ai-providers__provider-card.png",
+      "route": "https://0.0.0.1/ai-providers",
+      "capturedAtUtc": "2026-10-30T07:34:43.3776441Z",
+      "sha256": "2d3301eec678e08631839614e8d60dcc9bf560d8f3dacd64f8fb3160d07b4f0f",
+      "bytes": 128200,
+      "width": 1600,
+      "height": 900,
+      "readerPages": []
+    },
+    {
+      "file": "mt5-integration__settings-page.png",
+      "route": "https://0.0.0.1/mt5-accounts",
+      "capturedAtUtc": "2026-10-30T07:34:45.2435583Z",
+      "sha256": "d33bdb9d63747b5273d2663e097f91387754328a5ce19657328ea97897e5d5e5",
+      "bytes": 132088,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "mt5-integration.md"
+      ]
+    },
+    {
+      "file": "installation-and-activation__activation-dialog.png",
+      "route": "https://0.0.0.1/license",
+      "capturedAtUtc": "2026-10-30T07:34:45.9275952Z",
+      "sha256": "1ffa74edd7623b520d361f764459ab892ab1c86ce99fd76d6e21dad9dc26e958",
+      "bytes": 97005,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "installation-and-activation.md"
+      ]
+    },
+    {
+      "file": "sessions__list.png",
+      "route": "https://0.0.0.1/sessions",
+      "capturedAtUtc": "2026-10-30T07:34:46.4494507Z",
+      "sha256": "0f2fe1503d04c62eee11721aff634cb3c84630dd75b99665603b347a21637f56",
+      "bytes": 137669,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "sessions.md"
+      ]
+    },
+    {
+      "file": "sessions__create-form.png",
+      "route": "https://0.0.0.1/sessions/new",
+      "capturedAtUtc": "2026-10-30T07:34:47.0888404Z",
+      "sha256": "6440431ccacc1d593b366b5129926a6caa2a7ef0b891c7510067cdf57b4529fb",
+      "bytes": 125079,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "sessions.md"
+      ]
+    },
+    {
+      "file": "sessions__detail.png",
+      "route": "https://0.0.0.1/sessions/a9831ab4-aa4c-4a38-a5f7-795852734745",
+      "capturedAtUtc": "2026-10-30T07:34:54.1209325Z",
+      "sha256": "0b60509aa7547dc894faccdb39ae205a559e552a0b2679ab4b8e915cab395564",
+      "bytes": 135419,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "sessions.md"
+      ]
+    },
+    {
+      "file": "risk-management__global-panel.png",
+      "route": "https://0.0.0.1/risk",
+      "capturedAtUtc": "2026-10-30T07:34:57.6275424Z",
+      "sha256": "cbf2640595cf04d7d0f168be8fea468638080186f4f8c44bb826c9e636212342",
+      "bytes": 109442,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "risk-management.md"
+      ]
+    },
+    {
+      "file": "risk-management__account-panel.png",
+      "route": "https://0.0.0.1/risk",
+      "capturedAtUtc": "2026-10-30T07:34:58.3794433Z",
+      "sha256": "d1be6cd71f55fa49f14ebace0b1854eaf324bcfa6247038522db676d364a8f0c",
+      "bytes": 108799,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "risk-management.md"
+      ]
+    },
+    {
+      "file": "execution-modes-and-notifications__settings.png",
+      "route": "https://0.0.0.1/sessions/a9831ab4-aa4c-4a38-a5f7-795852734745",
+      "capturedAtUtc": "2026-10-30T07:35:05.4946454Z",
+      "sha256": "c6f23792774ddaa1b6f3f59eda239231346cbb8180c6a4be0e44692779997dfc",
+      "bytes": 108808,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "execution-modes-and-notifications.md"
+      ]
+    },
+    {
+      "file": "workspace-and-monitoring__home.png",
+      "route": "https://0.0.0.1/",
+      "capturedAtUtc": "2026-10-30T07:35:09.2893194Z",
+      "sha256": "2397a1275c759eb70d24357703a6df82e6cc5db2fba7bc0f02aaf3a029198e2e",
+      "bytes": 116068,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "first-30-minutes.md",
+        "workspace-and-monitoring.md"
+      ]
+    },
+    {
+      "file": "workspace-and-monitoring__dashboard.png",
+      "route": "https://0.0.0.1/dashboard",
+      "capturedAtUtc": "2026-10-30T07:35:09.9976281Z",
+      "sha256": "057cfefbfa4a03a1df47e5861abd4c92260973ce0789c2ffc3bbfd9400999810",
+      "bytes": 143167,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "workspace-and-monitoring.md"
+      ]
+    },
+    {
+      "file": "workspace-and-monitoring__trade-ideas.png",
+      "route": "https://0.0.0.1/trade-ideas",
+      "capturedAtUtc": "2026-10-30T07:35:15.4881857Z",
+      "sha256": "3bbb3cb0eb383fdf85947638875c00de5cc5eb01d98da1b62473a1592c74562a",
+      "bytes": 116484,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "trading-cycle/entities/trade-ideas.md"
+      ]
+    },
+    {
+      "file": "workspace-and-monitoring__conversations.png",
+      "route": "https://0.0.0.1/conversations",
+      "capturedAtUtc": "2026-10-30T07:35:20.9759927Z",
+      "sha256": "fcb3b25de02597632bbc4ed1ce06abcd9aacf71ece9c5d2d1cdcbbfea210ccc7",
+      "bytes": 115443,
+      "width": 1600,
+      "height": 900,
+      "readerPages": []
+    },
+    {
+      "file": "workspace-and-monitoring__provider-health.png",
+      "route": "https://0.0.0.1/provider-health",
+      "capturedAtUtc": "2026-10-30T07:35:21.5156618Z",
+      "sha256": "91bd3b33c869f0ef2b1b1df72e20f00eb6c13d0796c7698fce063fb47c11fdba",
+      "bytes": 68796,
+      "width": 1360,
+      "height": 755,
+      "readerPages": [
+        "workspace-and-monitoring.md"
+      ]
+    },
+    {
+      "file": "workspace-and-monitoring__journal.png",
+      "route": "https://0.0.0.1/journal",
+      "capturedAtUtc": "2026-10-30T07:35:22.0140017Z",
+      "sha256": "e82248373f55ca102c2eec0f9c4fd644a78883ec84b67ad0b920ff2036640358",
+      "bytes": 141826,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "journal-and-analytics.md"
+      ]
+    },
+    {
+      "file": "journal-and-analytics__analytics.png",
+      "route": "https://0.0.0.1/dashboard",
+      "capturedAtUtc": "2026-10-30T07:35:22.5192375Z",
+      "sha256": "2c4963e624556f1385c279bb4366a339c41d96acc71c50872fb4701825b69845",
+      "bytes": 143448,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "journal-and-analytics.md"
+      ]
+    },
+    {
+      "file": "backtesting__list.png",
+      "route": "https://0.0.0.1/backtests",
+      "capturedAtUtc": "2026-10-30T07:35:23.0153203Z",
+      "sha256": "e176d3063cc33e889865fddae553483ce7c56e740e16ce7e905a885a4b57f18e",
+      "bytes": 113971,
+      "width": 1600,
+      "height": 900,
+      "readerPages": []
+    },
+    {
+      "file": "backtesting__new.png",
+      "route": "https://0.0.0.1/backtests/new",
+      "capturedAtUtc": "2026-10-30T07:35:23.5273884Z",
+      "sha256": "e401c7545063992902ce3677db28c0717dc6a8e7dfb8a4c6ffe8271b7b1308b0",
+      "bytes": 114159,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "backtesting.md"
+      ]
+    },
+    {
+      "file": "backtesting__detail.png",
+      "route": "https://0.0.0.1/backtests/0d2e2df8-9ab1-4fa8-ba75-0d38a10bced7",
+      "capturedAtUtc": "2026-10-30T07:35:24.8536684Z",
+      "sha256": "9dedb6ea5370d6bc0042994cd9259c402b4cd915235328ef95918291f465cb9e",
+      "bytes": 151181,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "backtesting.md"
+      ]
+    },
+    {
+      "file": "research__log.png",
+      "route": "https://0.0.0.1/instruments/XAUUSD/research",
+      "capturedAtUtc": "2026-10-30T07:35:25.5363394Z",
+      "sha256": "39f921dfce0e6ec8cdc4d86d5e14d9a401207505715c264ddea9a5e56c805f3e",
+      "bytes": 149300,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "research.md"
+      ]
+    },
+    {
+      "file": "research__draft.png",
+      "route": "https://0.0.0.1/research-drafts/f539d3ed-d666-4f71-aab9-2554b0ded082",
+      "capturedAtUtc": "2026-10-30T07:35:31.1242453Z",
+      "sha256": "33b1740f9fdfeb854dbf23aec3af5e70127541dfdbcdbdf7480486a0aa2604c5",
+      "bytes": 121509,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "research.md"
+      ]
+    },
+    {
+      "file": "instrument-hub__data.png",
+      "route": "https://0.0.0.1/instruments/XAUUSD?tab=data",
+      "capturedAtUtc": "2026-10-30T07:35:32.1586328Z",
+      "sha256": "621297700b2f2b71d15345ee3b5ba6b5424ef809f8ebf19be9dc176d31556381",
+      "bytes": 159432,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "research.md"
+      ]
+    },
+    {
+      "file": "research__answer-card.png",
+      "route": "https://0.0.0.1/research/2?runId=6",
+      "capturedAtUtc": "2026-10-30T07:35:37.767662Z",
+      "sha256": "7c2bb890479265fe2debf863cd3f2240b9f7aa1209d9d58102c4f09d4f046f4d",
+      "bytes": 141518,
+      "width": 1600,
+      "height": 900,
+      "readerPages": []
+    },
+    {
+      "file": "research__exploration.png",
+      "route": "https://0.0.0.1/research/2?runId=8",
+      "capturedAtUtc": "2026-10-30T07:35:43.1689791Z",
+      "sha256": "902272be5cf0f051aa810ab1f0a044e3de16ea0f43472f34f6c45c00ccbfde1d",
+      "bytes": 147282,
+      "width": 1600,
+      "height": 900,
+      "readerPages": []
+    },
+    {
+      "file": "instrument-hub__list.png",
+      "route": "https://0.0.0.1/instruments",
+      "capturedAtUtc": "2026-10-30T07:35:43.6759892Z",
+      "sha256": "c82d6be77419e49ce817962ca5a6067eb04b38285bc19379995a695894daf2de",
+      "bytes": 84024,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "instrument-hub.md"
+      ]
+    },
+    {
+      "file": "instrument-hub__detail.png",
+      "route": "https://0.0.0.1/instruments/XAUUSD",
+      "capturedAtUtc": "2026-10-30T07:35:44.1856848Z",
+      "sha256": "e59d0a09fa20936d9f51a0bf8bbaf4e0ae64aaf3738d69cee7e9ac22a7590a74",
+      "bytes": 146904,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "instrument-hub.md"
+      ]
+    },
+    {
+      "file": "instrument-hub__knowledge-ledger.png",
+      "route": "https://0.0.0.1/instruments/XAUUSD?tab=knowledge",
+      "capturedAtUtc": "2026-10-30T07:35:45.0223057Z",
+      "sha256": "c2d96cf979b94c34ff7953cbc8b571a8670ebe5ca588d292a99410e6e198c49a",
+      "bytes": 162357,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "instrument-hub.md"
+      ]
+    },
+    {
+      "file": "skills__list.png",
+      "route": "https://0.0.0.1/skills",
+      "capturedAtUtc": "2026-10-30T07:35:45.5192864Z",
+      "sha256": "bb5a88435dd45b3c2073426608ad28819f9156a62870cb5c74290cb12e143171",
+      "bytes": 144411,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "skills.md"
+      ]
+    },
+    {
+      "file": "skills__editor.png",
+      "route": "https://0.0.0.1/skills/1/edit",
+      "capturedAtUtc": "2026-10-30T07:35:46.0231081Z",
+      "sha256": "91f0cefbb3ee1f3679a5534f8cdb5c2af914cac9d5876b40605f2ffa31f6548a",
+      "bytes": 158922,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "skills.md"
+      ]
+    },
+    {
+      "file": "playbooks-and-data__playbook-editor.png",
+      "route": "https://0.0.0.1/playbooks/1/edit",
+      "capturedAtUtc": "2026-10-30T07:35:46.656275Z",
+      "sha256": "fb046aa18ba7c21f964369d719ce7768ae55a8ab21b3bf8a0c9e48ba5b4122dc",
+      "bytes": 148721,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "playbooks-and-data.md"
+      ]
+    },
+    {
+      "file": "session-review__panel.png",
+      "route": "https://0.0.0.1/reviews",
+      "capturedAtUtc": "2026-10-30T07:35:47.1862113Z",
+      "sha256": "6bc8da1d7ef7ad9c9caa980139946a84291d668a94912b0de2b109d0ccb818e1",
+      "bytes": 27313,
+      "width": 1360,
+      "height": 755,
+      "readerPages": [
+        "session-review.md"
+      ]
+    },
+    {
+      "file": "session-review__backtest-workspace.png",
+      "route": "https://0.0.0.1/backtests/0d2e2df8-9ab1-4fa8-ba75-0d38a10bced7/review",
+      "capturedAtUtc": "2026-10-30T07:35:48.6229152Z",
+      "sha256": "36fef734d8a0cbf00f5c6cdcfba32ab750401314febfc5347e96edb3cc53fdbb",
+      "bytes": 147749,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "session-review.md"
+      ]
+    },
+    {
+      "file": "playbooks-and-data__policy-list.png",
+      "route": "https://0.0.0.1/data-access-policies",
+      "capturedAtUtc": "2026-10-30T07:35:49.1165071Z",
+      "sha256": "c9507fef67a8b749c5e56e720d554b7f36b947649915b5d0673b8f0446aa5a0f",
+      "bytes": 116046,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "playbooks-and-data.md"
+      ]
+    },
+    {
+      "file": "profiles__packages.png",
+      "route": "https://0.0.0.1/instrument-profiles",
+      "capturedAtUtc": "2026-10-30T07:35:49.5970679Z",
+      "sha256": "1b339baf15e09c264dd987085ef86a7a40d01ea8b2deb20b7ee0a521a62ea772",
+      "bytes": 91961,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "trading-cycle/entities/instrument-profiles.md"
+      ]
+    },
+    {
+      "file": "sentiment__packages.png",
+      "route": "https://0.0.0.1/sentiment",
+      "capturedAtUtc": "2026-10-30T07:35:50.0841962Z",
+      "sha256": "ad3288fbe07ab9083e8373877353c07d542a35ab248276bc54e9b09f9e63efae",
+      "bytes": 88553,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "trading-cycle/entities/sentiment-reports.md"
+      ]
+    },
+    {
+      "file": "system-messages__inbox.png",
+      "route": "https://0.0.0.1/system-messages",
+      "capturedAtUtc": "2026-10-30T07:35:50.4668381Z",
+      "sha256": "60f5ac83fdfd90d2c81f1fb8f211eaac2e7eb10428aaba6e895f857badaaea6e",
+      "bytes": 103168,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "system-messages.md"
+      ]
+    },
+    {
+      "file": "agent-permissions__settings.png",
+      "route": "https://0.0.0.1/copilot-settings",
+      "capturedAtUtc": "2026-10-30T07:35:51.2886399Z",
+      "sha256": "0e4e11c7c651fc9d3d0cc9622b9c51ece4a74ffbc014b7d142e8f0a0866b5db6",
+      "bytes": 116890,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "agent-permissions.md"
+      ]
+    },
+    {
+      "file": "cortiq-copilot__dock.png",
+      "route": "https://0.0.0.1/",
+      "capturedAtUtc": "2026-10-30T07:35:54.6493622Z",
+      "sha256": "06bc1001837597ad6d2271c8d173b8435703bc368785cf2eb051e30f9f934f73",
+      "bytes": 187507,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "cortiq-copilot.md"
+      ]
+    },
+    {
+      "file": "sessions__manual-detail.png",
+      "route": "https://0.0.0.1/sessions/1a7aece0-8e99-433a-9e8d-aad8a934e362",
+      "capturedAtUtc": "2026-10-30T07:36:01.0661276Z",
+      "sha256": "60841408320933154ab78baf83da7a279bb686c57464929a4022e1c4b1f31d52",
+      "bytes": 136354,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "discretionary-trading.md"
+      ]
+    },
+    {
+      "file": "sessions__live-chart.png",
+      "route": "https://0.0.0.1/sessions/1a7aece0-8e99-433a-9e8d-aad8a934e362",
+      "capturedAtUtc": "2026-10-30T07:36:01.2138855Z",
+      "sha256": "4be8ebf2fca6423614263597eb5e4b8560a83f8836cc900fb7c803b2d41333da",
+      "bytes": 136113,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "charting.md"
+      ]
+    },
+    {
+      "file": "backtesting__manual-replay.png",
+      "route": "https://0.0.0.1/backtests/0f3c32f3-2b54-46ee-a1a4-a9148c56a1c8",
+      "capturedAtUtc": "2026-10-30T07:36:03.2502302Z",
+      "sha256": "613eb5d9a5b01768f6056340bfa37c41d033b378d9a447139fbea58423884d33",
+      "bytes": 139881,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "backtesting.md",
+        "charting.md"
+      ]
+    },
+    {
+      "file": "instrument-hub__instance-events.png",
+      "route": "https://0.0.0.1/instruments/XAUUSD/knowledge/9201",
+      "capturedAtUtc": "2026-10-30T07:36:06.2676005Z",
+      "sha256": "f2fd072629f9a98244c8081365029b36792239108edd12272499c88e307aeb91",
+      "bytes": 169676,
+      "width": 1600,
+      "height": 900,
+      "readerPages": [
+        "instrument-hub.md"
+      ]
+    }
+  ]
+}

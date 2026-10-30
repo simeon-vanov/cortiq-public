@@ -1,10 +1,14 @@
 ---
 status: current
 title: Cortiq Documentation
-description: Official documentation for Cortiq — the Windows desktop platform pairing MetaTrader 5 execution with AI-driven trading decisions and risk control.
+description: Research one market, test your rules, and trade through MetaTrader 5 with explicit AI authority and risk controls.
 ---
 
-Cortiq is a Windows desktop trading platform that pairs MetaTrader 5 execution with AI decision-making and platform-level risk controls. These docs take you from evaluation through installation to daily operation.
+Cortiq is a Windows desktop workspace for researching one market, testing trading rules, and trading through MetaTrader 5. Use AI to investigate evidence, work in a Manual session, or authorize an Autonomous session within defined limits.
+
+:::note
+These guides and screenshots follow the current development desktop. Older published installers can show different controls. Check your app version against the release notes if a screen differs.
+:::
 
 :::danger
 Trading risk exists in all markets. Cortiq is a trading tool, not a profit guarantee. Use conservative risk limits, test in virtual mode first, and review your own regulatory obligations before deploying live capital.
@@ -12,33 +16,32 @@ Trading risk exists in all markets. Cortiq is a trading tool, not a profit guara
 
 ## What this is
 
-Cortiq runs one repeatable operating loop on your Windows machine. It gathers market context from MetaTrader 5, asks an AI provider for a decision under a structured playbook, validates that decision against your risk limits, executes on MT5, and journals every cycle for later review.
+Cortiq keeps research, saved instrument knowledge, strategy rules, historical tests, and trading evidence together. Start with a question about a market, inspect its measured answers, and decide what deserves further testing or use in a session.
 
-You stay in control of the strategy. Playbooks define the rules the AI must follow. Data access policies define the context it sees. Risk limits define what trades it can take. Cortiq orchestrates the loop and keeps the boundaries you set hard.
+You choose the authority granted to AI. In a Manual session, you place orders and explicitly request any agent action. An Autonomous session repeatedly assesses permitted market context, maintains its market understanding and opportunities, and can act within the rules and risk limits you approve. A reviewed automated trade idea has its own bounded mandate inside a Manual session.
 
 These docs cover the full surface: what Cortiq is, how to install it, the screens you work in day-to-day, and how to design playbooks, run sessions, and audit results.
 
 ## How it fits into Cortiq
 
-Every Cortiq feature is a component of one operating loop. Each session is locked to a single instrument so the AI builds deep, measurable expertise on that one market. The same loop runs against any of the supported AI providers, and across one MT5 account or several.
+Each session is locked to one instrument and one configured account. Research and historical replay have their own saved inputs and results; they do not require a running trading session. Saving research does not automatically publish a Learning or authorize an executable Edge.
 
 ```mermaid
 flowchart LR
-  A[Session config<br/>+ playbook] --> B(Gather market data<br/>via MT5)
-  B --> C(Build prompt<br/>with data access policy)
-  C --> D[AI provider]
-  D --> E(Parse decision)
-  E --> F{Risk approved?}
-  F -->|yes| G(Execute on MT5)
-  F -->|no| H[Reject + log]
-  G --> I(Journal + analytics)
-  H --> I
-  I -.next cycle.-> B
+  A[Market question] --> B(Approve and run research)
+  B --> C(Inspect evidence and conclusions)
+  C --> D(Define and test rules)
+  D --> E{Choose session authority}
+  E --> F(Manual trading)
+  E --> G(Autonomous assessments)
+  F --> H(Saved decisions and trades)
+  G --> H
+  H --> I(Request a review)
 ```
 
-*Cortiq's per-cycle loop: configured input becomes a structured prompt, the AI returns a decision, risk filters approve or reject, and journals capture every cycle.*
+*You choose when to move from research to testing, trading, and review; completing one stage does not automatically authorize the next.*
 
-Start research from [Instrument Hub](/cortiq-public/instrument-hub/): prepare Data, ask a topic question, inspect the measured answers, and explicitly review a Learning before saving it. Research conclusions and validated execution policies have separate roles.
+Start research from [Instrument Hub](/cortiq-public/instrument-hub/): prepare Data, create a saved draft, check its questions and measurements, then select **Approve and start research**. Inspect the answers and explicitly review a Learning before saving it.
 
 ## Reference
 

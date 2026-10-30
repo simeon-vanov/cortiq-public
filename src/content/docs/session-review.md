@@ -97,6 +97,18 @@ Historical reviews, notes, attention flags, and lessons remain readable. Histori
 2. [Research](/cortiq-public/research/) — measure comparable occurrences before generalizing from one run.
 3. [Backtesting](/cortiq-public/backtesting/) — test a proposed execution change on historical data.
 
+## Screenshots
+
+These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+
+![Backtest Review tab with scope and Prepare review action](/cortiq-public/images/screenshots/session-review__backtest-workspace.png)
+
+*Prepare the saved evidence before starting a review. No model review was requested for this image.*
+
+![Saved review list with symbol filter and version selector](/cortiq-public/images/screenshots/session-review__panel.png)
+
+*This demo has no saved review versions yet. The page shows where saved versions appear.*
+
 ## Related
 
 - [Journal and analytics](/cortiq-public/journal-and-analytics/)

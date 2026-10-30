@@ -70,7 +70,7 @@ Use Journal when you need to understand *why* a session or trade behaved the way
 
 ### Session Reviews
 
-**Reviews** (`/reviews`) lists saved session and backtest selections, with older session review versions retained separately. Use **Open review** for the exact selection or **View saved assessment** for its publication. Prepare a new scope from the session's **Reviews** tab or backtest's **Review** tab. Starting or sending a message is explicit.
+**Session Reviews** (`/reviews`) lists saved session and backtest selections, with older session review versions retained separately. Use **Open review** for the exact selection or **View saved assessment** for its publication. Prepare a new scope from the session's **Reviews** tab or backtest's **Review** tab. Starting or sending a message is explicit.
 
 Open this screen to close the learning loop — to inspect saved evidence and discuss proposed changes. Reviews do not apply strategy edits or inject new lessons automatically. The full mechanism is on the [Session review](/cortiq-public/session-review/) page.
 
@@ -78,7 +78,7 @@ Open this screen to close the learning loop — to inspect saved evidence and di
 
 `Cohorts` groups sessions into a comparison set. It's the right screen when more than one serious session is running and you need to decide what deserves more capital or more refinement — relative performance, not isolated anecdotes.
 
-There's no dedicated screenshot for this page in the current pass; the comparison view evolves quickly and is documented under [Journal & analytics](/cortiq-public/journal-and-analytics/).
+Open the existing `/cohorts` route or a contextual link; Cohorts is not a current sidebar entry. See [Journal & analytics](/cortiq-public/journal-and-analytics/) for comparison scope.
 
 ### Activity
 
@@ -88,7 +88,7 @@ Open this screen to find out what happened while you weren't watching. Permissio
 
 ### Conversations
 
-`Conversations` is the raw cross-session AI dialogue view. Use it to follow what the model is saying across multiple sessions in parallel, compare reasoning between sessions, and inspect the prompt and response directly instead of the summarized journal text.
+`Conversations` (`/conversations`) is the raw cross-session AI dialogue view. It is available through the existing route or contextual links, rather than a current sidebar entry. Use it to follow what the model is saying across multiple sessions in parallel, compare reasoning between sessions, and inspect the prompt and response directly instead of the summarized journal text.
 
 System messages can be hidden or shown — keep them hidden for daily review, show them when something looks wrong.
 
@@ -102,8 +102,6 @@ Open this screen to answer two questions: *is the strategy underperforming, or i
 
 The NowTradingBar runs along the bottom of the app whenever a session is active. It shows the live cycle's session name, symbol, current phase, and most recent decision — without leaving whatever screen you're on.
 
-<!-- SCREENSHOT-NEEDED: workspace-and-monitoring__now-trading-bar.png – Bottom NowTradingBar with active session metrics during a live cycle. Mask account, broker -->
-
 ## Reference
 
 Use the current setup and operating controls:
@@ -111,10 +109,10 @@ Use the current setup and operating controls:
 | Path | What it controls |
 | --- | --- |
 | `Setup` → `AI Providers` | Per-feature provider overrides used during sessions. |
-| Session → notification controls | Toggles and content settings for already configured trade channels. |
+| Session → notification controls | Windows Push and available reasoning/screenshot content settings. |
 | Session → `Alerts` | Pending session price notifications and fresh-feed monitoring state. |
 
-The current General settings screen does not expose the older notification-credential or report-scheduling forms. Do not rely on those retired setup paths. See [Execution modes and notifications](/cortiq-public/execution-modes-and-notifications/) for the available controls.
+Windows Push is the desktop trade-notification channel. X, Telegram, and scheduled social-report setup are no longer available; retained older flags do not deliver posts. See [Execution modes and notifications](/cortiq-public/execution-modes-and-notifications/) for the available controls.
 
 ## Common questions
 
@@ -131,7 +129,7 @@ The current General settings screen does not expose the older notification-crede
 From `Sessions` (the list view) or from an active idea on `Trade Ideas`. Both routes open the same session-create dialog.
 
 **Why is one session showing `RiskPaused`?**
-A risk validator triggered. Open the session detail and check the risk panel — it shows the breach condition. The session resumes automatically when the breach clears.
+A risk validator triggered. Open the session detail and check the risk panel — it shows the breach condition. Automatic resumption checks limited global counters and ordinary start checks; it does not recheck per-account breach counters. A resumed session is not proof that its account-level breach cleared. See [risk resumption](/cortiq-public/risk-management/#watch-for-riskpaused-sessions).
 
 ## What to read next
 
@@ -140,6 +138,22 @@ A risk validator triggered. Open the session detail and check the risk panel —
 3. [Session review](/cortiq-public/session-review/) — the learning loop behind the Session Reviews screen.
 4. [Activity](/cortiq-public/system-messages/) — the event list behind the Activity inbox.
 5. [Journal & analytics](/cortiq-public/journal-and-analytics/) — what's behind the Journal and Cohorts screens.
+
+## Screenshots
+
+These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+
+![Home setup checklist for license, MT5, AI provider, and risk review](/cortiq-public/images/screenshots/workspace-and-monitoring__home.png)
+
+*The isolated demo has no live MT5 connection or AI credentials. Home identifies the remaining setup work.*
+
+![Dashboard with saved demo trade statistics and risk summaries](/cortiq-public/images/screenshots/workspace-and-monitoring__dashboard.png)
+
+*Illustrative historical demo data; these figures are not customer performance.*
+
+![Provider Health metrics and recent error panel](/cortiq-public/images/screenshots/workspace-and-monitoring__provider-health.png)
+
+*Synthetic health records illustrate the monitoring view; this image does not demonstrate a live provider connection.*
 
 ## Related
 

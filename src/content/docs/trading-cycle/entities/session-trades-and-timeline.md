@@ -14,19 +14,19 @@ This part of the trading cycle is where execution becomes reviewable. The most i
 
 - **Session trades** — every executed trade, live or virtual, with the context that led to it.
 - **Session timeline** — the readable history of what happened in each cycle.
-- **Cycle decisions and action history** — the AI's reasoning trail and the actions taken.
+- **Assessments, opportunities, and action history** — accepted market understanding, candidate changes, and the actions taken.
 - **Run and review history** — start-to-stop runs, useful for comparing executions.
 
-This is one of Cortiq's strongest features because it makes the AI workflow auditable. You don't only see the trade result — you see the path that led to it.
+Saved decisions and actions explain the path to a trade or a wait. A cycle without a trade still contributes decision evidence.
 
 ## How it fits into Cortiq
 
 The trades and timeline land in the local SQLite database and surface across the workspace:
 
 - `Library` → `Journal` shows the trade journal and session journal.
-- `Library` → `Conversations` shows the raw AI dialogue.
+- `Library` → `Sessions` opens session details, including the `Decision Log` and contextual chat.
 - `Library` → `Dashboard` aggregates across sessions.
-- `Library` → `Session Cohorts` compares sessions side-by-side.
+- `Library` → `Session Reviews` opens saved review work.
 
 For analysis and review, see [Journal & analytics](/cortiq-public/journal-and-analytics/).
 
@@ -45,6 +45,8 @@ For analysis and review, see [Journal & analytics](/cortiq-public/journal-and-an
 
 - What the AI saw.
 - What it concluded.
+- How the retained market view and opportunities changed, where recorded.
+- Which event prompted an assessment and which input or execution check blocked action.
 - Whether it traded, held, or managed a position.
 - What happened after the decision.
 

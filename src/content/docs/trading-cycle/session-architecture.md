@@ -14,7 +14,7 @@ In Cortiq, the session is the root of the trading architecture. If you understan
 
 A session controls four scopes at once:
 
-1. **Trading scope** — which MT5 account, which symbol, when trading is allowed.
+1. **Trading scope** — which MT5 account, which symbol, and the session's lifetime.
 2. **Strategy scope** — which playbooks, in what priority.
 3. **Execution scope** — which provider and mode, live or virtual or copy.
 4. **Support context** — which preparation packages, instrument profiles, sentiment reports, and instructions.
@@ -29,7 +29,9 @@ The session sits in the middle of every cycle:
 
 Every other Cortiq concept is something a session points at. Playbooks, data access policies, support layers, providers — all of them are referenced by sessions and reused across sessions.
 
-Manual and Autonomous sessions can have no playbooks. When you attach playbooks, Cortiq pins their versions and checks their execution inputs. Closed entry windows prevent new entries while a Running session can continue management. A standalone backtest captures its own setup; it does not require an existing live session.
+Manual and Autonomous sessions can have no playbooks. When you attach playbooks, Cortiq pins their versions and checks their execution inputs. Each pinned playbook owns its user-local active days, entry window, and automatic-close offsets. Closing its entry window prevents new entries for that playbook while a Running session can continue managing existing exposure.
+
+The session's `End Date` is a separate lifetime boundary. Pause, Stop, risk events, and that boundary govern the session lifecycle. A standalone backtest captures its own setup; it does not require an existing live session.
 
 ## How to use it
 
@@ -39,7 +41,7 @@ When you create or edit a session, you're not filling in a form — you're assem
 
 ### Duplicate before you experiment
 
-Once a session has produced a stable journal, duplicate it before changing anything. Keep the original running as a control while you change one variable on the duplicate. Cohort comparison then shows you what the change did. Editing in place destroys the comparison.
+Duplicate a stable setup before experimenting, then compare the saved runs and trade history. Use virtual sessions or replay for experiments that don't need broker execution. Simultaneous live sessions create separate exposure.
 
 ### Add support context only when it earns its place
 
@@ -58,10 +60,10 @@ Both are valid. Both produce different results. Neither is wrong. Pick the suppo
 | --- | --- |
 | Broker and market scope | MT5 account and the one symbol the session trades. |
 | AI routing | Explicit provider, supported transport, captured model and effort; no silent provider substitution. |
-| Strategy | Playbooks and their priority. |
+| Strategy | Pinned playbook versions, priority, and each playbook's entry schedule. |
 | Data | Data access policy and indicator scope. |
 | Support context | Preparation package, instrument profile, sentiment report, instructions. |
-| Operating window | Active days, hours, close-before-end behavior. |
+| Lifetime | Optional `End Date`, alongside explicit lifecycle controls. |
 | Execution mode | Live, virtual, copy-trading behavior, notifications. |
 
 ### What a session can add for support

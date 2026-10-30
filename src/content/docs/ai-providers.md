@@ -76,7 +76,7 @@ The workflows include Journal, Review, Preparation, Sentiment, Instrument Profil
 | Work | Model selection |
 | --- | --- |
 | New Autonomous session | Starts from the Trading Cycle default; you choose the full route during creation. |
-| Existing Autonomous session | Keeps its saved provider, connection, and exact model for decisions, planning, replanning, and recovery. |
+| Existing Autonomous session | Keeps its saved provider, connection, and exact model for assessments, bounded execution, and recovery. |
 | Copilot conversation | Keeps its own provider, connection, and model; the dock's model picker changes that conversation's selection. Dedicated Review conversations use the Review configuration. |
 | Supporting workflow | Uses the workflow's configured selection and applicable provider default. |
 | Session or backtest review | Uses the independent Review configuration, with verified maximum effort. |
@@ -101,7 +101,7 @@ Without a dedicated Review selection, existing session/backtest review settings 
 
 Sentiment generation first gathers current web evidence through the selected provider, then writes the report from that evidence. A report requires completed search activity, an observed query, and observed source URLs.
 
-| Connection | Verified sentiment research path |
+| Connection | Supported sentiment research route |
 | --- | --- |
 | OpenAI API or ChatGPT Subscription | Supported. |
 | Claude API or Subscription | Supported. |
@@ -136,6 +136,14 @@ Yes. Workflow settings, saved Autonomous session models, and individual Copilot 
 2. [Cortiq Copilot](/cortiq-public/cortiq-copilot/) — use a conversation's model and tools.
 3. [Session review](/cortiq-public/session-review/) — prepare a scope, review it in Copilot, and inspect coverage.
 4. [Agent permissions](/cortiq-public/agent-permissions/) — configure provider permission requests and Cortiq approvals.
+
+## Screenshots
+
+These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+
+![AI Providers page with API and Subscription connection choices](/cortiq-public/images/screenshots/ai-providers__api-keys.png)
+
+*Configure and verify your own connection. This demo has no provider credentials.*
 
 ## Related
 

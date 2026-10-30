@@ -55,6 +55,14 @@ Check the idea's current lifecycle and approval status after edits. Copilot draf
 2. [Playbooks](/cortiq-public/trading-cycle/entities/playbooks/) — for opportunities that should become permanent rules.
 3. [Sentiment reports](/cortiq-public/trading-cycle/entities/sentiment-reports/) — for macro context layered into a session.
 
+## Screenshots
+
+These captures use the development desktop with isolated demo data. Connection states and amounts are illustrative.
+
+![Trade Idea list with thesis fields and saved idea controls](/cortiq-public/images/screenshots/workspace-and-monitoring__trade-ideas.png)
+
+*Saving a thesis does not grant execution authority; an automated Manual-session idea needs its own reviewed mandate.*
+
 ## Related
 
 - [Sessions](/cortiq-public/trading-cycle/entities/sessions/)

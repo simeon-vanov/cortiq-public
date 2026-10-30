@@ -1,7 +1,7 @@
 ---
 status: current
 title: Playbook design guide
-description: How to write Cortiq playbooks professionally — section-by-section guidance, the four-step pipeline a playbook represents, and the common mistakes to avoid.
+description: Write clear strategy rules, structured risk limits, entry schedules, and context requirements for a pinned Cortiq playbook.
 sidebar:
   order: 40
 ---
@@ -12,19 +12,7 @@ This page is the practical guide to writing playbooks the AI can follow and you 
 
 A playbook is a structured document, not a paragraph. The main idea is simple: each section has one job. When sections are mixed, the AI gets a blurred strategy. When sections are clean, the AI gets a disciplined operating framework you can audit.
 
-The same playbook structure also represents a four-step execution pipeline at runtime:
-
-```mermaid
-flowchart LR
-  S1(Instrument-fit check) --> S2(Setup condition)
-  S2 -->|met| S3(Trade entry)
-  S2 -->|not met| End([Cycle ends])
-  S3 --> S4(Trade management)
-  S4 -.position open.-> S4
-  S4 -.position closed.-> End
-```
-
-*A playbook is a four-step pipeline. Each step can short-circuit the cycle if its conditions aren't met.*
+Use instrument fit, setup, entry, and management as an authoring checklist. Continuous assessment considers the rule fields together; these sections are not four executable runtime stages.
 
 ## How it fits into Cortiq
 
@@ -72,6 +60,8 @@ How the trade is protected: stop-loss logic, take-profit logic, minimum reward-t
 
 Good risk rules tell the AI how to avoid low-quality trade framing, not only where to place the stop.
 
+Set numeric sizing and reward-to-risk bounds in `Risk settings` as well. Prose explains the strategy; structured fields supply values Cortiq checks during execution. They don't override global or account risk controls.
+
 #### Trade-management rules
 
 What happens after entry: trailing rules, break-even rules, partial exits, hold-or-reduce conditions. Keep this separate from risk rules so the AI distinguishes pre-entry discipline from post-entry management.
@@ -82,11 +72,19 @@ When the whole idea should be abandoned. One of the most valuable sections in a 
 
 #### Preferred symbols and sessions
 
-Express fit. These support the main logic; they don't replace it.
+Express where the strategy fits. Preferred-session descriptions are guidance. The pinned playbook's active days, entry window, and automatic-close offsets are separate execution settings in `Schedule`.
+
+When an entry window closes, Cortiq suppresses new entries for that playbook while the Running session continues managing existing exposure. Configure close offsets when the strategy requires its exposure closed before the period ends. The session's `End Date` remains a separate lifetime boundary.
+
+### Choose context requirements and generation skills
+
+In `Context`, choose `Off`, `Optional`, or `Required` separately for preparation, sentiment, and instrument profiles. The session uses the strongest requirement across its enabled playbooks. `Required` needs a usable report with the correct coverage and validity; `Optional` permits absence.
+
+Choose a generation skill for each artifact when you need a specific recipe. These skills guide artifact generation and participate in input review; they don't become extra executable stages in the trading loop.
 
 ## Review the execution policy
 
-The execution policy supplies editable access limits for planning, entry, and management. **Generate execution policy with AI** creates a proposal; **Use this draft** copies it into the form. **Validate execution compatibility** checks the current rules and policy before **Save Playbook**.
+The execution policy supplies editable access limits for assessment, entry, and management. **Generate execution policy with AI** creates a proposal; **Use this draft** copies it into the form. **Validate execution compatibility** checks the current rules and policy before **Save Playbook**.
 
 Material edits invalidate the matching review. **Save as draft** retains unfinished work and its findings; it does not authorize execution. Configure exact supported indicator versions and parameters, and clarify ambiguous periods or freshness limits.
 
@@ -108,6 +106,17 @@ Preparation skills define generation recipes. Do not copy every recipe lookback 
 | Trade-management rules | Define what to do after entry. |
 | Invalidation conditions | Define when the setup is no longer valid. |
 | Preferred symbols and sessions | Express where the playbook fits best. |
+
+### Structured settings
+
+| Setting | Meaning |
+| --- | --- |
+| `Risk Multiplier (% of base risk)` | Scales base risk: 100 uses base risk, 25 uses one quarter, and 200 uses double. Blank uses base risk. Other risk limits still apply. |
+| `Minimum reward-to-risk` | Optional lower bound. Blank lets the AI choose for each setup; positive values below 1R are allowed. |
+| `Maximum reward-to-risk` | Optional upper bound, at least the minimum when both are set. Blank sets no playbook ceiling. |
+| `Schedule` | User-local entry days, windows, and automatic-close offsets captured in the pinned version. |
+| Context requirements | `Off` disables that requirement; `Optional` allows missing context; `Required` needs a usable artifact. |
+| Generation skills | Instructions used to generate the corresponding preparation, sentiment, or profile artifact. |
 
 ### Common mistakes
 
