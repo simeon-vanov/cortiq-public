@@ -31,6 +31,16 @@ A pinned playbook version supplies operating rules to continuous assessment. Cor
 
 Keep setup conditions broader than entry conditions. Keep risk rules separate from management rules. Always define invalidation if the setup can lose its logic.
 
+## Sources, versions and evidence
+
+Open a Current Learning and select **Draft Playbook**, or start independently from **New Playbook**. A draft may link several current conclusions for the same instrument. Save a numbered Draft version before strategy research.
+
+On Playbook detail, select the saved version to read its rules and evidence together. **Backtest this version** opens replay setup on those rules. **Research this strategy** explores declared candidates; changed selected rules become a new saved version before untouched Validation. Results stay with the exact version and policy tested.
+
+Learning sources show Current, Changed or Unavailable. Source changes do not silently rewrite saved rules or refresh historical proof. Combined runs remain combined-context evidence, and current-Learning replay is disclosed. Mechanical-policy validation covers its declared subset; it does not certify discretionary AI execution or future returns.
+
+Set **Draft**, **Backtested**, **Sessions** or **Production** only on the current version. A new save starts in Draft; earlier version evidence remains available. Stage is an operator decision rather than automatic certification.
+
 ## Reference
 
 ### Playbook sections

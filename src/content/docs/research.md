@@ -18,7 +18,7 @@ A study describes the selected instrument, files, dates, and setup. It doesn't p
 
 Start from the market's [Instrument Hub](/cortiq-public/instrument-hub/). Its `Data` tab holds reusable research datasets; its `Knowledge` tab starts research and holds saved Observations and Learnings. The research-run count opens `All research` for that instrument. Select a run to reopen its results.
 
-Research establishes what happened around a defined condition. [Backtesting](/cortiq-public/backtesting/) evaluates a playbook through historical trading decisions. A saved Learning supplies evidence for further work; it doesn't establish an executable Edge or authorize a session.
+Research establishes what happened around a defined condition. [Backtesting](/cortiq-public/backtesting/) evaluates a playbook through historical trading decisions. A saved Learning supplies evidence for further work; it doesn't validate a trading strategy or authorize a session.
 
 ## Before you begin
 
@@ -154,7 +154,7 @@ To add supported response windows to the same frozen population, use `Continue m
 
 To change the question, files, or period, use `Start follow-up research`. The saved draft retains the source study as context. Choose saved measurements, the same saved occurrences, or a new occurrence search in **Scope**. For a new search, review the preselected files, primary file, and dates; unavailable files require explicit replacements. Check the questions and measurements, then approve the study in the draft. Referencing a study doesn't turn an overlapping test into independent validation.
 
-A **Current** Topic Learning can also offer **Investigate trading idea** for execution research. This uses its complete archived population and verified original evidence, with one original input and a current causal execution file. Later untouched Validation and explicit policy promotion are separate requirements. See [Hypotheses and Edges](/cortiq-public/instrument-hub/#hypotheses-and-edges-require-a-separate-workflow) for the current limits.
+A **Current** Topic Learning offers **Draft Playbook**. Save a numbered version, then use **Research this strategy** on that Playbook to compare execution candidates. Research uses the complete archived population and verified original evidence, with one original input and a current causal execution file. Selected changed rules become a new version before later untouched Validation. Its proof belongs to that exact saved version; explicit validation publication remains separate. See [Testing a saved version](/cortiq-public/instrument-hub/#test-the-selected-saved-version) for the current limits.
 
 ## Save a Learning
 

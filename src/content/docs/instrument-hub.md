@@ -1,7 +1,7 @@
 ---
 status: current
 title: Instrument Hub
-description: Organize one market's data, research, observations, Learnings, validated Edges, playbooks, and trading history.
+description: Organize one market's Learnings, Playbooks, source evidence, research, and trading history.
 sidebar:
   order: 10
 ---
@@ -21,7 +21,7 @@ The Hub connects research to trading without treating a research finding as an e
 | Tab | Use it to |
 | --- | --- |
 | **Overview** | Read the market's current summary, review activity and playbook maturity, and open supporting context. |
-| **Knowledge** | Review Observations, Learnings, Hypotheses, Edges, and Playbooks. |
+| **Knowledge** | Open the Learnings and Playbooks libraries, or review the Evidence inbox. |
 | **Data** | Build and manage the historical data files used by research. |
 
 Select **Research a topic** to create a saved study draft, or the research-run count to open the instrument's research history. See [Research](/cortiq-public/research/) for launch settings, data requirements, saved answers, and continuation.
@@ -37,21 +37,15 @@ Select **Research a topic** to create a saved study draft, or the research-run c
 
 Verify the result by opening the saved Learning and following its source research and evidence. A completed study and a saved Learning are separate outcomes.
 
-## Understand the knowledge stages
+## Use Learnings and Playbooks
 
-| Stage | What it represents | What it does next |
-| --- | --- | --- |
-| **Observation** | A particular market event, with its recognition time and supporting evidence. | Seeds research into comparable events or attaches to an existing Learning. |
-| **Learning** | A saved conclusion about measured behavior under stated conditions. | Informs later analysis and, when eligible, further execution research. |
-| **Hypothesis** | A testable execution family created by the qualified reaction workflow. | Compares declared execution variants against historical evidence. |
-| **Edge** | A specific execution policy promoted after its required validation passes. | Supplies a validated policy for playbook creation. |
-| **Playbook** | The operating rules used by a trading session. | Runs in historical replay or a forward session under its data and risk settings. |
+**Learnings** save conclusions about measured market behavior. **Playbooks** contain the trading rules you develop and test. These are the two libraries in **Knowledge**; neither requires you to create another kind of artifact first.
 
-These stages do not advance because an AI writes a persuasive explanation. Measurements, source eligibility, explicit review, and the relevant validation gates control the transitions.
+Observations, research questions and trials remain supporting evidence. Open **Evidence inbox** to review facts awaiting processing, retained for research, or needing attention. A Learning may stay useful without becoming a Playbook, and a Playbook may start independently.
 
 ### Observations are facts to investigate
 
-Open **Knowledge** → **Observations** to inspect events awaiting processing or research. **Gather observations** searches prepared data; **Research similar observations** starts a study from a selected event.
+Open **Knowledge** → **Evidence inbox** to inspect events awaiting processing or research. **Gather observations** searches prepared data; **Research similar observations** starts a study from a selected event.
 
 **Process observations** checks whether each fact matches an existing Learning's setup and context. A matching outcome can agree or disagree with that Learning. Facts without a suitable match remain available for research; processing does not turn one event into a new Learning.
 
@@ -79,34 +73,43 @@ Expand an example to inspect its candles and timestamped events. Read contrary e
 
 Where price-path measurements exist, distinguish closing returns from movement reached during the window. A median excursion is not a tested entry or exit rule. See [Research results](/cortiq-public/research/) for the measurement vocabulary.
 
-Changing a Learning's definition or evidence can invalidate its downstream work. Affected Hypotheses show **Source Learning changed**, and affected Edges require revalidation before they can create playbooks.
+A saved Playbook version keeps links to the exact Learning conclusions used to draft it. Sources show **Current**, **Changed** or **Unavailable**. Changing a Learning does not rewrite old Playbook rules or silently refresh their sources; changed or missing evidence cannot support a current validation claim.
 
-### Hypotheses and Edges require a separate workflow
+### Draft a Playbook from a Learning
 
-An eligible Learning can enter a reaction workflow that declares the measurement, execution rules, costs, and statistical safeguards. Cortiq creates the Hypothesis inside that workflow; there is no independent free-form Hypothesis or Edge creation path.
+1. Open a **Current** Learning and select **Draft Playbook**.
+2. Develop the rules in the recoverable editor. A Playbook may use one or several current conclusions from the same instrument; only source links are retained.
+3. Save a numbered **Draft** version before starting strategy research.
+4. Open the Playbook and select the saved version you want to inspect or test.
 
-Discovery compares the declared variants. A selected policy then requires its untouched validation evidence. **Promote validated policy** is a separate explicit action after validation, rather than an automatic result of a favorable research summary.
+To start independently, select **New Playbook**. Saving a strategy and validating it are separate actions.
 
-For a **Current** full-population Topic Learning, **Investigate trading idea** continues from the complete archived population. The current workflow supports one original managed input and one successfully built current execution file. That file must preserve the original account, timeframe, historical prices, and verified causal inputs. Rebuild the selected execution file if its causal or prefix checks are missing; the completed original study stays frozen. Signals must reproduce all original setups, and a full-bar setup can enter only at a proven later open. A selection of chart examples cannot substitute.
+### Test the selected saved version
 
-Validation needs later, previously untouched data beyond the original exposed period and the required embargo. Splitting the already studied history does not create independent validation. Overlapping execution windows cannot qualify under the current independent-path protocol. Missing original evidence, unverified inputs, or failed qualification block the workflow.
+**Backtest this version** opens replay setup for those exact rules. Review its input policy and risk settings before starting. Later edits stay on another version; they cannot change what the saved run tested.
 
-The workflow determines eligibility; **Promote validated policy** remains a separate action that rechecks the source and validation. See [Research continuation](/cortiq-public/research/#continue-the-investigation).
+**Research this strategy** compares declared execution candidates using qualified Learning evidence, costs and statistical safeguards. Changed selected rules become a new saved version before untouched Validation is revealed. The result stays with that exact version and policy. **Publish validation** is a separate action that rechecks the source and proof.
+
+For a Current full-population Topic Learning, research uses the complete archived population. The current workflow supports one original managed input and one successfully built current execution file. It must preserve original prices, account, timeframe and verified causal inputs; rebuild the selected file if causal or prefix checks are missing. A selection of chart examples cannot substitute for that population.
+
+Validation needs later, previously untouched data beyond the original exposed period and required embargo. Splitting already studied history does not create independent Validation. Overlapping execution windows cannot qualify under the current independent-path protocol. Missing original evidence, unverified inputs or failed qualification block the workflow. See [Research continuation](/cortiq-public/research/#continue-the-investigation).
+
+Playbook evidence separates mechanical-policy Validation, replay results and session references. Read combined-context and current-Learning replay labels; a multi-Playbook run does not establish each component's profit. Missing trade attribution stays unknown. Mechanical policy validation does not certify discretionary AI behavior or future returns.
 
 ## Read mastery and playbook maturity
 
 The mastery count equals the number of matching playbooks you have set to **Production**. Research volume, Learning count, and trading activity do not raise it. The header displays up to five filled stars and states the Production-playbook count.
 
-The separate playbook pipeline uses these stages:
+Each saved Playbook version uses these stages:
 
 | Stage | Meaning |
 | --- | --- |
-| **Draft / Hypothesis** | A playbook still being developed. |
-| **Backtested** | A playbook you have marked as having historical validation. |
+| **Draft** | A playbook still being developed. |
+| **Backtested** | A version you have marked as having backtest evidence. |
 | **Sessions** | A playbook you have marked as having session evidence. |
 | **Production** | A playbook you have deliberately promoted for use. |
 
-Set maturity on the playbook's detail page. Evidence does not automatically change its stage, and Production maturity is an operator designation rather than a performance guarantee.
+Set stage on the selected current version's detail page. Saving changes starts a new Draft version; earlier evidence remains on the version tested. Evidence does not automatically change stage, and Production is an operator designation rather than a performance guarantee.
 
 ## Group broker aliases
 
@@ -142,17 +145,9 @@ Screenshots use sample data. Connection states and amounts are illustrative.
 
 *Open one instrument to inspect its knowledge and research.*
 
-![Instrument overview with knowledge and activity summaries](/cortiq-public/images/screenshots/instrument-hub__detail.png)
-
-*Demo overview values describe saved work, not a statistical trading guarantee.*
-
-![Instrument Knowledge tab with Active Learnings and saved research drafts](/cortiq-public/images/screenshots/instrument-hub__knowledge-ledger.png)
-
-*Conclusion readiness and execution readiness have separate meanings.*
-
 ![Learning detail with linked observation chart and event list](/cortiq-public/images/screenshots/instrument-hub__instance-events.png)
 
-*This preliminary demo record shows linked evidence; it is not a validated execution Edge.*
+*This preliminary demo record shows linked evidence; it does not validate a trading strategy.*
 
 ## Related
 

@@ -18,7 +18,7 @@ Preparing a review is local. **Start review** sends the first AI request. Openin
 
 The assessment explains recorded decisions and outcomes. Supported Observations connect to the instrument's Knowledge; suggested improvements remain proposals for you to investigate.
 
-A published review doesn't edit a playbook, change trading rules, create a Learning or Edge, or inject lessons into later sessions.
+A published review doesn't edit a playbook, change trading rules, create a Learning or validated strategy, or inject lessons into later sessions.
 
 ## Before you begin
 
