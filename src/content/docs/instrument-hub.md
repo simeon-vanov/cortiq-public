@@ -21,7 +21,7 @@ The Hub connects research to trading without treating a research finding as an e
 | Tab | Use it to |
 | --- | --- |
 | **Overview** | Read the market's current summary, review activity and playbook maturity, and open supporting context. |
-| **Knowledge** | Open the Learnings and Playbooks libraries, or review the Evidence inbox. |
+| **Knowledge** | Browse Observations, Learnings and Playbooks, or gather observations separately. |
 | **Data** | Build and manage the historical data files used by research. |
 
 Select **Research a topic** to create a saved study draft, or the research-run count to open the instrument's research history. See [Research](/cortiq-public/research/) for launch settings, data requirements, saved answers, and continuation.
@@ -39,13 +39,15 @@ Verify the result by opening the saved Learning and following its source researc
 
 ## Use Learnings and Playbooks
 
-**Learnings** save conclusions about measured market behavior. **Playbooks** contain the trading rules you develop and test. These are the two libraries in **Knowledge**; neither requires you to create another kind of artifact first.
+**Learnings** save conclusions about measured market behavior. **Playbooks** contain the trading rules you develop and test. **Observations** keeps the facts behind your research and reviews visible alongside them; you can browse each view independently.
 
-Observations, research questions and trials remain supporting evidence. Open **Evidence inbox** to review facts awaiting processing, retained for research, or needing attention. A Learning may stay useful without becoming a Playbook, and a Playbook may start independently.
+Research questions and trials remain supporting evidence. A Learning may stay useful without becoming a Playbook, and a Playbook may start independently.
 
 ### Observations are facts to investigate
 
-Open **Knowledge** → **Evidence inbox** to inspect events awaiting processing or research. **Gather observations** searches prepared data; **Research similar observations** starts a study from a selected event.
+Open **Knowledge** → **Observations** to browse all saved facts for the instrument, including review and research observations already linked to a Learning. Filter by source, check each row's processing status, and open its evidence details. Linked observations stay visible after processing.
+
+**Gather observations** searches prepared data separately; **Research similar observations** starts a study from a selected event. Processing and cleanup actions continue to use the existing work queue rather than the full browse list.
 
 **Process observations** checks whether each fact matches an existing Learning's setup and context. A matching outcome can agree or disagree with that Learning. Facts without a suitable match remain available for research; processing does not turn one event into a new Learning.
 
