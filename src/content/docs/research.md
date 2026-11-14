@@ -112,8 +112,8 @@ Completed Topic studies open on `Results`; other execution states open on `Resea
 
 | View | What to inspect |
 | --- | --- |
-| `Results` | Saved numeric outcomes, response distributions, optional AI interpretation, limitations, and the review decision. |
-| `Research questions` | One question at a time, its setup-selection rules, measured response, horizon choices, and comparison with other questions. |
+| `Results` | The study's AI interpretation, the stop and target verdict, limitations, and the review decision. |
+| `Research questions` | One question at a time: its setup-selection rules, saved closing-change and travel tables, reach table, stop and target explorer, horizon choices, and comparison with other questions. |
 | `Saved Knowledge` | Copilot Learning drafts and links to Learnings explicitly saved from this study. |
 | `Research map` | Re-run ancestry, cited earlier studies, later follow-ups, and associated Learning drafts or saved Learnings. |
 | `Method & audit` | Frozen scope, prompts, coverage, retained setup-finder scripts, and technical diagnostics. |
@@ -133,6 +133,24 @@ Newer price-path studies also retain movement before each first extreme and the 
 Statistics use the complete eligible measured population. Browsable examples are a bounded selection, and missing outcome windows stay separate from measured responses. Counts across questions can overlap; adding them doesn't produce a count of independent trades. Review categorical groups and time-period variation alongside the pooled result.
 
 Distributions retain extreme values in labeled tails. A small number of examples or a concentrated central chart doesn't establish that unusual outcomes are absent. Older studies retain their saved measurements and show unavailable fields where newer evidence wasn't recorded.
+
+### Read the stop and target verdict
+
+A price-response question also gets a saved verdict on a narrow point: did any stop and target pair have positive expectancy after costs? Cortiq measures how far price travelled in both directions after every example, scores each stop and target pair on all of them, ranks the pairs on the earlier 60% of examples, and tests the best few on the later 40%.
+
+| Verdict | What it means |
+| --- | --- |
+| `Alpha candidate` | A pair chosen on earlier data held up on later data after costs, against both zero and ordinary bars from the same period. It's a research finding that needs further validation. It isn't an entry rule. |
+| `No alpha found` | There was enough data to test, and no pair held up. The page shows the largest edge the later data can't rule out. |
+| `Inconclusive` | The sample can't settle it. Common reasons are too few independent groups of examples in the later data, an unknown cost, or no ordinary-bar comparison. |
+
+Examples whose windows overlap count as one group, because they share the same price action. A pair needs at least 30 independent groups on each side of the split before it can be confirmed. A study with hundreds of examples can still be `Inconclusive` when most of them come from a few long overlapping episodes.
+
+`Results` lists only the pairs carried to the later data, with their earlier-data and later-data results. Each question's `Explore stops and targets` section shows every pair, including the losing ones, a reach curve in ATR, and a heatmap.
+
+When a question compares groups, such as first and repeat touches or trading sessions, each group with at least 60 examples is judged on its own examples. The more groups there are, the stronger the later-data evidence a pair needs. Smaller groups are listed but not scored.
+
+The verdict assumes an entry at the setup close. When a single candle touches both the stop and the target, Cortiq counts the stop first. It doesn't model fills, slippage beyond the saved round-trip cost, or account risk. Studies saved before this measurement existed show `Not measured` until you choose `Measure exploratory stop/target grid` in the question.
 
 ### Separate execution from review
 
