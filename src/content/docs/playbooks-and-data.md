@@ -32,24 +32,22 @@ A saved policy can serve several playbooks and sessions. New session and backtes
 
 ## How to use it
 
+### Draft a playbook with Copilot
+
+In a standard Copilot chat, describe the strategy and ask Copilot to create a playbook draft. Copilot saves the rules and any proposed execution policy as an editable draft while you stay on your current page.
+
+Open the draft under **My Playbooks** to review any open decisions. Use **Validate** to check policy coverage and **Save draft** to save the playbook as inactive.
+
 ### Author the rules and execution policy together
 
-1. Open or create a playbook in `My Playbooks`.
-2. Write the strategy rules and identify the inputs they actually require.
-3. Select a saved default data access policy, or use `Generate execution policy with AI` in the `Execution policy` card.
-4. Inspect the proposed candle windows, indicator selections, and findings.
-5. Select `Use this draft` to copy a generated proposal into the form.
-6. Select `Validate execution compatibility`, resolve confirmed configuration gaps, and save the playbook.
-
-A generated policy is a proposal. `Use this draft` doesn't save it. `Save Playbook` persists the reviewed rules and policy together. If you're editing a selected saved policy, the save updates that policy rather than creating another same-name policy.
-
-Generation needs precise strategy choices. For example, a rule that uses `ATR(14)` on M15 identifies an indicator, period, and timeframe. A rule that only says “use ATR” leaves the period unresolved; policy generation doesn't choose it for you.
-
-`Fix with AI` opens or continues Copilot work on the editor draft. Review the changes before saving. `Save as draft` retains unfinished work and its findings; it doesn't establish execution readiness.
+1. Open or create a playbook in **My Playbooks**.
+2. Write the strategy rules and identify the required inputs.
+3. In **Execution policy**, select a saved policy or define the candle windows and indicator selections for this draft. Set exactly one timeframe to **Primary** and the remaining timeframes to **Secondary**.
+4. Select **Validate** and review the findings. **Save Playbook** saves the rules and policy together.
 
 ### Read compatibility and runtime status separately
 
-`Validate execution compatibility` checks the rules against the selected policy. Opening a playbook reads a matching saved result without starting a new AI review. Explicit validation requests a fresh review and can use provider allowance.
+**Validate** checks the rules against the selected policy. Opening a playbook reads a matching saved result. A fresh AI compatibility review can use provider allowance.
 
 The card groups missing configuration, clarification questions, and validation failures. Expand `View full policy configuration` to inspect exact candle counts and indicator settings. A failed or incomplete AI review doesn't prove compatibility and doesn't mean the strategy itself is wrong.
 
