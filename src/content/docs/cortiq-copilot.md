@@ -58,6 +58,8 @@ Use `Stop` to cancel an active response. Completed tool results remain in the sa
 
 Saved conversations restore their messages and recorded activity. A provider reconnection restores bounded earlier context rather than guaranteeing every old detail is in the next request. Reopening a chat also doesn't recreate every inline chart or mounted-chart annotation; return to the source evidence when needed.
 
+In `Library` → `Copilot chats`, Copilot can inspect your current filters, result counts and up to 50 visible chat headers. This page view contains no conversation messages and offers no actions to pin or delete chats.
+
 ## Check application logs
 
 1. Open the Dashboard, then open Copilot and start a new chat there. This gives Copilot access to the current desktop logs.
