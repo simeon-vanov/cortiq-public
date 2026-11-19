@@ -36,6 +36,10 @@ Don't use trade ideas as a replacement for your core playbook library. If the lo
 
 Where the runtime supports automated ideas, a Manual session can host one under its own reviewed mandate. A saved thesis alone does not enable automatic execution.
 
+Select **Suggest trade ideas** in Copilot to request up to three setups for the session's instrument, or ask for multiple ideas in chat. Copilot shows each supported setup on its own card. Review the direction, entry, stop, target, and risk, then select **Open** to inspect the plan or **Save as draft** to keep that idea disabled in Trade Ideas.
+
+With an idea open on the session chart, select **Plan** to show its price levels. The labels identify the trigger, pending order, stop, target, cancellation, and zone bounds when the plan defines them.
+
 Review the concrete plan, source account and instrument, entry/management constraints, expiry, and proposed changes before approving and enabling it. Invalid or incomplete mandate rules keep approval disabled. This authority is separate from the general Autonomous session loop and from a one-time operator order.
 
 Check the idea's current lifecycle and approval status after edits. Copilot draft preparation does not grant permission to enable it. See [Agent permissions](/cortiq-public/agent-permissions/) for the approval boundaries.
