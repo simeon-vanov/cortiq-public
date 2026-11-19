@@ -39,6 +39,8 @@ On Playbook detail, select the saved version to read its rules and evidence toge
 
 Learning sources show Current, Changed or Unavailable. Source changes do not silently rewrite saved rules or refresh historical proof. Combined runs remain combined-context evidence, and current-Learning replay is disclosed. Mechanical-policy validation covers its declared subset; it does not certify discretionary AI execution or future returns.
 
+Storage cleanup preserves an unchanged Learning's source links in saved versions and unfinished drafts. Review a source again when its conclusion or evidence changes.
+
 Set **Draft**, **Backtested**, **Sessions** or **Production** only on the current version. A new save starts in Draft; earlier version evidence remains available. Stage is an operator decision rather than automatic certification.
 
 ## Reference
