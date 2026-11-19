@@ -1,7 +1,7 @@
 ---
 status: reference
 area: screenshots
-last_updated: 2026-10-30
+last_updated: 2026-11-04
 ---
 
 # Screenshots
@@ -111,8 +111,8 @@ size, timestamp, and hash. A valid PNG alone does not prove useful framing.
 | `research__answer-card.png` | Reference capture only | `/research/2?runId=6` |
 | `research__exploration.png` | Reference capture only | `/research/2?runId=8` |
 | `instrument-hub__list.png` | `instrument-hub` | `/instruments` |
-| `instrument-hub__detail.png` | `instrument-hub` | `/instruments/XAUUSD` |
-| `instrument-hub__knowledge-ledger.png` | `instrument-hub` | `/instruments/XAUUSD?tab=knowledge` |
+| `instrument-hub__detail.png` | Retained earlier capture; no longer embedded (retired H/E counters). | `/instruments/XAUUSD` |
+| `instrument-hub__knowledge-ledger.png` | Retained earlier capture; no longer embedded (retired five-stage rail). | `/instruments/XAUUSD?tab=knowledge` |
 | `skills__list.png` | `skills` | `/skills` |
 | `skills__editor.png` | `skills` | `/skills/1/edit` |
 | `playbooks-and-data__playbook-editor.png` | `playbooks-and-data` | `/playbooks/1/edit` |

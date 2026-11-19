@@ -43,6 +43,8 @@ Use [Research](/cortiq-public/research/) to measure recurring market behaviour a
 4. Select the `MT5 Account` and one `Instrument`.
 5. Add compatible playbooks if you want them, then arrange their priority with the arrow controls.
 
+To replay historical rules, open the Playbook, select its saved version, then select **Backtest this version**. Setup shows that saved version and keeps it when you save or reopen the draft. A newer Playbook save cannot change the requested rules. A missing or mismatched version blocks launch instead of switching to latest.
+
 Choosing an instrument creates a saved draft. Later setup changes save automatically, and the Backtests list lets you reopen the draft. Starting successfully replaces the draft with the run; a rejected start preserves it. Run acknowledgements must be selected again when needed.
 
 ### 2. Choose the autonomous data policy
@@ -147,7 +149,7 @@ Open the run's **Review** tab and choose **Review scope**. Eligible paused Manua
 
 Select **Prepare review** to freeze the scope locally, then **Start review** to send the first request in the dedicated Copilot chat. Use **Open Copilot** or **Resume review** to reopen the same review; those actions send no request. Choosing another scope preserves the earlier review.
 
-Inspect coverage, save a draft, or publish an assessment with its limitations. Supported Observations require saved proof; suggestions don't edit a playbook or create a Learning or Edge. See [Session review](/cortiq-public/session-review/) for the complete workflow and older attempt recovery.
+Inspect coverage, save a draft, or publish an assessment with its limitations. Supported Observations require saved proof; suggestions don't edit a playbook or create a Learning or validated strategy. See [Session review](/cortiq-public/session-review/) for the complete workflow and older attempt recovery.
 
 ## Understand the limits
 

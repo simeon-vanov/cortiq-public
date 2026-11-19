@@ -30,19 +30,17 @@ Use these definitions when a screen or guide introduces an unfamiliar term. Foll
 
 **Day start time** — The configured local reset time for daily risk counters. See [Risk management](/cortiq-public/risk-management/).
 
-**Edge** — A specific execution policy promoted through the required validation workflow, with costs, evidence, and source identity. A descriptive Learning is not an Edge. See [Instrument Hub](/cortiq-public/instrument-hub/).
 
 **External MCP** — An outside MCP client calling Cortiq tools in a Manual-session context. It is not an autonomous model transport or an internal waiting decision loop. See [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/).
 
 **Gather observations** — Research that collects comparable market events for processing or further study. It does not automatically turn unmatched events into Learnings. See [Research](/cortiq-public/research/).
 
-**Hypothesis** — A testable execution family created from eligible Learning evidence inside the closed reaction workflow. See [Instrument Hub](/cortiq-public/instrument-hub/).
 
 **Instrument Hub** — One market's workspace for Overview, Knowledge, Data, research history, and trading artifacts. Open it from **Knowledge** → **My Instruments**. See [Instrument Hub](/cortiq-public/instrument-hub/).
 
 **Instrument profile** — Saved context about a market's behavior, produced by a configured profile package and generation run. Inspect the saved result's effective time and expiry before use. See [Instrument profiles](/cortiq-public/trading-cycle/entities/instrument-profiles/).
 
-**Knowledge ledger** — Instrument-scoped records of Observations, Learnings, workflow-created Hypotheses, and validated Edges, with evidence and provenance. See [Instrument Hub](/cortiq-public/instrument-hub/).
+**Knowledge ledger** — Instrument-scoped Observations and Learnings with source evidence and provenance. Playbooks are the separate strategy library. See [Instrument Hub](/cortiq-public/instrument-hub/).
 
 **Learning** — A saved conclusion backed by measured evidence, including its scope and limitations. Mixed results are valid conclusions; no fixed sample count makes a conclusion tradable. See [Instrument Hub](/cortiq-public/instrument-hub/).
 
@@ -57,6 +55,8 @@ Use these definitions when a screen or guide introduces an unfamiliar term. Foll
 **Mastery rating** — The count of Production-maturity playbooks for an instrument. It is an operator designation, not a forecast or statistical score. See [Instrument Hub](/cortiq-public/instrument-hub/).
 
 **MT5 bridge** — The local connection to an account's configured MetaTrader 5 terminal for prices, account information, and supported execution. See [MT5 integration](/cortiq-public/mt5-integration/).
+
+**Playbook version** — A saved snapshot of strategy rules. Research validation, replay pins and recorded session evidence identify that exact snapshot; later edits start a new Draft version. See [Playbooks](/cortiq-public/trading-cycle/entities/playbooks/).
 
 **Playbook** — Reusable strategy rules, with pinned versions and an execution data policy where selected. See [Playbooks and data access policies](/cortiq-public/playbooks-and-data/).
 

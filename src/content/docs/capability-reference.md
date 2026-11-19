@@ -108,7 +108,7 @@ If you want a higher-altitude view first, [Feature overview](/cortiq-public/feat
 | Function | What it does | What it does for you | Read more |
 | --- | --- | --- | --- |
 | Topic research | Starts from a saved, human-approved draft, measures distinct questions, and saves answers and interpretation. | Check measurements before starting and explicitly review Learnings afterward. | [Research](/cortiq-public/research/) |
-| Execution-policy validation | Requires eligible evidence and a separate closed validation workflow before Edge promotion. | Keep descriptive findings separate from tested execution authority. | [Instrument Hub](/cortiq-public/instrument-hub/) |
+| Execution-policy validation | Requires qualified evidence and untouched Validation bound to the exact saved Playbook version and selected policy. | Keep descriptive findings separate from tested execution authority. | [Instrument Hub](/cortiq-public/instrument-hub/) |
 | MCP server | Exposes Cortiq tools to MCP-compatible clients. | Drive analysis and trading from an external agent. | [MCP and agent integration](/cortiq-public/mcp-and-agent-integration/) |
 | Cortiq Copilot | An in-app assistant (`Ctrl+K`) with page-specific tools. | Prepare drafts and use permitted actions with the applicable save and approval rules. | [Cortiq Copilot](/cortiq-public/cortiq-copilot/) |
 | Agent permissions | Separates provider permission mode, mutation approvals, and execution checks. | Understand the authority granted for each action. | [Agent permissions](/cortiq-public/agent-permissions/) |

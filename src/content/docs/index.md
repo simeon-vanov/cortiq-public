@@ -20,7 +20,7 @@ These docs cover the full surface: what Cortiq is, how to install it, the screen
 
 ## How it fits into Cortiq
 
-Each session is locked to one instrument and one configured account. Research and historical replay have their own saved inputs and results; they do not require a running trading session. Saving research does not automatically publish a Learning or authorize an executable Edge.
+Each session is locked to one instrument and one configured account. Research and historical replay have their own saved inputs and results; they do not require a running trading session. Saving research does not automatically publish a Learning or validate a trading strategy.
 
 ```mermaid
 flowchart LR

@@ -58,6 +58,18 @@ Use `Stop` to cancel an active response. Completed tool results remain in the sa
 
 Saved conversations restore their messages and recorded activity. A provider reconnection restores bounded earlier context rather than guaranteeing every old detail is in the next request. Reopening a chat also doesn't recreate every inline chart or mounted-chart annotation; return to the source evidence when needed.
 
+In `Library` → `Copilot chats`, Copilot can inspect your current filters, result counts and up to 50 visible chat headers. This page view contains no conversation messages and offers no actions to pin or delete chats.
+
+## Check application logs
+
+1. Open the Dashboard, then open Copilot and start a new chat there. This gives Copilot access to the current desktop logs.
+2. Describe what failed, when it happened, and your time zone. For example, send “Research stopped at about 14:30 today, Sofia time. Check the Cortiq application logs from 14:20 to 14:40 for warnings or errors. Cite the relevant timestamps and log references and tell me what they show.”
+3. Check that the reply covers the time window you gave. If Copilot found matching entries, look for timestamps, log references, and which conclusions come directly from the evidence. If the search found no matches, ask what part of the logs it was able to check.
+
+Copilot reads selected excerpts from local desktop logs. The excerpts used in the answer go to your configured AI provider. Use a Dashboard chat if you were troubleshooting from replay, standalone Chart, or a read-only Research conversation.
+
+If you want to report the issue, ask Copilot to prepare a bug report from the relevant entries. Review the draft for private information, then submit it yourself using the linked public GitHub form.
+
 ## Work with research evidence
 
 ### Search your Learnings and app help

@@ -23,7 +23,7 @@ Copilot and autonomous actors do not discover, select, or load skills from your 
 | Skill | Adds explicitly selected guidance about how to perform the task. |
 | Preparation or research result | Retains the output and evidence from a particular operation. |
 
-Skills cannot override host risk checks, required data, output validation, or permission gates. A skill that describes an entry method is not a validated Edge.
+Skills cannot override host risk checks, required data, output validation, or permission gates. A skill that describes an entry method is not a validated strategy.
 
 ## Create a skill
 

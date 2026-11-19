@@ -18,7 +18,7 @@ A study describes the selected instrument, files, dates, and setup. It doesn't p
 
 Start from the market's [Instrument Hub](/cortiq-public/instrument-hub/). Its `Data` tab holds reusable research datasets; its `Knowledge` tab starts research and holds saved Observations and Learnings. The research-run count opens `All research` for that instrument. Select a run to reopen its results.
 
-Research establishes what happened around a defined condition. [Backtesting](/cortiq-public/backtesting/) evaluates a playbook through historical trading decisions. A saved Learning supplies evidence for further work; it doesn't establish an executable Edge or authorize a session.
+Research establishes what happened around a defined condition. [Backtesting](/cortiq-public/backtesting/) evaluates a playbook through historical trading decisions. A saved Learning supplies evidence for further work; it doesn't validate a trading strategy or authorize a session.
 
 ## Before you begin
 
@@ -112,8 +112,8 @@ Completed Topic studies open on `Results`; other execution states open on `Resea
 
 | View | What to inspect |
 | --- | --- |
-| `Results` | Saved numeric outcomes, response distributions, optional AI interpretation, limitations, and the review decision. |
-| `Research questions` | One question at a time, its setup-selection rules, measured response, horizon choices, and comparison with other questions. |
+| `Results` | The study's AI interpretation, the stop and target verdict, limitations, and the review decision. |
+| `Research questions` | One question at a time: its setup-selection rules, saved closing-change and travel tables, reach table, stop and target explorer, horizon choices, and comparison with other questions. |
 | `Saved Knowledge` | Copilot Learning drafts and links to Learnings explicitly saved from this study. |
 | `Research map` | Re-run ancestry, cited earlier studies, later follow-ups, and associated Learning drafts or saved Learnings. |
 | `Method & audit` | Frozen scope, prompts, coverage, retained setup-finder scripts, and technical diagnostics. |
@@ -133,6 +133,24 @@ Newer price-path studies also retain movement before each first extreme and the 
 Statistics use the complete eligible measured population. Browsable examples are a bounded selection, and missing outcome windows stay separate from measured responses. Counts across questions can overlap; adding them doesn't produce a count of independent trades. Review categorical groups and time-period variation alongside the pooled result.
 
 Distributions retain extreme values in labeled tails. A small number of examples or a concentrated central chart doesn't establish that unusual outcomes are absent. Older studies retain their saved measurements and show unavailable fields where newer evidence wasn't recorded.
+
+### Read the stop and target verdict
+
+A price-response question also gets a saved verdict on a narrow point: did any stop and target pair have positive expectancy after costs? Cortiq measures how far price travelled in both directions after every example, scores each stop and target pair on all of them, ranks the pairs on the earlier 60% of examples, and tests the best few on the later 40%.
+
+| Verdict | What it means |
+| --- | --- |
+| `Alpha candidate` | A pair chosen on earlier data held up on later data after costs, against both zero and ordinary bars from the same period. It's a research finding that needs further validation. It isn't an entry rule. |
+| `No alpha found` | There was enough data to test, and no pair held up. The page shows the largest edge the later data can't rule out. |
+| `Inconclusive` | The sample can't settle it. Common reasons are too few independent groups of examples in the later data, an unknown cost, or no ordinary-bar comparison. |
+
+Examples whose windows overlap count as one group, because they share the same price action. A pair needs at least 30 independent groups on each side of the split before it can be confirmed. A study with hundreds of examples can still be `Inconclusive` when most of them come from a few long overlapping episodes.
+
+`Results` lists only the pairs carried to the later data, with their earlier-data and later-data results. Each question's `Explore stops and targets` section shows every pair, including the losing ones, a reach curve in ATR, and a heatmap.
+
+When a question compares groups, such as first and repeat touches or trading sessions, each group with at least 60 examples is judged on its own examples. The more groups there are, the stronger the later-data evidence a pair needs. Smaller groups are listed but not scored.
+
+The verdict assumes an entry at the setup close. When a single candle touches both the stop and the target, Cortiq counts the stop first. It doesn't model fills, slippage beyond the saved round-trip cost, or account risk. Studies saved before this measurement existed show `Not measured` until you choose `Measure exploratory stop/target grid` in the question.
 
 ### Separate execution from review
 
@@ -154,7 +172,7 @@ To add supported response windows to the same frozen population, use `Continue m
 
 To change the question, files, or period, use `Start follow-up research`. The saved draft retains the source study as context. Choose saved measurements, the same saved occurrences, or a new occurrence search in **Scope**. For a new search, review the preselected files, primary file, and dates; unavailable files require explicit replacements. Check the questions and measurements, then approve the study in the draft. Referencing a study doesn't turn an overlapping test into independent validation.
 
-A **Current** Topic Learning can also offer **Investigate trading idea** for execution research. This uses its complete archived population and verified original evidence, with one original input and a current causal execution file. Later untouched Validation and explicit policy promotion are separate requirements. See [Hypotheses and Edges](/cortiq-public/instrument-hub/#hypotheses-and-edges-require-a-separate-workflow) for the current limits.
+A **Current** Topic Learning offers **Draft Playbook**. Save a numbered version, then use **Research this strategy** on that Playbook to compare execution candidates. Research uses the complete archived population and verified original evidence, with one original input and a current causal execution file. Selected changed rules become a new version before later untouched Validation. Its proof belongs to that exact saved version; explicit validation publication remains separate. See [Testing a saved version](/cortiq-public/instrument-hub/#test-the-selected-saved-version) for the current limits.
 
 ## Save a Learning
 

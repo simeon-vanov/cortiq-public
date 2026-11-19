@@ -97,6 +97,8 @@ Windows notification visibility also depends on Windows settings. A Windows toas
 - A pending order can execute under its own broker or simulation rules.
 - A trade approval authorizes the specific action presented for review.
 
+For a candle-close market entry awaiting approval, Cortiq retains the reviewed size limit across a restart. Refreshed prices and risk checks can reduce the size, and the original entry deadline still applies.
+
 Creating a notification alert does not create any of the other three.
 
 ## What to read next

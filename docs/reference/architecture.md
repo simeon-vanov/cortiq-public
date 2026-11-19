@@ -47,9 +47,10 @@ docs, issues and image files never enter this corpus. The output is deterministi
 for the same reader revision and is an additional CI artifact; site publication
 still uses GitHub Pages.
 
-The desktop release imports an explicit package and expected digest into its
-Business embedded resources. This public repository does not update desktop help
-automatically or provide a runtime network dependency.
+The desktop release regenerates the reader corpus from this repository's `main`
+and checks it against the reviewed digest in the desktop release source. The
+matching corpus is embedded in both the desktop and bundled MCP host. The desktop
+repository owns the help pin, and installed help lookup runs locally.
 
 - **Read the docs:** <https://simeon-vanov.github.io/cortiq-public/>
 - **Download an installer:** <https://github.com/simeon-vanov/cortiq-public/releases/latest/download/Cortiq-win-Setup.exe>

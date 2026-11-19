@@ -6,7 +6,9 @@
 - **Release host.** Public Cortiq installers (Velopack `Cortiq-win-Setup.exe`) are published as GitHub Releases on this repo by the `cortiq-app` CI (`publish-public-release.yml`); the marketing site in the sibling `cortiq-landing` repo links to `releases/latest/download/Cortiq-win-Setup.exe`.
 - **Community surface.** GitHub Issues (templates in `.github/ISSUE_TEMPLATE/`) and Discussions for end users.
 
-This repo intentionally contains **no application source code, no license backend, no private engineering material**. Those live in the sibling repos `cortiq-app`, `cortiq-backend`, `cortiq-landing`, `cortiq-publish`. Cluster-level overview is at `C:\Projects\Cortiq\CLAUDE.md`.
+In the Cortiq umbrella checkout, follow the shared instructions at `../AGENTS.md`.
+Keep application source, licensing code, and private engineering material in the
+owning sibling repos.
 
 ## Documentation
 
@@ -35,7 +37,7 @@ Reference areas (each is the source of truth for its slice — do not duplicate 
 # from cortiq-public/
 npm install
 npm run dev                          # local preview at http://localhost:4321/cortiq-public/
-npm run build                        # astro check && astro build (used by CI)
+npm run build                        # retrieval corpus checks and generation, astro check, and astro build
 npm run preview                      # serve the built site
 npm run check                        # astro check only — frontmatter / type validation
 npm run test:retrieval-corpus        # deterministic offline-help exporter tests
@@ -49,7 +51,9 @@ Every code or configuration change must pass `npm run build` before it is commit
 ## Critical gotchas
 
 - **Base path `/cortiq-public`.** `astro.config.mjs` sets `site: 'https://simeon-vanov.github.io'` and `base: '/cortiq-public'`. Internal page links and `public/` asset references MUST be base-absolute — `/cortiq-public/<slug>/` and `/cortiq-public/images/...`. Do NOT use bare relative slugs (`getting-started/`) or `../`-relative paths: Astro only rewrites relative links that end in `.md`, so a bare `slug/` stays a raw href that the browser resolves against the current page URL (e.g. from `/cortiq-public/skills/`, `session-review/` → `/cortiq-public/skills/session-review/` → 404). Renaming the repo or moving to a custom domain (e.g. `docs.cortiq.trade`) requires updating both config values, the GitHub Pages config, and every `/cortiq-public/` prefix in content.
-- **CI only deploys from `main`.** `.github/workflows/docs.yml` triggers only on push to `main`. Long-lived branches like `docs/foundations-and-polish` do not auto-publish — preview locally with `npm run dev`, then merge to `main`.
+- **Publishing workflow.** `.github/workflows/docs.yml` runs for relevant pushes
+  to `main` and supports manual dispatch. Use the shared release workflow for
+  changes intended for `main`.
 - **Releases are published by CI, not by hand.** The Velopack installer (`Cortiq-win-Setup.exe`) plus update metadata (`RELEASES`, `releases.win.json`, `Cortiq-<version>-full.nupkg`) are built and uploaded by the `cortiq-app` repo's `publish-public-release.yml` workflow (kicked off via its manual `create-release.yml`). Reader pages and the landing site link to `releases/latest/download/Cortiq-win-Setup.exe` — keep that asset name stable (it is fixed by Velopack `packId=Cortiq`, channel `win`).
 - **Reader content has its own style contract.** Every page under `src/content/docs/` must match `docs/reference/style-guide.md` (page skeleton, voice, banned words, callouts, frontmatter). The `astro check` step in `npm run build` validates frontmatter shape but does not enforce voice / banned words.
 - **Screenshots manifest.** Every PNG referenced from a reader page must have a row in `docs/reference/screenshots.md` and a redacted file at `public/images/screenshots/<page-slug>__<descriptor>.png`. Outstanding placeholders: `grep -rn "SCREENSHOT-NEEDED" src/content/docs/`.

@@ -40,7 +40,7 @@ Open Copilot with **Ctrl+K**. Its context follows the current screen; it is sepa
 | Study a market | **Knowledge** → **My Instruments** → instrument | [Instrument Hub](/cortiq-public/instrument-hub/) |
 | Build research input files | Instrument Hub → **Data** | [Research](/cortiq-public/research/) |
 | Prepare or reopen research | Instrument Hub → **Research a topic** or saved drafts/research history; approve a ready draft in its wizard | [Research](/cortiq-public/research/) |
-| Inspect knowledge and its evidence | Instrument Hub → **Knowledge** | [Instrument Hub](/cortiq-public/instrument-hub/) |
+| Inspect conclusions and strategies | Instrument Hub → **Knowledge** → **Learnings** or **Playbooks** | [Instrument Hub](/cortiq-public/instrument-hub/) |
 | Create or edit trading rules | **Preparation** → **My Playbooks** | [Playbooks and data](/cortiq-public/playbooks-and-data/) |
 | Define AI input limits | **Tools** → **Data Access Policies**, or the playbook policy editor | [Data policy design](/cortiq-public/trading-cycle/data-package-design/) |
 | Check available indicator definitions | **Tools** → **Indicators** | [Playbooks and data](/cortiq-public/playbooks-and-data/) |

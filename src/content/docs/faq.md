@@ -48,7 +48,7 @@ It depends on the authority you configure. A Manual session has no general autom
 
 ### Where do I start research?
 
-Open **Knowledge** → **My Instruments**, choose a market, prepare its **Data**, then select **Research a topic**. Read the measured answers and limitations before explicitly saving a reviewed Learning. Research completion does not automatically create an Edge or playbook. See [Research](/cortiq-public/research/).
+Open **Knowledge** → **My Instruments**, choose a market, prepare its **Data**, then select **Research a topic**. Read the measured answers and limitations before explicitly saving a reviewed Learning. Research completion does not automatically create or validate a Playbook. See [Research](/cortiq-public/research/).
 
 ### What is a skill?
 
@@ -94,7 +94,7 @@ Email `support@cortiq.trade` rather than public issues if the case involves lice
 
 ### Does a completed study automatically become knowledge?
 
-No. Execution, interpretation, review, and publication are separate. A Learning preserves a reviewed conclusion and its measured scope; it does not certify an executable Edge. See [Instrument Hub](/cortiq-public/instrument-hub/).
+No. Execution, interpretation, review, and publication are separate. A Learning preserves a reviewed conclusion and its measured scope; it does not validate trading rules. See [Instrument Hub](/cortiq-public/instrument-hub/).
 
 ### Does review change my strategy automatically?
 
