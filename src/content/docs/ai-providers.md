@@ -77,6 +77,7 @@ The workflows include Journal, Review, Preparation, Sentiment, Instrument Profil
 | --- | --- |
 | New Autonomous session | Starts from the Trading Cycle default; you choose the full route during creation. |
 | Existing Autonomous session | Keeps its saved provider, connection, and exact model for assessments, bounded execution, and recovery. |
+| Manual trade ideas | Use the Manual session's saved provider and connection. A new in-app Manual session gets these from the Trading Cycle default. |
 | Copilot conversation | Keeps its own provider, connection, and model; the dock's model picker changes that conversation's selection. Dedicated Review conversations use the Review configuration. |
 | Supporting workflow | Uses the workflow's configured selection and applicable provider default. |
 | Session or backtest review | Uses the independent Review configuration, with verified maximum effort. |

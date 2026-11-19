@@ -45,6 +45,12 @@ Before starting, configure an MT5 account and activate your license. For an Auto
 
 Playbooks and policies are optional in both session types. When attached rules depend on particular inputs, their compatibility and actual availability still have to pass the launch checks.
 
+### Choose a provider for Manual trade ideas
+
+A new Manual session with in-app control takes its provider and connection from `Setup` → `AI Providers` → `Trading Cycle (session default)`. Cortiq saves that connection on the session. Automated trade ideas check it when you select `Enable idea`. Copilot uses the provider selected in its conversation.
+
+To change the provider for an existing Manual session, open its `Settings`, select `Edit Settings`, and change `AI Configuration` → `AI Provider`. Select `Save Settings`.
+
 ### Choose a model for an Autonomous session
 
 The `AI Model` picker selects a provider, connection, and exact model together. The Trading Cycle setting supplies the default for a new session.
@@ -72,6 +78,8 @@ When a playbook's entry window closes, the session stays `Running`. New entries 
 ### Understand continuous assessment
 
 Autonomous sessions retain market understanding separately from individual opportunities. An assessment updates that understanding, evaluates available opportunities, and sets meaningful local watches for changes that need attention. A global plan or an active opportunity is not required before the next assessment.
+
+While an autonomous session waits, Cortiq can arm a separate reassessment watch at the nearest confirmed support below price. A candle must close below that level on its source timeframe. This lets the session reassess a breakdown while another watch waits for a rebound. A watch with a stated deadline stops monitoring at that time.
 
 Live sessions, Autonomous backtests, and approved automated Trade Ideas share this assessment workflow. Their data cutoffs, execution authority, approvals, and risk checks remain specific to their context. A chart price alert only notifies you; it does not create an assessment watch or authorize a trade.
 
