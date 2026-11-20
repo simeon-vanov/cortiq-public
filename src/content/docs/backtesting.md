@@ -45,6 +45,8 @@ Use [Research](/cortiq-public/research/) to measure recurring market behaviour a
 
 To replay historical rules, open the Playbook, select its saved version, then select **Backtest this version**. Setup shows that saved version and keeps it when you save or reopen the draft. A newer Playbook save cannot change the requested rules. A missing or mismatched version blocks launch instead of switching to latest.
 
+In Autonomous setup, Cortiq shows missing or invalid **Required settings** for the selected playbook version before you can start. Follow the playbook link, complete the settings in the editor, and save. Return to your draft and select **Use updated version**. The AI setup check is optional.
+
 Choosing an instrument creates a saved draft. Later setup changes save automatically, and the Backtests list lets you reopen the draft. Starting successfully replaces the draft with the run; a rejected start preserves it. Run acknowledgements must be selected again when needed.
 
 ### 2. Choose the autonomous data policy
@@ -118,6 +120,8 @@ Chart drawings and the selected timeframe are saved with the run. Manual replay 
 ### 6. Monitor autonomous replay and recover interruptions
 
 Autonomous replay advances through historical M1 candles and runs assessments when its accepted local watches or scheduling conditions require them. Market understanding persists independently of individual opportunities; no initial global plan or replanning response is required before assessing an entry. During a provider turn, replay time stays fixed while the status shows the active work. A turn can take several minutes.
+
+The AI receives available broker stop and freeze distances captured at the start of the run. These are the broker rules used for simulation. Historical costs can still be unknown. When enough prior candles have spread data, the AI also receives their median spread for comparison with the replay quote.
 
 Navigating away leaves an autonomous run working in the background. `Pause` lets the current AI call finish before parking replay; `Resume` continues from the committed boundary. `Cancel Run` ends the replay and keeps its recorded partial results.
 
