@@ -105,6 +105,10 @@ The standalone chart remains an analytical workspace without trade execution eve
 
 For saved trading history, ask for a concrete period and comparison, such as “Compare my closed-trade results by day this week.” Copilot can use recorded trade analytics and inline charts where those tools are available. Check the included accounts, time range, and source before interpreting a total.
 
+### Request an independent debate
+
+Start your message with `/debate` and a question, such as `/debate What supports entering now, and what supports waiting?` Copilot sends the same captured evidence to two separate analyses and uses a third model call to compare their conclusions. The result is advisory. If a stage fails, Copilot shows that the debate is incomplete.
+
 ## Review changes and approvals
 
 Copilot actions don't all share one approval rule. Some validated operations run directly, some require an action card, and some produce an unsaved editor proposal or a feature-specific draft. Playbook management, trade actions, session controls, settings changes, observation deletion, and Learning maintenance include protected operations.

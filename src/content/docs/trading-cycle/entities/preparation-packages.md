@@ -43,6 +43,8 @@ Generation checks the actual delivered closed candles and indicators before aski
 
 Use the selected-run briefing and history to inspect the intended report. Read the report's effective time and expiry alongside its content, particularly when viewing historical runs.
 
+In **Conditional scenarios**, check the evidence for each reading and the market event that would favor it. When the evidence leaves the question open, the briefing keeps both supported readings conditional and lists the missing evidence.
+
 Expiry recipe edits describe future reports. Read any explicit override preview before changing the validity of existing results. Extending an expiry cannot supply missing source evidence.
 
 ## Use preparation in execution and backtests

@@ -127,6 +127,8 @@ After an app restart, interrupted runs with valid saved checkpoints return as `P
 
 Provider rate limits and some bounded recovery conditions also pause autonomous replay with a reason. Inspect that reason before choosing `Resume` or `Retry and resume`. Open simulated positions remain in the saved recovery state; Cortiq doesn't infer when your provider's allowance resets.
 
+The default Autonomous replay assessment can weigh the case for a different action using the historical evidence available at the replay cutoff. When reviewing a decision, check what would have changed the action at that moment. The later outcome belongs to the replay results.
+
 ## Verify the result
 
 Open the run from Backtests and check its status, period, warnings, and recorded coverage before interpreting P/L. `Completed` means replay reached its stopping condition; check whether the AI-cycle cap shortened it.

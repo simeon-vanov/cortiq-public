@@ -79,6 +79,8 @@ When a playbook's entry window closes, the session stays `Running`. New entries 
 
 Autonomous sessions retain market understanding separately from individual opportunities. An assessment updates that understanding, evaluates available opportunities, and sets meaningful local watches for changes that need attention. A global plan or an active opportunity is not required before the next assessment.
 
+When Cortiq establishes a view or material evidence changes it, the assessment weighs the strongest evidence-backed reason to take a different action. It can still favor the same direction while waiting for a better entry. Look for the observation that would change the action and any evidence still missing.
+
 While an autonomous session waits, Cortiq can arm a separate reassessment watch at the nearest confirmed support below price. A candle must close below that level on its source timeframe. This lets the session reassess a breakdown while another watch waits for a rebound. A watch with a stated deadline stops monitoring at that time.
 
 Live sessions, Autonomous backtests, and approved automated Trade Ideas share this assessment workflow. Their data cutoffs, execution authority, approvals, and risk checks remain specific to their context. A chart price alert only notifies you; it does not create an assessment watch or authorize a trade.
