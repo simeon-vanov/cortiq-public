@@ -123,6 +123,8 @@ Autonomous replay advances through historical M1 candles and runs assessments wh
 
 The AI receives available broker stop and freeze distances captured at the start of the run. These are the broker rules used for simulation. Historical costs can still be unknown. When enough prior candles have spread data, the AI also receives their median spread for comparison with the replay quote.
 
+Entry requires usable captured broker distances and tick size. Cortiq applies those rules together with structural protection and the strategy's reward/risk limits. If the captured broker rules are unavailable, the simulator withholds the entry and records why.
+
 Navigating away leaves an autonomous run working in the background. `Pause` lets the current AI call finish before parking replay; `Resume` continues from the committed boundary. `Cancel Run` ends the replay and keeps its recorded partial results.
 
 Cortiq supports up to five active background backtests. Pause doesn't free an active run's slot; finish or cancel a run before starting a sixth.
