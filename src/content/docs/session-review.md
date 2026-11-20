@@ -12,7 +12,7 @@ Review a fixed selection of saved session or backtest activity in a dedicated Co
 
 A review keeps its selected evidence and cutoff. New activity doesn't silently enlarge it. You can revisit the conversation, ask follow-up questions, and retain earlier reviews when you choose another scope.
 
-Preparing a review is local. **Start review** sends the first AI request. Opening or resuming an existing review doesn't send a request.
+When you start a review, Cortiq prepares the saved evidence locally and then sends the first request to the Review model. Opening a saved review shows its progress or assessment.
 
 ## How it fits into Cortiq
 
@@ -27,17 +27,21 @@ A published review doesn't edit a playbook, change trading rules, create a Learn
 - Check your provider's billing or subscription allowance before starting or sending a follow-up message.
 - For a backtest, pause or finish the run. Both Manual and Autonomous runs support review while paused. Keep replay at the captured position.
 
-A Manual run needs no AI cycles. Choose closed trades or dates when there are no completed cycles.
+A Manual backtest can be reviewed using its saved trades.
 
 ## How to use it
 
-### Choose and prepare the scope
+### Review a backtest
 
-1. Open the session's **Reviews** tab or the backtest's **Review** tab.
-2. Choose **Review scope**: **Latest cycles**, **Completed trades**, or **Date range**. Manual runs offer completed trades and dates without requiring AI cycles.
-3. For cycles or trades, set **Count** from 1–100; the default is 100. For dates, enter **From** and **To** using the timezone shown beside the fields. Dates include the complete matching selection without the count limit.
-4. For a session, optionally choose **Run** instead of **All runs**. A backtest already identifies its replay run.
-5. Select **Prepare review**, or **Prepare new review** when a selection is already saved. Check the selected items, cutoff, and limitations. **Selection previews · navigation only** doesn't count as evidence delivered to Copilot. No AI request has been sent yet.
+Select **Review** in the backtest header. Cortiq scrolls to the Review pane and starts the first review through the saved replay position. If a review already exists, the header opens that review. Select **Review again** when you want a new one.
+
+To inspect the covered period first, open the lower **Review** tab. Select **Review this backtest** when you're ready to start.
+
+### Choose a session review scope
+
+1. Open the session's **Review** tab.
+2. Under **Change scope**, choose the latest run, all runs, recent completed trades, or a date range. For recent trades, set a count from 1 to 100. For a date range, enter **From** and **To**.
+3. Select **Review this run** or **Review again** to review the selected evidence.
 
 An active session can be reviewed through its saved cutoff. In-flight cycles are excluded. Selecting a new scope creates another review and preserves the previous one.
 
@@ -45,11 +49,8 @@ Dates use your configured Cortiq timezone. If a local time doesn't exist or occu
 
 ### Start and discuss the review
 
-1. Check **Ready to start** and select **Start review** when the prepared scope is correct.
-2. Follow the dedicated Copilot conversation. Ask about a decision, trade, report, or limitation in the selected evidence.
-3. Inspect the saved evidence and coverage before accepting a conclusion. Copilot can read additional saved detail within the review's scope.
-4. Ask Copilot to save a draft when you want to retain work before publication.
-5. Ask Copilot to publish when the assessment and its limitations are ready.
+1. Follow the dedicated Copilot conversation. Ask about a decision, trade, report, or limitation in the selected evidence.
+2. Inspect the saved evidence and coverage before accepting a conclusion. Copilot can read additional saved detail within the review's scope.
 
 The review reads saved evidence. It doesn't collect new broker candles, advance replay, or start another report. Historical preparation, Sentiment reports, Learning inputs, and skill content appear when they were retained with the original activity. Missing historical content stays a stated gap.
 
@@ -100,10 +101,6 @@ Historical reviews, notes, attention flags, and lessons remain readable. Histori
 ## Screenshots
 
 Screenshots use sample data. Connection states and amounts are illustrative.
-
-![Backtest Review tab with scope and Prepare review action](/cortiq-public/images/screenshots/session-review__backtest-workspace.png)
-
-*Prepare the saved evidence before starting a review. No model review was requested for this image.*
 
 ![Saved review list with symbol filter and version selector](/cortiq-public/images/screenshots/session-review__panel.png)
 

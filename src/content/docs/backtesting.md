@@ -153,11 +153,11 @@ Autonomous chart decision markers open the corresponding decision details. Inspe
 
 ### Request a review
 
-Open the run's **Review** tab and choose **Review scope**. Eligible paused Manual and Autonomous runs and finished runs share this flow. Manual runs need no AI cycles; choose **Completed trades** or **Date range**. Running replay isn't reviewed concurrently.
+Pause or finish the replay, then select **Review** in the backtest header. Cortiq scrolls to the Review pane and starts the first review through the saved replay position. If a review already exists, the header shows its progress or assessment. Select **Review again** to start a new one.
 
-Select **Prepare review** to freeze the scope locally, then **Start review** to send the first request in the dedicated Copilot chat. Use **Open Copilot** or **Resume review** to reopen the same review; those actions send no request. Choosing another scope preserves the earlier review.
+To inspect the covered period before starting, open the lower **Review** tab. Select **Review this backtest** to start when you're ready. Manual and Autonomous backtests use the same flow.
 
-Inspect coverage, save a draft, or publish an assessment with its limitations. Supported Observations require saved proof; suggestions don't edit a playbook or create a Learning or validated strategy. See [Session review](/cortiq-public/session-review/) for the complete workflow and older attempt recovery.
+Follow the dedicated Copilot chat and inspect the assessment and its coverage in the Review pane. See [Session review](/cortiq-public/session-review/) for the complete workflow.
 
 ## Understand the limits
 
