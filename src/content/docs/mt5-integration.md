@@ -51,6 +51,9 @@ Open `Setup` → `MT5 Accounts` and add an entry. You'll need the terminal's exe
 
 Open MetaTrader 5 and drop `ZmqFacade.ex5` onto any chart with automated trading enabled. The EA also needs the MQL5 ZeroMQ library installed under MT5's `Include/Zmq/` folder. The EA's smiley face icon appears in the top-right of the chart when it's running.
 
+To supply the confirmed close details used by Journal's early-exit check,
+install and reload the bundled ZmqFacade 1.13.0 in the selected terminal.
+
 ### 3. Verify the bridge is healthy
 
 Cortiq's topbar shows an MT5 health indicator. Green means the bridge is connected and recent heartbeats arrived on time; red means the EA isn't responding. Don't start a session until the indicator is green.

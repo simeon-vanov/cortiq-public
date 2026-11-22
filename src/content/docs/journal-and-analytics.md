@@ -74,6 +74,23 @@ Check the candle count before relying on an excursion with gaps. Exact
 partial-exit deals are used when the account history supplies them. Select
 **Refresh** to see whether pending results have arrived.
 
+### Check a trade against a playbook
+
+Choose a playbook in **Journal this trade** or the trade's plan. **Playbook
+fit** checks the saved version's schedule, symbols, sessions, reward/risk,
+risk and timeframes against recorded evidence. **Not determinable** means
+the check needs more saved evidence. Before a fill, the card labels checks
+that use submitted order details.
+
+Use **Settings → Journal → Pre-trade checklist** to add items for all
+trades or for one playbook. Answer the relevant items and save the plan.
+Cortiq records the time of each answer.
+
+After close, **Suggested mistakes** shows the facts behind each suggestion.
+Choose **Accept** to add a mistake label to the trade or **Dismiss** to hide
+the suggestion. The bundled ZmqFacade 1.13.0 supplies the confirmed MT5
+exit details used by the early-exit check.
+
 ### Establish a review rhythm
 
 Don't open the journal only when something goes wrong. The loop that produces compounding improvement looks like this:
