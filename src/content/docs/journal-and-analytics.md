@@ -56,6 +56,24 @@ Updating from the earlier Journal removes its free-text trade notes and
 comma-separated tags. Trade ratings are retained.
 :::
 
+### Read a closed trade's metrics
+
+Open a closed trade and look for **Trade metrics**. R is the net result after
+costs divided by the original risk in your account currency. MAE is the
+largest move against the trade, and MFE is the largest move in its favor.
+Exit efficiency compares the net result with the most the position gained
+while it was open.
+
+The card shows where the original stop came from. If a confirmed entry has
+no recorded stop, you can enter it once using **Save original stop**.
+Some historical trades have enough information for price or excursion R
+values while account-currency risk stays unavailable.
+
+Cortiq uses one-minute candles, including the full fill and close minutes.
+Check the candle count before relying on an excursion with gaps. Exact
+partial-exit deals are used when the account history supplies them. Select
+**Refresh** to see whether pending results have arrived.
+
 ### Establish a review rhythm
 
 Don't open the journal only when something goes wrong. The loop that produces compounding improvement looks like this:
