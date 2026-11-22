@@ -12,7 +12,10 @@ This page covers the review surface of Cortiq: trade journals, session journals,
 
 Cortiq is not only about opening trades — it's also about understanding what happened and whether the workflow is improving. The review surface is built around that understanding.
 
-The Journal opens by session. Select a saved trade to inspect its entry, recorded management actions, exit, and available AI reasoning. Open the session's Reviews tab to examine behavior across a longer period.
+The Journal opens to **Overview**, where you can look across saved sessions.
+Use **Trades** to filter the records and open an individual trade. The
+Journal remembers your last applied filters. The session's **Reviews** tab
+contains its evidence-backed reviews.
 
 Analytics summarizes results, cohorts compare sessions side by side, and Conversations shows the saved AI dialogue. Explicit reviews assess saved decisions, capture supported Observations, and propose improvements.
 
@@ -30,7 +33,7 @@ flowchart LR
 
 The review surface lives across five screens:
 
-- `Library` → `Journal` — trade journal and session journal.
+- `Library` → `Journal` — cross-session analytics, the inbox, and saved trades.
 - `Library` → `Dashboard` — performance and risk overview.
 - `Library` → `Session Reviews` — saved review versions and links to each session's review controls.
 - the existing `/cohorts` screen — side-by-side session comparison.
@@ -103,6 +106,21 @@ Don't open the journal only when something goes wrong. The loop that produces co
 
 Changing two things at once turns the review into guesswork.
 
+### Filter and export your trades
+
+Use the filters on **Overview** or **Trades** to choose local trading dates,
+accounts, sessions, symbols, playbooks, and journal labels. You can narrow
+the view by live or paper mode, outcome, emotion, adherence, or checklist
+completion. Filter choices travel with the Journal link.
+
+Overview shows equity, drawdown, the calendar, the weekly summary, and
+breakdowns including results by adherence and mistake label. Monetary
+results are grouped by currency and mode. The coverage counts show which
+trades had complete net, R, and excursion data.
+
+On **Trades**, choose **Export CSV** or **Export PDF** to save the filtered
+records in your Cortiq exports folder under Documents.
+
 ### Read the right journal for the question
 
 | Question | Journal to read |
@@ -116,7 +134,7 @@ Changing two things at once turns the review into guesswork.
 
 ### Ask Copilot about a saved trade
 
-1. Open **Library → Journal**, select a session, and open the trade.
+1. Open **Library → Journal → Trades** and select the saved trade.
 2. Select **Ask Copilot about this trade** to start a conversation about the selected trade.
 3. Ask follow-up questions in the Copilot dock using the saved trade and action history.
 
@@ -181,9 +199,7 @@ For the lifetime of the local Cortiq install. Journals live in the local SQLite 
 
 Screenshots use sample data. Connection states and amounts are illustrative.
 
-![Journal listing recorded trades grouped by session](/cortiq-public/images/screenshots/workspace-and-monitoring__journal.png)
-
-*Journal contains recorded trades; inspect the session Decision Log for decisions that produced no trade.*
+Use the session's Decision Log to inspect decisions that produced no trade.
 
 ![Dashboard analytics for the selected demo account and date range](/cortiq-public/images/screenshots/journal-and-analytics__analytics.png)
 
