@@ -59,6 +59,19 @@ Updating from the earlier Journal removes its free-text trade notes and
 comma-separated tags. Trade ratings are retained.
 :::
 
+### Journal trades placed in MetaTrader
+
+In **Trades**, set **Source** to **MetaTrader** to find closed positions you
+placed directly in a configured terminal. Open a position and use **Reflect**
+to explain why you took it. Cortiq labels that reason as written after close.
+The first save keeps the position and its Journal entries available when the
+terminal is offline or older history is unavailable.
+
+For a single confirmed entry, save the original stop to see MAE and MFE in R
+when candle data is available. Net in R requires the original cash risk.
+Overview reports how many MetaTrader trades came from current history and
+how many came from saved snapshots.
+
 ### Read a closed trade's metrics
 
 Open a closed trade and look for **Trade metrics**. R is the net result after
