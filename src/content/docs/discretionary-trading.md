@@ -67,6 +67,10 @@ The preview is advisory. Cortiq re-runs license, risk, and broker validation at 
 
 The chart shows temporary entry, stop, and target tags while the ticket is open. Hiding the panel clears the draft bracket. Moving prices across an invalid stop or target blocks placement until you correct them.
 
+After Cortiq places the order, **Journal this trade** opens beside the chart. Add
+your reason, choose a playbook or mark the trade discretionary, and save. Choose
+**Later** to defer it. While the trade remains open, **Add why** reopens the form.
+
 ## Manage an open position
 
 Open positions appear on the **Trades** tab and draw their entry, stop, and target on the chart. Each row offers:
@@ -74,6 +78,9 @@ Open positions appear on the **Trades** tab and draw their entry, stop, and targ
 - **Close** — close the position at market.
 - **Partial close** — close part of the volume.
 - **Modify SL/TP** — move the stop, the target, or both.
+
+Enter **Why?** on a management action to save a note with the accepted action.
+Use **Add note** to record a thought while the position is open.
 
 ## What Cortiq still does for you
 

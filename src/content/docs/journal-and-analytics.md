@@ -38,6 +38,24 @@ The review surface lives across five screens:
 
 ## How to use it
 
+### Record and reflect on a trade
+
+1. After a Manual order is placed, use **Journal this trade** to record your
+   entry reason, playbook, confidence, setup grade, emotion, and exit plan.
+2. Open **Library → Journal** to see trades that still need a reason or a
+   reflection. Select a trade to see its notes and saved placement details.
+3. After close, use **Reflect** to record how closely you followed your plan,
+   mistakes, and one lesson. A reason added after close is labelled with its
+   timing.
+
+Manage reusable tags and mistake labels under **Settings → Journal**. The
+end-of-day reflection reminder is off by default.
+
+:::caution
+Updating from the earlier Journal removes its free-text trade notes and
+comma-separated tags. Trade ratings are retained.
+:::
+
 ### Establish a review rhythm
 
 Don't open the journal only when something goes wrong. The loop that produces compounding improvement looks like this:
