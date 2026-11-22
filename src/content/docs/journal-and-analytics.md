@@ -12,13 +12,9 @@ This page covers the review surface of Cortiq: trade journals, session journals,
 
 Cortiq is not only about opening trades — it's also about understanding what happened and whether the workflow is improving. The review surface is built around that understanding.
 
-Three journal types capture different scopes:
+The Journal opens by session. Select a saved trade to inspect its entry, recorded management actions, exit, and available AI reasoning. Open the session's Reviews tab to examine behavior across a longer period.
 
-- **Trade journal** — one trade, with entry, management, exit, and the AI's reasoning attached.
-- **Session journal** — one session over a broader window, with cycle-by-cycle behavior.
-- **Run journal** — one start-to-stop run, useful for comparing executions of the same configuration.
-
-Analytics computes the metrics on top of those journals; cohorts let you compare sessions side-by-side; conversations gives you the raw AI dialogue when the rendered journal isn't enough. Explicit reviews assess saved decisions, capture supported Observations, and propose improvements. They do not automatically inject lessons into later sessions.
+Analytics summarizes results, cohorts compare sessions side by side, and Conversations shows the saved AI dialogue. Explicit reviews assess saved decisions, capture supported Observations, and propose improvements.
 
 ## How it fits into Cortiq
 
@@ -61,9 +57,15 @@ Changing two things at once turns the review into guesswork.
 | Did this single trade follow the playbook? | Trade journal. |
 | Did this session stay disciplined over the day? | Session journal. |
 | Did the AI's reasoning change after I edited the playbook? | Conversations view + session journal. |
-| How does this run compare to last week's? | Run journal + analytics. |
+| How does this run compare to last week's? | Analytics and cohorts. |
 | Which configuration is winning across multiple sessions? | Cohorts. |
 | What should I change for the next run on this symbol? | Session review. |
+
+### Ask Copilot about a saved trade
+
+1. Open **Library → Journal**, select a session, and open the trade.
+2. Select **Ask Copilot about this trade** to start a conversation about the selected trade.
+3. Ask follow-up questions in the Copilot dock using the saved trade and action history.
 
 ### Compare configurations with cohorts
 
