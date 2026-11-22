@@ -107,6 +107,21 @@ Choose **Accept** to add a mistake label to the trade or **Dismiss** to hide
 the suggestion. The bundled ZmqFacade 1.13.0 supplies the confirmed MT5
 exit details used by the early-exit check.
 
+### Plan and review a trading day
+
+Select a day in the **Overview** calendar. Choose **All accounts** or a
+specific account to see the trades and results for that scope. Its dates
+follow your timezone and the trading day start in risk settings.
+
+Use **Pre-market plan** to name the playbooks you want to focus on and set
+an entry time, maximum trade count or daily loss limit. Enter the currency
+for a loss limit. A trade can receive a mistake suggestion when it exceeds
+a rule that was already saved at entry. Save your notes and mood under
+**Day review** after trading.
+
+The first Manual session you open for an account offers its daily plan.
+Dismiss it on the session or turn it off under **Settings → Journal**.
+
 ### Establish a review rhythm
 
 Don't open the journal only when something goes wrong. The loop that produces compounding improvement looks like this:
