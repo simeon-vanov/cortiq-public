@@ -83,7 +83,7 @@ Backtests capture replay-supported global and selected-account limits when they 
 | Maximum total open trades | Global, per-account | Concurrent open positions reach the limit. |
 | Maximum trades per symbol | Global | Concurrent positions on one symbol reach the limit. |
 | Maximum symbol exposure | Global | Combined risk exposure on one symbol exceeds the configured percentage of balance. |
-| Default risk per trade | Global, per-account | Supplies the base percentage for risk-based sizing, subject to account, playbook, and recovery adjustments. It is not a universal ceiling on manually entered lots. |
+| Default risk per trade | Global, per-account | Supplies the base percentage for risk-based sizing. Playbook and Trade Idea multipliers scale this base. Enabled risk limits and recovery rules also apply. |
 | Stop-on-loss-streak | Global | Consecutive losing trades reach the configured count. |
 | Include manual trades | Global setting | Controls whether outside/manual MT5 trades enter the managed risk scope. |
 

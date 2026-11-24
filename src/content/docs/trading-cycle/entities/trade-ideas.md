@@ -48,6 +48,14 @@ Cortiq rechecks current broker rules, the executable price, and account risk bef
 
 Check the idea's current lifecycle and approval status after edits. Copilot draft preparation does not grant permission to enable it. See [Agent permissions](/cortiq-public/agent-permissions/) for the approval boundaries.
 
+### Position sizing
+
+New drafts start at 100% of base risk. Set **Risk multiplier (% of base risk)** to size smaller or larger. With a base risk of 1% of account balance, a multiplier of 25 targets 0.25% and a multiplier of 200 targets 2%. The planner shows a cash estimate using the current base.
+
+An approved multiplier follows future changes to base risk. Changing the multiplier on the idea requires approval of a new revision. Existing fixed-risk approvals continue to use their saved amount or percentage. To change an existing fixed-percentage idea, edit its sizing mode and review the new revision.
+
+The final size also depends on available risk, exposure, the stop, and broker lot limits. Cortiq withholds an entry if the broker's minimum lot would exceed the allowed risk or if the multiplier has no positive base risk. [Risk management](/cortiq-public/risk-management/)
+
 ### When to use what
 
 | Need | Use |
