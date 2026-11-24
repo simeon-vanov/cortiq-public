@@ -121,6 +121,7 @@ The advertised tools depend on the connection's scope. Use the client's tool des
 | Sentiment | Manage packages and generate current reports from verified provider web research. |
 | Research and knowledge | Run supported research workflows, inspect evidence, and use explicit knowledge review tools. |
 | Chart tools and price alerts | Annotate a matching mounted chart, or manage a live session's one-shot price alerts. |
+| Notes | Save, search and read informal notes on a standalone connection. |
 | Accounts, symbols, risk, and history | Inspect configured accounts, symbol details, risk settings, saved trades, and statistics. |
 
 Authoring follows the same compatibility rules as the app. A generated policy is a proposal until saved through the validated authoring path. Saving a draft does not establish launch readiness, and current source availability does not prove historical availability.
@@ -135,6 +136,18 @@ To let a trusted local client start work, set `CORTIQ_MCP_ALLOW_RESEARCH_STARTS=
 - To build a saved managed file, call `start_research_data_file_build` with its file ID and a unique operation ID. Keep the same ID when retrying an interrupted request. Check `get_research_data_file_build` for the outcome and `get_research_data_file_preview` for the result.
 
 A build uses the saved definition when the worker opens the file and can continue after the client disconnects. Recent operation receipts are available while the desktop stays open. A successful build remains available through the managed file and its preview. Starts can use your configured AI provider and license. Trade access and Task approvals follow their existing rules.
+
+### Keep notes
+
+A standalone connection can keep informal markdown notes in your Cortiq database, so an agent can find an idea again in a later conversation.
+
+- `save_note` creates a note. Its title defaults to the first line. Pass `noteId` to add text to a note the client created earlier. The client cannot change a note written by you or by Copilot.
+- `search_notes` finds notes by words in the title or body, and can filter by symbol or tag. With no query it lists the newest notes.
+- `read_note` returns the full note, its links and the notes that link to it.
+
+Write `#tag` to tag a note. Link to another note with `[[Note title]]`, or use `[[note:12|Title]]`, `[[chat:<id>|Title]]` or `[[learning:42|Title]]`. A link to something that was deleted is reported as dead.
+
+Notes are unverified. Cortiq never treats them as evidence, never adds them to Learnings and never shows them to Autonomous sessions, backtests or Copilot. The desktop does not list notes yet.
 
 ### Scoped connections
 
