@@ -52,6 +52,8 @@ Cortiq rechecks current broker rules, the executable price, and account risk bef
 
 When an entry is blocked, the Trade Idea card shows the reason from the execution check. Select **View full assessment** to read the AI's analysis. For a first-candle entry, the idea becomes **Missed** when its entry window ends without a trade.
 
+For a pending order that follows an instruction with a candle-close trigger, Cortiq uses the time you enabled the idea to assess post-enablement conditions. If the idea is still monitoring and has no active entry trigger or reassessment watch, Cortiq can check again after a new candle closes on the selected timeframe, up to the idea's expiry.
+
 Check the idea's current lifecycle and approval status after edits. Copilot draft preparation does not grant permission to enable it. See [Agent permissions](/cortiq-public/agent-permissions/) for the approval boundaries.
 
 ### Position sizing
