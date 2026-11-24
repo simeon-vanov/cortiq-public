@@ -40,6 +40,8 @@ Descriptions allow up to 1,000 characters and bodies up to 20,000. Editing a reu
 - Attach a skill through Copilot's attachment tray before asking it to use the method.
 - Use session, Autonomous backtest, or trade-idea attachment controls for guidance that belongs to that configured context. Choose `Entry`, `Management`, or `Both` for each skill, then select `Apply skills`.
 
+Before a trading assessment, Cortiq supplies the saved version of each skill attached for that phase. The approved idea or playbook determines where that guidance applies.
+
 Do not assume that a saved skill is active everywhere. Check the visible selections or attachments for the operation you are about to run.
 
 ## Reference

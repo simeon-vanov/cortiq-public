@@ -35,6 +35,8 @@ Treat the session as a trading-desk template. Duplicate a stable setup before ex
 
 Pinned playbooks own user-local active days, entry windows, and automatic-close offsets. A closed playbook window suppresses new entries for that playbook without pausing the session or ending management. The session's `End Date` separately limits its lifetime.
 
+In Autonomous sessions, use the session instructions and pinned playbooks to specify confirmation, order type, target selection, and when to reassess. Cortiq uses its discretionary guidance where your strategy delegates those choices. Attached skills supply the method for their selected phase. Applicable Learnings can inform a delegated decision when access is available. Cortiq checks current evidence and applies risk, permission, and order validation before execution.
+
 ## Reference
 
 ### Entities a session references

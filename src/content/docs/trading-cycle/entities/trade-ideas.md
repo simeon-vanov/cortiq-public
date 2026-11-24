@@ -42,6 +42,10 @@ When you or Copilot enter exact prices, Cortiq checks the broker's stop and free
 
 With an idea open on the session chart, select **Plan** to show its price levels. The labels identify the trigger, pending order, stop, target, cancellation, and zone bounds when the plan defines them.
 
+For a standalone Stop or Limit, set **Placement** to **After enablement and execution checks** to authorize one order with a fixed stop, target, and cancellation price. Cortiq checks the current quote, broker rules, permissions, and risk before placement. It uses the saved cancellation price and expiry while the order is unfilled. For an entry that requires a thesis judgment or an Entry skill, choose **After AI confirms the thesis**.
+
+Open **Skills** on the idea to attach your own analysis method. Choose **Entry**, **Management**, or **Both**. The review shows the attachments before enablement. Cortiq supplies the relevant skill to the AI when that phase requires an assessment. [Skills](/cortiq-public/skills/)
+
 Review the concrete plan, source account and instrument, entry/management constraints, expiry, and proposed changes before approving and enabling it. Invalid or incomplete mandate rules keep approval disabled. This authority is separate from the general Autonomous session loop and from a one-time operator order.
 
 Cortiq rechecks current broker rules, the executable price, and account risk before order submission. An idea can qualify at creation and be withheld later if these inputs change.
