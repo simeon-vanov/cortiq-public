@@ -47,7 +47,7 @@ Playbooks and policies are optional in both session types. When attached rules d
 
 ### Follow autonomous trade ideas
 
-In **General → Autonomous trade ideas**, enable **Assess trade ideas independently** and select **Save** to use idea-based scheduling for new eligible autonomous runs and replays. A running session retains its saved scheduling mode. Cortiq also retains that mode when existing trade ideas, orders, or unresolved execution need it.
+New autonomous sessions and replays follow trade ideas automatically.
 
 The session assesses market conditions and looks for setups supported by its playbooks. Once a setup is established, the session can create an idea for its remaining entry conditions. An idea follows its own trigger, invalidation and expiry. Each idea uses the session's execution permissions and risk controls. Model calls for separate ideas can overlap in live sessions when provider capacity is available.
 
