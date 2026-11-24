@@ -60,6 +60,27 @@ Saved conversations restore their messages and recorded activity. A provider rec
 
 In `Library` → `Copilot chats`, Copilot can inspect your current filters, result counts and up to 50 visible chat headers. This page view contains no conversation messages and offers no actions to pin or delete chats.
 
+### Attach files
+
+Select the paperclip in the composer to attach up to 20 files to one message. Each file appears as a chip you can remove before sending.
+
+| File | Limit | How the model receives it |
+|---|---|---|
+| PNG or JPEG image | 4 MB | As an image |
+| Text, CSV, JSON, Markdown, log or code file | 30 MB | As text, marked as your data rather than instructions |
+
+Text chips show an estimated token count. The model's context window is the real limit: an API connection stops a request that doesn't fit, and a subscription connection shows the provider's own error. MT5 journal logs saved as UTF-16 are read correctly. PDFs, Office documents and other binary files aren't supported.
+
+Your saved message lists the attached file names. The file contents go with that message only, so attach a file again if a later chat needs it. Attachments aren't available with `/task`, `/debate` or in Review conversations.
+
+### Dictate a message
+
+Select the microphone, speak, then select it again to stop. Recording stops automatically after three minutes. Cortiq transcribes your speech in English on this computer and adds the text to the message box, so you can correct it before sending. Audio is never saved or uploaded.
+
+Dictation uses the NVIDIA Parakeet Unified EN 0.6B speech model. The first time you select the microphone, Cortiq offers a one-time 663 MB download. You can also download or delete the model under `Settings` → `Copilot` → `Voice input`.
+
+If Cortiq reports that the microphone is blocked, open Windows `Settings` → `Privacy & security` → `Microphone` and allow desktop apps to use it.
+
 ## Check application logs
 
 1. Open the Dashboard, then open Copilot and start a new chat there. This gives Copilot access to the current desktop logs.
