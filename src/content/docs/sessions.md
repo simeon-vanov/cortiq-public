@@ -53,6 +53,8 @@ The session assesses market conditions and looks for setups supported by its pla
 
 Open **Ideas** in the session and choose a trading day to see recorded ideas and what happened to them. Select an idea to review the playbook version, the setup evidence, the remaining conditions and any linked trade or decision. Earlier records can show the session's playbook sources when the exact selection was unavailable.
 
+Open **Decision Details** for a discovery assessment to see the setups the AI considered and its recorded reasoning. **Discovery result** shows how many Trade Ideas the assessment created when that outcome is available. An assessment can create a watch for another market check and still end with zero Trade Ideas.
+
 ### Choose a provider for Manual trade ideas
 
 A new Manual session with in-app control takes its provider and connection from `Setup` → `AI Providers` → `Trading Cycle (session default)`. Cortiq saves that connection on the session. Automated trade ideas check it when you select `Enable idea`. Copilot uses the provider selected in its conversation.
