@@ -127,6 +127,15 @@ Authoring follows the same compatibility rules as the app. A generated policy is
 
 Historical sentiment generation is unavailable. A backdated request cannot use today's web research as evidence for a past session. Preparation and profile history have different generation contracts; do not treat all supporting artifacts as interchangeable.
 
+### Start checked research and managed file builds
+
+To let a trusted local client start work, set `CORTIQ_MCP_ALLOW_RESEARCH_STARTS=1` in that connection’s environment and reconnect. Keep the updated Cortiq desktop running under the same Windows user and using the same database as the MCP server.
+
+- To start research, review the exact checked draft returned by `get_research_draft`. Ask the client to call `start_research_draft` with its ID and saved revision. Follow the returned run with `get_knowledge_run_status`.
+- To build a saved managed file, call `start_research_data_file_build` with its file ID and a unique operation ID. Keep the same ID when retrying an interrupted request. Check `get_research_data_file_build` for the outcome and `get_research_data_file_preview` for the result.
+
+A build uses the saved definition when the worker opens the file and can continue after the client disconnects. Recent operation receipts are available while the desktop stays open. A successful build remains available through the managed file and its preview. Starts can use your configured AI provider and license. Trade access and Task approvals follow their existing rules.
+
 ### Scoped connections
 
 Read-only Research, a manual backtest Copilot, and the standalone Chart workspace have restricted tool surfaces. A chart or historical context does not grant live-trading authority. Missing tools in those contexts can be intentional restrictions.
