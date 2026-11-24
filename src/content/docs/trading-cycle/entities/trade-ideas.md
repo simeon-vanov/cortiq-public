@@ -50,6 +50,8 @@ Review the concrete plan, source account and instrument, entry/management constr
 
 Cortiq rechecks current broker rules, the executable price, and account risk before order submission. An idea can qualify at creation and be withheld later if these inputs change.
 
+When an entry is blocked, the Trade Idea card shows the reason from the execution check. Select **View full assessment** to read the AI's analysis. For a first-candle entry, the idea becomes **Missed** when its entry window ends without a trade.
+
 Check the idea's current lifecycle and approval status after edits. Copilot draft preparation does not grant permission to enable it. See [Agent permissions](/cortiq-public/agent-permissions/) for the approval boundaries.
 
 ### Position sizing
