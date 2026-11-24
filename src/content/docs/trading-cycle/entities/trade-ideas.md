@@ -32,6 +32,12 @@ Don't use trade ideas as a replacement for your core playbook library. If the lo
 
 ## Reference
 
+### Ideas created by autonomous sessions
+
+When independent idea assessment is enabled, the session can create an idea once the setup from a pinned playbook is established. The idea waits for its remaining entry conditions and follows its own invalidation or expiry. For example, a trend pullback idea records the trend evidence at creation and watches for the pullback and confirmation.
+
+The session's **Ideas** view groups recorded ideas by trading day. The idea detail shows the selected playbook version, the recorded setup and pending conditions, and links to available decisions and trades. The session can look for another setup when the active ideas end or an independent discovery condition is met. [Sessions](/cortiq-public/sessions/#follow-autonomous-trade-ideas)
+
 ### Automated trade ideas
 
 Where the runtime supports automated ideas, a Manual session can host one under its own reviewed mandate. A saved thesis alone does not enable automatic execution.

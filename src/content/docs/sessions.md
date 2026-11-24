@@ -45,6 +45,14 @@ Before starting, configure an MT5 account and activate your license. For an Auto
 
 Playbooks and policies are optional in both session types. When attached rules depend on particular inputs, their compatibility and actual availability still have to pass the launch checks.
 
+### Follow autonomous trade ideas
+
+In **General → Autonomous trade ideas**, enable **Assess trade ideas independently** and select **Save** to use idea-based scheduling for new eligible autonomous runs and replays. A running session retains its saved scheduling mode. Cortiq also retains that mode when existing trade ideas, orders, or unresolved execution need it.
+
+The session assesses market conditions and looks for setups supported by its playbooks. Once a setup is established, the session can create an idea for its remaining entry conditions. An idea follows its own trigger, invalidation and expiry. Each idea uses the session's execution permissions and risk controls. Model calls for separate ideas can overlap in live sessions when provider capacity is available.
+
+Open **Ideas** in the session and choose a trading day to see recorded ideas and what happened to them. Select an idea to review the playbook version, the setup evidence, the remaining conditions and any linked trade or decision. Earlier records can show the session's playbook sources when the exact selection was unavailable.
+
 ### Choose a provider for Manual trade ideas
 
 A new Manual session with in-app control takes its provider and connection from `Setup` → `AI Providers` → `Trading Cycle (session default)`. Cortiq saves that connection on the session. Automated trade ideas check it when you select `Enable idea`. Copilot uses the provider selected in its conversation.
