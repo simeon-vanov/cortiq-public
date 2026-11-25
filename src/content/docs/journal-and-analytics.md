@@ -85,6 +85,11 @@ no recorded stop, you can enter it once using **Save original stop**.
 Some historical trades have enough information for price or excursion R
 values while account-currency risk stays unavailable.
 
+Pending orders keep a placement time and a separate broker fill time.
+Cohort comparisons and session PDF reports measure holding time from the
+fill. Copilot can show when the order filled and whether its risk percentage
+was available.
+
 Cortiq uses one-minute candles, including the full fill and close minutes.
 Check the candle count before relying on an excursion with gaps. Exact
 partial-exit deals are used when the account history supplies them. Select
