@@ -83,11 +83,13 @@ If Cortiq reports that the microphone is blocked, open Windows `Settings` → `P
 
 ## Keep notes
 
-`Knowledge` → `Notes` holds informal markdown notes: half-formed ideas, questions to check later, or a useful answer you want to keep. Notes are unverified. Cortiq never uses them as evidence and never shows them to Autonomous sessions or backtests. When the Notes page is open, Copilot can see note titles and your filters, but not note text.
+`Knowledge` → `Notes` holds informal markdown notes: half-formed ideas, questions to check later, or a useful answer you want to keep. Notes are unverified. Cortiq never uses them as evidence and never shows them to Autonomous sessions or backtests.
 
 1. Select `New note`, or select the note icon under any finished chat message to start a note from its text. A note saved from a chat keeps a link back to it.
 2. Write in markdown. Add `#tags` to group notes, and type `[[` to link a note, chat or Learning. A link to a note that doesn't exist yet creates it when you open the link.
 3. Select `Save` or press `Ctrl+S`. Use `Preview` to see links as chips and the notes that link to this one.
+
+In a chat, you can ask Copilot to save something to your notes or to find and read a note, for example “save that to my notes” or “what did I note about London fakeouts?”. Copilot writes notes under its own name, links them to the chat, and can add to its own notes but never change yours. It treats note text as your unverified notes, not evidence. Notes aren't available to Copilot in Review conversations, Tasks, manual backtests or the standalone Chart.
 
 A link to something that was deleted stays as crossed-out text. Deleting a note is permanent. If a note changed while you were editing it, for example because an external MCP client added to it, Cortiq keeps your text and asks you to reload before saving.
 
