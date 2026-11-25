@@ -49,7 +49,7 @@ Open `Tools` → `Risk Management` and select the `Global` tab. Set conservative
 
 Set limits for the exposure you intend to authorize. Monitoring and broker execution introduce delay, so a configured threshold is not a guaranteed loss ceiling.
 
-Use **Entry risk tolerance** to set how much the projected stop-loss risk can rise when the quote moves before Cortiq sends a candle-close Trade Idea market order. This applies to entries on the first close after enablement or on a confirming close. The default is 10%. If Cortiq sized the entry for a projected loss of $10, the setting can allow up to $11 when the approved risk and exposure limits have room. Enter 0% to require the sized risk. Cortiq still checks the entry window, stop, target, and broker rules before sending the order.
+Use **Entry risk tolerance** to set how much the projected stop-loss risk can rise between sizing and submission for market, limit, and stop orders. The default is 10%. If Cortiq sized the order for a projected loss of $10, it can accept up to $11 when the approved risk and exposure limits have room. Set 0% to allow no increase. Cortiq still checks the entry window, stop, target, and broker rules before sending the order.
 
 ### Configure per-account limits
 
