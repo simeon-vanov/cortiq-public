@@ -55,6 +55,8 @@ Open **Ideas** in the session and choose a trading day to see recorded ideas and
 
 Open **Decision Details** for a discovery assessment to see the setups the AI considered and its recorded reasoning. **Discovery result** shows how many Trade Ideas the assessment created when that outcome is available. An assessment can create a watch for another market check and still end with zero Trade Ideas.
 
+Under **What it’s waiting for**, check each watch’s timeframe, direction and price threshold when the saved record includes them. Reward/risk targets written as guidance in session instructions inform the AI’s analysis. Cortiq applies the recorded host minimum at order validation, which defaults to 0.01R when no typed minimum applies.
+
 ### Choose a provider for Manual trade ideas
 
 A new Manual session with in-app control takes its provider and connection from `Setup` → `AI Providers` → `Trading Cycle (session default)`. Cortiq saves that connection on the session. Automated trade ideas check it when you select `Enable idea`. Copilot uses the provider selected in its conversation.

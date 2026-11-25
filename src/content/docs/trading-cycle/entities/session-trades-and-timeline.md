@@ -54,6 +54,8 @@ For analysis and review, see [Journal & analytics](/cortiq-public/journal-and-an
 
 ### How to use the trade and timeline history
 
+For a live pending order that ended unfilled, **Settlement recorded** shows when Cortiq recorded the terminal state. Use **Broker time unavailable** to identify cases where the history has no exact broker cancellation or expiry time.
+
 | Use case | What to look for |
 | --- | --- |
 | Review whether playbooks are too loose or too strict | Patterns of low-conviction entries or repeatedly-passed setups. |
