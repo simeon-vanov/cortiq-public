@@ -54,6 +54,8 @@ Open **Skills** on the idea to attach your own analysis method. Choose **Entry**
 
 Review the concrete plan, source account and instrument, entry/management constraints, expiry, and proposed changes before approving and enabling it. Invalid or incomplete mandate rules keep approval disabled. This authority is separate from the general Autonomous session loop and from a one-time operator order.
 
+To prepare an idea before the open, save and review it in the Manual session. If the broker confirms a future opening, the saved monitoring window starts then. A one-hour idea for a 10:20 opening expires at 11:20. The review shows both timestamps. Cortiq can arm the setup before the open and wait for qualifying market evidence. If the broker hasn't confirmed a future opening, the window starts on save.
+
 Cortiq rechecks current broker rules, the executable price, and account risk before order submission. An idea can qualify at creation and be withheld later if these inputs change.
 
 When an entry is blocked, the Trade Idea card shows the reason from the execution check. Select **View full assessment** to read the AI's analysis. For a first-candle entry, the idea becomes **Missed** when its entry window ends without a trade.
@@ -62,7 +64,7 @@ If the host rejects an assessment, open **Decision Details** for the recorded re
 
 For a position or pending order created by a Manual-session Trade Idea, use **View trade idea** in its journal to open the owning automation. Each idea assesses its own positions and orders for management. Session-wide and account-wide limits still apply to new entries.
 
-For a pending order that follows an instruction with a candle-close trigger, Cortiq uses the time you enabled the idea to assess post-enablement conditions. If the idea is still monitoring and has no active entry trigger or reassessment watch, Cortiq can check again after a new candle closes on the selected timeframe, up to the idea's expiry.
+For a first-candle instruction or a pending order that follows a candle-close instruction, Cortiq uses candles that close after enablement and any saved broker opening. If an instruction-led pending order has no active entry trigger or reassessment watch, Cortiq can check again after a new candle closes on the selected timeframe, up to the idea's expiry.
 
 Check the idea's current lifecycle and approval status after edits. Copilot draft preparation does not grant permission to enable it. See [Agent permissions](/cortiq-public/agent-permissions/) for the approval boundaries.
 
