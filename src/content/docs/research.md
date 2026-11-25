@@ -106,6 +106,8 @@ For Topic and Gather research, use the action that matches the work you want to 
 
 After reopening Cortiq, interrupted Topic and Gather runs wait in `Paused` for `Continue`. Startup doesn't automatically restart AI calls. Closing the app stops local execution; continuing later uses the retained checkpoints.
 
+If Cortiq reports that the bundled Python sandbox is missing, use a desktop build that includes it. Then open the saved study and choose **Continue**. For an active Task with the same approved plan and no newer retry, Cortiq records the outcome on the existing Task without spending a retry slot.
+
 ## Read the saved results
 
 Completed Topic studies open on `Results`; other execution states open on `Research questions`. Your original intent remains visible across the five views:
