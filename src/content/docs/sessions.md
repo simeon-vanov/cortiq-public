@@ -93,7 +93,7 @@ Autonomous sessions retain market understanding separately from individual oppor
 
 When Cortiq establishes a view or material evidence changes it, the assessment weighs the strongest evidence-backed reason to take a different action. It can still favor the same direction while waiting for a better entry. Look for the observation that would change the action and any evidence still missing.
 
-While an autonomous session waits, Cortiq can arm a separate reassessment watch at the nearest confirmed support below price. A candle must close below that level on its source timeframe. This lets the session reassess a breakdown while another watch waits for a rebound. A watch with a stated deadline stops monitoring at that time.
+While an autonomous session waits, it can watch for evidence that could change its next decision. Cortiq checks these conditions locally. For example, a reclaim watch can wait for price to sweep a level and for a candle to close back across it before asking the model to reassess. A price crossing alone can request review when it invalidates the current view or changes a position decision. A watch with a stated deadline stops monitoring at that time.
 
 Live sessions, Autonomous backtests, and approved automated Trade Ideas share this assessment workflow. Their data cutoffs, execution authority, approvals, and risk checks remain specific to their context. A chart price alert only notifies you; it does not create an assessment watch or authorize a trade.
 
