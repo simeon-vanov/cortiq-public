@@ -34,7 +34,7 @@ Switch timeframes with the toolbar: **M1**, **M5**, **M15**, **H1**, **H4**, **D
 
 Scroll left and Cortiq fetches older candles automatically as you approach the edge of what is loaded. Scroll far enough forward and it fetches newer ones. Your viewport position is preserved when history is prepended.
 
-If the tick feed goes quiet for 30 seconds, a stale-feed indicator appears and Cortiq attempts to resubscribe.
+When MT5 confirms the instrument is outside its trading hours, the chart shows **Market closed**. The latest candles and your drawings stay visible. If the feed goes quiet for 30 seconds during trading hours, or if Cortiq can't verify the schedule, Cortiq attempts to reconnect and shows a stale-feed indicator.
 
 ### Drawing tools
 
