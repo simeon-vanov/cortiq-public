@@ -87,7 +87,7 @@ If Cortiq reports that the microphone is blocked, open Windows `Settings` → `P
 2. Describe what failed, when it happened, and your time zone. For example, send “Research stopped at about 14:30 today, Sofia time. Check the Cortiq application logs from 14:20 to 14:40 for warnings or errors. Cite the relevant timestamps and log references and tell me what they show.”
 3. Check that the reply covers the time window you gave. If Copilot found matching entries, look for timestamps, log references, and which conclusions come directly from the evidence. If the search found no matches, ask what part of the logs it was able to check.
 
-Copilot reads selected excerpts from local desktop logs. The excerpts used in the answer go to your configured AI provider. Use a Dashboard chat if you were troubleshooting from replay, standalone Chart, or a read-only Research conversation.
+Copilot can search or page through retained desktop logs, including earlier entries and rolled files. Give it a time window or a message to look for. The excerpts Copilot reads go to your configured AI provider. Use a Dashboard chat if you were troubleshooting from replay, standalone Chart, or a read-only Research conversation.
 
 If you want to report the issue, ask Copilot to prepare a bug report from the relevant entries. Review the draft for private information, then submit it yourself using the linked public GitHub form.
 
