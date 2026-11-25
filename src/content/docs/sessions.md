@@ -51,6 +51,21 @@ New autonomous sessions and replays follow trade ideas automatically.
 
 The session assesses market conditions and looks for setups supported by its playbooks. Once a setup is established, the session can create an idea for its remaining entry conditions. An idea follows its own trigger, invalidation and expiry. Each idea uses the session's execution permissions and risk controls. Model calls for separate ideas can overlap in live sessions when provider capacity is available.
 
+The session agent chooses how each idea follows the setup.
+
+- **Mechanical.** The agent saves the exact condition and order terms.
+  Cortiq can submit when the condition and execution checks pass.
+- **Instruction-led.** The agent saves what evidence the idea should use.
+  The idea can set later watches and derive the entry, stop and target
+  when the evidence is ready. Cortiq validates the order before submission.
+
+The session agent can set the first watch for an instruction-led idea.
+If it leaves the first watch open, the idea gets one initial assessment.
+Later matching watches wake the idea that owns them. A close-based
+placement window ends at the next close on that timeframe or the idea
+expiry, whichever comes first. A submitted pending order follows its
+own expiry and cancellation rules.
+
 Open **Ideas** in the session and choose a trading day to see recorded ideas and what happened to them. Select an idea to review the playbook version, the setup evidence, the remaining conditions and any linked trade or decision. Earlier records can show the session's playbook sources when the exact selection was unavailable.
 
 Open **Decision Details** for a discovery assessment to see the setups the AI considered and its recorded reasoning. **Discovery result** shows how many Trade Ideas the assessment created when that outcome is available. An assessment can create a watch for another market check and still end with zero Trade Ideas.
