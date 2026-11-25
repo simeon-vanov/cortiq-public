@@ -118,6 +118,12 @@ Use these requests for different outcomes:
 
 A recommendation, saved draft, measurement check, approved run, and saved Learning are separate outcomes. Opening a draft or completing a Copilot turn does not start research. See [Research](/cortiq-public/research/) for the full workflow and measurement limitations.
 
+## Plan several studies as a Task
+
+Open **Library → Tasks** to create or track a multi-step Task for one instrument. In an ordinary Copilot chat with an API or Subscription connection, use `/task` to request a proposal. For example, type `/task Plan three separate GOLD research runs` and include the question for each run and the date range.
+
+Check that **Planned work** has one research step per study. Use **Edit** if you need to change the plan or limits. Choose **Start Task** to approve the displayed limits and queue the first step. Open the Task to see each step’s progress and respond to items under **Needs you**.
+
 ## Inspect charts and saved trading data
 
 On a mounted chart, ask Copilot to inspect the instrument and timeframe in its context, request historical candles for a named period, or annotate a level or zone. Chart annotations explain an idea; they don't place an order or establish a validated strategy.
