@@ -43,6 +43,8 @@ For analysis and review, see [Journal & analytics](/cortiq-public/journal-and-an
 
 ### What the timeline records
 
+The live **Decision Log** shows **Starting engine** when the desktop attaches to a run, and **Recovering engine** when it reattaches to a run it already started. The first assessment after startup or recovery carries that label. Open **Decision Details** to see its market triggers.
+
 - What the AI saw.
 - What it concluded.
 - How the retained market view and opportunities changed, where recorded.
