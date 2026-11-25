@@ -81,6 +81,16 @@ Dictation uses the NVIDIA Parakeet Unified EN 0.6B speech model. The first time 
 
 If Cortiq reports that the microphone is blocked, open Windows `Settings` → `Privacy & security` → `Microphone` and allow desktop apps to use it.
 
+## Keep notes
+
+`Knowledge` → `Notes` holds informal markdown notes: half-formed ideas, questions to check later, or a useful answer you want to keep. Notes are unverified. Cortiq never uses them as evidence and never shows them to Autonomous sessions or backtests. When the Notes page is open, Copilot can see note titles and your filters, but not note text.
+
+1. Select `New note`, or select the note icon under any finished chat message to start a note from its text. A note saved from a chat keeps a link back to it.
+2. Write in markdown. Add `#tags` to group notes, and type `[[` to link a note, chat or Learning. A link to a note that doesn't exist yet creates it when you open the link.
+3. Select `Save` or press `Ctrl+S`. Use `Preview` to see links as chips and the notes that link to this one.
+
+A link to something that was deleted stays as crossed-out text. Deleting a note is permanent. If a note changed while you were editing it, for example because an external MCP client added to it, Cortiq keeps your text and asks you to reload before saving.
+
 ## Check application logs
 
 1. Open the Dashboard, then open Copilot and start a new chat there. This gives Copilot access to the current desktop logs.

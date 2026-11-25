@@ -147,7 +147,7 @@ A standalone connection can keep informal markdown notes in your Cortiq database
 
 Write `#tag` to tag a note. Link to another note with `[[Note title]]`, or use `[[note:12|Title]]`, `[[chat:<id>|Title]]` or `[[learning:42|Title]]`. A link to something that was deleted is reported as dead.
 
-Notes are unverified. Cortiq never treats them as evidence, never adds them to Learnings and never shows them to Autonomous sessions, backtests or Copilot. The desktop does not list notes yet.
+Notes are unverified. Cortiq never treats them as evidence, never adds them to Learnings and never shows them to Autonomous sessions or backtests. On the Notes page, Copilot sees note titles but not their text. Read and edit them in the desktop under `Knowledge` → `Notes`; see [Cortiq Copilot](/cortiq-public/cortiq-copilot/#keep-notes).
 
 ### Scoped connections
 
