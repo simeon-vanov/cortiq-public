@@ -44,6 +44,8 @@ Where the runtime supports automated ideas, a Manual session can host one under 
 
 Select **Suggest trade ideas** in Copilot to request up to three setups for the session's instrument, or ask for multiple ideas in chat. Copilot shows each supported setup on its own card. Review the direction, entry, stop, target, and risk, then select **Open** to inspect the plan or **Save as draft** to keep that idea disabled in Trade Ideas.
 
+For a new idea, Copilot uses the timeframe you specify or defaults to the open session chart. If the entry depends on candles and the chart timeframe is unavailable, Copilot asks which timeframe to use. It also asks when an unclear entry or confirmation rule would change when the idea can trade.
+
 When you or Copilot enter exact prices, Cortiq checks the broker's stop and freeze distances, tick size, and spread-adjusted reward/risk against the effective limits. The proposal or planner shows conflicts while you can still edit the draft. An idea with a confirmed price conflict stays in draft until you resolve it. For setups that depend on a future fill, Cortiq identifies the checks that have to wait for that price.
 
 With an idea open on the session chart, select **Plan** to show its price levels. The labels identify the trigger, pending order, stop, target, cancellation, and zone bounds when the plan defines them.
