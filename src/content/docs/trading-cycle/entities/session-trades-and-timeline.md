@@ -45,6 +45,10 @@ For analysis and review, see [Journal & analytics](/cortiq-public/journal-and-an
 
 The live **Decision Log** shows **Starting engine** when the desktop attaches to a run, and **Recovering engine** when it reattaches to a run it already started. The first assessment after startup or recovery carries that label. Open **Decision Details** to see its market triggers.
 
+A buffered close watch shows its reference price and the threshold the completed candle must clear. When the AI explicitly passes on a setup because the next barrier leaves too little room, the Decision Log leads with that reason. Open **Decision Details** for the recorded reward-to-risk estimate and any qualification floor.
+
+If a fresh quote changes the type or price of a prepared pending entry, Cortiq blocks that attempt before broker submission. The rejection shows the prepared and revalidated values from the failed check.
+
 - What the AI saw.
 - What it concluded.
 - How the retained market view and opportunities changed, where recorded.
