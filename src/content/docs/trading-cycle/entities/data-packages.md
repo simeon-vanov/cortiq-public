@@ -71,6 +71,16 @@ Read the coverage alongside the prices. A developing range extends only to the l
 
 The saved policy and `Preview Tokens` show the selected mode. Each run keeps the setting it started with. Runs created before this setting use their original evidence. The mode applies to calculated historical levels. Candle counts, raw timeframe access, and indicator selections still come from their own policy settings.
 
+#### Use historical levels only in preparation
+
+Create separate policies when you want the preparation to calculate historical levels and the autonomous session to use the resulting briefing:
+
+1. Set `Historical levels` to `Standard` on the preparation's policy.
+2. Create a policy for the session. Use `Duplicate` on the preparation policy to start from the same settings, then choose `Included Data` → `Historical levels` → `Off` on the session policy.
+3. Select the `Off` policy and link the preparation when you create the autonomous session.
+
+The session receives the levels summarized in the preparation report and skips its own historical map, automatic swing detail, and optional historical lookup. If both use the same policy, the setting applies to both.
+
 ### Indicator selections
 
 Cortiq calculates its built-in indicators locally from MT5 OHLCV data. The policy doesn't read arbitrary terminal custom-indicator buffers.
