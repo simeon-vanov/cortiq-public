@@ -14,6 +14,8 @@ A sentiment package is the reusable recipe: instrument, instructions, skills, op
 
 Cortiq first asks the selected provider to research the current web, then synthesizes that evidence. A report requires completed search evidence, observed source URLs, and substantive research text. Providers that don't expose queries must disclose that limitation. Empty or failed research creates no report.
 
+To include a particular public source, add its URL to a linked Sentiment skill. Cortiq can read the page during current research. In **Evidence and sources**, check the source and its data date. A retrieval timestamp tells you when Cortiq read the page.
+
 ## How it fits into Cortiq
 
 Sessions can use a valid sentiment report as supporting context when their rules call for it. It can qualify a technical read, but does not override playbook authority or risk controls.

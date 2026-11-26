@@ -39,6 +39,12 @@ If the recipe asks for an unspecified indicator period or an unclear freshness w
 
 Generation checks the actual delivered closed candles and indicators before asking the model to analyse them. A compatible configuration alone does not prove that the source returned the required data.
 
+### Compare with reference symbols
+
+In **Reference symbols**, add the broker symbols and timeframes your recipe should consult. For a GOLD report, you might add `[SP500]` on H1 and `GERMANY40` on D1, then ask the recipe to explain how equity markets inform the gold outlook. Cortiq reads closed reference candles from the same MT5 account at the report's evidence cutoff. The report stays focused on GOLD and can identify incomplete reference data.
+
+For a current report, add a public source URL to the custom instructions or a linked skill when you want the report to consult that page. For example, include a published yield table and ask for the observation date alongside any quoted yield. Historical reports only use evidence available at their cutoff.
+
 ### Read historical levels in a preparation report
 
 With a linked data policy, `Historical levels` defaults to `Standard`. The first model prompt includes a compact map of trading-session highs and lows and the current and previous day, week, month, and year ranges. Cortiq uses the report’s instrument and effective time, including when you generate a report for a past date.
