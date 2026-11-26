@@ -39,6 +39,14 @@ If the recipe asks for an unspecified indicator period or an unclear freshness w
 
 Generation checks the actual delivered closed candles and indicators before asking the model to analyse them. A compatible configuration alone does not prove that the source returned the required data.
 
+### Read historical levels in a preparation report
+
+With a linked data policy, `Historical levels` defaults to `Standard`. The first model prompt includes a compact map of trading-session highs and lows and the current and previous day, week, month, and year ranges. Cortiq uses the report’s instrument and effective time, including when you generate a report for a past date.
+
+If the map answers the recipe’s question, the model can finish immediately. When the report needs more detail, the model can request one bounded lookup across timeframes. For example, it can inspect whether confirmed swing highs cluster near the previous week’s high. Check which timeframes and dates the lookup covered before treating a price as a significant level. A partial result leaves earlier or missing history unknown.
+
+Choose `Off` in the linked policy to generate the report from its configured inputs alone. A knowledge-only recipe without a linked policy continues to use its existing sources. See the [historical levels setting](/cortiq-public/trading-cycle/entities/data-packages/#historical-levels).
+
 ## Read saved reports
 
 Use the selected-run briefing and history to inspect the intended report. Read the report's effective time and expiry alongside its content, particularly when viewing historical runs.

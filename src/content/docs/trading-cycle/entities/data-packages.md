@@ -63,6 +63,8 @@ Continuing assessments receive the full configured history even when no new cand
 | `Standard` (default) | Cortiq calculates a compact map of highs and lows for the instrument’s trading sessions and its current and previous day, week, month, and year. It uses the history available at the assessment cutoff. |
 | `Off` | The assessment uses its configured chart evidence without the historical map or lookup. |
 
+Preparation reports also use this setting from their linked generation policy. `Standard` supplies the period map in the first prompt and allows one lookup for clusters of historical levels across timeframes. `Off` limits the report to its configured inputs. Knowledge-only packages without a linked policy use their existing sources. See [historical levels in preparation reports](/cortiq-public/trading-cycle/entities/preparation-packages/#read-historical-levels-in-a-preparation-report).
+
 With `Standard`, Cortiq can attach nearby confirmed swing levels when a decision depends on room above or below price. If a material historical question remains, the AI can request one lookup for nearby swings or for the last visit and observed reaction at a named level. It can use the initial map and make a decision immediately.
 
 Read the coverage alongside the prices. A developing range extends only to the latest covered close. A gap or an empty search leaves the unobserved price history unknown. A prior high shows where the instrument traded. Choosing a target still depends on the entry, costs, stop distance, and playbook.
