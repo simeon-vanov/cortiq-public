@@ -67,6 +67,8 @@ Choosing a research action creates a saved draft. Work through **Intent**, **Sco
 
 Launch checks the instrument, build, readable data, and coverage of each required file. Resolve missing required coverage and review any disjoint-coverage warning; Cortiq doesn't invent missing candles. Saved-evidence follow-ups use the retained source evidence rather than running a new occurrence search.
 
+For a study using prior-day levels, check whether the question means the previous UTC calendar date or the last completed UTC date with candles. The second rule can cross verified market closures, including stock weekends and holidays. A shortened date can qualify when the data verifies the session boundaries. An unexplained gap or incomplete trading date leaves the reference unavailable.
+
 ### Review questions and approve the study
 
 1. Open **Questions** and select **Discuss/change in Copilot**. Ask for the changes you need. Copilot saves the ordered questions to this draft; wait for **Draft saved** and inspect the updated wording.
