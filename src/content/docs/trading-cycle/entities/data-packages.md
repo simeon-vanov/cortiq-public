@@ -56,6 +56,19 @@ Runtime checks evaluate complete closed windows at the decision cutoff. A config
 
 Continuing assessments receive the full configured history even when no new candle has closed. The `Initial`, `Stream`, and `Analysis` choices retained in `Test Data` are preview vocabulary, not the current autonomous delivery contract.
 
+### Historical levels
+
+| Mode | Evidence available to a new autonomous session run or backtest |
+| --- | --- |
+| `Standard` (default) | Cortiq calculates a compact map of highs and lows for the instrument’s trading sessions and its current and previous day, week, month, and year. It uses the history available at the assessment cutoff. |
+| `Off` | The assessment uses its configured chart evidence without the historical map or lookup. |
+
+With `Standard`, Cortiq can attach nearby confirmed swing levels when a decision depends on room above or below price. If a material historical question remains, the AI can request one lookup for nearby swings or for the last visit and observed reaction at a named level. It can use the initial map and make a decision immediately.
+
+Read the coverage alongside the prices. A developing range extends only to the latest covered close. A gap or an empty search leaves the unobserved price history unknown. A prior high shows where the instrument traded. Choosing a target still depends on the entry, costs, stop distance, and playbook.
+
+The saved policy and `Preview Tokens` show the selected mode. Each run keeps the setting it started with. Runs created before this setting use their original evidence. The mode applies to calculated historical levels. Candle counts, raw timeframe access, and indicator selections still come from their own policy settings.
+
 ### Indicator selections
 
 Cortiq calculates its built-in indicators locally from MT5 OHLCV data. The policy doesn't read arbitrary terminal custom-indicator buffers.

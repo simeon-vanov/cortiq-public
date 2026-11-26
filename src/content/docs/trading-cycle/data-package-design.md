@@ -87,6 +87,8 @@ Indicator details also hold shared AI presentation settings, such as inline valu
 
 Enable account, risk, economic news, and trade-history inputs when the rules need them. Set the relevant news horizon, importance filter, or history count. An enabled flag permits collection; runtime checks still need evidence that the requested context was delivered.
 
+Leave `Historical levels` on `Standard` to give a new autonomous run period highs, lows, and access to confirmed swings beyond its chart window. Select `Off` to test the same playbook with its configured chart evidence alone. The [historical levels reference](/cortiq-public/trading-cycle/entities/data-packages/#historical-levels) explains how to interpret coverage and when the AI can request more detail.
+
 Set a token budget when you need an additional input bound. Required data cannot be silently removed to make a decision fit. If required evidence exceeds the allowed packet size, Cortiq reports `Needs setup`; reduce unnecessary context or revise the required scope.
 
 Some policy forms expose per-timeframe screenshot settings. Treat screenshots as optional visual context in workflows that support them. They don't replace required candle or indicator evidence or import the terminal's custom indicator calculations.
