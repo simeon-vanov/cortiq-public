@@ -60,6 +60,8 @@ To prepare an idea before the open, save and review it in the Manual session. If
 
 Cortiq rechecks current broker rules, the executable price, and account risk before order submission. An idea can qualify at creation and be withheld later if these inputs change.
 
+For a market entry with a price allowance, Cortiq accepts a lower Buy ask or higher Sell bid when the setup, protection, and risk checks still pass. A worse quote must stay within the allowance. Any entry zone or price threshold you approved still applies according to its trigger rule.
+
 When an entry is blocked, the Trade Idea card shows the reason from the execution check. Select **View full assessment** to read the AI's analysis. For a first-candle entry, the idea becomes **Missed** when its entry window ends without a trade.
 
 If the host rejects an assessment, open **Decision Details** for the recorded reason. When an entry fails the scheduled-opening quote check, the reason includes the approved opening, the quote receipt time, and the broker tick time when available.
