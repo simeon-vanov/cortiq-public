@@ -110,6 +110,8 @@ Autonomous entry days, entry windows, and automatic-close offsets belong to the 
 
 When a playbook's entry window closes, the session stays `Running`. New entries for that playbook wait for eligibility to return; existing exposure can still be managed. A session's `End Date` is a separate lifetime boundary that can complete the session.
 
+On a live Autonomous session, **Market closed** means MT5 reports a closure for your instrument. If the broker schedule still shows open and quotes go quiet, Cortiq shows **Waiting for quotes**. The session stays `Running` and resumes assessment when a fresh quote arrives. If required data is still missing once quotes return, Cortiq shows the input issue again.
+
 ### Understand continuous assessment
 
 Autonomous sessions retain market understanding separately from individual opportunities. An assessment updates that understanding, evaluates available opportunities, and sets meaningful local watches for changes that need attention. A global plan or an active opportunity is not required before the next assessment.
