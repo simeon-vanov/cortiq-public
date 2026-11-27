@@ -50,7 +50,9 @@ When you or Copilot enter exact prices, Cortiq checks the broker's stop and free
 
 With an idea open on the session chart, select **Plan** to show its price levels. The labels identify the trigger, pending order, stop, target, cancellation, and zone bounds when the plan defines them.
 
-For a standalone Stop or Limit, set **Placement** to **After enablement and execution checks** to authorize one order with a fixed stop, target, and cancellation price. Cortiq checks the current quote, broker rules, permissions, and risk before placement. While the order is unfilled, Cortiq watches the saved expiry and cancellation price. The cancellation rule triggers when Bid breaks strictly below the level for a long idea or strictly above it for a short idea. For an entry that requires a thesis judgment or an Entry skill, choose **After AI confirms the thesis**.
+Give a pending order a **Bid invalidation level**, an automatic cancellation rule, or an explicit choice under **Cancel unfilled order**. The Bid rule is strict below the level for a long idea and strict above it for a short idea. If you choose the cancellation rule in the idea, Cortiq must bind that rule before submitting the order. Choose **At expiry only** when expiry is the intended cancellation condition.
+
+For a standalone Stop or Limit, set **Placement** to **After enablement and execution checks** to authorize one order with a fixed stop and target and either a Bid cancellation level or expiry-only cancellation. Cortiq checks the current quote, broker rules, permissions, and risk before placement. Choose **After AI confirms the thesis** for an entry that requires judgment or an Entry skill.
 
 Open **Skills** on the idea to attach your own analysis method. Choose **Entry**, **Management**, or **Both**. The review shows the attachments before enablement. Cortiq supplies the relevant skill to the AI when that phase requires an assessment. [Skills](/cortiq-public/skills/)
 
@@ -70,7 +72,7 @@ A risk-policy mismatch during order admission shows the captured and revalidated
 
 For a position or pending order created by a Manual-session Trade Idea, use **View trade idea** in its journal to open the owning automation. Each idea assesses its own positions and orders for management. Session-wide and account-wide limits still apply to new entries.
 
-An approved holding-time close starts at the confirmed fill. Cortiq monitors this rule automatically. **Close at expiry** controls whether expiry closes an open position.
+The approval shows **Close at expiry** and **Close after confirmed fill** separately. The first controls whether expiry closes an open position. An approved holding-time close starts at the confirmed fill, and Cortiq monitors it automatically.
 
 For a first-candle instruction or a pending order that follows a candle-close instruction, Cortiq uses candles that close after enablement and any saved broker opening. If an instruction-led pending order has no active entry trigger or reassessment watch, Cortiq can check again after a new candle closes on the selected timeframe, up to the idea's expiry.
 
