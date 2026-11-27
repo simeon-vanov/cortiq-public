@@ -76,6 +76,8 @@ The approval shows **Close at expiry** and **Close after confirmed fill** separa
 
 For a first-candle instruction or a pending order that follows a candle-close instruction, Cortiq uses candles that close after enablement and any saved broker opening. If an instruction-led pending order has no active entry trigger or reassessment watch, Cortiq can check again after a new candle closes on the selected timeframe, up to the idea's expiry.
 
+For a discretionary market idea that calls for candle-close reviews, Cortiq checks each completed candle on the approved timeframe after enablement and any saved broker opening. The checks continue after a Wait until an entry candidate is armed or the idea expires. If several candles close before the AI can review them, the next assessment includes those closes together.
+
 An armed market idea keeps watching its approved candle-close threshold through expiry, even if price passes the proposed stop or target while it waits. An explicit invalidation can still end the idea. A qualifying close can submit one order if the live bracket and risk checks pass.
 
 If a market idea is waiting for an entry plan, a fresh candle close strictly beyond its approved threshold prompts another assessment before expiry. Any later entry still requires an armed setup and must meet your minimum reward/risk.
