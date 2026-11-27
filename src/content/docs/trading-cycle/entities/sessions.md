@@ -37,6 +37,8 @@ Pinned playbooks own user-local active days, entry windows, and automatic-close 
 
 In Autonomous sessions, use the session instructions and pinned playbooks to specify confirmation, order type, target selection, and when to reassess. Cortiq uses its discretionary guidance where your strategy delegates those choices. Attached skills supply the method for their selected phase. Applicable Learnings can inform a delegated decision when access is available. Cortiq checks current evidence and applies risk, permission, and order validation before execution.
 
+For a candle-close wake, specify the timeframe, level, and direction. For example, “Wake on a completed M5 candle closing strictly below 100.00” requires a finished candle with a close under 100.00. When a session reviews an idea at its deadline, it can use the saved decision, the event that prompted it, and the execution record to decide what comes next.
+
 ## Reference
 
 ### Entities a session references
