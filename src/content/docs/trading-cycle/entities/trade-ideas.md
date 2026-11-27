@@ -72,6 +72,10 @@ An approved holding-time close starts at the confirmed fill. Cortiq monitors thi
 
 For a first-candle instruction or a pending order that follows a candle-close instruction, Cortiq uses candles that close after enablement and any saved broker opening. If an instruction-led pending order has no active entry trigger or reassessment watch, Cortiq can check again after a new candle closes on the selected timeframe, up to the idea's expiry.
 
+If a market idea waits without arming an entry, a fresh candle close strictly beyond its approved threshold prompts another assessment before expiry. Any later entry still requires an armed setup and must meet your minimum reward/risk.
+
+When a setup requires a price touch followed by a separate candle confirmation, the confirming candle must open after the touch. A bearish retest of a swing high must close below that high. A bullish retest of a swing low must close above that low.
+
 Check the idea's current lifecycle and approval status after edits. Copilot draft preparation does not grant permission to enable it. See [Agent permissions](/cortiq-public/agent-permissions/) for the approval boundaries.
 
 ### Position sizing
