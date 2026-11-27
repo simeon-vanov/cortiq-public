@@ -37,6 +37,8 @@ Copilot doesn't run an autonomous trading loop. [Sessions](/cortiq-public/sessio
 
 Use the composer model and thinking-effort selector to choose settings for subsequent turns. A change doesn't alter an active request. Skills apply through explicit attachment; Copilot doesn't choose instructions from your entire skill library on its own.
 
+In an ordinary chat, open the skill picker and expand **Skill suggestions**. Turn on **Suggest skills in this chat**, choose the skills Copilot may suggest, and select **Save suggestion settings**. A suggestion shows the skill and why it fits. Select **Attach to this chat** to apply that version to later messages, or **Dismiss** to carry on.
+
 Dedicated Review conversations use the configured Review model and verified maximum effort. Their saved scope and evidence tools remain pinned. See [Session review](/cortiq-public/session-review/) to prepare, start, or reopen one.
 
 ### Keep the chat on the right context
@@ -55,6 +57,10 @@ Knowledge detail and review pages for the same saved entry share its context. A 
 Each turn has an activity disclosure with its phase, elapsed time, tool steps, safe result summaries, and outcomes. `Waiting for AI`, `Thinking`, and `Writing response` describe observed activity; they don't expose private reasoning.
 
 Use `Stop` to cancel an active response. Completed tool results remain in the saved turn. Stopping doesn't undo changes that already completed, so inspect the resulting entity before retrying a mutation.
+
+If you queued a follow-up and the active response stops or fails, the follow-up returns as a draft in the original chat. If you have a newer draft or changed the chat's context, use **Restore follow-up** to recover it. Review the draft and select **Send** when you're ready. Recovered drafts and their attachments are kept until you close Cortiq.
+
+On a subscription connection, expand the activity trace to read interim messages the provider identified separately. The trace can also show a provider plan and why a response ended early. If a tool shows **Unconfirmed**, check the relevant saved item before repeating the action.
 
 Saved conversations restore their messages and recorded activity. A provider reconnection restores bounded earlier context rather than guaranteeing every old detail is in the next request. Reopening a chat also doesn't recreate every inline chart or mounted-chart annotation; return to the source evidence when needed.
 
