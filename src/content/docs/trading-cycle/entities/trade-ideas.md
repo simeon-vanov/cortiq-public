@@ -66,6 +66,8 @@ When an entry is blocked, the Trade Idea card shows the reason from the executio
 
 If the host rejects an assessment, open **Decision Details** for the recorded reason. When an entry fails the scheduled-opening quote check, the reason includes the approved opening, the quote receipt time, and the broker tick time when available.
 
+A risk-policy mismatch during order admission shows the captured and revalidated policy revisions in **Decision Details**. If the broker account snapshot expires during admission, the refusal identifies the expired snapshot.
+
 For a position or pending order created by a Manual-session Trade Idea, use **View trade idea** in its journal to open the owning automation. Each idea assesses its own positions and orders for management. Session-wide and account-wide limits still apply to new entries.
 
 An approved holding-time close starts at the confirmed fill. Cortiq monitors this rule automatically. **Close at expiry** controls whether expiry closes an open position.
