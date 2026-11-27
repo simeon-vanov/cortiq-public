@@ -88,6 +88,11 @@ No. Only MT5. Brokers that offer both will work as long as you connect through t
 **Can I run a remote MT5 terminal?**
 No. Cortiq and MT5 must be on the same Windows machine. The bridge uses `localhost` ZeroMQ and assumes both processes share the same OS.
 
+**What does MT5 account mismatch mean?**
+The terminal answered, but its active account differs from the account saved in Cortiq. Check the **Account Number** in **Setup → MT5 Accounts** and the active login in MT5. Sign in to the intended account in MT5, or correct the saved account in Cortiq if it points to the wrong login. If the login matches, check that the terminal is signed in to the intended broker server.
+
+An Autonomous session that requires account information or risk metrics waits for a verified account before it proceeds.
+
 **What happens if MT5 disconnects mid-session?**
 Bridge availability and the terminal's broker connection are checked separately. An EA/socket failure is debounced and confirmed with a longer PING before Cortiq reports the outage and attempts reconnection. One missed health check does not immediately pause every session.
 
