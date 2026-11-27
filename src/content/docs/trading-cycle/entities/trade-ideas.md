@@ -80,6 +80,8 @@ For a first-candle instruction or a pending order that follows a candle-close in
 
 For a discretionary market idea that calls for candle-close reviews, Cortiq checks each completed candle on the approved timeframe after enablement and any saved broker opening. The checks continue after a Wait until an entry candidate is armed or the idea expires. If several candles close before the AI can review them, the next assessment includes those closes together.
 
+If a live price check blocks a discretionary entry before Cortiq submits an order, Cortiq can reassess the idea with a fresh quote before expiry. Any later entry must still meet your approved rules and the current execution checks.
+
 If an instruction depends on earlier decisions, the AI checks the idea's saved decisions and candle-close timestamps for the current approval and session run. An instruction can require two Waits on different M5 closes before considering an entry. A review that covers several closes supplies one decision. The idea keeps waiting when it can't verify a required decision.
 
 An armed market idea keeps watching its approved candle-close threshold through expiry, even if price passes the proposed stop or target while it waits. An explicit invalidation can still end the idea. A qualifying close can submit one order if the live bracket and risk checks pass.
