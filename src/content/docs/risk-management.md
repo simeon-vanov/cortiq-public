@@ -51,6 +51,8 @@ Set limits for the exposure you intend to authorize. Monitoring and broker execu
 
 Use **Entry risk tolerance** to set how much the projected stop-loss risk can rise between sizing and submission for market, limit, and stop orders. The default is 10%. If Cortiq sized the order for a projected loss of $10, it can accept up to $11 when the approved risk and exposure limits have room. Set 0% to allow no increase. Cortiq still checks the entry window, stop, target, and broker rules before sending the order.
 
+When the final quote supports fewer lots for a market order that an Autonomous session can send without approval, Cortiq can submit the smaller size if it passes the original risk limits and current broker checks.
+
 ### Configure per-account limits
 
 Switch to the `Per-Account` tab and configure rules for each MT5 account independently. Use this to encode account-specific mandates: prop-firm challenge limits, a personal account's daily drawdown, a secondary account's max exposure.
