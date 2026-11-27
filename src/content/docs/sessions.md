@@ -59,6 +59,10 @@ The session agent chooses how each idea follows the setup.
   The idea can set later watches and derive the entry, stop and target
   when the evidence is ready. Cortiq validates the order before submission.
 
+An idea can cite an earlier completed candle as setup evidence. Cortiq checks
+the exact candle in the cited chart data. Any pending entry conditions still
+have to be met.
+
 The session agent can set the first watch for an instruction-led idea.
 If it leaves the first watch open, the idea gets one initial assessment.
 Later matching watches wake the idea that owns them. A close-based
