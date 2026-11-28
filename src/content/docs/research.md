@@ -78,7 +78,9 @@ For a study using prior-day levels, check whether the question means the previou
 5. Select **Review study**. Inspect the exact questions, evidence basis, primary input, session clocks, and any enabled comparison policy.
 6. Select **Approve and start research** yourself. Confirm that the result page shows the queued, running, or completed saved-evidence study.
 
-Copilot cannot approve or start a Research draft. **Suggest next research** prepares a recommendation; **Prepare research file** helps build its inputs. Neither a sent composer request nor an AI's readiness statement replaces your approval in the draft.
+For a standalone study, choose **Approve and start research** after checking the measurements. **Suggest next research** prepares a recommendation, and **Prepare research file** helps build its inputs.
+
+For a study assigned to a Task, Cortiq picks up the checked draft and follows the Task's approved limits. With automatic approval, Cortiq queues the study when it can run. With **Ask before each research run**, review the study under **Needs you** and choose **Approve for Task**. If you open the draft from Research, you can check its Task or approve a pending review from the same page.
 
 ### Save a draft for later
 
