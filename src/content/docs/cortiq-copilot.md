@@ -148,6 +148,8 @@ Check that **Planned work** has one research step per study. Use **Edit** if you
 
 Task Copilot can inspect and reuse managed research data, or build a file for a planned study within the approved dates. The Task journal shows the build result. Copilot checks the preview before using the file to prepare the study.
 
+To measure a different horizon on the same saved setups, include the completed research run or draft reference and the requested measures in a planned step. For example, ask for closing change and upward and downward travel after eight observed bars. With automatic research approval and reuse of the same saved setups in scope, the Task saves a separate exploratory result on the source study. The original setups, measurements, and outcome cutoff are preserved. The step links to the source run, and the Task journal identifies the saved result.
+
 ## Inspect charts and saved trading data
 
 On a mounted chart, ask Copilot to inspect the instrument and timeframe in its context, request historical candles for a named period, or annotate a level or zone. Chart annotations explain an idea; they don't place an order or establish a validated strategy.
