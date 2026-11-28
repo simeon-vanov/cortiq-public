@@ -76,8 +76,8 @@ Open **Decision Details** for a discovery assessment to see the setups the AI co
 
 If Cortiq stays flat because it could not arm a proposed instruction-led
 idea, check **Decision Details** for the reason and any follow-up review.
-The session keeps monitoring its existing watches. Cortiq can schedule one
-fresh review for the next valid setup, even if the rejected idea has expired.
+The session keeps monitoring its existing watches and reviewing fresh
+market evidence for the next valid setup, even after the rejected idea expires.
 
 Under **What it’s waiting for**, check each watch’s timeframe, direction and price threshold when the saved record includes them. Reward/risk targets written as guidance in session instructions inform the AI’s analysis. Cortiq applies the recorded host minimum at order validation, which defaults to 0.01R when no typed minimum applies.
 
