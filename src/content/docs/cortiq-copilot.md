@@ -146,6 +146,8 @@ If a proposal has invalid fields, Copilot receives the validation message and ca
 
 Check that **Planned work** has one research step per study. Use **Edit** if you need to change the plan or limits. Choose **Start Task** to approve the displayed limits and queue the first step. Open the Task to see each step’s progress and respond to items under **Needs you**.
 
+Task Copilot can inspect and reuse managed research data, or build a file for a planned study within the approved dates. The Task journal shows the build result. Copilot checks the preview before using the file to prepare the study.
+
 ## Inspect charts and saved trading data
 
 On a mounted chart, ask Copilot to inspect the instrument and timeframe in its context, request historical candles for a named period, or annotate a level or zone. Chart annotations explain an idea; they don't place an order or establish a validated strategy.
